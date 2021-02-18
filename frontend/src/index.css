@@ -1,1 +1,5 @@
-/* TODO Add site wide styles */
+body {
+    padding: 50px;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    overflow-x: hidden;
+  }
