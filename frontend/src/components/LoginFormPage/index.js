@@ -25,18 +25,22 @@ const LoginFormPage = () => {
         });
     };
 
+    const demoUserLogin = (e) => {
+        e.preventDefault();
+        return dispatch(
+            sessionActions.loginUser({
+                credential: 'Demo-lition',
+                password: 'password',
+            })
+        );
+    };
+
     return (
         <>
             <div className="login-content">
                 <form onSubmit={handleSubmit} className="login-form">
                     <span className="login-header">Sign In</span>
-                    {errors.length > 0 && (
-                        <ul className="errors">
-                            {errors.map((error, idx) => (
-                                <li key={idx}>{error}</li>
-                            ))}
-                        </ul>
-                    )}
+                    {errors.length > 0 && <ul className="errors">retur</ul>}
                     <div className="loginInputField">
                         <input
                             className="textfield"
@@ -65,6 +69,9 @@ const LoginFormPage = () => {
                     </div>
                     <button className="loginButton" type="submit">
                         Login
+                    </button>
+                    <button onClick={demoUserLogin} className="loginButton">
+                        Demo User
                     </button>
                 </form>
                 <a className="registerLink" href="/register">
