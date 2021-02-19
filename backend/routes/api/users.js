@@ -21,6 +21,9 @@ const validateSignup = [
         .not()
         .isEmail()
         .withMessage('Username cannot be an email.'),
+    check('username')
+        .isLength({ max: 30 })
+        .withMessage('Username cannot exceed 30 characters.'),
     check('password')
         .exists({ checkFalsy: true })
         .withMessage('Please enter a password')

@@ -6,14 +6,16 @@ body {
   .errors {
     color: red;
     border-bottom: 1px solid red;
-    text-align: center;
+    text-align: left;
     display: flex;
-    justify-content: center;
-    margin-left: 50px;
-    margin-right: 50px;
+    flex-direction: column;
+    align-items: center;
+    font-size: .7em;
 }
 
 .errors li {
     list-style: none;
     padding: 5px;
+    display: flex;
+
 }
