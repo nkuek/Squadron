@@ -13,6 +13,7 @@ const Navigation = () => {
 
     // Enables hamburger menu bar transition
     const addChange = (e) => {
+        document.querySelector('.sticky-drop-down-menu');
         e.target.classList.toggle('change');
 
         // Shows drop down menu when clicked
@@ -21,10 +22,19 @@ const Navigation = () => {
             .classList.toggle('show');
     };
 
+    // Closes drop down menu when clicking anywhere else
+    window.addEventListener('click', (e) => {
+        if (!e.target.classList.contains('bar-container')) {
+            document
+                .querySelector('.sticky-drop-down-menu')
+                .classList.remove('show');
+        }
+    });
+
     return (
         <nav className="main-nav-bar">
             <div className="menu">
-                <div className="container" onClick={addChange}>
+                <div className="bar-container" onClick={addChange}>
                     <div className="bar1"></div>
                     <div className="bar2"></div>
                     <div className="bar3"></div>
@@ -36,7 +46,7 @@ const Navigation = () => {
                     <nav className="drop-down-nav">
                         <ul className="drop-down-links">
                             <li>
-                                <NavLink to="/about">About</NavLink>
+                                <NavLink to="/about">About Me</NavLink>
                             </li>
                         </ul>
                     </nav>

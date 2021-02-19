@@ -15,6 +15,7 @@ a:hover {
 .main-nav-bar {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     /* background-color: #3576f8; */
     padding: 15px 0px 15px 0px;
     top: 0;
@@ -34,22 +35,21 @@ a:hover {
 .login {
     padding: 10px;
 }
-.signup:visited {
+.signup:visited, .home:visited {
     color: white
 }
-.login:hover,
-.home:hover {
+.login:hover {
     color: teal
 }
 
-.signup {
+.signup, .home {
     padding: 5px 10px 5px 10px;
     background-color: #3576f8;
     border-radius: 5px;
     color: white
 }
 
-.signup:hover {
+.signup:hover, .home:hover {
     background-color: #578fff;
     cursor: pointer;
 }
@@ -60,12 +60,19 @@ a:hover {
 
 .menu {
     display: flex;
+    align-items: center;
 }
 
-.container {
+.bar-container {
     display: inline-block;
     cursor: pointer;
     margin-left: 20px;
+    position:relative;
+    padding: 10px;
+}
+
+.bar-container:hover {
+    background-color: #e2e0e0;
 }
 
 .bar1, .bar2, .bar3 {
@@ -79,14 +86,14 @@ a:hover {
 
 .change .bar1 {
     -webkit-transform: rotate(-45deg) translate(0px, 6px);
-    transform: rotate(-45deg) translate(-1.5px, 7px);
+    transform: rotate(-45deg) translate(-5px, 6px);
 }
 
 .change .bar2 {opacity: 0;}
 
 .change .bar3 {
 -webkit-transform: rotate(45deg) translate(0px, -8px);
-transform: rotate(45deg) translate(-1px, -7px);
+transform: rotate(45deg) translate(-2px, -3px);
 }
 
 .sticky-drop-down-menu {
@@ -97,14 +104,17 @@ transform: rotate(45deg) translate(-1px, -7px);
     border-right: 1px solid  rgb(146, 145, 145);
     border-bottom: 1px solid  rgb(146, 145, 145);
     z-index: 999;
-    top: 52px;
-    left: 10px;
+    top: 73px;
+    background-color: white;
+    left: 20px;
     padding: 10px;
     display: none;
+    width: 150px;
 }
 
 .show {
-    display: block;
+    display: flex;
+    justify-content: center;
 }
 
 .sticky-drop-down-menu ul {
@@ -118,5 +128,5 @@ transform: rotate(45deg) translate(-1px, -7px);
 }
 
 .drop-down-links a:hover {
-    color: #adadad
+    color: teal
 }
