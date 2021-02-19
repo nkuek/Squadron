@@ -58,7 +58,7 @@ const SignupFormPage = () => {
                             htmlFor="username"
                             className="signup-input-label"
                         >
-                            Username:
+                            Username
                         </label>
                     </div>
                     <div className="signupInputField">
@@ -71,17 +71,10 @@ const SignupFormPage = () => {
                             onChange={(e) => setEmail(e.target.value)}
                         ></input>
                         <label htmlFor="email" className="signup-input-label">
-                            Email:
+                            Email
                         </label>
                     </div>
                     <div className="signupInputField">
-                        {/* <div>
-                            <pre>
-                            Password must contain at least 1 lowercase
-                            letter, uppercase letter, number, and special
-                            character (i.e. "!@#$%^&*")
-                            </pre>
-                        </div> */}
                         <input
                             className="signup-input-field"
                             id="username"
@@ -94,7 +87,7 @@ const SignupFormPage = () => {
                             htmlFor="password"
                             className="signup-input-label"
                         >
-                            Password:
+                            Password
                         </label>
                     </div>
                     <div className="signupInputField">
@@ -110,7 +103,7 @@ const SignupFormPage = () => {
                             htmlFor="confirm-password"
                             className="signup-input-label"
                         >
-                            Confirm Password:
+                            Confirm Password
                         </label>
                     </div>
                     <button className="signupButton" type="submit">

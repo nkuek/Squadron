@@ -88,6 +88,11 @@ input:valid~label {
     border-radius: 5px;
 }
 
+.loginButton:hover {
+    background-color: #578fff;
+    cursor: pointer;
+}
+
 .registerLink {
     margin: 20px;
     padding: 20px;

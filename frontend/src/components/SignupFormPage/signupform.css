@@ -47,7 +47,7 @@ input {
     color: #111;
     border-color: #d3d3d3;
     border-bottom: 2px solid #d3d3d3;
-    border-radius: 4px;
+    /* border-radius: 4px; */
     border-width: 1px;
     height: 25px
 }
@@ -58,7 +58,6 @@ input:invalid {
 input:focus,
 input:valid {
     border-color: #3576f8;
-    outline-offset: 0px;
 }
 
 input:focus~label,
@@ -86,4 +85,9 @@ input:valid~label {
     color: white;
     background-color: #3576f8;
     border-radius: 5px;
+}
+
+.signupButton:hover {
+    background-color: #578fff;
+    cursor: pointer;
 }

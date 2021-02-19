@@ -60,7 +60,7 @@ const LoginFormPage = () => {
                             required
                         ></input>
                         <label htmlFor="password" className="placeLabel">
-                            Password{' '}
+                            Password
                         </label>
                     </div>
                     <button className="loginButton" type="submit">

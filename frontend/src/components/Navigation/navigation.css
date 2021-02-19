@@ -1,0 +1,122 @@
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a:visited {
+    color: black
+}
+
+a:hover {
+    color: teal
+}
+
+.main-nav-bar {
+    display: flex;
+    justify-content: space-between;
+    /* background-color: #3576f8; */
+    padding: 15px 0px 15px 0px;
+    top: 0;
+    left: 0;
+    margin-top: 0px;
+    position: absolute;
+    width: 100%;
+    border-bottom: 1px solid #d3d3d3;
+    box-shadow: 2px 5px 10px #76787c;
+}
+
+.login-logout-signup {
+    margin-right: 10px;
+    padding-right: 10px;
+}
+
+.login {
+    padding: 10px;
+}
+.signup:visited {
+    color: white
+}
+.login:hover,
+.home:hover {
+    color: teal
+}
+
+.signup {
+    padding: 5px 10px 5px 10px;
+    background-color: #3576f8;
+    border-radius: 5px;
+    color: white
+}
+
+.signup:hover {
+    background-color: #578fff;
+    cursor: pointer;
+}
+
+.home {
+    margin-left: 15px;
+}
+
+.menu {
+    display: flex;
+}
+
+.container {
+    display: inline-block;
+    cursor: pointer;
+    margin-left: 20px;
+}
+
+.bar1, .bar2, .bar3 {
+    width: 20px;
+    height: 3px;
+    pointer-events: none;
+    background-color: #333;
+    transition: 0.3s;
+    margin: 3px 0;
+}
+
+.change .bar1 {
+    -webkit-transform: rotate(-45deg) translate(0px, 6px);
+    transform: rotate(-45deg) translate(-1.5px, 7px);
+}
+
+.change .bar2 {opacity: 0;}
+
+.change .bar3 {
+-webkit-transform: rotate(45deg) translate(0px, -8px);
+transform: rotate(45deg) translate(-1px, -7px);
+}
+
+.sticky-drop-down-menu {
+    position: absolute;
+    text-align: left;
+    box-sizing: border-box;
+    border-left: 1px solid rgb(146, 145, 145);
+    border-right: 1px solid  rgb(146, 145, 145);
+    border-bottom: 1px solid  rgb(146, 145, 145);
+    z-index: 999;
+    top: 52px;
+    left: 10px;
+    padding: 10px;
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+.sticky-drop-down-menu ul {
+    list-style: none;
+}
+
+.drop-down-links {
+    position: relative;
+    padding: 10px;
+    width: 100%
+}
+
+.drop-down-links a:hover {
+    color: #adadad
+}
