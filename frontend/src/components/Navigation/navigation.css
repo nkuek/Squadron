@@ -20,7 +20,6 @@ a:hover {
     padding: 15px 0px 15px 0px;
     top: 0;
     left: 0;
-    margin-top: 0px;
     position: absolute;
     width: 100%;
     border-bottom: 1px solid #d3d3d3;
@@ -38,20 +37,33 @@ a:hover {
 .signup:visited, .home:visited {
     color: white
 }
+
 .login:hover {
     color: teal
 }
 
-.signup, .home {
+.signup, .home, .logoutButton {
     padding: 5px 10px 5px 10px;
     background-color: #3576f8;
     border-radius: 5px;
     color: white
 }
 
-.signup:hover, .home:hover {
+.signup:hover, .home:hover, .logoutButton:hover {
     background-color: #578fff;
     cursor: pointer;
+}
+
+.logoutButton {
+    border: none;
+    margin-left: 15px;
+}
+
+.profileButton {
+    margin: 5px;
+    padding: 10px;
+    position: relative;
+    top: 2px;
 }
 
 .home {
@@ -71,7 +83,7 @@ a:hover {
     padding: 10px;
 }
 
-.bar-container:hover {
+.bar-container:hover, .profileButton:hover {
     background-color: #e2e0e0;
 }
 

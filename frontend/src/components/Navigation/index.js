@@ -2,6 +2,7 @@ import { NavLink, Redirect } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import * as sessionActions from '../../store/session';
 import './navigation.css';
+// import ProfileButton from './ProfileButton';
 
 const Navigation = () => {
     const dispatch = useDispatch();
@@ -27,7 +28,8 @@ const Navigation = () => {
         if (!e.target.classList.contains('bar-container')) {
             document
                 .querySelector('.sticky-drop-down-menu')
-                .classList.remove('show');
+                .classList.toggle('show');
+            document.querySelector('.bar-container').classList.toggle('change');
         }
     });
 
@@ -63,9 +65,17 @@ const Navigation = () => {
                         </NavLink>
                     </>
                 ) : (
-                    <button className="logout" onClick={handleLogout}>
-                        Logout
-                    </button>
+                    <>
+                        <NavLink
+                            className="profileButton"
+                            to={`/users/${sessionUser.username}`}
+                        >
+                            <i className="far fa-user fa-lg"></i>
+                        </NavLink>
+                        <button className="logoutButton" onClick={handleLogout}>
+                            Logout
+                        </button>
+                    </>
                 )}
             </div>
         </nav>
