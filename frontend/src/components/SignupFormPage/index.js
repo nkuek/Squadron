@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import * as sessionActions from '../../store/session';
+import './signupform.css';
 
 const SignupFormPage = () => {
     const dispatch = useDispatch();
@@ -36,7 +37,7 @@ const SignupFormPage = () => {
         <>
             <div className="signup-content">
                 <form onSubmit={handleSubmit} className="signup-form">
-                    <h2 className="signup-header">Register</h2>
+                    <span className="signup-header">Register</span>
                     {errors.length > 0 && (
                         <ul className="errors">
                             {errors.map((error, idx) => (
@@ -44,13 +45,7 @@ const SignupFormPage = () => {
                             ))}
                         </ul>
                     )}
-                    <div>
-                        <label
-                            htmlFor="username"
-                            className="signup-input-label"
-                        >
-                            Username:
-                        </label>
+                    <div className="signupInputField">
                         <input
                             className="signup-input-field"
                             id="username"
@@ -59,11 +54,14 @@ const SignupFormPage = () => {
                             required
                             onChange={(e) => setUsername(e.target.value)}
                         ></input>
-                    </div>
-                    <div>
-                        <label htmlFor="email" className="signup-input-label">
-                            Email:
+                        <label
+                            htmlFor="username"
+                            className="signup-input-label"
+                        >
+                            Username:
                         </label>
+                    </div>
+                    <div className="signupInputField">
                         <input
                             className="signup-input-field"
                             id="email"
@@ -72,19 +70,16 @@ const SignupFormPage = () => {
                             required
                             onChange={(e) => setEmail(e.target.value)}
                         ></input>
-                    </div>
-                    <div>
-                        <label
-                            htmlFor="password"
-                            className="signup-input-label"
-                        >
-                            Password:
+                        <label htmlFor="email" className="signup-input-label">
+                            Email:
                         </label>
+                    </div>
+                    <div className="signupInputField">
                         {/* <div>
                             <pre>
-                                Password must contain at least 1 lowercase
-                                letter, uppercase letter, number, and special
-                                character (i.e. "!@#$%^&*")
+                            Password must contain at least 1 lowercase
+                            letter, uppercase letter, number, and special
+                            character (i.e. "!@#$%^&*")
                             </pre>
                         </div> */}
                         <input
@@ -95,14 +90,14 @@ const SignupFormPage = () => {
                             required
                             onChange={(e) => setPassword(e.target.value)}
                         ></input>
-                    </div>
-                    <div>
                         <label
-                            htmlFor="confirm-password"
+                            htmlFor="password"
                             className="signup-input-label"
                         >
-                            Confirm Password:
+                            Password:
                         </label>
+                    </div>
+                    <div className="signupInputField">
                         <input
                             className="signup-input-field"
                             id="confirm-password"
@@ -111,9 +106,20 @@ const SignupFormPage = () => {
                             required
                             onChange={(e) => setConfirmPassword(e.target.value)}
                         ></input>
+                        <label
+                            htmlFor="confirm-password"
+                            className="signup-input-label"
+                        >
+                            Confirm Password:
+                        </label>
                     </div>
-                    <button type="submit">Register</button>
+                    <button className="signupButton" type="submit">
+                        Register
+                    </button>
                 </form>
+                <a className="loginLink" href="/login">
+                    Already have an account?
+                </a>
             </div>
         </>
     );

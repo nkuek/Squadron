@@ -29,7 +29,7 @@ const LoginFormPage = () => {
         <>
             <div className="login-content">
                 <form onSubmit={handleSubmit} className="login-form">
-                    <h2 className="login-header">Sign In</h2>
+                    <span className="login-header">Sign In</span>
                     {errors.length > 0 && (
                         <ul className="errors">
                             {errors.map((error, idx) => (
@@ -38,10 +38,6 @@ const LoginFormPage = () => {
                         </ul>
                     )}
                     <div className="loginInputField">
-                        <label htmlFor="username" className="placeLabel">
-                            Username or Email
-                        </label>
-                        <br></br>
                         <input
                             className="textfield"
                             id="username"
@@ -50,10 +46,11 @@ const LoginFormPage = () => {
                             onChange={(e) => setCredential(e.target.value)}
                             required
                         ></input>
+                        <label htmlFor="username" className="placeLabel">
+                            Username or Email
+                        </label>
                     </div>
                     <div className="loginInputField">
-                        <label htmlFor="password">Password </label>
-                        <br></br>
                         <input
                             className="textfield"
                             id="password"
@@ -62,11 +59,17 @@ const LoginFormPage = () => {
                             onChange={(e) => setPassword(e.target.value)}
                             required
                         ></input>
+                        <label htmlFor="password" className="placeLabel">
+                            Password{' '}
+                        </label>
                     </div>
                     <button className="loginButton" type="submit">
                         Login
                     </button>
                 </form>
+                <a className="registerLink" href="/register">
+                    Don't have an account?
+                </a>
             </div>
         </>
     );

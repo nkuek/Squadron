@@ -1,6 +1,6 @@
 body {
     padding: 50px;
-    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    font: 400 16px Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
     overflow-x: hidden;
   }
   .errors {
