@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import * as sessionActions from '../../store/session';
 import { Redirect } from 'react-router-dom';
-import '../../stylesheets/loginform.css';
+import './loginform.css';
 const LoginFormPage = () => {
     const dispatch = useDispatch();
     const sessionUser = useSelector((state) => state.session.user);
