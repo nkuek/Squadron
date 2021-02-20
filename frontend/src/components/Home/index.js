@@ -1,11 +1,11 @@
 import './home.css';
 import Banner from './Banner';
-import Events from './Events';
+import EventList from './EventList';
 const Home = () => {
     return (
         <div className="homePageContent">
             <Banner />
-            <Events />
+            <EventList />
         </div>
     );
 };

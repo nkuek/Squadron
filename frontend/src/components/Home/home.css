@@ -4,6 +4,7 @@
     position: absolute;
     margin: 0;
     padding: 0;
+    left: 30px;
     width: 100%;
     height: 30%;
 }
@@ -23,8 +24,66 @@
     color: white;
 }
 
-.homePageSubHeader{
+.homePageSubHeader {
     color: white;
     font-size: 2rem;
     width: 80%;
+}
+
+.homePageEventsContainer {
+    padding: 10px;
+    background-color: white;
+    border: 1px solid #d3d3d3;
+    border-radius: 10px;
+    width: 90%
+}
+
+.homePageEventsHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.upcomingEvents {
+    margin-left: 10px;
+}
+
+.allEventsLink {
+    margin-right: 15px;
+}
+
+.allEventsLink:hover {
+    color: teal;
+}
+
+.homePageEventList {
+    display: flex;
+    list-style: none;
+}
+
+.homePageEventCard {
+    margin-right: 10px;
+}
+
+.eventItem {
+    width: auto;
+}
+
+.eventContainer {
+    margin: 10px;
+    padding: 5px;
+    border: 1px solid #d3d3d3;
+    border-radius: 10px;
+    width: auto;
+    height: auto;
+}
+
+.eventDate {
+    font-style:italic;
+    font-weight: bold;
+    color: rgb(183, 0, 255)
+}
+
+tbody {
+    font-size: .8em;
 }
