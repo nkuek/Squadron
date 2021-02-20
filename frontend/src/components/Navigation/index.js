@@ -38,9 +38,11 @@ const Navigation = () => {
                     <div className="bar2"></div>
                     <div className="bar3"></div>
                 </div>
-                <NavLink className="home" to="/">
-                    Squadron
-                </NavLink>
+                <div className="logoContainer">
+                    <NavLink className="home" to="/">
+                        Squadron
+                    </NavLink>
+                </div>
                 <div className="sticky-drop-down-menu">
                     <nav className="drop-down-nav">
                         <ul className="drop-down-links">

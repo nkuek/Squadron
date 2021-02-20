@@ -1,6 +1,6 @@
 body {
     padding: 50px;
-    font: 400 16px 'Lato', sans-serif;
+    font-family: 'Quicksand', serif;
     overflow-x: hidden;
     background: url('./images/stock-gaming-background.jpeg') no-repeat center center fixed;
     -webkit-background-size: cover;
@@ -8,6 +8,10 @@ body {
     -o-background-size: cover;
     background-size: cover;
   }
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 1000;
+}
 
 form {
     margin: 100px;

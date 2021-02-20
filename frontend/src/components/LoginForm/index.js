@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import * as sessionActions from '../../store/session';
 import { Redirect } from 'react-router-dom';
 import './loginform.css';
-const LoginFormPage = () => {
+const LoginForm = () => {
     const dispatch = useDispatch();
     const sessionUser = useSelector((state) => state.session.user);
 
@@ -86,4 +86,4 @@ const LoginFormPage = () => {
     );
 };
 
-export default LoginFormPage;
+export default LoginForm;
