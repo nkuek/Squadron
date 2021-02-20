@@ -10,7 +10,7 @@ const About = () => {
                 </p>
                 <div className="socialsContainer fade-in">
                     <a
-                        href="http://github.com/nkuek"
+                        href="https://github.com/nkuek"
                         className="github fade-in"
                     >
                         <i className="fab fa-github fa-3x"></i>
@@ -19,7 +19,7 @@ const About = () => {
                         <i className="fas fa-envelope fa-3x"></i>
                     </a>
                     <a
-                        href="www.linkedin.com/in/nick-kuek"
+                        href="https://www.linkedin.com/in/nick-kuek"
                         className="linkedin fade-in"
                     >
                         <i className="fab fa-linkedin fa-3x"></i>
