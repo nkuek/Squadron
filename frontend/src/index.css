@@ -2,6 +2,11 @@ body {
     padding: 50px;
     font: 400 16px 'Lato', sans-serif;
     overflow-x: hidden;
+    background: url(https://images.pexels.com/photos/3165335/pexels-photo-3165335.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
   }
 
 form {

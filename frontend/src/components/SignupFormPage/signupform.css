@@ -6,15 +6,19 @@ div {
 
 .signup-content {
   border: #C5C6C7 solid 1px;
-  box-shadow: 5px 10px 8px #76787c;
   text-align: center;
-  margin: 30px auto 30px auto;
+  /* margin: 30px auto 30px auto; */
   width: 500px;
   border-radius: 10px;
   padding: 20px 0 30px;
   display: flex;
   flex-direction: column;
   align-content: center;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
 }
 .signup-header {
     text-align: center;
