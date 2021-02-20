@@ -91,3 +91,14 @@ input:valid~label {
     background-color: #578fff;
     cursor: pointer;
 }
+
+.loginLink {
+    margin: 20px;
+    padding: 20px;
+    width: auto;
+}
+
+.loginLink:hover {
+    width: auto;
+    border-radius: 4px;
+}

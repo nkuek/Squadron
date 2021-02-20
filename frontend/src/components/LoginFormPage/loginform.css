@@ -96,4 +96,10 @@ input:valid~label {
 .registerLink {
     margin: 20px;
     padding: 20px;
+    width: auto
+}
+
+.registerLink:hover {
+    width: auto;
+    border-radius: 4px;
 }
