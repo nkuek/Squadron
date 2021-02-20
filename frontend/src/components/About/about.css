@@ -28,6 +28,79 @@
 @-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
 @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
 
+	@-moz-keyframes header {
+		0% {
+			-moz-transform: translate3d(0,1em,0);
+			-webkit-transform: translate3d(0,1em,0);
+			-ms-transform: translate3d(0,1em,0);
+			transform: translate3d(0,1em,0);
+			opacity: 0;
+		}
+
+		100% {
+			-moz-transform: translate3d(0,0,0);
+			-webkit-transform: translate3d(0,0,0);
+			-ms-transform: translate3d(0,0,0);
+			transform: translate3d(0,0,0);
+			opacity: 1;
+		}
+	}
+
+	@-webkit-keyframes header {
+		0% {
+			-moz-transform: translate3d(0,1em,0);
+			-webkit-transform: translate3d(0,1em,0);
+			-ms-transform: translate3d(0,1em,0);
+			transform: translate3d(0,1em,0);
+			opacity: 0;
+		}
+
+		100% {
+			-moz-transform: translate3d(0,0,0);
+			-webkit-transform: translate3d(0,0,0);
+			-ms-transform: translate3d(0,0,0);
+			transform: translate3d(0,0,0);
+			opacity: 1;
+		}
+	}
+
+	@-ms-keyframes header {
+		0% {
+			-moz-transform: translate3d(0,1em,0);
+			-webkit-transform: translate3d(0,1em,0);
+			-ms-transform: translate3d(0,1em,0);
+			transform: translate3d(0,1em,0);
+			opacity: 0;
+		}
+
+		100% {
+			-moz-transform: translate3d(0,0,0);
+			-webkit-transform: translate3d(0,0,0);
+			-ms-transform: translate3d(0,0,0);
+			transform: translate3d(0,0,0);
+			opacity: 1;
+		}
+	}
+
+	@keyframes header {
+		0% {
+			-moz-transform: translate3d(0,1em,0);
+			-webkit-transform: translate3d(0,1em,0);
+			-ms-transform: translate3d(0,1em,0);
+			transform: translate3d(0,1em,0);
+			opacity: 0;
+		}
+
+		100% {
+			-moz-transform: translate3d(0,0,0);
+			-webkit-transform: translate3d(0,0,0);
+			-ms-transform: translate3d(0,0,0);
+			transform: translate3d(0,0,0);
+			opacity: 1;
+		}
+	}
+
+
 .fade-in {
 	opacity:0;  /* make things invisible upon start */
 	-webkit-animation:fadeIn ease-in 1;  /* call our keyframe named fadeIn, use animattion ease-in and repeat it only 1 time */
@@ -59,9 +132,18 @@
     color: white;
     font-size: 5em;
     top: 100px;
-    -webkit-animation-delay: 0.7s;
--moz-animation-delay: 0.7s;
-animation-delay: 0.7s;
+    -moz-animation: header 1s 2.25s forwards;
+    -webkit-animation: header 1s 2.25s forwards;
+    -ms-animation: header 1s 2.25s forwards;
+    animation: header 1s 2.25s forwards;
+    -moz-backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -moz-transform: translate3d(0,0,0);
+    -webkit-transform: translate3d(0,0,0);
+    -ms-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
 
 }
 
@@ -70,9 +152,18 @@ animation-delay: 0.7s;
     color: white;
     position: relative;
     bottom: 10px;
-    -webkit-animation-delay: 1.2s;
--moz-animation-delay:1.2s;
-animation-delay: 1.2s;
+    -moz-animation: header 1s 2.25s forwards;
+    -webkit-animation: header 1s 2.25s forwards;
+    -ms-animation: header 1s 2.25s forwards;
+    animation: header 1s 2.25s forwards;
+    -moz-backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -moz-transform: translate3d(0,0,0);
+    -webkit-transform: translate3d(0,0,0);
+    -ms-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
 }
 
 .socialsContainer {
@@ -88,22 +179,6 @@ animation-delay: 1.2s;
 
 }
 
-.github {
-    -webkit-animation-delay: 1.8s;
-    -moz-animation-delay: 1.8s;
-    animation-delay: 1.8s;
-}
-.email {
-    -webkit-animation-delay: 2s;
-    -moz-animation-delay: 2s;
-    animation-delay: 2s;
-}
-.linkedin {
-    -webkit-animation-delay: 2.2s;
-    -moz-animation-delay: 2.2s;
-    animation-delay: 2.2s;
-}
-
 .socialsContainer a {
     padding: 40px;
     margin: 20px;
@@ -111,8 +186,29 @@ animation-delay: 1.2s;
     border-radius: 100%;
     border: 1px solid #d3d3d3;
     color: white;
-    transition: 0.2s ease-in-out
+    transition: 0.2s ease-in-out;
+
 }
+
+.github {
+    -moz-animation-delay: 2.5s;
+    -webkit-animation-delay: 2.5s;
+    -ms-animation-delay: 2.5s;
+    animation-delay: 2.5s;;
+}
+.email {
+    -moz-animation-delay: 2.75s;
+    -webkit-animation-delay: 2.75s;
+    -ms-animation-delay: 2.75s;
+    animation-delay: 2.75s;;
+}
+.linkedin {
+    -moz-animation-delay: 3s;
+    -webkit-animation-delay: 3s;
+    -ms-animation-delay: 3s;
+    animation-delay: 3s;;
+}
+
 
 .socialsContainer a:hover {
     background-color: rgba(182, 182, 182, 0.5);
