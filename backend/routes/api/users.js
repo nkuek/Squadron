@@ -26,7 +26,7 @@ const validateSignup = [
         .withMessage('Username cannot exceed 30 characters.'),
     check('password')
         .exists({ checkFalsy: true })
-        .withMessage('Please enter a password')
+        .withMessage('Please enter a password.')
         .isLength({ max: 50 })
         .withMessage('Password cannot exceed 50 characters.')
         .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])/, 'g')
