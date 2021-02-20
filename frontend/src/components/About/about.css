@@ -1,0 +1,62 @@
+.aboutPageWrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: auto;
+    background: url('../../images/gradient-background.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.aboutPage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: auto;
+    height: 500px;
+    position: relative;
+    top: 30%;
+    justify-content: space-evenly;
+}
+.aboutHeader {
+    display: flex;
+    justify-content: center;
+    color: white;
+    font-size: 5em;
+    top: 100px
+}
+
+.aboutSubheader {
+    font-size: 1.2em;
+    color: white;
+    position: relative;
+    bottom: 10px;
+}
+
+.socialsContainer {
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    padding: 40px;
+}
+
+.socialsContainer a {
+    padding: 40px;
+    margin: 20px;
+    background-color: none;
+    border-radius: 100%;
+    border: 1px solid #d3d3d3;
+    color: white;
+    transition: 0.2s ease-in-out
+}
+
+.socialsContainer a:hover {
+    background-color: rgba(182, 182, 182, 0.5);
+    transform: scale(1.1)
+
+}

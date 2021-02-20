@@ -6,6 +6,7 @@ import SignupFormPage from './components/SignupFormPage';
 import Navigation from './components/Navigation';
 import * as sessionActions from './store/session';
 import './index.css';
+import About from './components/About';
 
 function App() {
     const dispatch = useDispatch();
@@ -16,17 +17,22 @@ function App() {
     }, [dispatch]);
 
     return (
-        <>
-            <Navigation />
-            <Switch>
-                <Route exact path="/login">
-                    <LoginFormPage />
-                </Route>
-                <Route exact path="/register">
-                    <SignupFormPage />
-                </Route>
-            </Switch>
-        </>
+        isLoaded && (
+            <>
+                <Navigation />
+                <Switch>
+                    <Route exact path="/about">
+                        <About />
+                    </Route>
+                    <Route exact path="/login">
+                        <LoginFormPage />
+                    </Route>
+                    <Route exact path="/register">
+                        <SignupFormPage />
+                    </Route>
+                </Switch>
+            </>
+        )
     );
 }
 

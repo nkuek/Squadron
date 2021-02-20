@@ -45,7 +45,9 @@ const Navigation = () => {
                     <nav className="drop-down-nav">
                         <ul className="drop-down-links">
                             <li>
-                                <NavLink to="/about">About Me</NavLink>
+                                <NavLink className="navbarLinks" to="/about">
+                                    About Me
+                                </NavLink>
                             </li>
                         </ul>
                     </nav>
