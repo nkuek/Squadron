@@ -1,4 +1,4 @@
-# Introducing Squadron
+# Introducing Squadron!
 
 ## What is Squadron?
 - Squadron is a way to link up with other gamers
