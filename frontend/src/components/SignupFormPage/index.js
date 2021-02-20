@@ -47,72 +47,57 @@ const SignupFormPage = () => {
                     )}
                     <div className="signupInputField">
                         <input
-                            className="signup-input-field"
                             id="username"
                             type="text"
                             value={username}
                             required
                             onChange={(e) => setUsername(e.target.value)}
                         ></input>
-                        <label
-                            htmlFor="username"
-                            className="signup-input-label"
-                        >
-                            Username
-                        </label>
+                        <label htmlFor="username">Username</label>
                     </div>
                     <div className="signupInputField">
                         <input
-                            className="signup-input-field"
                             id="email"
                             type="email"
                             value={email}
                             required
                             onChange={(e) => setEmail(e.target.value)}
                         ></input>
-                        <label htmlFor="email" className="signup-input-label">
-                            Email
-                        </label>
+                        <label htmlFor="email">Email</label>
                     </div>
                     <div className="signupInputField">
                         <input
-                            className="signup-input-field"
                             id="username"
                             type="password"
                             value={password}
                             required
                             onChange={(e) => setPassword(e.target.value)}
                         ></input>
-                        <label
-                            htmlFor="password"
-                            className="signup-input-label"
-                        >
-                            Password
-                        </label>
+                        <label htmlFor="password">Password</label>
                     </div>
                     <div className="signupInputField">
                         <input
-                            className="signup-input-field"
                             id="confirm-password"
                             type="password"
                             value={confirmPassword}
                             required
                             onChange={(e) => setConfirmPassword(e.target.value)}
                         ></input>
-                        <label
-                            htmlFor="confirm-password"
-                            className="signup-input-label"
-                        >
+                        <label htmlFor="confirm-password">
                             Confirm Password
                         </label>
                     </div>
-                    <button className="signupButton" type="submit">
-                        Register
-                    </button>
+                    <div className="buttonContainer">
+                        <button className="signupButton" type="submit">
+                            Register
+                        </button>
+                    </div>
                 </form>
-                <a className="loginLink" href="/login">
-                    Already have an account?
-                </a>
+                <div className="loginLinkContainer">
+                    <a className="loginLink" href="/login">
+                        Already have an account?
+                    </a>
+                </div>
             </div>
         </>
     );

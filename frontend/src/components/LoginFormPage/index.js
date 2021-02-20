@@ -67,16 +67,20 @@ const LoginFormPage = () => {
                             Password
                         </label>
                     </div>
-                    <button className="loginButton" type="submit">
-                        Login
-                    </button>
-                    <button onClick={demoUserLogin} className="loginButton">
-                        Demo User
-                    </button>
+                    <div className="buttonContainer">
+                        <button className="loginButton" type="submit">
+                            Login
+                        </button>
+                        <button onClick={demoUserLogin} className="loginButton">
+                            Demo User
+                        </button>
+                    </div>
                 </form>
-                <a className="registerLink" href="/register">
-                    Don't have an account?
-                </a>
+                <div className="registerLinkContainer">
+                    <a className="registerLink" href="/register">
+                        Don't have an account?
+                    </a>
+                </div>
             </div>
         </>
     );

@@ -3,63 +3,151 @@ div {
     display: block;
 }
 
+@media only screen and (max-width: 600px) {
+    .login-content {
+      width: 85%;
+      height: 70%;
+      border: #d3d3d3 solid 1px;
+      text-align: center;
+      border-radius: 10px;
+      padding: 0px 0 30px;
+      display: flex;
+      flex-direction: column;
+      align-content: center;
+      position: fixed;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      background-color: white;
+    }
+      .login-header {
+        text-align: center;
+        font-size: 20px;
+        margin: 10px;
+        padding: 10px;
+    }
 
-.login-content {
-  border: #d3d3d3 solid 1px;
-  top: 10%;
-  left: 20%;
-  text-align: center;
-  width: 500px;
-  border-radius: 10px;
-  padding: 20px 0 30px;
-  display: flex;
-  flex-direction: column;
-  align-content: center;
-  position: fixed;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  background-color: white;
+
+    .loginInputField {
+        position: relative;
+        width: 85%;
+        height: 22px;
+        line-height: 44px;
+        margin: 20px;
+        right: 50px;
+        font-size: .7rem;
+        text-align: left;
+        /* left: 50%; */
+        transform: translate(30%, 40%);
+    }
+
+    .loginButton {
+        width: 175px;
+        margin-top: 25px;
+        margin-bottom: 0px;
+        padding: 2px;
+        border: none;
+        color: white;
+        background-color: #3576f8;
+        border-radius: 5px;
+        /* position: relative; */
+        /* display: flex; */
+        /* justify-content: center; */
+        /* left: 50%; */
+        /* top:50%; */
+        /* transform: translate(-50%, -50%); */
+    }
+
+    .buttonContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .loginButton:hover {
+        background-color: #578fff;
+        cursor: pointer;
+    }
+
+    .registerLink {
+        margin: 20px;
+        padding: 20px;
+    }
+
+    .registerLink:hover {
+        width: auto;
+        border-radius: 4px;
+        color: teal;
+        background-color: #e2e0e0
+    }
 }
-.login-header {
-    text-align: center;
-    font-size: 24px;
-    margin: 10px;
-    padding: 10px;
-}
+
+@media only screen and (min-width: 600px) {
+
+    .login-content {
+      border: #d3d3d3 solid 1px;
+      top: 10%;
+      left: 20%;
+      text-align: center;
+      width: 500px;
+      border-radius: 10px;
+      padding: 20px 0 30px;
+      display: flex;
+      flex-direction: column;
+      align-content: center;
+      position: fixed;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      background-color: white;
+    }
+    .login-header {
+        text-align: center;
+        font-size: 24px;
+        margin: 10px;
+        padding: 10px;
+    }
 
 
-.loginInputField {
-    position: relative;
-    width: 250px;
-    height: 44px;
-    line-height: 44px;
-    margin: 20px;
-}
+    .loginInputField {
+        position: relative;
+        width: 250px;
+        height: 44px;
+        line-height: 44px;
+        margin: 20px;
+    }
 
-.loginButton {
-    width: 210px;
-    margin-top: 25px;
-    margin-bottom: 0px;
-    padding: 5px;
-    border: none;
-    color: white;
-    background-color: #3576f8;
-    border-radius: 5px;
-}
+    .loginButton {
+        width: 210px;
+        margin-top: 25px;
+        margin-bottom: 0px;
+        padding: 5px;
+        border: none;
+        color: white;
+        background-color: #3576f8;
+        border-radius: 5px;
+    }
 
-.loginButton:hover {
-    background-color: #578fff;
-    cursor: pointer;
-}
+    .loginButton:hover {
+        background-color: #578fff;
+        cursor: pointer;
+    }
 
-.registerLink {
-    margin: 20px;
-    padding: 20px;
-    width: auto
-}
+    .registerLink {
+        margin: 20px;
+        padding: 20px;
+    }
 
-.registerLink:hover {
-    width: auto;
-    border-radius: 4px;
+    .registerLink:hover {
+        width: auto;
+        border-radius: 4px;
+        color: teal;
+        background-color: #e2e0e0;
+        width: 85%;
+    }
+
+    .registerLinkContainer {
+        width: 100%;
+        height: auto;
+    }
 }
