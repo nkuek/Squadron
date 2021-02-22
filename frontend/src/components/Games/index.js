@@ -1,6 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { loadGames } from '../../store/games';
+import { AspectRatio } from 'react-aspect-ratio';
+import 'react-aspect-ratio/aspect-ratio.css';
 
 const Games = () => {
     const dispatch = useDispatch();
@@ -21,12 +23,13 @@ const Games = () => {
                     return (
                         <li key={idx} className="gameCard">
                             <div className="gameCardContainer">
-                                <img
-                                    className="gameImage"
-                                    src={game.image}
-                                    style={{ aspectRatio: 2 / 3 }}
-                                ></img>
-                                <p style={{ color: 'white' }}>{game.name}</p>
+                                <AspectRatio
+                                    ratio="16/9"
+                                    style={{ maxWidth: '400px' }}
+                                >
+                                    <img src={game.image} />
+                                </AspectRatio>
+                                <h2 style={{ color: 'white' }}>{game.name}</h2>
                             </div>
                         </li>
                     );
