@@ -23,7 +23,7 @@ const Navigation = () => {
         if (!e.target?.classList.contains('barContainer')) {
             document
                 .querySelector('.stickyDropDownMenu')
-                .classList.remove('show');
+                ?.classList.remove('show');
             document.querySelector('.barContainer').classList.remove('change');
         }
     });
