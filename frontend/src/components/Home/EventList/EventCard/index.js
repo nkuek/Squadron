@@ -41,7 +41,12 @@ const EventCard = ({ events }) => {
                                 <p className="eventDate">{event.date}</p>
                                 <p className="eventTitle">{event.title}</p>
                                 <p className="eventSquad">{event.squadId}</p>
-                                <p className="eventGame">{event.gameId}</p>
+                                <Link
+                                    to={`/games/${event.gameId}`}
+                                    className="eventGame"
+                                >
+                                    {event.gameId}
+                                </Link>
                                 <p className="eventUser">{event.userId}</p>
                             </div>
                         </div>

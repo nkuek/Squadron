@@ -47,16 +47,7 @@ export const findGames = (game) => async (dispatch) => {
         platforms: results.platforms.map((platform) => platform.name),
         released: results.released,
     };
-    // const gameResults = results.map((result) => {
-    //     return {
-    //         name: result.name,
-    //         genres: result.genres.map((genre) => genre.name),
-    //         metacritic: result.metacritic,
-    //         rating: result.rating,
-    //         platforms: result.platforms.map((platform) => platform.name),
-    //         released: result.released,
-    //     };
-    // });
+
     dispatch(findGame(gameInformation));
 };
 
