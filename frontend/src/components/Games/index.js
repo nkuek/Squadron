@@ -8,16 +8,14 @@ import './games.css';
 
 const Games = () => {
     const dispatch = useDispatch();
-    const [ordering, setOrdering] = useState('');
 
     // useEffect(() => {
     //     dispatch(loadGames());
     // }, []);
 
     useEffect(() => {
-        console.log(ordering);
-        dispatch(loadGames(ordering));
-    }, [ordering]);
+        dispatch(loadGames());
+    }, [dispatch]);
 
     const games = useSelector((state) => state.games);
 
@@ -29,14 +27,6 @@ const Games = () => {
         <h1 className="loading">Loading...</h1>
     ) : (
         <div className="gamesContainer">
-            <select
-                value={ordering}
-                onChange={(e) => setOrdering(e.target.value)}
-            >
-                <option value="">Most Popular</option>
-                <option value="metacritic80,100">Rating</option>
-                <option value="released">Release Date</option>
-            </select>
             <ul className="gamesList">
                 {Object.keys(games).map((idx) => {
                     const game = games[idx];
@@ -55,11 +45,24 @@ const Games = () => {
                                         <img src={game.image} />
                                     </AspectRatio>
                                 </div>
-                                <div className="gameInformationWrapper">
-                                    <div className="gameInformationContainer">
-                                        <p className="gameName">{game.name}</p>
-                                        <p className="rating">
-                                            Metacritic: {game.rating}
+                                <div className="gameInformationContainer">
+                                    <p className="gameName">{game.name}</p>
+                                    <div className="metacritic">
+                                        <p>Metacritic:</p>
+                                        <p
+                                            className="gameRating"
+                                            style={{
+                                                color:
+                                                    game.rating >= 90
+                                                        ? '#154f30'
+                                                        : game.rating >= 80
+                                                        ? 'lightgreen'
+                                                        : game.rating > 60
+                                                        ? 'yellow'
+                                                        : 'red',
+                                            }}
+                                        >
+                                            {game.rating}
                                         </p>
                                     </div>
                                 </div>

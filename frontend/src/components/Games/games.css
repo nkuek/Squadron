@@ -4,6 +4,7 @@
     padding: 20px;
     border-radius: 10px;
     width: 100%;
+    max-width: 600px;
 }
 .loading {
     color: white;
@@ -22,7 +23,7 @@
     flex-direction: row;
     justify-content: flex-start;
     align-items: flex-center;
-    background-color: rgba(71, 71, 71, 0.8);
+    background-color: rgba(75, 75, 75, 0.7);
     /* border-top-right-radius: 5px; */
     /* border-bottom-right-radius: 5px; */
 }
@@ -36,6 +37,20 @@
 .gameImageContainer {
     display: flex;
     align-items: center;
+    width: auto;
+    height: auto;
+}
+
+.gameInformationContainer {
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+}
+
+.ratingTitle {
+    margin: 0;
 }
 
 .gameName {
@@ -49,4 +64,21 @@
     /* padding-right: 15px; */
     overflow: hidden;
     text-overflow: ellipsis;
+    margin: 0;
+}
+
+.metacritic {
+    color: white;
+    display: flex;
+    padding: 0;
+    margin: 0;
+    height: 20px;
+}
+
+.metacritic p {
+    margin: 0;
+}
+
+.gameRating {
+    padding-left: 5px;
 }

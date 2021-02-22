@@ -12,7 +12,8 @@ export const loadGames = (ordering) => async (dispatch) => {
         `https://api.rawg.io/api/games?key=${API_KEY}&ordering=${ordering}`
     );
     const apiData = await apiRes.json();
-    const games = apiData.results.map((game) => {
+    const results = apiData.results;
+    const games = results.map((game) => {
         return {
             name: game.name,
             image: game.background_image,
