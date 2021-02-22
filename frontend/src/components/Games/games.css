@@ -3,7 +3,7 @@
     margin: 20px;
     padding: 20px;
     border-radius: 10px;
-    max-width: fit-content;
+    width: 100%;
 }
 .loading {
     color: white;
@@ -30,6 +30,7 @@
 .gameCard {
     display: flex;
     flex-direction: column;
+    width: 100%;
 }
 
 .gameImageContainer {

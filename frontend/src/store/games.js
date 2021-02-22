@@ -7,20 +7,22 @@ export const getGames = (games) => ({
     games,
 });
 
-export const loadGames = (count = 1) => async (dispatch) => {
+export const loadGames = (ordering) => async (dispatch) => {
     const apiRes = await fetch(
-        `https://api.rawg.io/api/games?key=${API_KEY}&${count}`
+        `https://api.rawg.io/api/games?key=${API_KEY}&ordering=${ordering}`
     );
     const apiData = await apiRes.json();
-    const gameData = apiData.results.map((game) => {
+    const games = apiData.results.map((game) => {
         return {
             name: game.name,
             image: game.background_image,
             genres: game.genres.map((genre) => genre.name),
+            rating: game.metacritic,
+            next: apiData.next,
         };
     });
 
-    dispatch(getGames(gameData));
+    dispatch(getGames(games));
 };
 
 const gamesReducer = (state = {}, action) => {
