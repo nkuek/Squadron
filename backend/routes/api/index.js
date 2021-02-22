@@ -8,8 +8,11 @@ const {
 const { User } = require('../../db/models');
 const sessionRouter = require('./session');
 const usersRouter = require('./users');
+const eventsRouter = require('./events');
 
 router.use('/session', sessionRouter);
+
+router.use('/events', eventsRouter);
 
 router.use('/users', usersRouter);
 

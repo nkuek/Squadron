@@ -1,12 +1,14 @@
 const router = require('express').Router();
 const asyncHandler = require('express-async-handler');
-const { requireAuth } = require('../../utils/auth');
+const { requireAuth, restoreUser } = require('../../utils/auth');
 
 router.get(
-    '/events/:eventId',
+    '/:eventId',
+    restoreUser,
     requireAuth,
     asyncHandler(async (req, res) => {
-        res.send('hello');
+        console.log('events route');
+        res.redirect('/');
     })
 );
 

@@ -38,7 +38,11 @@ function App() {
                     <Route exact path="/register">
                         <SignupForm />
                     </Route>
-                    <Route>Page Not Found</Route>
+                    <Route>
+                        <h1 style={{ color: 'white', fontWeight: 'bold' }}>
+                            404 Page Not Found
+                        </h1>
+                    </Route>
                 </Switch>
             </>
         )
