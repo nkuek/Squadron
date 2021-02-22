@@ -67,7 +67,7 @@ const SignupForm = () => {
                     </div>
                     <div className="signupInputField">
                         <input
-                            id="username"
+                            id="password"
                             type="password"
                             value={password}
                             required

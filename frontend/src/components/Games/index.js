@@ -1,30 +1,36 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { loadGames } from '../../store/games';
 
 const Games = () => {
     const dispatch = useDispatch();
 
-    // useEffect(() => {
-    //     dispatch(loadGames());
-    // }, []);
+    useEffect(() => {
+        dispatch(loadGames());
+    }, []);
 
     const games = useSelector((state) => state.games);
-    if (!games) dispatch(loadGames());
 
-    return (
+    return Object.keys(games).length === 0 ? (
+        <h1>Loading...</h1>
+    ) : (
         <div className="gamesContainer">
             <ul className="gamesList">
-                {games.map((game, idx) => (
-                    <li key={idx} className="gameCard">
-                        <div className="gameCardContainer">
-                            <img
-                                className="gameImage"
-                                src={game.background_image}
-                            ></img>
-                        </div>
-                    </li>
-                ))}
+                {Object.keys(games).map((idx) => {
+                    const game = games[idx];
+                    return (
+                        <li key={idx} className="gameCard">
+                            <div className="gameCardContainer">
+                                <img
+                                    className="gameImage"
+                                    src={game.image}
+                                    style={{ aspectRatio: 2 / 3 }}
+                                ></img>
+                                <p style={{ color: 'white' }}>{game.name}</p>
+                            </div>
+                        </li>
+                    );
+                })}
             </ul>
         </div>
     );
