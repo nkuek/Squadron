@@ -8,6 +8,8 @@ import Home from './components/Home';
 import * as sessionActions from './store/session';
 import './index.css';
 import About from './components/About';
+import Games from './components/Games';
+import { loadGames } from './store/games';
 
 function App() {
     const dispatch = useDispatch();
@@ -15,6 +17,10 @@ function App() {
 
     useEffect(() => {
         dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
+    }, [dispatch]);
+
+    useEffect(() => {
+        dispatch(loadGames());
     }, [dispatch]);
 
     return (
@@ -30,6 +36,9 @@ function App() {
                     </Route>
                     <Route exact path="/login">
                         <LoginForm />
+                    </Route>
+                    <Route exact path="/games">
+                        <Games />
                     </Route>
                     <Route exact path="/register">
                         <SignupForm />

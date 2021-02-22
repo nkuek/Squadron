@@ -74,10 +74,3 @@ input:valid~label {
     display: flex;
 
 }
-
-.navbarLinks:hover, .login:hover {
-    color: teal;
-    background-color: #e2e0e0;
-    width: 100%;
-    height: 100%;
-}

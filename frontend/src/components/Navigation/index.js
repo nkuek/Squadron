@@ -11,29 +11,27 @@ const Navigation = () => {
 
     // Enables hamburger menu bar transition
     const addChange = (e) => {
-        document.querySelector('.sticky-drop-down-menu');
+        document.querySelector('.stickyDropDownMenu');
         e.target.classList.toggle('change');
 
         // Shows drop down menu when clicked
-        document
-            .querySelector('.sticky-drop-down-menu')
-            .classList.toggle('show');
+        document.querySelector('.stickyDropDownMenu').classList.toggle('show');
     };
 
     // Closes drop down menu when clicking anywhere else
     window.addEventListener('click', (e) => {
-        if (!e.target.classList.contains('bar-container')) {
+        if (!e.target.classList.contains('barContainer')) {
             document
-                .querySelector('.sticky-drop-down-menu')
+                .querySelector('.stickyDropDownMenu')
                 .classList.remove('show');
-            document.querySelector('.bar-container').classList.remove('change');
+            document.querySelector('.barContainer').classList.remove('change');
         }
     });
 
     return (
-        <nav className="main-nav-bar">
+        <nav className="mainNavBar">
             <div className="menu">
-                <div className="bar-container" onClick={addChange}>
+                <div className="barContainer" onClick={addChange}>
                     <div className="bar1"></div>
                     <div className="bar2"></div>
                     <div className="bar3"></div>
@@ -43,19 +41,22 @@ const Navigation = () => {
                         Squadron
                     </NavLink>
                 </div>
-                <div className="sticky-drop-down-menu">
-                    <nav className="drop-down-nav">
-                        <ul className="drop-down-links">
-                            <li>
-                                <NavLink className="navbarLinks" to="/about">
-                                    About Me
-                                </NavLink>
-                            </li>
-                        </ul>
-                    </nav>
+                <div className="stickyDropDownMenu">
+                    <ul className="dropDownLinks">
+                        <li>
+                            <NavLink className="navBarLinks" to="/about">
+                                About Me
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink className="navBarLinks" to="/games">
+                                All Games
+                            </NavLink>
+                        </li>
+                    </ul>
                 </div>
             </div>
-            <div className="login-logout-signup">
+            <div className="loginLogoutSignup">
                 {!sessionUser ? (
                     <>
                         <NavLink className="login" to="/login">

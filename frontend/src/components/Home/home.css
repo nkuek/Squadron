@@ -35,7 +35,8 @@
     background-color: white;
     border: 1px solid #d3d3d3;
     border-radius: 10px;
-    width: 90%
+    width: 90%;
+    height: auto;
 }
 
 .homePageEventsHeader {
@@ -61,29 +62,36 @@
     list-style: none;
 }
 
-.homePageEventCard {
-    margin-right: 10px;
-}
-
 .eventItem {
-    width: auto;
+    /* display: inline-block; */
+    width: 150px;
+    height: auto;
+    padding: 0px;
+    display: flex;
+    justify-content: center;
+
 }
 
 .eventContainer {
-    margin: 10px;
-    padding: 5px;
+    margin: 5px;
+    padding: 15px;
     border: 1px solid #d3d3d3;
     border-radius: 10px;
     width: auto;
-    height: auto;
+    height: 200px;
 }
 
 .eventDate {
     font-style:italic;
     font-weight: bold;
+    font-size: .8em;
     color: rgb(183, 0, 255)
 }
 
 tbody {
     font-size: .8em;
+}
+
+.eventTitle {
+    font-size: .9em;
 }
