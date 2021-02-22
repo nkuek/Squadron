@@ -1,31 +1,53 @@
 import { Link } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+// import { loadGames } from './store/games';
+import { AspectRatio } from 'react-aspect-ratio';
 
 const EventCard = ({ events }) => {
+    const dispatch = useDispatch();
+    // useEffect(() => {
+    //     dispatch(loadGames());
+    // }, []);
+
+    const games = useSelector((state) => state.games);
     return events.map((event) => (
         <li key={event.id} className="eventItem">
-            <Link to={`/events/${event.id}`}>
-                <table className="eventContainer">
-                    <thead>
-                        <tr>
-                            <td className="eventDate">{event.date}</td>
-                        </tr>
-                        <tr>
-                            <th className="eventTitle">{event.title}</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td className="eventSquad">{event.squadId}</td>
-                        </tr>
-                        <tr>
-                            <td className="eventGame">{event.gameId}</td>
-                        </tr>
-                        <tr>
-                            <td className="eventUser">{event.userId}</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </Link>
+            <div className="eventItemWrapper">
+                <div className="eventItemContent">
+                    <Link className="eventLink" to={`/events/${event.id}`}>
+                        <div className="eventContainer">
+                            <div className="imageContainerWrapper">
+                                <AspectRatio
+                                    ratio="16/9"
+                                    style={{
+                                        maxWidth: '600px',
+                                        objectFit: 'cover',
+                                        position: 'relative',
+                                        width: '100%',
+                                        height: 'inherit',
+                                    }}
+                                    className="imageContainer"
+                                >
+                                    <picture>
+                                        <img
+                                            className="image"
+                                            src="https://media.rawg.io/media/games/736/73619bd336c894d6941d926bfd563946.jpg"
+                                        ></img>
+                                    </picture>
+                                </AspectRatio>
+                            </div>
+                            <div className="informationContainer">
+                                <p className="eventDate">{event.date}</p>
+                                <p className="eventTitle">{event.title}</p>
+                                <p className="eventSquad">{event.squadId}</p>
+                                <p className="eventGame">{event.gameId}</p>
+                                <p className="eventUser">{event.userId}</p>
+                            </div>
+                        </div>
+                    </Link>
+                </div>
+            </div>
         </li>
     ));
 };

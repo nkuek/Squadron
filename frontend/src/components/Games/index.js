@@ -24,7 +24,7 @@ const Games = () => {
                     return (
                         <li key={idx} className="gameCard">
                             <div className="gameCardContainer">
-                                <div className="imageContainer">
+                                <div className="gameImageContainer">
                                     <AspectRatio
                                         ratio="16/9"
                                         style={{

@@ -32,7 +32,7 @@
     flex-direction: column;
 }
 
-.imageContainer {
+.gameImageContainer {
     display: flex;
     align-items: center;
 }

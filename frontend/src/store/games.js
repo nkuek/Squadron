@@ -7,10 +7,11 @@ export const getGames = (games) => ({
     games,
 });
 
-export const loadGames = () => async (dispatch) => {
-    const apiRes = await fetch(`https://api.rawg.io/api/games?key=${API_KEY}`);
+export const loadGames = (count = 1) => async (dispatch) => {
+    const apiRes = await fetch(
+        `https://api.rawg.io/api/games?key=${API_KEY}&${count}`
+    );
     const apiData = await apiRes.json();
-
     const gameData = apiData.results.map((game) => {
         return {
             name: game.name,
