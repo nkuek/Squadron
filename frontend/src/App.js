@@ -12,6 +12,7 @@ import Games from './components/Games';
 import { loadGames } from './store/games';
 import GameInfo from './components/GameInfo';
 import Events from './components/Events';
+import Event from './components/Events/Event';
 
 function App() {
     const dispatch = useDispatch();
@@ -41,6 +42,9 @@ function App() {
                     </Route>
                     <Route exact path="/events">
                         <Events />
+                    </Route>
+                    <Route path="/events/:eventId">
+                        <Event />
                     </Route>
                     <Route exact path="/games">
                         <Games />
