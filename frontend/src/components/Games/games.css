@@ -1,5 +1,46 @@
-.gameImage {
-    width: 10%;
-    height: 200px;
+.gamesContainer {
+    background-color: black;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: fit-content;
+}
+.loading {
+    color: white;
+    width: 100%;
+    display: flex;
+    position: relative;
+    top: 50%;
+    /* left: 50%; */
+    /* transform: translate(-50%, -50%); */
+    justify-content: center;
+}
+.gameCardContainer {
+    margin: 10px 0px;
 
+    display:flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-center;
+    background-color: rgba(71, 71, 71, 0.8);
+    /* border-top-right-radius: 5px; */
+    /* border-bottom-right-radius: 5px; */
+}
+
+.gameCard {
+    display: flex;
+    flex-direction: column;
+}
+
+.imageContainer {
+    display: flex;
+    align-items: center;
+}
+
+.gameName {
+    color: white;
+    text-align: left;
+    margin-left: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }

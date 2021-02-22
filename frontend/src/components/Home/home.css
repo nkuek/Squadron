@@ -11,17 +11,18 @@
 .homePageBanner {
     display: flex;
     flex-direction: column;
-    /* align-items:flex-start; */
-    width: 80%;
+    width: 100%;
     height: auto;
+    right: -30px;
     margin: 0;
-    padding: 0;
-    /* background: url(https://i1.wp.com/play3r.net/wp-content/uploads/2019/02/Gamer-win.jpg?fit=1000%2C563&ssl=1); */
     border-radius: 4px;
+    text-shadow: 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black;
 }
 .homePageHeader {
-    font-size: 3rem;
+    font-size: 4rem;
     color: white;
+    font-weight: bold;
+    font-family: 'Roboto Condensed';
 }
 
 .homePageSubHeader {
@@ -37,12 +38,14 @@
     border-radius: 10px;
     width: 90%;
     height: auto;
+    position: relative;
 }
 
 .homePageEventsHeader {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    font-weight: bold;
 }
 
 .upcomingEvents {
@@ -53,7 +56,7 @@
     margin-right: 15px;
 }
 
-.allEvegamesntsLink:hover {
+.allEventsLink:hover {
     color: teal;
 }
 

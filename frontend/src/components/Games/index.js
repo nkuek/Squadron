@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { loadGames } from '../../store/games';
 import { AspectRatio } from 'react-aspect-ratio';
 import 'react-aspect-ratio/aspect-ratio.css';
+import './games.css';
 
 const Games = () => {
     const dispatch = useDispatch();
@@ -14,7 +15,7 @@ const Games = () => {
     const games = useSelector((state) => state.games);
 
     return Object.keys(games).length === 0 ? (
-        <h1>Loading...</h1>
+        <h1 className="loading">Loading...</h1>
     ) : (
         <div className="gamesContainer">
             <ul className="gamesList">
@@ -23,13 +24,20 @@ const Games = () => {
                     return (
                         <li key={idx} className="gameCard">
                             <div className="gameCardContainer">
-                                <AspectRatio
-                                    ratio="16/9"
-                                    style={{ maxWidth: '400px' }}
-                                >
-                                    <img src={game.image} />
-                                </AspectRatio>
-                                <h2 style={{ color: 'white' }}>{game.name}</h2>
+                                <div className="imageContainer">
+                                    <AspectRatio
+                                        ratio="16/9"
+                                        style={{
+                                            maxWidth: '200px',
+                                            minWidth: '100px',
+                                            margin: '5px',
+                                        }}
+                                    >
+                                        <img src={game.image} />
+                                    </AspectRatio>
+                                </div>
+                                <p className="gameName">{game.name}</p>
+                                <div></div>
                             </div>
                         </li>
                     );

@@ -1,5 +1,3 @@
-import { csrfFetch } from './csrf';
-
 const API_KEY = process.env.REACT_APP_API_KEY_RAWG;
 
 const GET_GAMES = 'games/getGames';
@@ -10,7 +8,7 @@ export const getGames = (games) => ({
 });
 
 export const loadGames = () => async (dispatch) => {
-    const apiRes = await fetch(`https://api.rawg.io/api/games?${API_KEY}`);
+    const apiRes = await fetch(`https://api.rawg.io/api/games?key=${API_KEY}`);
     const apiData = await apiRes.json();
 
     const gameData = apiData.results.map((game) => {
@@ -20,10 +18,6 @@ export const loadGames = () => async (dispatch) => {
             genres: game.genres.map((genre) => genre.name),
         };
     });
-    // const res = await csrfFetch('/api/games', {
-    //     method: 'PUT',
-    //     body: JSON.stringify(gameData),
-    // });
 
     dispatch(getGames(gameData));
 };
