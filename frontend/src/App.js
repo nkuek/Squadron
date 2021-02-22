@@ -19,9 +19,9 @@ function App() {
         dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
     }, [dispatch]);
 
-    useEffect(() => {
-        dispatch(loadGames());
-    }, [dispatch]);
+    // useEffect(() => {
+    //     dispatch(loadGames());
+    // }, [dispatch]);
 
     return (
         isLoaded && (

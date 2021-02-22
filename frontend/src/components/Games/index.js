@@ -5,16 +5,25 @@ import { loadGames } from '../../store/games';
 const Games = () => {
     const dispatch = useDispatch();
 
-    useEffect(() => {
-        dispatch(loadGames());
-    }, []);
+    // useEffect(() => {
+    //     dispatch(loadGames());
+    // }, []);
+
     const games = useSelector((state) => state.games);
+    if (!games) dispatch(loadGames());
 
     return (
-        <div>
-            <ul>
+        <div className="gamesContainer">
+            <ul className="gamesList">
                 {games.map((game, idx) => (
-                    <li key={idx}>{game.name}</li>
+                    <li key={idx} className="gameCard">
+                        <div className="gameCardContainer">
+                            <img
+                                className="gameImage"
+                                src={game.background_image}
+                            ></img>
+                        </div>
+                    </li>
                 ))}
             </ul>
         </div>

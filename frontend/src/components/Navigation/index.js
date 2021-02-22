@@ -44,13 +44,18 @@ const Navigation = () => {
                 <div className="stickyDropDownMenu">
                     <ul className="dropDownLinks">
                         <li>
-                            <NavLink className="navBarLinks" to="/about">
-                                About Me
+                            <NavLink className="navBarLinks" to="/">
+                                Home
                             </NavLink>
                         </li>
                         <li>
                             <NavLink className="navBarLinks" to="/games">
                                 All Games
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink className="navBarLinks" to="/about">
+                                About Me
                             </NavLink>
                         </li>
                     </ul>

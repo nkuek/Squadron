@@ -40,7 +40,13 @@ const LoginForm = () => {
             <div className="login-content">
                 <form onSubmit={handleSubmit} className="login-form">
                     <span className="login-header">Sign In</span>
-                    {errors.length > 0 && <ul className="errors">retur</ul>}
+                    {errors.length > 0 && (
+                        <ul className="errors">
+                            {errors.map((error, idx) => (
+                                <li key={idx}>{error}</li>
+                            ))}
+                        </ul>
+                    )}
                     <div className="loginInputField">
                         <input
                             className="textfield"
