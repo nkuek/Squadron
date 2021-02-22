@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { loadGames } from '../../store/games';
 import { AspectRatio } from 'react-aspect-ratio';
+import { Link } from 'react-router-dom';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import 'react-aspect-ratio/aspect-ratio.css';
 import './games.css';
@@ -33,8 +34,9 @@ const Games = () => {
                     return (
                         <li key={idx} className="gameCard">
                             <div className="gameCardContainer">
-                                <div className="gameImageContainer">
+                                <Link to={`/games/${game.name}`}>
                                     <AspectRatio
+                                        className="gameImageContainer"
                                         ratio="16/9"
                                         style={{
                                             maxWidth: '200px',
@@ -44,30 +46,30 @@ const Games = () => {
                                     >
                                         <img src={game.image} />
                                     </AspectRatio>
-                                </div>
-                                <div className="gameInformationContainer">
-                                    <p className="gameName">{game.name}</p>
-                                    <div className="metacritic">
-                                        <p>Metacritic:</p>
-                                        <p
-                                            className="gameRating"
-                                            style={{
-                                                color:
-                                                    game.rating >= 90
-                                                        ? '#154f30'
-                                                        : game.rating >= 80
-                                                        ? 'lightgreen'
-                                                        : game.rating > 60
-                                                        ? 'yellow'
-                                                        : 'red',
-                                            }}
-                                        >
-                                            {game.rating}
-                                        </p>
+                                    <div className="gameInformationContainer">
+                                        <p className="gameName">{game.name}</p>
+                                        <div className="metacritic">
+                                            <p>Metacritic:</p>
+                                            <p
+                                                className="gameRating"
+                                                style={{
+                                                    color:
+                                                        game.rating >= 90
+                                                            ? '#154f30'
+                                                            : game.rating >= 80
+                                                            ? 'lightgreen'
+                                                            : game.rating > 60
+                                                            ? 'yellow'
+                                                            : 'red',
+                                                }}
+                                            >
+                                                {game.rating}
+                                            </p>
+                                        </div>
                                     </div>
-                                </div>
 
-                                <div></div>
+                                    <div></div>
+                                </Link>
                             </div>
                         </li>
                     );
