@@ -14,7 +14,7 @@ router.use('/session', sessionRouter);
 
 router.use('/users', usersRouter);
 
-router.use('/games', gamesRouter);
+// router.use('/games', gamesRouter);
 // User Auth Route Testing
 router.post('/test', (req, res) => {
     res.json({ requestBody: req.body });

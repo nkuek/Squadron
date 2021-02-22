@@ -1,15 +1,15 @@
-const express = require('express');
-const asyncHandler = require('express-async-handler');
+// const express = require('express');
+// const asyncHandler = require('express-async-handler');
 
-const router = express.Router();
+// const router = express.Router();
 
-// Load list of games
-router.put(
-    '/',
-    asyncHandler(async (req, res) => {
-        const data = await req.body;
-        console.log(data);
-    })
-);
+// // Load list of games
+// router.put(
+//     '/',
+//     asyncHandler(async (req, res) => {
+//         const data = await req.body;
+//         if (data)
+//     })
+// );
 
-module.exports = router;
+// module.exports = router;
