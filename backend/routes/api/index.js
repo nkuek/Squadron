@@ -8,7 +8,6 @@ const {
 const { User } = require('../../db/models');
 const sessionRouter = require('./session');
 const usersRouter = require('./users');
-const gamesRouter = require('./games');
 
 router.use('/session', sessionRouter);
 
