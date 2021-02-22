@@ -17,7 +17,7 @@
 }
 .gameCardContainer {
     margin: 10px 0px;
-
+    padding-right: 10px;
     display:flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -40,7 +40,12 @@
 .gameName {
     color: white;
     text-align: left;
-    margin-left: 10px;
+    display: flex;
+    align-items: center;
+    /* margin-left: 10px; */
+    /* margin-right: 10px; */
+    /* padding-left: 15px; */
+    /* padding-right: 15px; */
     overflow: hidden;
     text-overflow: ellipsis;
 }
