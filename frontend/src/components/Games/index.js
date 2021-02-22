@@ -2,32 +2,33 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { loadGames } from '../../store/games';
 import { AspectRatio } from 'react-aspect-ratio';
-import { Link } from 'react-router-dom';
+import { Link, Route } from 'react-router-dom';
+import GameInfo from '../GameInfo';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import 'react-aspect-ratio/aspect-ratio.css';
 import './games.css';
 
 const Games = () => {
     const dispatch = useDispatch();
-
-    // useEffect(() => {
-    //     dispatch(loadGames());
-    // }, []);
+    const [ordering, setOrdering] = useState('');
 
     useEffect(() => {
-        dispatch(loadGames());
-    }, [dispatch]);
+        dispatch(loadGames(ordering));
+    }, [ordering]);
 
     const games = useSelector((state) => state.games);
-
-    const fetchMoreData = async () => {
-        const moreData = fetch(games['0'].next).then((res) => console.log(res));
-    };
 
     return Object.keys(games).length === 0 ? (
         <h1 className="loading">Loading...</h1>
     ) : (
         <div className="gamesContainer">
+            <select
+                value={ordering}
+                onChange={(e) => setOrdering(e.target.value)}
+            >
+                <option value="">Most Popular</option>
+                <option value="-metacritic">Rating</option>
+            </select>
             <ul className="gamesList">
                 {Object.keys(games).map((idx) => {
                     const game = games[idx];
@@ -75,7 +76,6 @@ const Games = () => {
                     );
                 })}
             </ul>
-            <button onClick={fetchMoreData}>Click</button>
         </div>
     );
 };

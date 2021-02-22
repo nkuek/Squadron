@@ -50,7 +50,7 @@ const Navigation = () => {
                         </li>
                         <li>
                             <NavLink className="navBarLinks" to="/games">
-                                All Games
+                                Games
                             </NavLink>
                         </li>
                         <li>

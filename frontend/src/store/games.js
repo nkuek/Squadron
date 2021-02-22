@@ -9,7 +9,7 @@ export const getGames = (games) => ({
 
 export const loadGames = (ordering) => async (dispatch) => {
     const apiRes = await fetch(
-        `https://api.rawg.io/api/games?key=${API_KEY}&ordering=${ordering}`
+        `https://api.rawg.io/api/games?key=${API_KEY}&metacritic=80,100&ordering=${ordering}`
     );
     const apiData = await apiRes.json();
     const results = apiData.results;
