@@ -8,10 +8,13 @@ const {
 const { User } = require('../../db/models');
 const sessionRouter = require('./session');
 const usersRouter = require('./users');
+const gamesRouter = require('./games');
 
 router.use('/session', sessionRouter);
 
 router.use('/users', usersRouter);
+
+router.use('/games', gamesRouter);
 // User Auth Route Testing
 router.post('/test', (req, res) => {
     res.json({ requestBody: req.body });
