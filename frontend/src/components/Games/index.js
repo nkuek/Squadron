@@ -2,10 +2,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { loadGames } from '../../store/games';
 import { AspectRatio } from 'react-aspect-ratio';
-import { Link, Route } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useGameContext } from '../../context/GameContext';
-import GameInfo from '../GameInfo';
-import InfiniteScroll from 'react-infinite-scroll-component';
 import 'react-aspect-ratio/aspect-ratio.css';
 import './games.css';
 
@@ -41,7 +39,6 @@ const Games = () => {
                                     to={`/games/${game.name}`}
                                     onClick={() => {
                                         setGame(game);
-                                        console.log(game);
                                     }}
                                 >
                                     <AspectRatio
@@ -63,11 +60,13 @@ const Games = () => {
                                                 className="gameRating"
                                                 style={{
                                                     color:
-                                                        game.rating >= 90
+                                                        game.metacritic >= 90
                                                             ? '#154f30'
-                                                            : game.rating >= 80
+                                                            : game.metacritic >=
+                                                              80
                                                             ? 'lightgreen'
-                                                            : game.rating > 60
+                                                            : game.metacritic >
+                                                              60
                                                             ? 'yellow'
                                                             : 'red',
                                                 }}

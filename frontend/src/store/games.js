@@ -18,7 +18,10 @@ export const loadGames = (ordering) => async (dispatch) => {
             name: game.name,
             image: game.background_image,
             genres: game.genres.map((genre) => genre.name),
-            rating: game.metacritic,
+            metacritic: game.metacritic,
+            rating: game.rating,
+            platforms: game.platforms.map((platform) => platform.name),
+            released: game.released,
             next: apiData.next,
         };
     });
