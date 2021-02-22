@@ -13,6 +13,7 @@ import { loadGames } from './store/games';
 import GameInfo from './components/GameInfo';
 import Events from './components/Events';
 import Event from './components/Events/Event';
+import UserProfile from './components/UserProfile';
 
 function App() {
     const dispatch = useDispatch();
@@ -39,6 +40,9 @@ function App() {
                     </Route>
                     <Route exact path="/login">
                         <LoginForm />
+                    </Route>
+                    <Route exact path="/users/:username">
+                        <UserProfile />
                     </Route>
                     <Route exact path="/events">
                         <Events />

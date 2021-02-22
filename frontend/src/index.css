@@ -3,7 +3,7 @@
     justify-content: center;
 }
 body {
-    padding: 50px;
+    margin: 0;
     font-family: 'Cabin', sans-serif;
     overflow-x: hidden;
     background: url('./images/stock-gaming-background.jpeg') no-repeat center center fixed;

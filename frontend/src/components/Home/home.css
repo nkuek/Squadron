@@ -1,38 +1,66 @@
+.homePageWrapper {
+    position: relative;
+    width: 100%;
+}
 .homePageContent {
     display: flex;
     flex-direction: column;
-    position: absolute;
-    margin: 0;
-    padding: 0;
-    left: 30px;
+    /* position: absolute; */
+    /* padding: 50px; */
+    /* left: 30px; */
     width: 100%;
-    height: 30%;
+    /* height: 30%; */
 }
 .homePageBanner {
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: auto;
+    padding: 50px;
     right: -30px;
     margin: 0;
     border-radius: 4px;
-    text-shadow: 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black;
+    background-color: rgba(0, 0, 0, 0.4);
 }
 .homePageHeader {
     font-size: 4rem;
     color: white;
     font-weight: bold;
     font-family: 'Roboto Condensed';
+    text-shadow: 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black;
 }
 
 .homePageSubHeader {
     color: white;
     font-size: 2rem;
+    text-shadow: 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black;
     width: 80%;
+    /* font-weight: bold; */
+    /* font-family: 'Roboto Condensed'; */
+    /* text-transform: uppercase; */
+    font-style: italic;
+}
+
+.joinSquadronContainer {
+    margin: 10px;
+    padding-bottom: 20px;
+    /* width: fit-content; */
+}
+
+.joinSquadron {
+    color: white;
+    background-color: blueviolet;
+    border-radius: 5px;
+    padding: 10px;
+    width: 100%;
+}
+
+.joinSquadron:visited {
+    color: white;
 }
 
 .homePageEventsContainer {
     padding: 10px;
+    margin-left: 50px;
     background-color: white;
     border: 1px solid #d3d3d3;
     border-radius: 20px;
