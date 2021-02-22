@@ -9,11 +9,14 @@ import * as sessionActions from './store/session';
 import './index.css';
 import About from './components/About';
 import Games from './components/Games';
+import { useGameContext } from './context/GameContext';
 import { loadGames } from './store/games';
+import GameInfo from './components/GameInfo';
 
 function App() {
     const dispatch = useDispatch();
     const [isLoaded, setIsLoaded] = useState(false);
+    const { game } = useGameContext();
 
     useEffect(() => {
         dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
@@ -39,6 +42,9 @@ function App() {
                     </Route>
                     <Route exact path="/games">
                         <Games />
+                    </Route>
+                    <Route path={`/games/${game.name}`}>
+                        <GameInfo game={game} />
                     </Route>
                     <Route exact path="/register">
                         <SignupForm />

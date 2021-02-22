@@ -20,13 +20,13 @@ if (process.env.NODE_ENV !== 'production') {
 
 function Root() {
     return (
-        <GameProvider>
-            <ReduxProvider store={store}>
+        <ReduxProvider store={store}>
+            <GameProvider>
                 <BrowserRouter>
                     <App />
                 </BrowserRouter>
-            </ReduxProvider>
-        </GameProvider>
+            </GameProvider>
+        </ReduxProvider>
     );
 }
 

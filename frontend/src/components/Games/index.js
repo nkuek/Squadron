@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { loadGames } from '../../store/games';
 import { AspectRatio } from 'react-aspect-ratio';
 import { Link, Route } from 'react-router-dom';
+import { useGameContext } from '../../context/GameContext';
 import GameInfo from '../GameInfo';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import 'react-aspect-ratio/aspect-ratio.css';
@@ -11,6 +12,7 @@ import './games.css';
 const Games = () => {
     const dispatch = useDispatch();
     const [ordering, setOrdering] = useState('');
+    const { setGame } = useGameContext();
 
     useEffect(() => {
         dispatch(loadGames(ordering));
@@ -35,7 +37,13 @@ const Games = () => {
                     return (
                         <li key={idx} className="gameCard">
                             <div className="gameCardContainer">
-                                <Link to={`/games/${game.name}`}>
+                                <Link
+                                    to={`/games/${game.name}`}
+                                    onClick={() => {
+                                        setGame(game);
+                                        console.log(game);
+                                    }}
+                                >
                                     <AspectRatio
                                         className="gameImageContainer"
                                         ratio="16/9"
