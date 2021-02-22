@@ -20,7 +20,7 @@ const Navigation = () => {
 
     // Closes drop down menu when clicking anywhere else
     window.addEventListener('click', (e) => {
-        if (!e.target.classList.contains('barContainer')) {
+        if (!e.target?.classList.contains('barContainer')) {
             document
                 .querySelector('.stickyDropDownMenu')
                 .classList.remove('show');

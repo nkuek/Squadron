@@ -71,7 +71,7 @@ const Games = () => {
                                                             : 'red',
                                                 }}
                                             >
-                                                {game.rating}
+                                                {game.metacritic}
                                             </p>
                                         </div>
                                     </div>

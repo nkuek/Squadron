@@ -1,7 +1,21 @@
+import { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { useParams } from 'react-router-dom';
 import AspectRatio from 'react-aspect-ratio';
+import { findGames } from '../../store/games';
 
-const GameInfo = ({ game }) => {
-    return (
+const GameInfo = () => {
+    const dispatch = useDispatch();
+    const { gameName } = useParams();
+
+    useEffect(() => {
+        dispatch(findGames(gameName));
+    }, [dispatch]);
+
+    const game = useSelector((state) => state.games.game);
+    return !game ? (
+        <h1 className="loading">Loading...</h1>
+    ) : (
         <div className="gamePageWrapper">
             <h2 className="gameName" style={{ paddingBottom: '20px' }}>
                 {game.name}
@@ -47,7 +61,7 @@ const GameInfo = ({ game }) => {
                                         ? '#154f30'
                                         : game.rating >= 3
                                         ? 'lightgreen'
-                                        : game.metacritic > 2
+                                        : game.rating > 2
                                         ? 'yellow'
                                         : 'red',
                             }}

@@ -16,7 +16,7 @@ import GameInfo from './components/GameInfo';
 function App() {
     const dispatch = useDispatch();
     const [isLoaded, setIsLoaded] = useState(false);
-    const { game } = useGameContext();
+    // const { game } = useGameContext();
 
     useEffect(() => {
         dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
@@ -43,8 +43,8 @@ function App() {
                     <Route exact path="/games">
                         <Games />
                     </Route>
-                    <Route path={`/games/${game.name}`}>
-                        <GameInfo game={game} />
+                    <Route path={`/games/:gameName`}>
+                        <GameInfo />
                     </Route>
                     <Route exact path="/register">
                         <SignupForm />

@@ -40,7 +40,7 @@ const ProfileButton = ({ user }) => {
                 <ul className="profileMenu">
                     <li>
                         <NavLink
-                            className="profileLink"
+                            className="navBarLinks"
                             to={`/users/${user.username}`}
                         >
                             {user.username}
