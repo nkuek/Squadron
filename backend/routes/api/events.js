@@ -8,7 +8,7 @@ router.get(
     requireAuth,
     asyncHandler(async (req, res) => {
         console.log('events route');
-        res.redirect('/');
+        res.redirect('/login');
     })
 );
 
