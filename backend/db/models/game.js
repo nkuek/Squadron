@@ -5,10 +5,20 @@ module.exports = (sequelize, DataTypes) => {
         {
             name: DataTypes.STRING,
             image: DataTypes.STRING,
-            genre: DataTypes.STRING,
+            genres: DataTypes.ARRAY(DataTypes.STRING),
+            rating: DataTypes.STRING,
+            metacritic: DataTypes.STRING,
+            platforms: DataTypes.ARRAY(DataTypes.STRING),
+            released: DataTypes.STRING,
         },
         {}
     );
-    Game.associate = function (models) {};
+    Game.associate = function (models) {
+        // associations can be defined here
+    };
+
+    Game.loadGames = async () => {
+        return await Game.findAll();
+    };
     return Game;
 };
