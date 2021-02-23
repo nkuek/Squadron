@@ -1,5 +1,5 @@
 /* Small Screens */
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 730px) {
     .gamePageWrapper {
         background-color: black;
         display:flex;
@@ -19,6 +19,7 @@
     .gamePageInfoContainer {
         padding: 10px;
         color: white;
+        width: 200px;
     }
 
     .gameNameCard {
@@ -31,14 +32,15 @@
     }
 }
 
-@media only screen and (min-width: 400px) {
+@media only screen and (min-width: 730px) {
     .gamePageWrapper {
         background-color: black;
         display:flex;
         flex-direction: column;
         margin: 100px 20px;
         padding: 30px;
-        width: auto;
+        width: 80%;
+        /* min-width: 300px; */
         border-radius: 10px;
     }
     .gamePageContainer {
@@ -49,6 +51,7 @@
     .gamePageInfoContainer {
         padding: 10px;
         color: white;
+        width: 45%;
     }
 
     .gameNameCard {

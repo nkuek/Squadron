@@ -21,8 +21,5 @@
   "bugs": {
     "url": "https://github.com/nkuek/Squadron/issues"
   },
-  "homepage": "https://github.com/nkuek/Squadron",
-  "dependencies": {
-    "redux-persist": "^6.0.0"
-  }
+  "homepage": "https://github.com/nkuek/Squadron"
 }
