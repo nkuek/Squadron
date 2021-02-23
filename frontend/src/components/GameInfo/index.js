@@ -36,7 +36,13 @@ const GameInfo = () => {
                         margin: '5px',
                     }}
                 >
-                    <img src={game.image} />
+                    <img
+                        src={
+                            !game.image
+                                ? 'https://www.publicdomainpictures.net/pictures/280000/velka/not-found-image-15383864787lu.jpg'
+                                : game.image
+                        }
+                    />
                 </AspectRatio>
                 <div className="gamePageInfoContainer">
                     <div className="metacritic">
