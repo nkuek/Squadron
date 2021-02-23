@@ -62,7 +62,7 @@ const Games = () => {
                                                 style={{
                                                     color:
                                                         game.metacritic >= 90
-                                                            ? '#154f30'
+                                                            ? '#00ff00'
                                                             : game.metacritic >=
                                                               80
                                                             ? 'lightgreen'

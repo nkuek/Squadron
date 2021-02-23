@@ -52,7 +52,7 @@ const GameInfo = () => {
                             style={{
                                 color:
                                     game.metacritic >= 90
-                                        ? '#154f30'
+                                        ? '#00ff00'
                                         : game.metacritic >= 80
                                         ? 'lightgreen'
                                         : game.metacritic > 60
@@ -73,7 +73,7 @@ const GameInfo = () => {
                             style={{
                                 color:
                                     game.rating >= 4
-                                        ? '#154f30'
+                                        ? '#00ff00'
                                         : game.rating >= 3
                                         ? 'lightgreen'
                                         : game.rating > 2
