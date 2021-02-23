@@ -1,29 +1,17 @@
-import { csrfFetch } from '../store/csrf';
 const API_KEY = process.env.REACT_APP_API_KEY_RAWG;
 
 const GET_GAMES = 'games/getGames';
-const FIND_GAME = 'games/findGame';
 const REMOVE_GAME_STATE = 'games/removeGameState';
-const ORDER_GAMES = 'games/orderGames';
 
 export const getGames = (games) => ({
     type: GET_GAMES,
     games,
 });
 
-export const findGame = (game) => ({
-    type: FIND_GAME,
-    game,
-});
-
 export const removeGameState = () => ({
     type: REMOVE_GAME_STATE,
 });
 
-export const gameOrder = (order) => ({
-    type: ORDER_GAMES,
-    order,
-});
 // export const loadGames = (ordering) => async (dispatch) => {
 //     const res = await csrfFetch('/api/games', {
 //         method: 'PUT',
@@ -44,28 +32,16 @@ export const loadGames = (ordering) => async (dispatch) => {
             name: game.name,
             image: game.background_image,
             metacritic: game.metacritic,
+            genres: game.genres.map((genre) => genre.name),
         };
     });
-
     dispatch(getGames(games));
-};
-
-export const findGames = (gameName) => async (dispatch) => {
-    const res = await csrfFetch('/api/games', {
-        method: 'POST',
-        body: JSON.stringify({ name: gameName }),
-    });
-    const game = await res.json();
-    dispatch(findGame(game));
 };
 
 export const resetGameState = () => async (dispatch) => {
     dispatch(removeGameState());
 };
 
-export const setGameOrder = (order) => async (dispatch) => {
-    dispatch(gameOrder(order));
-};
 // export const findGames = (gameName) => async (dispatch) => {
 //     const searchParam = gameName.split(' ').join('%');
 //     const apiRes = await fetch(
@@ -87,21 +63,13 @@ export const setGameOrder = (order) => async (dispatch) => {
 // };
 
 const gamesReducer = (state = {}, action) => {
+    let newState;
     switch (action.type) {
         case GET_GAMES:
-            return { ...state, ...action, ...action.games };
+            newState = Object.assign({}, state);
+            newState = { ...state, ...action.games };
+            return newState;
 
-        case FIND_GAME:
-            return { ...state, ...action, game: action.game };
-        case REMOVE_GAME_STATE:
-            return { ...state, ...action, game: null };
-        case ORDER_GAMES:
-            return {
-                ...state,
-                ...action.games,
-                ...action.order,
-                ...action.game,
-            };
         default:
             return state;
     }

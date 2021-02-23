@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import AspectRatio from 'react-aspect-ratio';
-import { findGames, resetGameState } from '../../store/games';
+import { findGames, resetGameState } from '../../store/game';
 import './game.css';
 
 const GameInfo = () => {
@@ -13,11 +13,11 @@ const GameInfo = () => {
         dispatch(findGames(String(gameName)));
     }, [dispatch]);
 
-    useEffect(() => {
-        dispatch(resetGameState());
-    }, [dispatch]);
+    // useEffect(() => {
+    //     dispatch(resetGameState());
+    // }, [dispatch]);
 
-    const game = useSelector((state) => state.games.game);
+    const game = useSelector((state) => state.game);
 
     return !game ? (
         <h1 className="loading">Loading...</h1>
@@ -85,7 +85,22 @@ const GameInfo = () => {
                         </p>
                     </div>
                     <p>Release Date: {game.released}</p>
-                    <p>Genres: {game.genres.join(', ')}</p>
+                    <p className="gameGenres">
+                        Genres:{' '}
+                        {game.genres.length > 1
+                            ? game.genres.join(', ')
+                            : game.genres.length === 1
+                            ? game.genres
+                            : 'N/A'}
+                    </p>
+                    <p className="gamePlatforms">
+                        Platforms:{' '}
+                        {game.platforms.length > 1
+                            ? game.platforms.join(', ')
+                            : game.platforms.length === 1
+                            ? game.platforms
+                            : 'N/A'}
+                    </p>
                 </div>
             </div>
         </div>

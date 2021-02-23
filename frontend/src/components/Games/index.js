@@ -1,9 +1,11 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
-import { loadGames } from '../../store/games';
 import { AspectRatio } from 'react-aspect-ratio';
 import { Link } from 'react-router-dom';
-import { setGameOrder } from '../../store/games';
+
+import { loadGames } from '../../store/games';
+import { setGameOrder } from '../../store/order';
+
 import 'react-aspect-ratio/aspect-ratio.css';
 import './games.css';
 
@@ -42,7 +44,7 @@ const Games = () => {
                                         style={{
                                             maxWidth: '200px',
                                             minWidth: '100px',
-                                            margin: '5px',
+                                            marginRight: '15px',
                                         }}
                                     >
                                         <img
@@ -82,6 +84,12 @@ const Games = () => {
                                                     : game.metacritic}
                                             </p>
                                         </div>
+                                        <p className="gameGenres">
+                                            Genres:{' '}
+                                            {game.genres
+                                                ? game.genres.join(', ')
+                                                : 'N/A'}
+                                        </p>
                                     </div>
 
                                     <div></div>

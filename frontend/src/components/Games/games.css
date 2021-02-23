@@ -54,21 +54,17 @@
     margin: 0;
 }
 
-.gameName {
+.gameName, .gameGenres, .metacritic {
     color: white;
     text-align: left;
     align-items: center;
     overflow: hidden;
     text-overflow: ellipsis;
-    margin: 0;
+    margin: 3px;
 }
 
 .metacritic {
-    color: white;
     display: flex;
-    padding: 0;
-    margin: 0;
-    height: 20px;
 }
 
 .metacritic p {
