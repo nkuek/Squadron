@@ -41,16 +41,15 @@ router.post(
             const apiData = await apiRes.json();
 
             // res === array of game objects from fetch search result
-            const res = apiData.results;
+            const apiResults = apiData.results;
 
             // must narrow down search results because api apparently doesn't have a very good serach function...
             // Iterate through keys of object to find the corrent game
-            let results;
-            for (let key in res) {
-                if (res[key].name === name) {
-                    results = res[key];
-                }
-            }
+
+            const gameKey = Object.keys(apiResults).find(
+                (key) => apiResults[key].name === name
+            );
+            const results = apiResults[gameKey];
 
             const newGame = await Game.create({
                 name: results.name,
@@ -62,9 +61,10 @@ router.post(
                 released: results.released,
             });
             return res.json(newGame);
+        } else {
+            console.log('res.json is a function');
+            return res.json(game);
         }
-
-        return res.json(game);
     })
 );
 
