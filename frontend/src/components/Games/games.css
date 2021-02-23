@@ -42,6 +42,8 @@
         flex-direction: row;
         align-items: center;
         width:fit-content;
+        max-width: 300px;
+        min-width: 300px
         /* margin: 0; */
     }
 
@@ -71,6 +73,129 @@
 
     .metacritic {
         display: flex;
+    }
+
+    .metacritic p {
+        margin: 0;
+    }
+
+    .gameRating {
+        padding-left: 5px;
+    }
+
+    /* Game Info Page Styling */
+    .gamePageWrapper {
+        background-color: black;
+        margin: 100px 20px;
+        padding: 30px;
+        border-radius: 10px;
+    }
+    .gamePageContainer {
+        display: flex;
+        background-color: rgba(75, 75, 75, 0.7);
+    }
+
+    .gamePageInfoContainer {
+        padding: 10px;
+        color: white;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+
+    .gamesContainer {
+        background-color: black;
+        margin: 60px 0px;
+        padding: 30px;
+        border-radius: 10px;
+        width: 90vw;
+        /* max-width: 500px; */
+    }
+    .loading {
+        font-size: 3em;
+        color: white;
+        margin-top: 100px;
+        width: 100%;
+        display: flex;
+        position: relative;
+        justify-content: center;
+    }
+    .gameCardContainer {
+        margin: 10px 0px;
+        display:inline-block;
+        flex-direction: row;
+        justify-content: flex-start;
+        background-color: rgba(75, 75, 75, 0.7);
+    }
+
+    .gameCardContainer a {
+        display: flex;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+
+
+    .gameCard {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .gameImageContainer {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width:fit-content;
+        max-width: 150px;
+        min-width: 150px
+        /* margin: 0; */
+    }
+
+    .gameInformationContainer {
+        /* width: 100%; */
+        display: flex;
+        width: 150px;
+        flex-direction: column;
+        justify-content: space-around;
+
+    }
+
+    .gameInformation {
+        position: relative;
+        margin-right: 5px;
+    }
+
+    .ratingTitle {
+        margin: 0;
+    }
+
+    .gameName {
+        color: white;
+        font-size: 1em;
+        margin-top: 10px;
+        text-align: left;
+        align-items: center;
+        margin-right: 5px;
+        text-overflow: ellipsis;
+        overflow:hidden
+    }
+
+    .gameGenres, .metacritic {
+        color: white;
+        font-size: .8em;
+        text-align: left;
+        align-items: center;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin: 0px;
+    }
+    .metacritic {
+        color: white;
+        display: flex;
+        padding: 0;
+        margin: 0;
+        height: 20px;
     }
 
     .metacritic p {

@@ -49,8 +49,6 @@ const Games = () => {
                                         className="gameImageContainer"
                                         ratio="16/9"
                                         style={{
-                                            maxWidth: '300px',
-                                            minWidth: '300px',
                                             marginRight: '15px',
                                         }}
                                     >
