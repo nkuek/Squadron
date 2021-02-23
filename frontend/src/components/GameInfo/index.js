@@ -10,7 +10,7 @@ const GameInfo = () => {
     const { gameName } = useParams();
 
     useEffect(() => {
-        dispatch(findGames(gameName));
+        dispatch(findGames(String(gameName)));
     }, [dispatch]);
 
     const game = useSelector((state) => state.games.game);

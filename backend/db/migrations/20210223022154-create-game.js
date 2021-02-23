@@ -16,7 +16,20 @@ module.exports = {
                 allowNull: false,
                 type: Sequelize.STRING,
             },
-            genre: {
+            genres: {
+                allowNull: false,
+                type: Sequelize.ARRAY(Sequelize.STRING),
+            },
+            rating: {
+                type: Sequelize.FLOAT,
+            },
+            metacritic: {
+                type: Sequelize.INTEGER,
+            },
+            platforms: {
+                type: Sequelize.ARRAY(Sequelize.STRING),
+            },
+            released: {
                 allowNull: false,
                 type: Sequelize.STRING,
             },
