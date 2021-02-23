@@ -1,3 +1,4 @@
+import { csrfFetch } from '../store/csrf';
 const API_KEY = process.env.REACT_APP_API_KEY_RAWG;
 
 const GET_GAMES = 'games/getGames';
@@ -14,9 +15,6 @@ export const findGame = (game) => ({
 });
 
 export const loadGames = (ordering) => async (dispatch) => {
-    const res = await fetch('/api/games');
-    const data = await res.json();
-
     const apiRes = await fetch(
         `https://api.rawg.io/api/games?key=${API_KEY}&metacritic=80,100&ordering=${ordering}`
     );
@@ -26,7 +24,6 @@ export const loadGames = (ordering) => async (dispatch) => {
         return {
             name: game.name,
             image: game.background_image,
-            next: apiData.next,
             metacritic: game.metacritic,
         };
     });
@@ -34,25 +31,34 @@ export const loadGames = (ordering) => async (dispatch) => {
     dispatch(getGames(games));
 };
 
-export const findGames = (game) => async (dispatch) => {
-    const searchParam = game.split(' ').join('%');
-    const apiRes = await fetch(
-        `https://api.rawg.io/api/games?key=${API_KEY}&search=${searchParam}&search_exact=true`
-    );
-    const apiData = await apiRes.json();
-    const results = apiData.results[0];
-    const gameInformation = {
-        name: results.name,
-        genres: results.genres.map((genre) => genre.name),
-        metacritic: results.metacritic,
-        rating: results.rating,
-        image: results.background_image,
-        platforms: results.platforms.map((platform) => platform.name),
-        released: results.released,
-    };
-
-    dispatch(findGame(gameInformation));
+export const findGames = (gameName) => async (dispatch) => {
+    const res = await csrfFetch('/api/games', {
+        method: 'POST',
+        body: JSON.stringify({ name: gameName }),
+    });
+    const game = await res.json();
+    dispatch(findGame(game));
 };
+
+// export const findGames = (gameName) => async (dispatch) => {
+//     const searchParam = gameName.split(' ').join('%');
+//     const apiRes = await fetch(
+//         `https://api.rawg.io/api/games?key=${API_KEY}&search=${searchParam}&search_exact=true`
+//     );
+//     const apiData = await apiRes.json();
+//     const results = apiData.results[0];
+//     const gameInformation = {
+//         name: results.name,
+//         genres: results.genres.map((genre) => genre.name),
+//         metacritic: results.metacritic,
+//         rating: results.rating,
+//         image: results.background_image,
+//         platforms: results.platforms.map((platform) => platform.name),
+//         released: results.released,
+//     };
+
+//     dispatch(findGame(gameInformation));
+// };
 
 const gamesReducer = (state = {}, action) => {
     switch (action.type) {
