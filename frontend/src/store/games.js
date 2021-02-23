@@ -14,6 +14,9 @@ export const findGame = (game) => ({
 });
 
 export const loadGames = (ordering) => async (dispatch) => {
+    const res = await fetch('/api/games');
+    const data = await res.json();
+
     const apiRes = await fetch(
         `https://api.rawg.io/api/games?key=${API_KEY}&metacritic=80,100&ordering=${ordering}`
     );
