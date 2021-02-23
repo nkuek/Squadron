@@ -4,20 +4,22 @@ const fetch = require('node-fetch');
 const asyncHandler = require('express-async-handler');
 const { Game } = require('../../db/models/');
 
-router.put(
-    '/',
-    asyncHandler(async (req, res) => {
-        const { order } = req.body;
-        if (order === '-metacritic') {
-            const games = await Game.findAll({
-                order: [['metacritic', 'DESC']],
-            });
-            res.json(games);
-        }
-        const games = await Game.findAll({ order: [['rating', 'DESC']] });
-        res.json(games);
-    })
-);
+// router.put(
+//     '/',
+//     asyncHandler(async (req, res) => {
+//         const { order } = req.body;
+//         if (order === '-metacritic') {
+//             const games = await Game.findAll({
+//                 order: [['metacritic', 'DESC']],
+//             });
+//             console.log(games);
+//             res.json(games);
+//         }
+//         const games = await Game.findAll({ order: [['rating', 'DESC']] });
+//         console.log(games);
+//         res.json(games);
+//     })
+// );
 
 router.post(
     '/',
@@ -57,12 +59,13 @@ router.post(
                 metacritic: Number(results.metacritic),
                 rating: Number(results.rating),
                 image: results.background_image,
-                platforms: results.platforms.map((platform) => platform.name),
+                platforms: results.platforms.map(
+                    (platform) => platform.platform.name
+                ),
                 released: results.released,
             });
             return res.json(newGame);
         } else {
-            console.log('res.json is a function');
             return res.json(game);
         }
     })

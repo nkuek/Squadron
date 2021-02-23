@@ -13,11 +13,9 @@ module.exports = {
                 type: Sequelize.STRING,
             },
             image: {
-                allowNull: false,
                 type: Sequelize.STRING,
             },
             genres: {
-                allowNull: false,
                 type: Sequelize.ARRAY(Sequelize.STRING),
             },
             rating: {
@@ -30,7 +28,6 @@ module.exports = {
                 type: Sequelize.ARRAY(Sequelize.STRING),
             },
             released: {
-                allowNull: false,
                 type: Sequelize.STRING,
             },
             createdAt: {

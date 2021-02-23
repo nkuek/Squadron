@@ -79,6 +79,7 @@ const GameInfo = () => {
                         </p>
                     </div>
                     <p>Release Date: {game.released}</p>
+                    <p>Genres: {game.genres.join(', ')}</p>
                 </div>
             </div>
         </div>
