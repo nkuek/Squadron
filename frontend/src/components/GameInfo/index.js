@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import AspectRatio from 'react-aspect-ratio';
 import { findGames } from '../../store/games';
+import './game.css';
 
 const GameInfo = () => {
     const dispatch = useDispatch();
@@ -17,7 +18,7 @@ const GameInfo = () => {
         <h1 className="loading">Loading...</h1>
     ) : (
         <div className="gamePageWrapper">
-            <h2 className="gameName" style={{ paddingBottom: '20px' }}>
+            <h2 className="gameNameCard" style={{ paddingBottom: '20px' }}>
                 {game.name}
             </h2>
             <div className="gamePageContainer">

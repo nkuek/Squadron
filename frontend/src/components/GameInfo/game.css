@@ -1,0 +1,62 @@
+/* Small Screens */
+@media only screen and (max-width: 500px) {
+    .gamePageWrapper {
+        background-color: black;
+        display:flex;
+        justify-content: center;
+        flex-direction: column;
+        margin: 100px 20px;
+        padding: 30px;
+        width: auto;
+        border-radius: 10px;
+    }
+    .gamePageContainer {
+        display: flex;
+        flex-direction: column;
+        background-color: rgba(75, 75, 75, 0.7);
+    }
+
+    .gamePageInfoContainer {
+        padding: 10px;
+        color: white;
+    }
+
+    .gameNameCard {
+        color: white;
+        text-align: left;
+        align-items: center;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin: 0;
+    }
+}
+
+@media only screen and (min-width: 400px) {
+    .gamePageWrapper {
+        background-color: black;
+        display:flex;
+        flex-direction: column;
+        margin: 100px 20px;
+        padding: 30px;
+        width: auto;
+        border-radius: 10px;
+    }
+    .gamePageContainer {
+        display: flex;
+        background-color: rgba(75, 75, 75, 0.7);
+    }
+
+    .gamePageInfoContainer {
+        padding: 10px;
+        color: white;
+    }
+
+    .gameNameCard {
+        color: white;
+        text-align: left;
+        align-items: center;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin: 0;
+    }
+}

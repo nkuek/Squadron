@@ -1,235 +1,484 @@
+/* Small Screens */
+@media only screen and (max-width: 400px) {
+
+    .homePageWrapper {
+        position: relative;
+        width: 100%;
+    }
+    .homePageContent {
+        display: flex;
+        flex-direction: column;
+        /* position: absolute; */
+        /* padding: 50px; */
+        /* left: 30px; */
+        width: 100%;
+        /* height: 30%; */
+    }
+    .homePageBanner {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        padding-left: 50px;
+        padding-top: 50px;
+        right: -30px;
+        margin-bottom: 20px;
+        border-radius: 10px;
+        background-color: rgba(0, 0, 0, 0.4);
+    }
+    .homePageHeader {
+        font-size: 4rem;
+        color: white;
+        font-weight: bold;
+        font-family: 'Roboto Condensed';
+        font-style: italic;
+        text-shadow: 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black;
+    }
+
+    .homePageSubHeader {
+        color: white;
+        margin: 0;
+        margin-bottom: 20px;
+        font-size: 2rem;
+        text-shadow: 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black;
+        width: 80%;
+        text-transform: uppercase;
+    }
+
+    .joinSquadronContainer {
+        margin: 10px;
+        padding-bottom: 20px;
+        /* width: fit-content; */
+    }
+
+    .joinSquadron {
+        color: white;
+        background-color: blueviolet;
+        border-radius: 5px;
+        padding: 10px;
+        width: 100%;
+    }
+
+    .joinSquadron:visited {
+        color: white;
+    }
+
+    .joinSquadron:hover {
+        background-color: teal;
+    }
+
+    .homePageEventsContainer {
+        padding: 10px;
+        margin-left: 25px;
+        margin-right: 25px;
+        margin-bottom: 25px;
+        background-color: white;
+        border: 1px solid #d3d3d3;
+        border-radius: 20px;
+        width: 80%;
+        height: auto;
+        position: relative;
+    }
+
+    .homePageEventsHeader {
+        display: flex;
+        margin-right: 10px;
+        justify-content: space-between;
+        align-items: center;
+        font-weight: bold;
+    }
+
+    .upcomingEvents {
+        margin-left: 10px;
+    }
+
+    .allEventsLink {
+        margin-right: 15px;
+    }
+
+    .allEventsLink:hover {
+        color: teal;
+    }
+
+    .homePageEventList {
+        display: flex;
+        list-style: none;
+        overflow-x: scroll;
+    }
+
+    .eventItemWrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        position: relative;
+        padding: 0px;
+        background-clip: padding-box;
+        background-size: cover;
+        height: 350px;
+        width: 250px;
+        overflow-wrap: break-word;
+        border-radius: 5px;
+        border: 1px solid #d3d3d3;
+    }
+
+    .eventItemContent {
+        box-sizing: border-box;
+        margin: 0px;
+        min-width: 0px;
+        display: flex;
+        justify-content: flex-start;
+        width: 100%;
+        height: 100%;
+    }
+
+    .eventLink {
+        display: block;
+        cursor: pointer;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        z-index: 1;
+        overflow: hidden;
+    }
+
+    .eventItem {
+        width: auto;
+        padding-left: 20px;
+        padding-bottom: 4px;
+        margin: 0;
+        display: flex;
+        flex: 0 0 auto;
+        box-sizing: border-box;
+        justify-content: center;
+
+    }
+
+    .imageContainer {
+        position: absolute;
+        display:block
+    }
+
+    .informationContainer {
+        width: 100%;
+        padding-top: 10px;
+        padding-left: 10px;
+        text-overflow:ellipsis;
+        overflow: hidden;
+        white-space: nowrap
+    }
+
+    .informationContainer p {
+        margin: 5px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .eventContainer {
+        /* margin: 5px; */
+        display: flex;
+        flex-direction: column;
+        /* padding: 15px; */
+        margin: 0px;
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+        overflow: hidden;
+    }
+
+    .imageContainerWrapper {
+        width: 100%;
+        height: 140px;
+    }
+
+    .image {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center center;
+        display: block;
+        margin: 0;
+        padding: 0;
+    }
+
+    .eventGameLinkContainer {
+        width: 100%;
+        text-overflow:ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+
+    .eventGame {
+        margin: 5px;
+        width: 100%;
+        cursor: pointer;
+        z-index: 0;
+        position: relative;
+    }
+
+    .eventGame:hover {
+        color: teal;
+    }
+
+    .eventDate {
+        font-style:italic;
+        font-weight: bold;
+        font-size: .8em;
+        color: rgb(183, 0, 255)
+    }
+
+    tbody {
+        font-size: .8em;
+    }
+
+    .eventTitle {
+        font-size: .9em;
+    }
+
+    ul {
+        list-style: none;
+    }
+}
+
+/* Large Screens */
+@media only screen and (min-width: 400px) {
+
 .homePageWrapper {
-    position: relative;
-    width: 100%;
-}
-.homePageContent {
-    display: flex;
-    flex-direction: column;
-    /* position: absolute; */
-    /* padding: 50px; */
-    /* left: 30px; */
-    width: 100%;
-    /* height: 30%; */
-}
-.homePageBanner {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    padding-left: 50px;
-    padding-top: 50px;
-    right: -30px;
-    margin-bottom: 20px;
-    border-radius: 10px;
-    background-color: rgba(0, 0, 0, 0.4);
-}
-.homePageHeader {
-    font-size: 4rem;
-    color: white;
-    font-weight: bold;
-    font-family: 'Roboto Condensed';
-    font-style: italic;
-    text-shadow: 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black;
-}
+        position: relative;
+        width: 100%;
+    }
+    .homePageContent {
+        display: flex;
+        flex-direction: column;
+        /* position: absolute; */
+        /* padding: 50px; */
+        /* left: 30px; */
+        width: 100%;
+        /* height: 30%; */
+    }
+    .homePageBanner {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        padding-left: 50px;
+        padding-top: 50px;
+        right: -30px;
+        margin-bottom: 20px;
+        border-radius: 10px;
+        background-color: rgba(0, 0, 0, 0.4);
+    }
+    .homePageHeader {
+        font-size: 4rem;
+        color: white;
+        font-weight: bold;
+        font-family: 'Roboto Condensed';
+        font-style: italic;
+        text-shadow: 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black;
+    }
 
-.homePageSubHeader {
-    color: white;
-    margin: 0;
-    margin-bottom: 20px;
-    font-size: 2rem;
-    text-shadow: 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black;
-    width: 80%;
-    text-transform: uppercase;
-}
+    .homePageSubHeader {
+        color: white;
+        margin: 0;
+        margin-bottom: 20px;
+        font-size: 2rem;
+        text-shadow: 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black;
+        width: 80%;
+        text-transform: uppercase;
+    }
 
-.joinSquadronContainer {
-    margin: 10px;
-    padding-bottom: 20px;
-    /* width: fit-content; */
-}
+    .joinSquadronContainer {
+        margin: 10px;
+        padding-bottom: 20px;
+        /* width: fit-content; */
+    }
 
-.joinSquadron {
-    color: white;
-    background-color: blueviolet;
-    border-radius: 5px;
-    padding: 10px;
-    width: 100%;
-}
+    .joinSquadron {
+        color: white;
+        background-color: blueviolet;
+        border-radius: 5px;
+        padding: 10px;
+        width: 100%;
+    }
 
-.joinSquadron:visited {
-    color: white;
-}
+    .joinSquadron:visited {
+        color: white;
+    }
 
-.joinSquadron:hover {
-    background-color: teal;
-}
+    .joinSquadron:hover {
+        background-color: teal;
+    }
 
-.homePageEventsContainer {
-    padding: 10px;
-    margin-left: 50px;
-    background-color: white;
-    border: 1px solid #d3d3d3;
-    border-radius: 20px;
-    width: 90%;
-    height: auto;
-    position: relative;
-}
+    .homePageEventsContainer {
+        padding: 10px;
+        margin-left: 50px;
+        margin-right: 50px;
+        background-color: white;
+        border: 1px solid #d3d3d3;
+        border-radius: 20px;
+        width: 90%;
+        height: auto;
+        position: relative;
+    }
 
-.homePageEventsHeader {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-weight: bold;
-}
+    .homePageEventsHeader {
+        display: flex;
+        margin-right: 10px;
+        justify-content: space-between;
+        align-items: center;
+        font-weight: bold;
+    }
 
-.upcomingEvents {
-    margin-left: 10px;
-}
+    .upcomingEvents {
+        margin-left: 10px;
+    }
 
-.allEventsLink {
-    margin-right: 15px;
-}
+    .allEventsLink {
+        margin-right: 15px;
+    }
 
-.allEventsLink:hover {
-    color: teal;
-}
+    .allEventsLink:hover {
+        color: teal;
+    }
 
-.homePageEventList {
-    display: flex;
-    list-style: none;
-    overflow-x: scroll;
-}
+    .homePageEventList {
+        display: flex;
+        list-style: none;
+        overflow-x: scroll;
+    }
 
-.eventItemWrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    position: relative;
-    padding: 0px;
-    background-clip: padding-box;
-    background-size: cover;
-    height: 350px;
-    width: 250px;
-    overflow-wrap: break-word;
-    border-radius: 5px;
-    border: 1px solid #d3d3d3;
-}
+    .eventItemWrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        position: relative;
+        padding: 0px;
+        background-clip: padding-box;
+        background-size: cover;
+        height: 350px;
+        width: 250px;
+        overflow-wrap: break-word;
+        border-radius: 5px;
+        border: 1px solid #d3d3d3;
+    }
 
-.eventItemContent {
-    box-sizing: border-box;
-    margin: 0px;
-    min-width: 0px;
-    display: flex;
-    justify-content: flex-start;
-    width: 100%;
-    height: 100%;
-}
+    .eventItemContent {
+        box-sizing: border-box;
+        margin: 0px;
+        min-width: 0px;
+        display: flex;
+        justify-content: flex-start;
+        width: 100%;
+        height: 100%;
+    }
 
-.eventLink {
-    display: block;
-    cursor: pointer;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    z-index: 1;
-    overflow: hidden;
-}
+    .eventLink {
+        display: block;
+        cursor: pointer;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        z-index: 1;
+        overflow: hidden;
+    }
 
-.eventItem {
-    width: auto;
-    padding-left: 20px;
-    padding-bottom: 4px;
-    margin: 0;
-    display: flex;
-    flex: 0 0 auto;
-    box-sizing: border-box;
-    justify-content: center;
+    .eventItem {
+        width: auto;
+        padding-left: 20px;
+        padding-bottom: 4px;
+        margin: 0;
+        display: flex;
+        flex: 0 0 auto;
+        box-sizing: border-box;
+        justify-content: center;
 
-}
+    }
 
-.imageContainer {
-    position: absolute;
-    display:block
-}
+    .imageContainer {
+        position: absolute;
+        display:block
+    }
 
-.informationContainer {
-    width: 100%;
-    padding-top: 10px;
-    padding-left: 10px;
-    text-overflow:ellipsis;
-    overflow: hidden;
-    white-space: nowrap
-}
+    .informationContainer {
+        width: 100%;
+        padding-top: 10px;
+        padding-left: 10px;
+        text-overflow:ellipsis;
+        overflow: hidden;
+        white-space: nowrap
+    }
 
-.informationContainer p {
-    margin: 5px;
-    display: flex;
-    flex-direction: column;
-}
+    .informationContainer p {
+        margin: 5px;
+        display: flex;
+        flex-direction: column;
+    }
 
-.eventContainer {
-    /* margin: 5px; */
-    display: flex;
-    flex-direction: column;
-    /* padding: 15px; */
-    margin: 0px;
-    width: 100%;
-    height: 100%;
-    box-sizing: border-box;
-    overflow: hidden;
-}
+    .eventContainer {
+        /* margin: 5px; */
+        display: flex;
+        flex-direction: column;
+        /* padding: 15px; */
+        margin: 0px;
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+        overflow: hidden;
+    }
 
-.imageContainerWrapper {
-    width: 100%;
-    height: 140px;
-}
+    .imageContainerWrapper {
+        width: 100%;
+        height: 140px;
+    }
 
-.image {
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center center;
-    display: block;
-    margin: 0;
-    padding: 0;
-}
+    .image {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center center;
+        display: block;
+        margin: 0;
+        padding: 0;
+    }
 
-.eventGameLinkContainer {
-    width: 100%;
-    text-overflow:ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
-}
+    .eventGameLinkContainer {
+        width: 100%;
+        text-overflow:ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+    }
 
-.eventGame {
-    margin: 5px;
-    width: 100%;
-    cursor: pointer;
-    z-index: 0;
-    position: relative;
-}
+    .eventGame {
+        margin: 5px;
+        width: 100%;
+        cursor: pointer;
+        z-index: 0;
+        position: relative;
+    }
 
-.eventGame:hover {
-    color: teal;
-}
+    .eventGame:hover {
+        color: teal;
+    }
 
-.eventDate {
-    font-style:italic;
-    font-weight: bold;
-    font-size: .8em;
-    color: rgb(183, 0, 255)
-}
+    .eventDate {
+        font-style:italic;
+        font-weight: bold;
+        font-size: .8em;
+        color: rgb(183, 0, 255)
+    }
 
-tbody {
-    font-size: .8em;
-}
+    tbody {
+        font-size: .8em;
+    }
 
-.eventTitle {
-    font-size: .9em;
-}
+    .eventTitle {
+        font-size: .9em;
+    }
 
-ul {
-    list-style: none;
+    ul {
+        list-style: none;
+    }
 }
