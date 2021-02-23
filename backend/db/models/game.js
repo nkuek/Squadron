@@ -17,8 +17,5 @@ module.exports = (sequelize, DataTypes) => {
         // associations can be defined here
     };
 
-    Game.loadGames = async () => {
-        return await Game.findAll();
-    };
     return Game;
 };
