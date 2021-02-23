@@ -9,10 +9,12 @@ const { User } = require('../../db/models');
 const sessionRouter = require('./session');
 const usersRouter = require('./users');
 const gamesRouter = require('./games');
+const squadsRouter = require('./squads');
 
 router.use('/session', sessionRouter);
 router.use('/users', usersRouter);
 router.use('/games', gamesRouter);
+router.use('/squads', squadsRouter);
 
 // User Auth Route Testing
 router.post('/test', (req, res) => {

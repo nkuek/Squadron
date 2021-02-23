@@ -14,6 +14,9 @@ module.exports = (sequelize, DataTypes) => {
                 type: DataTypes.STRING,
                 allowNull: false,
                 defaultValue: 'No description',
+                validate: {
+                    len: [1, 256],
+                },
             },
             captain: {
                 type: DataTypes.INTEGER,
@@ -30,6 +33,7 @@ module.exports = (sequelize, DataTypes) => {
             through: 'Squadmates',
             as: 'users',
             foreignKey: 'squadId',
+            otherKey: 'userId',
         });
     };
     return Squad;

@@ -60,6 +60,7 @@ module.exports = (sequelize, DataTypes) => {
             through: 'Squadmates',
             as: 'squads',
             foreignKey: 'userId',
+            otherKey: 'squadId',
         });
     };
 
