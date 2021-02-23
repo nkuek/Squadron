@@ -4,10 +4,17 @@ const fetch = require('node-fetch');
 const asyncHandler = require('express-async-handler');
 const { Game } = require('../../db/models/');
 
-router.get(
+router.put(
     '/',
     asyncHandler(async (req, res) => {
-        const games = await Game.loadGames();
+        const { order } = req.body;
+        if (order === 'metacritic') {
+            const games = await Game.findAll({
+                order: [['metacritic', 'DESC']],
+            });
+            res.json(games);
+        }
+        const games = await Game.findAll({ order: [['rating', 'DESC']] });
         res.json(games);
     })
 );

@@ -15,7 +15,10 @@ export const findGame = (game) => ({
 });
 
 export const loadGames = (ordering) => async (dispatch) => {
-    const res = await csrfFetch('/api/games');
+    const res = await csrfFetch('/api/games', {
+        method: 'PUT',
+        body: JSON.stringify({ order: ordering }),
+    });
     const games = await res.json();
     dispatch(getGames(games));
 };
