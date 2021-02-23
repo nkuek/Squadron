@@ -27,7 +27,7 @@ const Games = () => {
         <div className="gamesContainer">
             <select value={order} onChange={(e) => setOrdering(e.target.value)}>
                 <option value="">Most Popular</option>
-                <option value="metacritic">Rating</option>
+                <option value="-metacritic">Rating</option>
             </select>
             <ul className="gamesList">
                 {Object.keys(games).map((idx) => {

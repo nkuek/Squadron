@@ -8,7 +8,7 @@ router.put(
     '/',
     asyncHandler(async (req, res) => {
         const { order } = req.body;
-        if (order === 'metacritic') {
+        if (order === '-metacritic') {
             const games = await Game.findAll({
                 order: [['metacritic', 'DESC']],
             });
