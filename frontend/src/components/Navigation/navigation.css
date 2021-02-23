@@ -8,8 +8,6 @@ a:visited {
     color: black
 }
 
-
-
 ul {
     padding:0;
 }
@@ -281,15 +279,14 @@ ul {
     .profileMenu {
         position: absolute;
         display: flex;
+        padding: 10px;
         flex-direction: column;
         justify-content: space-evenly;
         box-sizing: border-box;
         border-left: 1px solid rgb(146, 145, 145);
-        border-right: 1px solid  rgb(146, 145, 145);
         border-bottom: 1px solid  rgb(146, 145, 145);
+        right: 0px;
         top: 45.45px;
-        right: 4px;
-        height: 100px;
         background-color: white;
         list-style: none;
         width: auto;
@@ -365,13 +362,12 @@ ul {
     .stickyDropDownMenu {
         position: absolute;
         box-sizing: border-box;
-        border-left: 1px solid rgb(146, 145, 145);
         border-right: 1px solid  rgb(146, 145, 145);
         border-bottom: 1px solid  rgb(146, 145, 145);
         z-index: -1;
         top: 61px;
         background-color: white;
-        left: 20px;
+        /* left: 20px; */
         /* padding: 10px; */
         display: none;
         width: auto;

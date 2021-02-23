@@ -57,6 +57,10 @@
     color: white;
 }
 
+.joinSquadron:hover {
+    background-color: teal;
+}
+
 .homePageEventsContainer {
     padding: 10px;
     margin-left: 50px;
@@ -118,9 +122,12 @@
 }
 
 .eventLink {
-    display: inline;
+    display: block;
     cursor: pointer;
     width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 1;
 }
 
 .eventItem {
@@ -141,6 +148,7 @@
 }
 
 .informationContainer {
+    width: 100%;
     text-overflow:ellipsis;
     overflow: hidden;
     white-space: nowrap
@@ -148,6 +156,8 @@
 
 .informationContainer p {
     margin: 5px;
+    display: flex;
+    flex-direction: column;
 }
 
 .eventContainer {
@@ -179,9 +189,23 @@
     padding: 0;
 }
 
+.eventGameLinkContainer {
+    width: 100%;
+    text-overflow:ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
 .eventGame {
     margin: 5px;
-    width: 100px;
+    width: 100%;
+    cursor: pointer;
+    z-index: 0;
+    position: relative;
+}
+
+.eventGame:hover {
+    color: teal;
 }
 
 .eventDate {

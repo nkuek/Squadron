@@ -57,7 +57,6 @@ const gamesReducer = (state = {}, action) => {
             return { ...state, ...action.games };
 
         case FIND_GAME:
-            console.log('hello');
             return { ...state, ...action.games, game: action.game };
         default:
             return state;

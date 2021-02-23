@@ -1,10 +1,10 @@
 .gamesContainer {
     background-color: black;
-    margin: 20px;
+    margin: 100px 20px;
     padding: 20px;
     border-radius: 10px;
-    width: 100%;
-    max-width: 700px;
+    width: 500px;
+    /* max-width: 500px; */
 }
 .loading {
     color: white;
@@ -83,7 +83,7 @@
 /* Game Info Page Styling */
 .gamePageWrapper {
     background-color: black;
-    margin-top: 30px;
+    margin: 100px 20px;
     padding: 30px;
     border-radius: 10px;
 }
