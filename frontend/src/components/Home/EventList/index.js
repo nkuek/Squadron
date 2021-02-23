@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import EventCard from './EventCard';
 const EventList = () => {
+    const user = useSelector((state) => state.session.user);
     const testEvents = [
         {
             id: 1,
@@ -31,7 +33,10 @@ const EventList = () => {
         },
     ];
     return (
-        <div className="homePageEventsContainer">
+        <div
+            className="homePageEventsContainer"
+            style={user ? { margin: '100px 50px' } : {}}
+        >
             <div className="homePageEvents">
                 <div className="homePageEventsHeader">
                     <h2 className="upcomingEvents">Upcoming Events</h2>
