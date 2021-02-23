@@ -3,27 +3,29 @@ import { useEffect, useState } from 'react';
 import { loadGames } from '../../store/games';
 import { AspectRatio } from 'react-aspect-ratio';
 import { Link } from 'react-router-dom';
+import { setGameOrder } from '../../store/games';
 import 'react-aspect-ratio/aspect-ratio.css';
 import './games.css';
 
 const Games = () => {
     const dispatch = useDispatch();
-    const [ordering, setOrdering] = useState('');
 
+    const games = useSelector((state) => state.games);
+    const order = useSelector((state) => state.order);
+    const [ordering, setOrdering] = useState('');
     useEffect(() => {
         dispatch(loadGames(ordering));
     }, [ordering]);
 
-    const games = useSelector((state) => state.games);
+    useEffect(() => {
+        dispatch(setGameOrder(ordering));
+    }, [dispatch, ordering]);
 
     return Object.keys(games).length === 0 ? (
         <h1 className="loading">Loading...</h1>
     ) : (
         <div className="gamesContainer">
-            <select
-                value={ordering}
-                onChange={(e) => setOrdering(e.target.value)}
-            >
+            <select value={order} onChange={(e) => setOrdering(e.target.value)}>
                 <option value="">Most Popular</option>
                 <option value="metacritic">Rating</option>
             </select>
@@ -61,10 +63,17 @@ const Games = () => {
                                                             : game.metacritic >
                                                               60
                                                             ? 'yellow'
-                                                            : 'red',
+                                                            : game.metacritic <
+                                                                  60 &&
+                                                              game.metacritic >
+                                                                  0
+                                                            ? 'red'
+                                                            : 'white',
                                                 }}
                                             >
-                                                {game.metacritic}
+                                                {game.metacritic === 0
+                                                    ? 'N/A'
+                                                    : game.metacritic}
                                             </p>
                                         </div>
                                     </div>

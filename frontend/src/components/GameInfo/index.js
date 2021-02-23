@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import AspectRatio from 'react-aspect-ratio';
-import { findGames } from '../../store/games';
+import { findGames, resetGameState } from '../../store/games';
 import './game.css';
 
 const GameInfo = () => {
@@ -13,7 +13,12 @@ const GameInfo = () => {
         dispatch(findGames(String(gameName)));
     }, [dispatch]);
 
+    useEffect(() => {
+        dispatch(resetGameState());
+    }, [dispatch]);
+
     const game = useSelector((state) => state.games.game);
+
     return !game ? (
         <h1 className="loading">Loading...</h1>
     ) : (
@@ -46,10 +51,13 @@ const GameInfo = () => {
                                         ? 'lightgreen'
                                         : game.metacritic > 60
                                         ? 'yellow'
-                                        : 'red',
+                                        : game.metacritic < 60 &&
+                                          game.metacritic > 0
+                                        ? 'red'
+                                        : 'white',
                             }}
                         >
-                            {game.metacritic}
+                            {game.metacritic === 0 ? 'N/A' : game.metacritic}
                         </p>
                     </div>
                     <div className="metacritic">
