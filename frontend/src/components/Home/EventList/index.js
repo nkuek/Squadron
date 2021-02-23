@@ -8,6 +8,8 @@ const EventList = () => {
             date: 'Today',
             squadId: 'The Global Elite',
             gameId: 'Counter-Strike: Global Offensive',
+            image:
+                'https://media.rawg.io/media/games/736/73619bd336c894d6941d926bfd563946.jpg',
         },
         {
             id: 2,
@@ -15,6 +17,8 @@ const EventList = () => {
             date: 'Tomorrow',
             squadId: 'Noobs',
             gameId: 'World of Warcraft',
+            image:
+                'https://media.rawg.io/media/games/0d9/0d930ea604ee240c5af30c58f73ddf48.jpg',
         },
         {
             id: 3,
@@ -22,6 +26,8 @@ const EventList = () => {
             date: 'Two Days From Now',
             squadId: 'Lorem Ipsum',
             gameId: 'Valheim',
+            image:
+                'https://media.rawg.io/media/screenshots/822/822b62b0b0e1940787d32565ac738e92.jpg',
         },
     ];
     return (
