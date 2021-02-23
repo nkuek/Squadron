@@ -27,7 +27,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 form {
-    margin: 100px;
+    padding: 80px 100px;
 }
 
 label {
@@ -35,7 +35,7 @@ label {
     top: 0;
     left: 0;
     color: #919090;
-    transition: 0.1s;
+    transition: 0.2s;
     cursor: text;
     background:white;
     background-color: rgba(0,0,0,0);

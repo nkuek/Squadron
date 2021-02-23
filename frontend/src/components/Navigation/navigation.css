@@ -56,7 +56,7 @@ ul {
 
     .logoutButton {
         padding: 5px 10px 5px 10px;
-        background-color: #3576f8;
+        background-color: #1b67ff;
         border-radius: 5px;
         color: white
     }
@@ -74,7 +74,7 @@ ul {
     .signup {
         padding: 5px 10px 5px 10px;
         width: 50px;
-        background-color: #3576f8;
+        background-color: #1b67ff;
         border-radius: 5px;
         font-size: .8em;
         height: 20px;
@@ -253,7 +253,7 @@ ul {
 
     .signup, .logoutButton {
         padding: 5px 10px 5px 10px;
-        background-color: #3576f8;
+        background-color: #1b67ff;
         border-radius: 5px;
         color: white
     }

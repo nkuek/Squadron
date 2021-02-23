@@ -2,7 +2,9 @@
 div {
     display: block;
 }
-
+/* ======================= */
+/*     SMALL SCREENS       */
+/* ======================= */
 @media only screen and (max-width: 600px) {
 
 .signup-content {
@@ -78,7 +80,7 @@ input:valid~label {
         width: 85%;
         height: 22px;
         line-height: 44px;
-        margin: 20px;
+        margin: 30px;
         right: 50px;
         font-size: .7rem;
         text-align: left;
