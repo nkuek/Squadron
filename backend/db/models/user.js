@@ -56,7 +56,11 @@ module.exports = (sequelize, DataTypes) => {
         }
     );
     User.associate = function (models) {
-        // associations can be defined here
+        Users.belongsToMany(models.Squad, {
+            through: 'Squadmates',
+            as: 'squads',
+            foreignKey: 'userId',
+        });
     };
 
     User.prototype.toSafeObject = function () {

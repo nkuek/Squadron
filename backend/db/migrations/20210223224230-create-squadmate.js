@@ -1,31 +1,34 @@
 'use strict';
 module.exports = {
     up: (queryInterface, Sequelize) => {
-        return queryInterface.createTable('Squads', {
+        return queryInterface.createTable('Squadmates', {
             id: {
                 allowNull: false,
                 autoIncrement: true,
                 primaryKey: true,
                 type: Sequelize.INTEGER,
             },
-            squadName: {
+            userId: {
                 allowNull: false,
-                type: Sequelize.STRING,
+                type: Sequelize.INTEGER,
             },
-            genres: {
-                type: Sequelize.ARRAY(Sequelize.STRING),
+            squadId: {
+                allowNull: false,
+                type: Sequelize.INTEGER,
             },
             createdAt: {
                 allowNull: false,
                 type: Sequelize.DATE,
+                defaultValue: Sequelize.fn('now'),
             },
             updatedAt: {
                 allowNull: false,
                 type: Sequelize.DATE,
+                defaultValue: Sequelize.fn('now'),
             },
         });
     },
     down: (queryInterface, Sequelize) => {
-        return queryInterface.dropTable('Squads');
+        return queryInterface.dropTable('Squadmates');
     },
 };
