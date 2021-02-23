@@ -13,10 +13,12 @@ const Games = () => {
     const dispatch = useDispatch();
 
     const games = useSelector((state) => state.games);
-    const order = useSelector((state) => state.order);
-    const [ordering, setOrdering] = useState('');
+    const order = localStorage.getItem('order');
+
+    const [ordering, setOrdering] = useState(!order ? '' : order);
     useEffect(() => {
         dispatch(loadGames(ordering));
+        localStorage.setItem('order', ordering);
     }, [ordering]);
 
     useEffect(() => {
@@ -27,7 +29,12 @@ const Games = () => {
         <h1 className="loading">Loading...</h1>
     ) : (
         <div className="gamesContainer">
-            <select value={order} onChange={(e) => setOrdering(e.target.value)}>
+            <select
+                value={ordering}
+                onChange={(e) => {
+                    setOrdering(e.target.value);
+                }}
+            >
                 <option value="">Most Popular</option>
                 <option value="-metacritic">Rating</option>
             </select>
