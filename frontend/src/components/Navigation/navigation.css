@@ -285,7 +285,6 @@ ul {
     .profileMenu {
         position: absolute;
         display: flex;
-        padding: 10px;
         flex-direction: column;
         justify-content: space-evenly;
         box-sizing: border-box;
