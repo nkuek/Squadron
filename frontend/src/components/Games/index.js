@@ -49,8 +49,8 @@ const Games = () => {
                                         className="gameImageContainer"
                                         ratio="16/9"
                                         style={{
-                                            maxWidth: '200px',
-                                            minWidth: '100px',
+                                            maxWidth: '300px',
+                                            minWidth: '300px',
                                             marginRight: '15px',
                                         }}
                                     >
@@ -63,40 +63,47 @@ const Games = () => {
                                         />
                                     </AspectRatio>
                                     <div className="gameInformationContainer">
-                                        <p className="gameName">{game.name}</p>
-                                        <div className="metacritic">
-                                            <p>Metacritic:</p>
-                                            <p
-                                                className="gameRating"
-                                                style={{
-                                                    color:
-                                                        game.metacritic >= 90
-                                                            ? '#00ff00'
-                                                            : game.metacritic >=
-                                                              80
-                                                            ? 'lightgreen'
-                                                            : game.metacritic >
-                                                              60
-                                                            ? 'yellow'
-                                                            : game.metacritic <
-                                                                  60 &&
-                                                              game.metacritic >
-                                                                  0
-                                                            ? 'red'
-                                                            : 'white',
-                                                }}
-                                            >
-                                                {game.metacritic === 0
-                                                    ? 'N/A'
-                                                    : game.metacritic}
+                                        <div className="nameContainer">
+                                            <p className="gameName">
+                                                {game.name}
                                             </p>
                                         </div>
-                                        <p className="gameGenres">
-                                            Genres:{' '}
-                                            {game.genres
-                                                ? game.genres.join(', ')
-                                                : 'N/A'}
-                                        </p>
+                                        <div className="gameInformation">
+                                            <div className="metacritic">
+                                                <p>Metacritic:</p>
+                                                <p
+                                                    className="gameRating"
+                                                    style={{
+                                                        color:
+                                                            game.metacritic >=
+                                                            90
+                                                                ? '#00ff00'
+                                                                : game.metacritic >=
+                                                                  80
+                                                                ? 'lightgreen'
+                                                                : game.metacritic >
+                                                                  60
+                                                                ? 'yellow'
+                                                                : game.metacritic <
+                                                                      60 &&
+                                                                  game.metacritic >
+                                                                      0
+                                                                ? 'red'
+                                                                : 'white',
+                                                    }}
+                                                >
+                                                    {game.metacritic === 0
+                                                        ? 'N/A'
+                                                        : game.metacritic}
+                                                </p>
+                                            </div>
+                                            <p className="gameGenres">
+                                                Genres:{' '}
+                                                {game.genres
+                                                    ? game.genres.join(', ')
+                                                    : 'N/A'}
+                                            </p>
+                                        </div>
                                     </div>
 
                                     <div></div>
