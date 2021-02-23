@@ -33,6 +33,8 @@
 
 .homePageSubHeader {
     color: white;
+    margin: 0;
+    margin-bottom: 20px;
     font-size: 2rem;
     text-shadow: 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black;
     width: 80%;
@@ -94,6 +96,7 @@
 .homePageEventList {
     display: flex;
     list-style: none;
+    overflow-x: scroll;
 }
 
 .eventItemWrapper {
@@ -128,6 +131,7 @@
     height: 100%;
     position: absolute;
     z-index: 1;
+    overflow: hidden;
 }
 
 .eventItem {
@@ -149,6 +153,8 @@
 
 .informationContainer {
     width: 100%;
+    padding-top: 10px;
+    padding-left: 10px;
     text-overflow:ellipsis;
     overflow: hidden;
     white-space: nowrap
@@ -164,11 +170,12 @@
     /* margin: 5px; */
     display: flex;
     flex-direction: column;
-    padding: 15px;
+    /* padding: 15px; */
     margin: 0px;
     width: 100%;
     height: 100%;
     box-sizing: border-box;
+    overflow: hidden;
 }
 
 .imageContainerWrapper {

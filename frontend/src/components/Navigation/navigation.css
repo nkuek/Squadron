@@ -101,11 +101,10 @@ ul {
         justify-content: space-evenly;
         box-sizing: border-box;
         border-left: 1px solid rgb(146, 145, 145);
-        border-right: 1px solid  rgb(146, 145, 145);
         border-bottom: 1px solid  rgb(146, 145, 145);
         top: 45.45px;
-        right: 4px;
         height: 100px;
+        right: 0px;
         background-color: white;
         list-style: none;
         width: auto;
@@ -181,14 +180,11 @@ ul {
     .stickyDropDownMenu {
         position: absolute;
         box-sizing: border-box;
-        border-left: 1px solid rgb(146, 145, 145);
         border-right: 1px solid  rgb(146, 145, 145);
         border-bottom: 1px solid  rgb(146, 145, 145);
         z-index: -1;
         top: 61px;
         background-color: white;
-        left: 20px;
-        /* padding: 10px; */
         display: none;
         width: auto;
     }
@@ -200,6 +196,16 @@ ul {
 
     .stickyDropDownMenu ul {
         list-style: none;
+    }
+    .navBarLinks {
+        display: flex;
+        width: auto;
+        padding: 10px;
+        justify-content: center;
+    }
+    .navBarLinks:hover, .login:hover {
+        color: teal;
+        background-color: #e2e0e0;
     }
 
 
