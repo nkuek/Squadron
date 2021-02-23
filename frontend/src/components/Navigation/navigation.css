@@ -130,7 +130,7 @@ ul {
         color: rgb(183, 0, 255);
     }
 
-    .home:hover {
+    .home:hover, .home:focus {
         color: teal;
         background-color: #e2e0e0;
     }
@@ -152,7 +152,7 @@ ul {
         padding: 20px;
     }
 
-    .barContainer:hover, .profileButton:hover {
+    .barContainer:hover, .profileButton:hover, .profileButton:focus, .barContainer:focus {
         background-color: #e2e0e0;
     }
 
@@ -246,7 +246,7 @@ ul {
         color: white
     }
 
-    .login:hover {
+    .login:hover, .login:focus{
         color: teal;
         border-radius: 4px;
     }
@@ -258,7 +258,7 @@ ul {
         color: white
     }
 
-    .signup:hover, .logoutButton:hover {
+    .signup:hover, .logoutButton:hover, .signup:focus, .logoutButton:focus {
         background-color: #578fff;
         cursor: pointer;
     }
@@ -277,7 +277,7 @@ ul {
         color: #9e9e9e;
     }
 
-    .profileButton:hover {
+    .profileButton:hover, .profileButton:focus {
         color: #333;
         cursor: pointer;
     }
@@ -318,7 +318,7 @@ ul {
         color: rgb(183, 0, 255);
     }
 
-    .home:hover {
+    .home:hover, .home:focus {
         color: teal;
         background-color: #e2e0e0;
     }
@@ -340,7 +340,7 @@ ul {
         padding: 20px;
     }
 
-    .barContainer:hover, .profileButton:hover {
+    .barContainer:hover, .profileButton:hover, .barContainer:focus, .profileButton:focus {
         background-color: #e2e0e0;
     }
 
@@ -402,7 +402,7 @@ ul {
         padding: 10px;
         justify-content: center;
     }
-    .navBarLinks:hover, .login:hover {
+    .navBarLinks:hover, .login:hover, .navBarLinks:focus, .login:focus {
         color: teal;
         background-color: #e2e0e0;
     }
