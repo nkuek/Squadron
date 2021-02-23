@@ -21,7 +21,7 @@ const Games = () => {
 
     useEffect(() => {
         dispatch(setGameOrder(ordering));
-    }, [dispatch, ordering]);
+    }, [ordering]);
 
     return Object.keys(games).length === 0 ? (
         <h1 className="loading">Loading...</h1>

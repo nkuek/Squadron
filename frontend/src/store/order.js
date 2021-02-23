@@ -12,10 +12,7 @@ export const setGameOrder = (order) => async (dispatch) => {
 const orderReducer = (state = {}, action) => {
     switch (action.type) {
         case ORDER_GAMES:
-            return {
-                ...state,
-                order: action.order,
-            };
+            return action.order;
         default:
             return state;
     }

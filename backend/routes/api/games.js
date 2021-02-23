@@ -64,6 +64,7 @@ router.post(
                 ),
                 released: results.released,
             });
+            console.log(newGame);
             return res.json(newGame);
         } else {
             return res.json(game);

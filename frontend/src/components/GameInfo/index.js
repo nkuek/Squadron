@@ -19,7 +19,7 @@ const GameInfo = () => {
 
     const game = useSelector((state) => state.game);
 
-    return !game ? (
+    return Object.keys(game).length === 0 ? (
         <h1 className="loading">Loading...</h1>
     ) : (
         <div className="gamePageWrapper">

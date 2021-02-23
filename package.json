@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "react/redux solo project",
   "main": "index.js",
-  "devDependencies": {},
   "scripts": {
     "heroku-postbuild": "npm run build --prefix frontend",
     "install": "npm --prefix backend install backend && npm --prefix frontend install frontend",
@@ -22,5 +21,8 @@
   "bugs": {
     "url": "https://github.com/nkuek/Squadron/issues"
   },
-  "homepage": "https://github.com/nkuek/Squadron"
+  "homepage": "https://github.com/nkuek/Squadron",
+  "dependencies": {
+    "redux-persist": "^6.0.0"
+  }
 }
