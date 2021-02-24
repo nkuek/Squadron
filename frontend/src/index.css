@@ -8,13 +8,6 @@ html {
     width: 100%;
     overflow-x: hidden;
 }
-#root {
-    width: 100vw;
-    height: auto;
-    min-height: 100%;
-    display: flex;
-    justify-content: center;
-}
 body {
     margin: 0;
     width: 100%;
@@ -28,7 +21,15 @@ body {
     background-size: cover;
     overflow-x: hidden;
     /* overflow-y:hidden; */
-  }
+}
+
+#root {
+    width: 100%;
+    height: auto;
+    min-height: 100%;
+    display: flex;
+    justify-content: center;
+}
 
 h1, h2, h3, h4, h5, h6 {
     font-weight: 500;
