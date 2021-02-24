@@ -13,7 +13,7 @@ const setTokenCookie = (res, user) => {
 
     const isProduction = process.env.NODE_ENV === 'production';
 
-    // Set Token Cookie
+    // Set the token cookie
     res.cookie('token', token, {
         maxAge: expiresIn * 1000,
         httpOnly: true,
@@ -25,6 +25,7 @@ const setTokenCookie = (res, user) => {
 };
 
 const restoreUser = (req, res, next) => {
+    // token parsed from cookies
     const { token } = req.cookies;
 
     return jwt.verify(token, secret, null, async (err, jwtPayload) => {

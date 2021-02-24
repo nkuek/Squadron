@@ -1,6 +1,6 @@
 import Cookies from 'js-cookie';
 
-export const csrfFetch = async (url, options = {}) => {
+export async function csrfFetch(url, options = {}) {
     // set options.method to GET if there is no method
     options.method = options.method || 'GET';
 
@@ -12,7 +12,7 @@ export const csrfFetch = async (url, options = {}) => {
     if (options.method.toUpperCase() !== 'GET') {
         options.headers['Content-Type'] =
             options.headers['Content-Type'] || 'application/json';
-        options.headers['XSRF-TOKEN'] = Cookies.get('XSRF-TOKEN');
+        options.headers['XSRF-Token'] = Cookies.get('XSRF-TOKEN');
     }
 
     // call default window's fetch with url and options
@@ -22,7 +22,7 @@ export const csrfFetch = async (url, options = {}) => {
     if (res.status >= 400) throw res;
 
     return res;
-};
+}
 
 export function restoreCSRF() {
     return csrfFetch('/api/csrf/restore');
