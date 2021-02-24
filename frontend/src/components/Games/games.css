@@ -62,13 +62,13 @@
         margin-top: 10px;
     }
 
-    .gameGenres, .metacritic {
+    .gameGenres, .metacritic, .gameReleaseDate {
         color: white;
         text-align: left;
         align-items: center;
         overflow: hidden;
         text-overflow: ellipsis;
-        margin: 3px;
+        margin: 3px 0px;
     }
 
     .metacritic {
@@ -87,7 +87,6 @@
     .gamePageWrapper {
         background-color: black;
         margin: 100px 20px;        overflow: hidden;
-        white-space: nowrap;
         text-overflow: ellipsis;
         background-color: rgba(75, 75, 75, 0.7);
     }
@@ -179,14 +178,14 @@
         overflow:hidden
     }
 
-    .gameGenres, .metacritic {
+    .gameGenres, .metacritic, .gameReleaseDate, .gamePlatforms {
         color: white;
-        font-size: .8em;
+        /* font-size: .8em; */
         text-align: left;
         align-items: center;
         overflow: hidden;
         text-overflow: ellipsis;
-        margin: 0px;
+        /* margin: 0px; */
     }
     .metacritic {
         color: white;
@@ -204,20 +203,5 @@
         padding-left: 5px;
     }
 
-    /* Game Info Page Styling */
-    .gamePageWrapper {
-        background-color: black;
-        margin: 100px 20px;
-        padding: 30px;
-        border-radius: 10px;
-    }
-    .gamePageContainer {
-        display: flex;
-        background-color: rgba(75, 75, 75, 0.7);
-    }
 
-    .gamePageInfoContainer {
-        padding: 10px;
-        color: white;
-    }
 }

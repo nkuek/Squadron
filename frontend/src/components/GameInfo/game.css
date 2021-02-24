@@ -1,3 +1,25 @@
+.gamePageInfoContainer p {
+    margin: 5px 0px;
+}
+.metacriticContainer {
+    display: flex;
+    margin: 5px 0px;
+}
+
+.metacriticContainer p {
+    margin: 0px;
+    padding: 1px 0px;
+}
+
+.gamePlatforms {
+    color: white;
+    height: auto;
+    text-align: left;
+    align-items: center;
+    text-overflow:unset;
+    overflow-wrap:break-word;
+    margin: 0px;
+}
 /* Small Screens */
 @media only screen and (max-width: 730px) {
     .gamePageWrapper {
@@ -12,14 +34,19 @@
     }
     .gamePageContainer {
         display: flex;
-        flex-direction: column;
         background-color: rgba(75, 75, 75, 0.7);
+        flex-direction: column;
+        justify-content: space-evenly;
     }
 
     .gamePageInfoContainer {
         padding: 10px;
         color: white;
         width: 200px;
+        overflow-wrap:break-word;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
     }
 
     .gameNameCard {
@@ -30,6 +57,9 @@
         text-overflow: ellipsis;
         margin: 0;
     }
+
+
+
 }
 
 @media only screen and (min-width: 730px) {
@@ -52,14 +82,36 @@
         padding: 10px;
         color: white;
         width: 45%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        overflow-wrap: break-word;
+        box-sizing: border-box;
     }
+
 
     .gameNameCard {
         color: white;
         text-align: left;
         align-items: center;
-        overflow: hidden;
+        /* overflow: hidden; */
         text-overflow: ellipsis;
         margin: 0;
     }
+
+    .gameReleaseDate {
+        margin: 0px;
+    }
+
+    .metacriticContainer {
+        display: flex;
+    }
+
+    .metacriticContainer p {
+        margin: 0px;
+        padding: 1px 0px;
+    }
+
+
+
 }

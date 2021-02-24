@@ -45,7 +45,7 @@ const GameInfo = () => {
                     />
                 </AspectRatio>
                 <div className="gamePageInfoContainer">
-                    <div className="metacritic">
+                    <div className="metacriticContainer">
                         <p>Metacritic:</p>
                         <p
                             className="gameRating"
@@ -66,7 +66,7 @@ const GameInfo = () => {
                             {game.metacritic === 0 ? 'N/A' : game.metacritic}
                         </p>
                     </div>
-                    <div className="metacritic">
+                    <div className="metacriticContainer">
                         <p>User Rating:</p>
                         <p
                             className="gameRating"
@@ -84,7 +84,9 @@ const GameInfo = () => {
                             {game.rating}
                         </p>
                     </div>
-                    <p>Release Date: {game.released}</p>
+                    <p className="gameReleaseDate">
+                        Release Date: {game.released}
+                    </p>
                     <p className="gameGenres">
                         Genres:{' '}
                         {game.genres.length > 1
