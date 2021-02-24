@@ -29,8 +29,8 @@
     "node-fetch": "^2.6.1",
     "per-env": "^1.0.2",
     "pg": "^8.5.1",
-    "sequelize": "^5.22.3",
-    "sequelize-cli": "^5.5.1"
+    "sequelize": "^6.5.0",
+    "sequelize-cli": "^6.2.0"
   },
   "devDependencies": {
     "dotenv-cli": "^4.0.0",

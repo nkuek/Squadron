@@ -1,7 +1,5 @@
 'use strict';
 
-const { DataTypes } = require('sequelize/types');
-
 module.exports = {
     up: (queryInterface, Sequelize) => {
         return queryInterface.createTable('Squads', {
