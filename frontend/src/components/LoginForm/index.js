@@ -81,12 +81,12 @@ const LoginForm = () => {
                             Demo User
                         </button>
                     </div>
+                    <div className="registerLinkContainer">
+                        <a className="registerLink" href="/register">
+                            Don't have an account?
+                        </a>
+                    </div>
                 </form>
-                <div className="registerLinkContainer">
-                    <a className="registerLink" href="/register">
-                        Don't have an account?
-                    </a>
-                </div>
             </div>
         </>
     );

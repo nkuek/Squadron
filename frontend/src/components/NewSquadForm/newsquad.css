@@ -55,16 +55,13 @@
     border-radius: 5px;
 }
 
+.nsfInputContainer:hover, .nsfInputContainer:focus {
+    border-color: #97baff
+}
+
 .nsfInputContainer:focus-within {
     border-color: #3576f8;
 }
-
-.nsfInput {
-    padding-left: 5px;
-    background-color: transparent;
-    color: white;
-}
-
 .nsfLabel {
     margin-bottom: 4px;
 }
@@ -72,6 +69,15 @@
 .nsfLabel:focus-within {
     color: #3576f8;
 }
+
+
+
+.nsfInput {
+    padding: 20px 10px;
+    background-color: transparent;
+    color: white;
+}
+
 .nsfPreviewWrapper {
     width: 100%;
     margin: 40px;

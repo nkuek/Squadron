@@ -92,12 +92,12 @@ const SignupForm = () => {
                             Register
                         </button>
                     </div>
+                    <div className="loginLinkContainer">
+                        <a className="loginLink" href="/login">
+                            Already have an account?
+                        </a>
+                    </div>
                 </form>
-                <div className="loginLinkContainer">
-                    <a className="loginLink" href="/login">
-                        Already have an account?
-                    </a>
-                </div>
             </div>
         </>
     );

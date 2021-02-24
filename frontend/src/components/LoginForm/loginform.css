@@ -3,10 +3,10 @@ div {
     display: block;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 500px) {
     .login-content {
       width: 85%;
-      height: 70%;
+      height: 50%;
       border: #d3d3d3 solid 1px;
       text-align: center;
       border-radius: 10px;
@@ -27,14 +27,18 @@ div {
         padding: 10px;
     }
 
+    .textfield {
+        font-size: .8em;
+    }
+
 
     .loginInputField {
         position: relative;
         width: 85%;
         height: 22px;
         line-height: 44px;
-        margin: 20px;
-        right: 50px;
+        margin: 30px;
+        right: 40px;
         font-size: .7rem;
         text-align: left;
         /* left: 50%; */
@@ -69,9 +73,15 @@ div {
         cursor: pointer;
     }
 
+    .registerLinkContainer {
+        margin-top: 0px;
+        display: flex;
+        justify-content: center;
+    }
+
     .registerLink {
-        margin: 20px;
         padding: 20px;
+        font-size: .8em;
     }
 
     .registerLink:hover {
@@ -82,7 +92,7 @@ div {
     }
 }
 
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 500px) {
 
     .login-content {
       border: #d3d3d3 solid 1px;
@@ -115,6 +125,7 @@ div {
         height: 44px;
         line-height: 44px;
         margin: 20px;
+        left: 50px;
     }
 
     .loginButton {
@@ -127,6 +138,10 @@ div {
         background-color: #3576f8;
         border-radius: 5px;
     }
+    .placeLabel {
+        left: 30px;
+    }
+
 
     .loginButton:hover {
         background-color: #578fff;
@@ -149,5 +164,6 @@ div {
     .registerLinkContainer {
         width: 100%;
         height: auto;
+        margin-top: 50px;
     }
 }

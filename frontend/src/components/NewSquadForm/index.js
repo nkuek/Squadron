@@ -40,12 +40,12 @@ const NewSquadForm = () => {
                             </div>
                         </div>
                         <div className="nsfInputContainer">
-                            <div
+                            <span
                                 style={{ color: 'white' }}
                                 className="nsfLabel"
                             >
                                 Squad Name
-                            </div>
+                            </span>
                             <input
                                 className="nsfInput"
                                 type="text"
@@ -55,12 +55,12 @@ const NewSquadForm = () => {
                             ></input>
                         </div>
                         <div className="nsfInputContainer">
-                            <div
+                            <span
                                 style={{ color: 'white' }}
                                 className="nsfLabel"
                             >
                                 Description
-                            </div>
+                            </span>
                             <input
                                 className="nsfInput"
                                 type="text"
