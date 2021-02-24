@@ -1,16 +1,22 @@
 .newSquadFormWrapper {
-    width: 100vw;
-    height: 100vh;
-    display: flex;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
     margin-top: 61px;
 }
 
+.newSquadContainer {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
 .closeNewSquadFormContainer {
     width: fit-content;
 }
 
 .closeFormArrow {
     color: white;
+    margin-left: 10px;
 }
 
 .closeFormArrow:hover, .closeFormArrow:focus {
@@ -20,6 +26,9 @@
 .newSquadFormContainer {
     background-color: rgb(36, 37, 38);
     padding: 20px 15px;
+    height: 100%;
+    width: 250px;
+    min-width: 250px;
 }
 
 .newSquadFormHeader {
@@ -37,7 +46,42 @@
     border-color: blue;
 }
 
-.newSquadFormPreviewContainer {
-    background-color: black;
+.newSquadFormPreviewWrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
 
+.squadOuterContainer {
+    background-color: black;
+    height: 90%;
+    width: auto;
+    margin: 40px;
+    border-radius: 20px;
+}
+
+.squadInnerContainer {
+    /* width: 100%; */
+    height: 100%;
+    padding: 20px;
+    /* word-wrap: break-word; */
+    /* overflow-wrap:break-word; */
+}
+
+.newSquadFormPreviewHeader {
+    margin-left: 20px;
+}
+
+.preview {
+    color: white;
+    font-size: 1.2em;
+}
+
+.squadName {
+    color: white;
+    margin-left: 20px;
+    width: auto;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
 }
