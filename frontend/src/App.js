@@ -9,7 +9,6 @@ import * as sessionActions from './store/session';
 import './index.css';
 import About from './components/About';
 import Games from './components/Games';
-import { loadGames } from './store/games';
 import GameInfo from './components/GameInfo';
 import Events from './components/Events';
 import Event from './components/Events/Event';
@@ -21,10 +20,6 @@ function App() {
 
     useEffect(() => {
         dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
-    }, [dispatch]);
-
-    useEffect(() => {
-        dispatch(loadGames());
     }, [dispatch]);
 
     return (

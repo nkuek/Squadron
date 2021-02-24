@@ -15,7 +15,7 @@ const Navigation = () => {
         e.target.classList.toggle('change');
 
         // Shows drop down menu when clicked
-        document.querySelector('.stickyDropDownMenu').classList.toggle('show');
+        document.querySelector('.stickyDropDownMenu')?.classList.toggle('show');
     };
 
     // Closes drop down menu when clicking anywhere else
@@ -24,7 +24,7 @@ const Navigation = () => {
             document
                 .querySelector('.stickyDropDownMenu')
                 ?.classList.remove('show');
-            document.querySelector('.barContainer').classList.remove('change');
+            document.querySelector('.barContainer')?.classList.remove('change');
         }
     });
 

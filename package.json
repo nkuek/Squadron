@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "react/redux solo project",
   "main": "index.js",
-  "devDependencies": {},
   "scripts": {
     "heroku-postbuild": "npm run build --prefix frontend",
     "install": "npm --prefix backend install backend && npm --prefix frontend install frontend",
