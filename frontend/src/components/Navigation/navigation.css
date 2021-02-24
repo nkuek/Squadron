@@ -11,7 +11,12 @@ a:visited {
 ul {
     padding:0;
 }
-
+.navBarLinks {
+    display: flex;
+    width: auto;
+    padding: 15px 20px;
+    justify-content: center;
+}
 /* Small Screens */
 @media only screen and (max-width: 400px) {
 
@@ -197,12 +202,7 @@ ul {
     .stickyDropDownMenu ul {
         list-style: none;
     }
-    .navBarLinks {
-        display: flex;
-        width: auto;
-        padding: 10px;
-        justify-content: center;
-    }
+
     .navBarLinks:hover, .login:hover {
         color: teal;
         background-color: #e2e0e0;
@@ -394,13 +394,6 @@ ul {
         align-content: center;
     }
 
-
-    .navBarLinks {
-        display: flex;
-        width: auto;
-        padding: 10px;
-        justify-content: center;
-    }
     .navBarLinks:hover, .login:hover, .navBarLinks:focus, .login:focus {
         color: teal;
         background-color: #e2e0e0;
