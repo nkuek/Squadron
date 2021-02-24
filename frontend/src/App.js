@@ -13,6 +13,7 @@ import GameInfo from './components/GameInfo';
 import Events from './components/Events';
 import Event from './components/Events/Event';
 import UserProfile from './components/UserProfile';
+import NewSquadForm from './components/NewSquadForm';
 
 function App() {
     const dispatch = useDispatch();
@@ -53,6 +54,9 @@ function App() {
                     </Route>
                     <Route exact path="/register">
                         <SignupForm />
+                    </Route>
+                    <Route path="/squads/register">
+                        <NewSquadForm />
                     </Route>
                     <Route>
                         <h1 style={{ color: 'white', fontWeight: 'bold' }}>

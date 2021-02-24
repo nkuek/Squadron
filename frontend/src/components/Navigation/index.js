@@ -72,7 +72,21 @@ const Navigation = () => {
                         </NavLink>
                     </>
                 ) : (
-                    <ProfileButton user={sessionUser} />
+                    <>
+                        <NavLink
+                            to={'/squads/create'}
+                            className="createSquad large"
+                        >
+                            + Create a squad
+                        </NavLink>
+                        <NavLink
+                            to={'/squads/create'}
+                            className="createSquad small"
+                        >
+                            +
+                        </NavLink>
+                        <ProfileButton user={sessionUser} />
+                    </>
                 )}
             </div>
         </nav>
