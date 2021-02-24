@@ -33,7 +33,6 @@ const GameInfo = () => {
                     style={{
                         maxWidth: '500px',
                         minWidth: '300px',
-                        margin: '5px',
                     }}
                 >
                     <img

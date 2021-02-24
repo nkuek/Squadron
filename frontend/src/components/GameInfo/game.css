@@ -1,5 +1,14 @@
+.gamePageContainer, .gameCardContainer  {
+    border: 1px solid rgb(104, 104, 104);
+    border-radius: 5px;
+}
+
 .gamePageInfoContainer p {
     margin: 5px 0px;
+}
+.gamePageImageContainer img, .gameImageContainer img {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
 }
 .metacriticContainer {
     display: flex;
