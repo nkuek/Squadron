@@ -18,6 +18,7 @@ const Games = () => {
     const order = localStorage.getItem('order');
 
     const [ordering, setOrdering] = useState(!order ? '' : order);
+
     useEffect(() => {
         dispatch(loadGames(ordering));
         localStorage.setItem('order', ordering);

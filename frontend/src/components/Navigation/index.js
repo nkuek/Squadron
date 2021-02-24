@@ -49,6 +49,11 @@ const Navigation = () => {
                             </NavLink>
                         </li>
                         <li>
+                            <NavLink to={'/squads/'} className="navBarLinks">
+                                Squads
+                            </NavLink>
+                        </li>
+                        <li>
                             <NavLink className="navBarLinks" to="/games">
                                 Games
                             </NavLink>

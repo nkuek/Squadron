@@ -1,0 +1,40 @@
+.newSquadFormWrapper {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    margin-top: 61px;
+}
+
+.closeNewSquadFormContainer {
+    width: fit-content;
+}
+
+.closeFormArrow {
+    color: white;
+}
+
+.closeFormArrow:hover, .closeFormArrow:focus {
+    color: teal;
+}
+
+.newSquadFormContainer {
+    background-color: rgb(36, 37, 38);
+    padding: 20px 15px;
+}
+
+.newSquadFormHeader {
+    color: white;
+    margin-top: 5px;
+}
+
+.newSquadFormSquadNameContainer {
+    border: 1px solid #d3d3d3;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* .newSquadFormSquadNameContainer:hover, */
+.newSquadFormSquadNameContainer:focus-within {
+    border-color: blue;
+    color: blue;
+}

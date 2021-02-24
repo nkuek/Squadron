@@ -11,9 +11,13 @@ const GameInfo = () => {
     //     dispatch(resetGameState());
     // }, [dispatch]);
 
-    const game = useSelector((state) => state.game);
+    let game = useSelector((state) => state.game);
 
-    return Object.keys(game).length === 0 ? (
+    localStorage.setItem('game', JSON.stringify(game));
+
+    game = JSON.parse(localStorage.getItem('game'));
+
+    return !game ? (
         <h1 className="loading">Loading...</h1>
     ) : (
         <div className="gamePageWrapper">
