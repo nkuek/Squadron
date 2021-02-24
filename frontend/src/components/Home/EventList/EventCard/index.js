@@ -3,14 +3,28 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { AspectRatio } from 'react-aspect-ratio';
 
+import { findGames } from '../../../../store/game';
+
 const EventCard = ({ events }) => {
     const dispatch = useDispatch();
     const history = useHistory();
     const games = useSelector((state) => state.games);
-    const handleClick = (e) => {
-        e.stopPropagation();
-        console.log(e);
-        history.push(`/games/${e.target.innerHTML}`);
+
+    const handleClick = async (e) => {
+        e.preventDefault();
+
+        const gameParam = e.target.id;
+        const gameState = await dispatch(findGames(String(gameParam)));
+
+        localStorage.setItem('gameState', JSON.stringify(gameState));
+
+        history.push(
+            `/games/${gameParam
+                .replace(':', '')
+                .split(' ')
+                .join('')
+                .toLowerCase()}`
+        );
     };
 
     return events.map((event) => (
@@ -45,7 +59,13 @@ const EventCard = ({ events }) => {
                                 <p className="eventSquad">{event.squadId}</p>
                                 <div className="eventGameLinkContainer">
                                     <Link
-                                        to={`/games/${event.gameId}`}
+                                        id={event.gameId}
+                                        to={`/games/${event.gameId
+                                            .replace(':', '')
+                                            .split(' ')
+                                            .join('')
+                                            .toLowerCase()}`}
+                                        onClick={(e) => handleClick(e)}
                                         // value={event.gameId}
                                         // onClick={handleClick}
                                         className="eventGame"
