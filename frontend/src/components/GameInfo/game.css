@@ -9,6 +9,7 @@
 .metacriticContainer p {
     margin: 0px;
     padding: 1px 0px;
+    margin-right: 5px;
 }
 
 .gamePlatforms {
@@ -20,6 +21,8 @@
     overflow-wrap:break-word;
     margin: 0px;
 }
+
+
 /* Small Screens */
 @media only screen and (max-width: 730px) {
     .gamePageWrapper {
@@ -110,6 +113,7 @@
     .metacriticContainer p {
         margin: 0px;
         padding: 1px 0px;
+        margin-right: 5px;
     }
 
 
