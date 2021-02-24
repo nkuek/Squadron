@@ -1,32 +1,32 @@
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 
 import './newsquad.css';
 
 const NewSquadForm = () => {
     const [squadName, setSquadName] = useState('');
-
-    useEffect(() => {});
+    const user = useSelector((state) => state.session.user);
 
     return (
         <>
-            <div className="newSquadFormWrapper">
+            <div className="nsfWrapper">
                 <div className="newSquadContainer">
-                    <div className="newSquadFormContainer">
-                        <div className="closeNewSquadFormContainer">
-                            <Link to="/squads" className="closeNewSquadForm">
+                    <div className="nsfContainer">
+                        <div className="closensfContainer">
+                            <Link to="/squads" className="closensf">
                                 <i className="fas fa-arrow-left closeFormArrow">
                                     {' Back'}
                                 </i>
                             </Link>
                         </div>
-                        <span className="newSquadFormHeaderContainer">
-                            <h1 className="newSquadFormHeader">Create Squad</h1>
+                        <span className="nsfHeaderContainer">
+                            <h1 className="nsfHeader">Create Squad</h1>
                         </span>
-                        <div className="newSquadFormSquadNameContainer">
+                        <div className="nsfInputContainer">
                             <span
                                 style={{ color: 'white' }}
-                                className="newSquadFormSquadName"
+                                className="nsfSquadName"
                             >
                                 Squad Name
                             </span>
@@ -36,18 +36,29 @@ const NewSquadForm = () => {
                                 onChange={(e) => setSquadName(e.target.value)}
                             ></input>
                         </div>
+                        <div className="nsfInputContainer">
+                            <span
+                                style={{ color: 'white' }}
+                                className="nsfCaptain"
+                            >
+                                Description
+                            </span>
+                        </div>
                     </div>
 
-                    <div className="newSquadFormPreviewWrapper">
+                    <div className="nsfPreviewWrapper">
                         <div className="squadOuterContainer">
                             <div className="squadInnerContainer">
-                                <div className="newSquadFormPreviewHeader">
+                                <div className="nsfPreviewHeader">
                                     <p className="preview">Preview</p>
                                 </div>
                                 <div className="squadName">
                                     <h1>
                                         {!squadName ? 'Squad Name' : squadName}
                                     </h1>
+                                </div>
+                                <div className="captainName">
+                                    <h2>{`Captain: ${user.username}`}</h2>
                                 </div>
                             </div>
                         </div>

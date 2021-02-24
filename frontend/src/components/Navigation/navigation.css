@@ -141,6 +141,10 @@ ul {
     margin-right: 10px;
 }
 
+.signup:visited {
+    color: white;
+}
+
 .barContainer {
     display: inline-block;
     cursor: pointer;
