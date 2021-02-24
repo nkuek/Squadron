@@ -6,6 +6,7 @@ import './newsquad.css';
 
 const NewSquadForm = () => {
     const [squadName, setSquadName] = useState('');
+    const [description, setDescription] = useState('');
     const user = useSelector((state) => state.session.user);
 
     return (
@@ -23,26 +24,50 @@ const NewSquadForm = () => {
                         <span className="nsfHeaderContainer">
                             <h1 className="nsfHeader">Create Squad</h1>
                         </span>
+                        <div className="captainNameContainer">
+                            <div className="nsfcaptainName">
+                                <div style={{ fontSize: '1.1em' }}>
+                                    {user.username}
+                                </div>
+                                <div
+                                    style={{
+                                        fontSize: '.9em',
+                                        fontStyle: 'italic',
+                                    }}
+                                >
+                                    Captain
+                                </div>
+                            </div>
+                        </div>
                         <div className="nsfInputContainer">
-                            <span
+                            <div
                                 style={{ color: 'white' }}
-                                className="nsfSquadName"
+                                className="nsfLabel"
                             >
                                 Squad Name
-                            </span>
+                            </div>
                             <input
+                                className="nsfInput"
                                 type="text"
                                 value={squadName}
                                 onChange={(e) => setSquadName(e.target.value)}
+                                required
                             ></input>
                         </div>
                         <div className="nsfInputContainer">
-                            <span
+                            <div
                                 style={{ color: 'white' }}
-                                className="nsfCaptain"
+                                className="nsfLabel"
                             >
                                 Description
-                            </span>
+                            </div>
+                            <input
+                                className="nsfInput"
+                                type="text"
+                                value={description}
+                                onChange={(e) => setDescription(e.target.value)}
+                                required
+                            ></input>
                         </div>
                     </div>
 
@@ -57,8 +82,12 @@ const NewSquadForm = () => {
                                         {!squadName ? 'Squad Name' : squadName}
                                     </h1>
                                 </div>
-                                <div className="captainName">
-                                    <h2>{`Captain: ${user.username}`}</h2>
+                                <div className="squadDescription">
+                                    <p style={{ margin: '16px 10px' }}>
+                                        {!description
+                                            ? 'Squad Description'
+                                            : description}
+                                    </p>
                                 </div>
                             </div>
                         </div>
