@@ -1,4 +1,4 @@
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 550px) {
 
     .gamesContainer {
         background-color: black;
@@ -86,12 +86,9 @@
     /* Game Info Page Styling */
     .gamePageWrapper {
         background-color: black;
-        margin: 100px 20px;
-        padding: 30px;
-        border-radius: 10px;
-    }
-    .gamePageContainer {
-        display: flex;
+        margin: 100px 20px;        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
         background-color: rgba(75, 75, 75, 0.7);
     }
 
@@ -101,7 +98,7 @@
     }
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 550px) {
 
     .gamesContainer {
         background-color: black;
