@@ -55,7 +55,7 @@ function App() {
                     <Route exact path="/register">
                         <SignupForm />
                     </Route>
-                    <Route path="/squads/register">
+                    <Route path="/squads/create">
                         <NewSquadForm />
                     </Route>
                     <Route>

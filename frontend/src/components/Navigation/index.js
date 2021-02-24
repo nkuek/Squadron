@@ -81,7 +81,7 @@ const Navigation = () => {
                         </NavLink>
                         <NavLink
                             to={'/squads/create'}
-                            className="createSquad small"
+                            className="createSquadPlus small"
                         >
                             +
                         </NavLink>
