@@ -1,5 +1,5 @@
 /* Small Screens */
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 550px) {
 
     .homePageWrapper {
         position: relative;
@@ -74,7 +74,7 @@
         background-color: white;
         border: 1px solid #d3d3d3;
         border-radius: 20px;
-        width: 80%;
+        width: auto;
         height: auto;
         position: relative;
     }
@@ -120,8 +120,6 @@
         border: 1px solid #d3d3d3;
     }
 
-
-
     .eventItemContent {
         box-sizing: border-box;
         margin: 0px;
@@ -141,9 +139,11 @@
         z-index: 1;
         overflow: hidden;
     }
-.eventContainer:hover {
+
+    .eventContainer:hover {
         background-color: #e2e0e0;
     }
+
     .eventItem {
         width: auto;
         padding-left: 20px;
@@ -246,7 +246,7 @@
 }
 
 /* Large Screens */
-@media only screen and (min-width: 400px) {
+@media only screen and (min-width: 550px) {
 
 .homePageWrapper {
         position: relative;
@@ -320,7 +320,7 @@
         background-color: white;
         border: 1px solid #d3d3d3;
         border-radius: 20px;
-        width: 90%;
+        width: auto;
         height: auto;
         position: relative;
     }
