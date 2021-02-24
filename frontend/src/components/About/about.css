@@ -9,7 +9,7 @@
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    animation: fadeInAnimation ease 4s;
+    animation: fadeInAnimation ease 1.5s;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
 }
@@ -130,10 +130,10 @@
     justify-content: center;
     color: white;
     top: 100px;
-    -moz-animation: header 1s 2.25s forwards;
-    -webkit-animation: header 1s 2.25s forwards;
-    -ms-animation: header 1s 2.25s forwards;
-    animation: header 1s 2.25s forwards;
+    -moz-animation: header 1s 1.25s forwards;
+    -webkit-animation: header 1s 1.25s forwards;
+    -ms-animation: header 1s 1.25s forwards;
+    animation: header 1s 1.25s forwards;
     -moz-backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
     -ms-backface-visibility: hidden;
@@ -149,10 +149,10 @@
     color: white;
     position: relative;
     bottom: 10px;
-    -moz-animation: header 1s 2.25s forwards;
-    -webkit-animation: header 1s 2.25s forwards;
-    -ms-animation: header 1s 2.25s forwards;
-    animation: header 1s 2.25s forwards;
+    -moz-animation: header 1s 1.25s forwards;
+    -webkit-animation: header 1s 1.25s forwards;
+    -ms-animation: header 1s 1.25s forwards;
+    animation: header 1s 1.25s forwards;
     -moz-backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
     -ms-backface-visibility: hidden;
@@ -168,9 +168,9 @@
     position: relative;
     flex-direction: row;
     justify-content: center;
-    -webkit-animation-delay: 1.6s;
-    -moz-animation-delay: 1.6s;
-    animation-delay: 1.6s;
+    -webkit-animation-delay: 1.4s;
+    -moz-animation-delay: 1.4s;
+    animation-delay: 1.4s;
 
 }
 
@@ -183,22 +183,22 @@
 }
 
 .github {
-    -moz-animation-delay: 2.5s;
-    -webkit-animation-delay: 2.5s;
-    -ms-animation-delay: 2.5s;
-    animation-delay: 2.5s;;
+    -moz-animation-delay: 1.5s;
+    -webkit-animation-delay:1.5s;
+    -ms-animation-delay: 1.5s;
+    animation-delay: 1.5s;;
 }
 .email {
-    -moz-animation-delay: 2.75s;
-    -webkit-animation-delay: 2.75s;
-    -ms-animation-delay: 2.75s;
-    animation-delay: 2.75s;;
+    -moz-animation-delay: 1.75s;
+    -webkit-animation-delay: 1.75s;
+    -ms-animation-delay: 1.75s;
+    animation-delay: 1.75s;;
 }
 .linkedin {
-    -moz-animation-delay: 3s;
-    -webkit-animation-delay: 3s;
-    -ms-animation-delay: 3s;
-    animation-delay: 3s;;
+    -moz-animation-delay: 2s;
+    -webkit-animation-delay: 2s;
+    -ms-animation-delay: 2s;
+    animation-delay: 2s;;
 }
 
 

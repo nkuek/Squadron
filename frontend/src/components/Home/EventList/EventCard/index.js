@@ -1,6 +1,5 @@
 import { Link, NavLink, useHistory } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
-import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { AspectRatio } from 'react-aspect-ratio';
 
 import { findGames } from '../../../../store/game';
@@ -8,8 +7,8 @@ import { findGames } from '../../../../store/game';
 const EventCard = ({ events }) => {
     const dispatch = useDispatch();
     const history = useHistory();
-    const games = useSelector((state) => state.games);
 
+    // Finds game in database and stores it in local storage so it can be loaded in the game info component
     const handleClick = async (e) => {
         e.preventDefault();
 

@@ -6,6 +6,8 @@ import './newsquad.css';
 const NewSquadForm = () => {
     const [squadName, setSquadName] = useState('');
 
+    useEffect(() => {});
+
     return (
         <>
             <div className="newSquadFormWrapper">
@@ -31,6 +33,10 @@ const NewSquadForm = () => {
                             onChange={(e) => setSquadName(e.target.value)}
                         ></input>
                     </div>
+                </div>
+
+                <div className="newSquadFormPreviewContainer">
+                    <h1>{squadName}</h1>
                 </div>
             </div>
         </>

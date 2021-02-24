@@ -1,17 +1,8 @@
-import { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
 import AspectRatio from 'react-aspect-ratio';
 import './game.css';
 
 const GameInfo = () => {
-    const dispatch = useDispatch();
-
-    // useEffect(() => {
-    //     dispatch(resetGameState());
-    // }, [dispatch]);
-
-    // let game = useSelector((state) => state.game);
-
+    // Parse game information from local storage
     const game = JSON.parse(localStorage.getItem('gameState'));
 
     return !game ? (
