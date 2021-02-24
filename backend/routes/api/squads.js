@@ -12,6 +12,4 @@ const validateNewSquad = [
         .isLength({ min: 4, max: 50 }),
 ];
 
-router.length('/new');
-
 module.exports = router;
