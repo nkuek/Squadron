@@ -33,8 +33,10 @@
     border-radius: 5px;
 }
 
-/* .newSquadFormSquadNameContainer:hover, */
 .newSquadFormSquadNameContainer:focus-within {
     border-color: blue;
-    color: blue;
+}
+
+.newSquadFormSquadName {
+
 }
