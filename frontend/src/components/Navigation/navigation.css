@@ -137,7 +137,17 @@ ul {
         background-color: #e2e0e0;
     }
 
+.signup {
+    margin-right: 10px;
+}
 
+.barContainer {
+    display: inline-block;
+    cursor: pointer;
+    margin-left: 10px;
+    position:relative;
+    padding: 20px;
+}
 
 /* Small Screens */
 @media only screen and (max-width: 450px) {
@@ -202,6 +212,7 @@ ul {
         justify-content: center;
         align-items: center;
         text-align: center;
+        margin-right: 15px;
     }
 
 
@@ -224,11 +235,7 @@ ul {
     }
 
     .barContainer {
-        display: inline-block;
-        cursor: pointer;
-        margin-left: 20px;
-        position:relative;
-        padding: 20px;
+        margin-left: 15px;
     }
 
     .barContainer:hover, .profileButton:hover, .profileButton:focus, .barContainer:focus {
@@ -342,13 +349,6 @@ ul {
 
     }
 
-    .barContainer {
-        display: inline-block;
-        cursor: pointer;
-        margin-left: 20px;
-        position:relative;
-        padding: 20px;
-    }
 
     .barContainer:hover, .profileButton:hover, .barContainer:focus, .profileButton:focus {
         background-color: #e2e0e0;
