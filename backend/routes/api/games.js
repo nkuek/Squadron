@@ -4,23 +4,6 @@ const fetch = require('node-fetch');
 const asyncHandler = require('express-async-handler');
 const { Game } = require('../../db/models/');
 
-// router.put(
-//     '/',
-//     asyncHandler(async (req, res) => {
-//         const { order } = req.body;
-//         if (order === '-metacritic') {
-//             const games = await Game.findAll({
-//                 order: [['metacritic', 'DESC']],
-//             });
-//             console.log(games);
-//             res.json(games);
-//         }
-//         const games = await Game.findAll({ order: [['rating', 'DESC']] });
-//         console.log(games);
-//         res.json(games);
-//     })
-// );
-
 router.post(
     '/',
     asyncHandler(async (req, res) => {
@@ -31,7 +14,7 @@ router.post(
                 name,
             },
         });
-        console.log('name', name);
+
         // if game not in database, add it to database
         if (!game) {
             const nameArray = name.split(' ');
