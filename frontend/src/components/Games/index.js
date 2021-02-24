@@ -28,10 +28,14 @@ const Games = () => {
         dispatch(setGameOrder(ordering));
     }, [ordering]);
 
-    const handleClick = (e) => {
+    const handleClick = async (e) => {
         e.preventDefault();
+
         const gameParam = e.target.id;
-        dispatch(findGames(String(gameParam)));
+        const gameState = await dispatch(findGames(String(gameParam)));
+
+        localStorage.setItem('gameState', JSON.stringify(gameState));
+
         history.push(
             `/games/${gameParam
                 .replace(':', '')

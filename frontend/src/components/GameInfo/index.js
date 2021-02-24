@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import AspectRatio from 'react-aspect-ratio';
-import { resetGameState } from '../../store/game';
 import './game.css';
 
 const GameInfo = () => {
@@ -11,11 +10,9 @@ const GameInfo = () => {
     //     dispatch(resetGameState());
     // }, [dispatch]);
 
-    let game = useSelector((state) => state.game);
+    // let game = useSelector((state) => state.game);
 
-    localStorage.setItem('game', JSON.stringify(game));
-
-    game = JSON.parse(localStorage.getItem('game'));
+    const game = JSON.parse(localStorage.getItem('gameState'));
 
     return !game ? (
         <h1 className="loading">Loading...</h1>

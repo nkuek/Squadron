@@ -19,6 +19,7 @@ export const findGames = (gameName) => async (dispatch) => {
     });
     const game = await res.json();
     dispatch(findGame(game));
+    return game;
 };
 
 export const resetGameState = () => async (dispatch) => {
