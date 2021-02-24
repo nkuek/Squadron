@@ -1,17 +1,11 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useParams } from 'react-router-dom';
 import AspectRatio from 'react-aspect-ratio';
-import { findGames, resetGameState } from '../../store/game';
+import { resetGameState } from '../../store/game';
 import './game.css';
 
 const GameInfo = () => {
     const dispatch = useDispatch();
-    const { gameName } = useParams();
-
-    useEffect(() => {
-        dispatch(findGames(String(gameName)));
-    }, [dispatch]);
 
     // useEffect(() => {
     //     dispatch(resetGameState());

@@ -31,11 +31,10 @@ router.post(
                 name,
             },
         });
-
+        console.log('name', name);
         // if game not in database, add it to database
         if (!game) {
             const nameArray = name.split(' ');
-
             const searchParam = nameArray.join('%');
             const apiRes = await fetch(
                 `https://api.rawg.io/api/games?key=${API_KEY}&search=${searchParam}`
@@ -51,6 +50,7 @@ router.post(
             const gameKey = Object.keys(apiResults).find(
                 (key) => apiResults[key].name === name
             );
+
             const results = apiResults[gameKey];
 
             const newGame = await Game.create({
@@ -64,7 +64,7 @@ router.post(
                 ),
                 released: results.released,
             });
-            console.log(newGame);
+
             return res.json(newGame);
         } else {
             return res.json(game);

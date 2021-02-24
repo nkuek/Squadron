@@ -1,16 +1,18 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { AspectRatio } from 'react-aspect-ratio';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 import { loadGames } from '../../store/games';
 import { setGameOrder } from '../../store/order';
+import { findGames } from '../../store/game';
 
 import 'react-aspect-ratio/aspect-ratio.css';
 import './games.css';
 
 const Games = () => {
     const dispatch = useDispatch();
+    const history = useHistory();
 
     const games = useSelector((state) => state.games);
     const order = localStorage.getItem('order');
@@ -24,6 +26,19 @@ const Games = () => {
     useEffect(() => {
         dispatch(setGameOrder(ordering));
     }, [ordering]);
+
+    const handleClick = (e) => {
+        e.preventDefault();
+        const gameParam = e.target.id;
+        dispatch(findGames(String(gameParam)));
+        history.push(
+            `/games/${gameParam
+                .replace(':', '')
+                .split(' ')
+                .join('')
+                .toLowerCase()}`
+        );
+    };
 
     return Object.keys(games).length === 0 ? (
         <h1 className="loading">Loading...</h1>
@@ -44,12 +59,22 @@ const Games = () => {
                     return (
                         <li key={idx} className="gameCard">
                             <div className="gameCardContainer">
-                                <Link to={`/games/${game.name}`}>
+                                <Link
+                                    style={{ position: 'relative' }}
+                                    onClick={(e) => handleClick(e)}
+                                    id={game.name}
+                                    to={`/games/${game.name
+                                        .replace(':', '')
+                                        .split(' ')
+                                        .join('')
+                                        .toLowerCase()}`}
+                                >
                                     <AspectRatio
                                         className="gameImageContainer"
                                         ratio="16/9"
                                         style={{
                                             marginRight: '15px',
+                                            pointerEvents: 'none',
                                         }}
                                     >
                                         <img
@@ -60,7 +85,10 @@ const Games = () => {
                                             }
                                         />
                                     </AspectRatio>
-                                    <div className="gameInformationContainer">
+                                    <div
+                                        className="gameInformationContainer"
+                                        style={{ pointerEvents: 'none' }}
+                                    >
                                         <div className="nameContainer">
                                             <p className="gameName">
                                                 {game.name}
