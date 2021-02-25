@@ -52,7 +52,7 @@ function App() {
                     <Route exact path="/games">
                         <Games />
                     </Route>
-                    <Route path={`/games/:gameName`}>
+                    <Route path="/games/:gameName">
                         <GameInfo />
                     </Route>
                     <Route exact path="/register">
@@ -61,11 +61,11 @@ function App() {
                     <Route exact path="/squads">
                         <Squads />
                     </Route>
+                    <Route exact path="/squads/create">
+                        <NewSquadForm />
+                    </Route>
                     <Route path="/squads/:squadId">
                         <SquadPage />
-                    </Route>
-                    <Route path="/squads/create">
-                        <NewSquadForm />
                     </Route>
                     <Route>
                         <PageNotFound />

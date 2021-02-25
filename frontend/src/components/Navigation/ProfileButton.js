@@ -1,12 +1,12 @@
-import { NavLink, Redirect } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import * as sessionActions from '../../store/session';
 import './navigation.css';
 const ProfileButton = ({ user }) => {
-    const sessionUser = useSelector((state) => state.session.user);
     const dispatch = useDispatch();
     const [showMenu, setShowMenu] = useState(false);
+    const history = useHistory();
 
     const openMenu = () => {
         if (showMenu) return;
@@ -27,7 +27,7 @@ const ProfileButton = ({ user }) => {
 
     const handleLogout = () => {
         dispatch(sessionActions.logoutUser());
-        return <Redirect to="/" />;
+        history.push('/');
     };
 
     return (

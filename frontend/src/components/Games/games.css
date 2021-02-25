@@ -134,6 +134,7 @@
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
+        height: 80px;
     }
 
 
@@ -158,8 +159,8 @@
         display: flex;
         width: 150px;
         flex-direction: column;
-        justify-content: space-around;
-
+        font-size: .8em;
+        justify-content: center;
     }
 
     .gameInformation {
@@ -171,15 +172,22 @@
         margin: 0;
     }
 
+    .nameContainer {
+        height:fit-content;
+    }
+
     .gameName {
         color: white;
         font-size: 1em;
-        margin-top: 10px;
         text-align: left;
         align-items: center;
-        margin-right: 5px;
         text-overflow: ellipsis;
+        margin: 0;
         overflow:hidden
+    }
+
+    .gameGenres {
+        margin: 0;
     }
 
     .gameGenres, .metacritic, .gameReleaseDate, .gamePlatforms {
