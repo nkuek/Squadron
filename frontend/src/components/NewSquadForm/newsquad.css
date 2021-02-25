@@ -102,6 +102,7 @@
 }
 
 .nsfLabel {
+    font-size: .8em;
     margin: 5px 0px 5px 10px;
     position: absolute;
     left: 20px;

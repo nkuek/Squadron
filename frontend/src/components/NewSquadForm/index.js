@@ -70,6 +70,14 @@ const NewSquadForm = () => {
                                         }
                                         required
                                     >
+                                        <option
+                                            value=""
+                                            disabled
+                                            selected
+                                            hidden
+                                        >
+                                            Gaming
+                                        </option>
                                         <option value="Gaming">Gaming</option>
                                         <option value="Trading">Trading</option>
                                         <option value="Social">Social</option>
@@ -87,6 +95,14 @@ const NewSquadForm = () => {
                                         }
                                         required
                                     >
+                                        <option
+                                            value=""
+                                            disabled
+                                            selected
+                                            hidden
+                                        >
+                                            None
+                                        </option>
                                         <option value="None">None</option>
                                         <option value="Gaming">Gaming</option>
                                         <option value="Trading">Trading</option>
