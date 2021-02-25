@@ -6,6 +6,7 @@
     border-radius: 20px;
     overflow-wrap:break-word;
     overflow:hidden;
+    box-sizing: border-box;
 }
 
 .squadInnerContainer {

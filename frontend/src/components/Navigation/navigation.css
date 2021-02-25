@@ -17,7 +17,7 @@ ul {
     align-items: center;
     top: 0;
     left: 0;
-    position: absolute;
+    /* position: absolute; */
     width: 100%;
     z-index: 999;
     background-color: white;
