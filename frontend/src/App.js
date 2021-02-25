@@ -15,6 +15,8 @@ import Event from './components/Events/Event';
 import UserProfile from './components/UserProfile';
 import NewSquadForm from './components/NewSquadForm';
 import PageNotFound from './components/PageNotFound';
+import Squads from './components/Squads';
+import SquadPage from './components/Squads/SquadPage';
 
 function App() {
     const dispatch = useDispatch();
@@ -55,6 +57,12 @@ function App() {
                     </Route>
                     <Route exact path="/register">
                         <SignupForm />
+                    </Route>
+                    <Route exact path="/squads">
+                        <Squads />
+                    </Route>
+                    <Route path="/squads/:squadId">
+                        <SquadPage />
                     </Route>
                     <Route path="/squads/create">
                         <NewSquadForm />
