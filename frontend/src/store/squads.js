@@ -28,9 +28,8 @@ export const createNewSquad = (squad) => async (dispatch) => {
     });
 
     const data = await res.json();
-    console.log(data);
     dispatch(newSquad(data));
-    return res;
+    return data;
 };
 
 const squadReducer = (state = {}, action) => {

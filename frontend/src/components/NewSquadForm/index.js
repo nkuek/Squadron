@@ -1,4 +1,4 @@
-import { Link, NavLink, Redirect } from 'react-router-dom';
+import { Link, NavLink, useHistory } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import testEvents from '../../mockData/testEvents.json';
@@ -18,15 +18,13 @@ const NewSquadForm = () => {
 
     const user = useSelector((state) => state.session.user);
     const dispatch = useDispatch();
-    const squad = useSelector((state) => state.squad);
+    const history = useHistory();
 
     useEffect(() => {
         if (squadName && description && primaryType) setDisabled(false);
     }, [squadName, description, primaryType]);
 
-    if (squad) return <Redirect to={`/squads/${squad.squadName.join('-')}`} />;
-
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         const nfsInformation = {
             squadName,
@@ -36,12 +34,15 @@ const NewSquadForm = () => {
             captainId: user.id,
         };
 
-        return dispatch(createNewSquad(nfsInformation)).catch(async (res) => {
-            const data = await res.json();
-            if (data && data.errors) {
-                setErrors(data.errors);
+        const { squad } = await dispatch(createNewSquad(nfsInformation)).catch(
+            async (res) => {
+                const data = await res.json();
+                if (data && data.errors) {
+                    setErrors(data.errors);
+                }
             }
-        });
+        );
+        history.push(`/squads/${squad.squadName.replace(' ', '-')}`);
     };
 
     return (
