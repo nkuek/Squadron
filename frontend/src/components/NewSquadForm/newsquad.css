@@ -149,13 +149,15 @@
     color: white;
     padding: 25px 40px 10px 10px;
     font-size: 1em;
+    cursor: pointer;
 }
 
 .nsfDropdown select {
-    padding: 20px
+    padding: 20px;
 }
 
 select option {
+    cursor: pointer;
     background-color: black;
     padding: 20px;
     font-size: 1em;
