@@ -152,11 +152,17 @@ select option {
     color: white;
     padding: 20px;
     border-radius: 5px;
+    cursor: pointer;
 }
 
 .nsfSubmit:hover {
     background-color: #578fff;
 }
+
+.nsfSubmit:disabled {
+    background-color: #578fff;
+}
+
 .nsfPreviewWrapper {
     width: 100%;
     margin: 40px;

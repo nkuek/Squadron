@@ -11,8 +11,17 @@ const NewSquadForm = () => {
     const [squadName, setSquadName] = useState('');
     const [description, setDescription] = useState('');
     const [primaryType, setPrimaryType] = useState('');
-    const [secondaryType, setSecondaryType] = useState('');
+    const [secondaryType, setSecondaryType] = useState('None');
+    const [disabled, setDisabled] = useState(true);
     const user = useSelector((state) => state.session.user);
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+    };
+
+    useEffect(() => {
+        if (squadName && description && primaryType) setDisabled(false);
+    }, [squadName, description, primaryType]);
 
     return (
         <>
@@ -45,7 +54,7 @@ const NewSquadForm = () => {
                                 </div>
                             </div>
                         </div>
-                        <form className="nsfForm">
+                        <form onSubmit={handleSubmit} className="nsfForm">
                             <div className="nsfFormInformation">
                                 <div className="nsfInputContainer">
                                     <input
@@ -93,7 +102,6 @@ const NewSquadForm = () => {
                                         onChange={(e) =>
                                             setSecondaryType(e.target.value)
                                         }
-                                        required
                                     >
                                         <option
                                             value=""
@@ -127,7 +135,13 @@ const NewSquadForm = () => {
                                     </span>
                                 </div>
                             </div>
-                            <button className="nsfSubmit">Create</button>
+                            <button
+                                type="submit"
+                                disabled={disabled}
+                                className="nsfSubmit"
+                            >
+                                Create
+                            </button>
                         </form>
                     </div>
 
