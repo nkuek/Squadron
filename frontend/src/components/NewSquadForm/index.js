@@ -1,4 +1,4 @@
-import { Link, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
@@ -7,12 +7,9 @@ import './newsquad.css';
 const NewSquadForm = () => {
     const [squadName, setSquadName] = useState('');
     const [description, setDescription] = useState('');
-
     const user = useSelector((state) => state.session.user);
 
-    return !user ? (
-        <Redirect to="/"></Redirect>
-    ) : (
+    return (
         <>
             <div className="nsfWrapper">
                 <div className="newSquadContainer">
@@ -43,12 +40,6 @@ const NewSquadForm = () => {
                             </div>
                         </div>
                         <div className="nsfInputContainer">
-                            <span
-                                style={{ color: 'white' }}
-                                className="nsfLabel"
-                            >
-                                Squad Name
-                            </span>
                             <input
                                 className="nsfInput"
                                 type="text"
@@ -56,14 +47,9 @@ const NewSquadForm = () => {
                                 onChange={(e) => setSquadName(e.target.value)}
                                 required
                             ></input>
+                            <span className="nsfLabel">Squad Name</span>
                         </div>
                         <div className="nsfInputContainer">
-                            <span
-                                style={{ color: 'white' }}
-                                className="nsfLabel"
-                            >
-                                Description
-                            </span>
                             <input
                                 className="nsfInput"
                                 type="text"
@@ -71,6 +57,7 @@ const NewSquadForm = () => {
                                 onChange={(e) => setDescription(e.target.value)}
                                 required
                             ></input>
+                            <span className="nsfLabel">Description</span>
                         </div>
                     </div>
 

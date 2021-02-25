@@ -58,6 +58,9 @@
     border-color: #97baff
 }
 
+.nsfInput:focus~span {
+    color: #3576f8;
+}
 .nsfInputContainer:focus-within {
     border-color: #3576f8;
 }
@@ -65,22 +68,22 @@
 .nsfLabel {
     margin: 5px 0px 5px 10px;
     position: absolute;
+    left: 20px;
+    color: white;
+    z-index: 0;
 }
 
-.nsfLabel:focus-within {
-    color: #3576f8;
-}
-
-.nsfLabel::before {
-    margin-left: 10px;
-}
 
 .nsfInput {
-    padding: 20px;
-    padding-top: 40px;
+    position: relative;
+    z-index: 1;
+    padding: 25px 40px 10px 10px;
     background-color: transparent;
     color: white;
+    border-bottom: none;
 }
+
+
 
 .nsfPreviewWrapper {
     width: 100%;
