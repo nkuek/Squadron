@@ -49,7 +49,6 @@
 
 .nsfInputContainer {
     border: 1px solid #d3d3d3;
-    padding: 10px;
     width: auto;
     margin-top: 20px;
     border-radius: 5px;
@@ -62,18 +61,23 @@
 .nsfInputContainer:focus-within {
     border-color: #3576f8;
 }
+
 .nsfLabel {
-    margin-bottom: 4px;
+    margin: 5px 0px 5px 10px;
+    position: absolute;
 }
 
 .nsfLabel:focus-within {
     color: #3576f8;
 }
 
-
+.nsfLabel::before {
+    margin-left: 10px;
+}
 
 .nsfInput {
-    padding: 20px 10px;
+    padding: 20px;
+    padding-top: 40px;
     background-color: transparent;
     color: white;
 }

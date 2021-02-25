@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
@@ -7,9 +7,12 @@ import './newsquad.css';
 const NewSquadForm = () => {
     const [squadName, setSquadName] = useState('');
     const [description, setDescription] = useState('');
+
     const user = useSelector((state) => state.session.user);
 
-    return (
+    return !user ? (
+        <Redirect to="/"></Redirect>
+    ) : (
         <>
             <div className="nsfWrapper">
                 <div className="newSquadContainer">
