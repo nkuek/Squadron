@@ -54,12 +54,6 @@ div {
         color: white;
         background-color: #3576f8;
         border-radius: 5px;
-        /* position: relative; */
-        /* display: flex; */
-        /* justify-content: center; */
-        /* left: 50%; */
-        /* top:50%; */
-        /* transform: translate(-50%, -50%); */
     }
 
     .buttonContainer {
@@ -80,6 +74,7 @@ div {
     }
 
     .registerLink {
+        margin-top: 20px;
         padding: 20px;
         font-size: .8em;
     }
