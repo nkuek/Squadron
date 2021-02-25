@@ -28,7 +28,7 @@ router.post(
         const squad = await Squad.create({
             squadName,
             description,
-            captain,
+            userId,
         });
 
         return res.json({ squad });

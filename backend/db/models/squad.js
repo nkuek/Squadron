@@ -18,7 +18,7 @@ module.exports = (sequelize, DataTypes) => {
                     len: [1, 256],
                 },
             },
-            captain: {
+            captainId: {
                 type: DataTypes.INTEGER,
                 allowNull: false,
                 validate: {
@@ -35,6 +35,7 @@ module.exports = (sequelize, DataTypes) => {
             foreignKey: 'squadId',
             otherKey: 'userId',
         });
+        Squad.belongsTo(model.User, { foreignKey: userId });
     };
     return Squad;
 };

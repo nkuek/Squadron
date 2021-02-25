@@ -18,7 +18,7 @@ module.exports = {
                 type: Sequelize.STRING(256),
                 defaultValue: 'No description',
             },
-            captain: {
+            captainId: {
                 allowNull: false,
                 type: Sequelize.INTEGER,
             },
