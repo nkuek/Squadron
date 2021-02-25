@@ -1,0 +1,36 @@
+.pageNotFoundWrapper {
+    margin-top: 100px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.pageNotFoundContainer {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.pageNotFoundHeader {
+    color: white;
+    font-weight: bold;
+}
+
+.rock:hover {
+    cursor: pointer;
+}
+
+.korokContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-style: italic;
+}
+
+.korok {
+    height: 230px;
+    width: 500px;
+}

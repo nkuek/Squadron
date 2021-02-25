@@ -186,19 +186,19 @@
     -moz-animation-delay: 1.5s;
     -webkit-animation-delay:1.5s;
     -ms-animation-delay: 1.5s;
-    animation-delay: 1.5s;;
+    animation-delay: 1.5s;
 }
 .email {
     -moz-animation-delay: 1.75s;
     -webkit-animation-delay: 1.75s;
     -ms-animation-delay: 1.75s;
-    animation-delay: 1.75s;;
+    animation-delay: 1.75s;
 }
 .linkedin {
     -moz-animation-delay: 2s;
     -webkit-animation-delay: 2s;
     -ms-animation-delay: 2s;
-    animation-delay: 2s;;
+    animation-delay: 2s;
 }
 
 

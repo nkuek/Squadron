@@ -14,6 +14,7 @@ import Events from './components/Events';
 import Event from './components/Events/Event';
 import UserProfile from './components/UserProfile';
 import NewSquadForm from './components/NewSquadForm';
+import PageNotFound from './components/PageNotFound';
 
 function App() {
     const dispatch = useDispatch();
@@ -59,9 +60,7 @@ function App() {
                         <NewSquadForm />
                     </Route>
                     <Route>
-                        <h1 style={{ color: 'white', fontWeight: 'bold' }}>
-                            404 Page Not Found
-                        </h1>
+                        <PageNotFound />
                     </Route>
                 </Switch>
             </>
