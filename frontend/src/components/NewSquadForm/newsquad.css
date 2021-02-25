@@ -108,9 +108,8 @@
 }
 
 .nsfInput:focus~span,
-.nsfInput:valid~span,
-.nsfDropdown:focus~span,
-.nsfDropdown:valid~span {
+.nsfDropdown:focus~span
+ {
     color: #3576f8;
 }
 .nsfInputContainer:focus-within, .nsfInput:valid~span {
