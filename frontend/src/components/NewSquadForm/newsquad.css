@@ -1,24 +1,58 @@
 @media only screen and (max-width: 750px) {
 
-    .nsfPreviewWrapper {
+    .squadOuterContainer, .nsfPreviewWrapper {
         display:none
     }
 
     .nsfContainer {
-        width: 100%;
+        width: 100vw;
+    min-height: 100vh;
     }
 
     .nsfForm {
         height: 60vh;
+    }
+
+    .nsfInputContainer {
+        margin-right: 15px;
+    }
+
+
+    .nsfSquadName {
+        top: 225px;
+    }
+
+    .nsfDescription {
+        top: 468px;
     }
 }
 
 @media only screen and (min-width: 750px) {
     .nsfContainer {
         width: auto;
+        height: 100%;
+        position: relative;
+        bottom: 0px;
+        box-sizing: border-box;
     }
+
     .nsfForm {
         height: 1050px;
+    }
+
+    .nsfPreviewWrapper {
+        display: flex;
+        height: 100%;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .nsfSquadName {
+        top: 165px
+    }
+
+    .nsfDescription {
+        top: 405px;
     }
 }
 
@@ -28,16 +62,21 @@
 
 .nsfWrapper {
     width: 100%;
-    min-height: 100vh;
+    height: 100%;
     box-sizing: border-box;
 }
 
 .newSquadContainer {
     display: flex;
     width: 100%;
+    flex-direction: row;
     box-sizing: border-box;
     align-items: flex-start;
-    margin-top: 61px;
+    position: absolute;
+    top: 61px;
+    bottom: 0px;
+    /* min-height: 100%; */
+    /* height: calc(100%) */
 }
 .closensfContainer {
     width: fit-content;
@@ -56,7 +95,6 @@
 .nsfContainer {
     background-color: rgb(36, 37, 38);
     padding: 20px 15px;
-    max-height: 100%;
     min-width: 250px;
 }
 
@@ -123,7 +161,7 @@
 
 .nsfLabel {
     font-size: .8em;
-    margin: 5px 0px 5px 10px;
+    margin: 8px 0px 5px 10px;
     position: absolute;
     left: 20px;
     color: white;
@@ -131,13 +169,6 @@
     display: inline-block;
 }
 
-.nsfSquadName {
-    top: 225px;
-}
-
-.nsfDescription {
-    top: 468px;
-}
 .nsfInput {
     position: relative;
     width: 100%;
@@ -182,11 +213,6 @@ select option {
 
 .nsfSubmit:disabled {
     background-color: #578fff;
-}
-
-.nsfPreviewWrapper {
-    width: 100%;
-    margin: 0px;
 }
 
 

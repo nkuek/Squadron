@@ -166,7 +166,10 @@ const NewSquadForm = () => {
                     </div>
 
                     <div className="nsfPreviewWrapper">
-                        <div className="squadOuterContainer">
+                        <div
+                            style={{ margin: '20px' }}
+                            className="squadOuterContainer"
+                        >
                             <div className="squadInnerContainer">
                                 <div className="squadInformation">
                                     <div className="nsfPreviewHeader">
