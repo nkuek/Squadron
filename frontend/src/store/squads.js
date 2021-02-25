@@ -1,10 +1,16 @@
 import { csrfFetch } from './csrf';
 
 const CREATE_NEW_SQUAD = 'squads/createNewSquad';
+const FIND_USER_SQUADS = 'squads/findMySquads';
 
 export const newSquad = (squad) => ({
     type: CREATE_NEW_SQUAD,
     squad,
+});
+
+export const findSquads = (squads) => ({
+    type: FIND_USER_SQUADS,
+    squads,
 });
 
 export const createNewSquad = (squad) => async (dispatch) => {
@@ -32,10 +38,22 @@ export const createNewSquad = (squad) => async (dispatch) => {
     return data;
 };
 
+export const findMySquads = (userId) => async (dispatch) => {
+    const res = await csrfFetch('/api/squads/mysquads', {
+        method: 'PUT',
+        body: JSON.stringify({ userId }),
+    });
+    const squads = await res.json();
+    dispatch(findSquads(squads));
+    return squads;
+};
+
 const squadReducer = (state = {}, action) => {
     switch (action.type) {
         case CREATE_NEW_SQUAD:
             return action.squad;
+        case FIND_USER_SQUADS:
+            return action.squads;
         default:
             return state;
     }
