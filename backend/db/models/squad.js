@@ -25,6 +25,20 @@ module.exports = (sequelize, DataTypes) => {
                     notEmpty: true,
                 },
             },
+            primaryType: {
+                type: DataTypes.STRING,
+                allowNull: false,
+                validate: {
+                    notEmpty: true,
+                },
+            },
+            secondaryType: {
+                type: DataTypes.STRING,
+                allowNull: false,
+                validate: {
+                    notEmpty: true,
+                },
+            },
         },
         {}
     );
@@ -35,7 +49,7 @@ module.exports = (sequelize, DataTypes) => {
             foreignKey: 'squadId',
             otherKey: 'userId',
         });
-        Squad.belongsTo(models.User, { foreignKey: 'userId' });
+        Squad.belongsTo(models.User, { foreignKey: 'captainId' });
     };
     return Squad;
 };

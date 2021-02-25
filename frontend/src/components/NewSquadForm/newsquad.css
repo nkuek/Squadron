@@ -60,16 +60,32 @@
     margin-top: 5px;
 }
 
+.captainNameWrapper {
+    display: flex;
+}
+
 .captainNameContainer {
     display: flex;
     align-items: flex-start;
-    flex-direction: column;
     color: white;
     margin: 0;
 }
 
+.errorsContainer {
+    width: 80%;
+}
+
+.errorsContainer ul {
+    margin: 0px;
+    border-color: transparent;
+
+}
+
 .nsfcaptainName {
     margin-left: 5px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
 }
 
 .nsfForm {
@@ -152,7 +168,6 @@ select option {
     color: white;
     padding: 20px;
     border-radius: 5px;
-    cursor: pointer;
 }
 
 .nsfSubmit:hover {

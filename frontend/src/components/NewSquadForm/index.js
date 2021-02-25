@@ -11,13 +11,20 @@ import { createNewSquad } from '../../store/squads';
 const NewSquadForm = () => {
     const [squadName, setSquadName] = useState('');
     const [description, setDescription] = useState('');
-    const [primaryType, setPrimaryType] = useState('');
+    const [primaryType, setPrimaryType] = useState('Gaming');
     const [secondaryType, setSecondaryType] = useState('None');
     const [disabled, setDisabled] = useState(true);
     const [errors, setErrors] = useState([]);
 
     const user = useSelector((state) => state.session.user);
     const dispatch = useDispatch();
+    const squad = useSelector((state) => state.squad);
+
+    useEffect(() => {
+        if (squadName && description && primaryType) setDisabled(false);
+    }, [squadName, description, primaryType]);
+
+    if (squad) return <Redirect to={`/squads/${squad.squadName.join('-')}`} />;
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -28,6 +35,7 @@ const NewSquadForm = () => {
             secondaryType,
             captainId: user.id,
         };
+
         return dispatch(createNewSquad(nfsInformation)).catch(async (res) => {
             const data = await res.json();
             if (data && data.errors) {
@@ -35,10 +43,6 @@ const NewSquadForm = () => {
             }
         });
     };
-
-    useEffect(() => {
-        if (squadName && description && primaryType) setDisabled(false);
-    }, [squadName, description, primaryType]);
 
     return (
         <>
@@ -52,33 +56,35 @@ const NewSquadForm = () => {
                                 </i>
                             </Link>
                         </div>
-                        <span className="nsfHeaderContainer">
+                        <div className="nsfHeaderContainer">
                             <h1 className="nsfHeader">Create Squad</h1>
-                        </span>
-                        <div className="errorsContainer">
-                            {errors.length > 0 && (
-                                <ul className="errors">
-                                    {errors.map((error, idx) => (
-                                        <li key={idx}>{error}</li>
-                                    ))}
-                                </ul>
-                            )}
                         </div>
-                        <div className="captainNameContainer">
-                            <div className="nsfcaptainName">
-                                <div style={{ fontSize: '1.1em' }}>
-                                    {user.username}
-                                </div>
-                                <div
-                                    style={{
-                                        fontSize: '.9em',
-                                        fontStyle: 'italic',
-                                    }}
-                                >
-                                    <i className="fas fa-crown"></i>
-                                    {` Captain`}
+                        <div className="captainNameWrapper">
+                            <div className="captainNameContainer">
+                                <div className="nsfcaptainName">
+                                    <div style={{ fontSize: '1.1em' }}>
+                                        {user.username}
+                                    </div>
+                                    <div
+                                        style={{
+                                            fontSize: '.9em',
+                                            fontStyle: 'italic',
+                                        }}
+                                    >
+                                        <i className="fas fa-crown"></i>
+                                        {` Captain`}
+                                    </div>
                                 </div>
                             </div>
+                            {errors.length > 0 && (
+                                <div className="errorsContainer">
+                                    <ul className="errors">
+                                        {errors.map((error, idx) => (
+                                            <li key={idx}>{error}</li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            )}
                         </div>
                         <form onSubmit={handleSubmit} className="nsfForm">
                             <div className="nsfFormInformation">
@@ -105,14 +111,6 @@ const NewSquadForm = () => {
                                         }
                                         required
                                     >
-                                        <option
-                                            value=""
-                                            disabled
-                                            selected
-                                            hidden
-                                        >
-                                            Gaming
-                                        </option>
                                         <option value="Gaming">Gaming</option>
                                         <option value="Trading">Trading</option>
                                         <option value="Social">Social</option>
@@ -129,14 +127,6 @@ const NewSquadForm = () => {
                                             setSecondaryType(e.target.value)
                                         }
                                     >
-                                        <option
-                                            value=""
-                                            disabled
-                                            selected
-                                            hidden
-                                        >
-                                            None
-                                        </option>
                                         <option value="None">None</option>
                                         <option value="Gaming">Gaming</option>
                                         <option value="Trading">Trading</option>
@@ -164,6 +154,9 @@ const NewSquadForm = () => {
                             <button
                                 type="submit"
                                 disabled={disabled}
+                                style={{
+                                    cursor: disabled ? 'default' : 'cursor',
+                                }}
                                 className="nsfSubmit"
                             >
                                 Create

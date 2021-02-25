@@ -2,19 +2,19 @@ import { csrfFetch } from './csrf';
 
 const CREATE_NEW_SQUAD = 'squads/createNewSquad';
 
-export const newSquad = (squadInformation) => ({
+export const newSquad = (squad) => ({
     type: CREATE_NEW_SQUAD,
-    squadInformation,
+    squad,
 });
 
-export const createNewSquad = (squadInformation) => async (dispatch) => {
+export const createNewSquad = (squad) => async (dispatch) => {
     const {
         squadName,
         description,
         primaryType,
         secondaryType,
         captainId,
-    } = squadInformation;
+    } = squad;
 
     const res = await csrfFetch('/api/squads', {
         method: 'POST',
@@ -23,17 +23,20 @@ export const createNewSquad = (squadInformation) => async (dispatch) => {
             description,
             primaryType,
             secondaryType,
+            captainId,
         }),
     });
 
     const data = await res.json();
+    console.log(data);
     dispatch(newSquad(data));
+    return data;
 };
 
 const squadReducer = (state = {}, action) => {
     switch (action.type) {
         case CREATE_NEW_SQUAD:
-            return action.squadInformation;
+            return action.squad;
         default:
             return state;
     }

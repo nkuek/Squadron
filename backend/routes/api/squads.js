@@ -12,15 +12,7 @@ const validateNewSquad = [
     check('squadName')
         .exists({ checkFalsy: true })
         .withMessage('Squad name cannot be empty.')
-        .isLength({ min: 4, max: 50 })
-        .custom((value) => {
-            return db.Squad.findOne({ where: { squadName: value } }).then(
-                (squad) => {
-                    if (squad)
-                        return Promise.reject('Squad Name is already in use.');
-                }
-            );
-        }),
+        .isLength({ min: 4, max: 50 }),
     check('description')
         .isLength({ min: 1, max: 256 })
         .withMessage('Description must be between 1 and 256 characters.'),

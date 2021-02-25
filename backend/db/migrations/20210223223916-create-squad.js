@@ -11,7 +11,6 @@ module.exports = {
             },
             squadName: {
                 allowNull: false,
-                unique: true,
                 type: Sequelize.STRING(50),
             },
             description: {
