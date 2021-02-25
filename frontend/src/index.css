@@ -74,7 +74,7 @@ input {
 }
 
 input:invalid {
-    outline: 0;
+    border-color: red;
 }
 input:focus,
 input:valid {
@@ -83,12 +83,17 @@ input:valid {
 }
 
 input:focus~label,
-input:valid~label {
+input:valid~label, input:invalid~label {
     font-size: 14px;
     top:-18px;
     color: #3576f8;
     font-size: 10px;
 }
+
+input:invalid~label {
+    color: red;
+}
+
   .errors {
     color: red;
     border-bottom: 1px solid red;

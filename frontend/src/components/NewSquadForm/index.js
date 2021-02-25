@@ -1,11 +1,12 @@
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, Redirect } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import testEvents from '../../mockData/testEvents.json';
+import AspectRatio from 'react-aspect-ratio';
 
 import '../Squads/squads.css';
 import './newsquad.css';
-import AspectRatio from 'react-aspect-ratio';
+import { createNewSquad } from '../../store/squads';
 
 const NewSquadForm = () => {
     const [squadName, setSquadName] = useState('');
@@ -13,10 +14,26 @@ const NewSquadForm = () => {
     const [primaryType, setPrimaryType] = useState('');
     const [secondaryType, setSecondaryType] = useState('None');
     const [disabled, setDisabled] = useState(true);
+    const [errors, setErrors] = useState([]);
+
     const user = useSelector((state) => state.session.user);
+    const dispatch = useDispatch();
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        const nfsInformation = {
+            squadName,
+            description,
+            primaryType,
+            secondaryType,
+            captainId: user.id,
+        };
+        return dispatch(createNewSquad(nfsInformation)).catch(async (res) => {
+            const data = await res.json();
+            if (data && data.errors) {
+                setErrors(data.errors);
+            }
+        });
     };
 
     useEffect(() => {
@@ -38,6 +55,15 @@ const NewSquadForm = () => {
                         <span className="nsfHeaderContainer">
                             <h1 className="nsfHeader">Create Squad</h1>
                         </span>
+                        <div className="errorsContainer">
+                            {errors.length > 0 && (
+                                <ul className="errors">
+                                    {errors.map((error, idx) => (
+                                        <li key={idx}>{error}</li>
+                                    ))}
+                                </ul>
+                            )}
+                        </div>
                         <div className="captainNameContainer">
                             <div className="nsfcaptainName">
                                 <div style={{ fontSize: '1.1em' }}>

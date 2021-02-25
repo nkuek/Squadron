@@ -116,6 +116,10 @@
         left: 60px;
     }
 
+    .signupInputField label {
+        left: 27px;
+    }
+
     .signupButton {
         width: 210px;
         margin-top: 25px;

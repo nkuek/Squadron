@@ -4,12 +4,14 @@ import sessionReducer from './session';
 import gamesReducer from './games';
 import gameReducer from './game';
 import orderReducer from './order';
+import squadReducer from './squads';
 
 const rootReducer = combineReducers({
     session: sessionReducer,
     games: gamesReducer,
     game: gameReducer,
     order: orderReducer,
+    squads: squadReducer,
 });
 
 let enhancer;
