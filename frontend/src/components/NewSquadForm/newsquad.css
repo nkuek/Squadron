@@ -1,3 +1,20 @@
+@media only screen and (max-width: 700px) {
+
+    .nsfPreviewWrapper {
+        display:none
+    }
+
+    .nsfContainer {
+        width: 100%;
+    }
+}
+
+@media only screen and (min-width: 700px) {
+    .nsfContainer {
+        width: auto;
+    }
+}
+
 .nsfWrapper {
     width: 100%;
     min-height: 100%;
@@ -23,11 +40,11 @@
     color: teal;
 }
 
+
 .nsfContainer {
     background-color: rgb(36, 37, 38);
     padding: 20px 15px;
     max-height: 100%;
-    width: auto;
     min-width: 250px;
 }
 
@@ -58,14 +75,14 @@
     border-radius: 5px;
 }
 
-.nsfInputContainer:hover, .nsfInputContainer:focus {
+.nsfInputContainer:hover {
     border-color: #97baff
 }
 
-.nsfInput:focus~span {
+.nsfInput:focus~span, .nsfInput:valid~span {
     color: #3576f8;
 }
-.nsfInputContainer:focus-within {
+.nsfInputContainer:focus-within, .nsfInput:valid~span {
     border-color: #3576f8;
 }
 
