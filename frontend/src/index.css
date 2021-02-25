@@ -1,6 +1,10 @@
 :focus {
     outline: none;
 }
+
+a {
+    color: inherit
+}
 html {
     margin: 0;
     padding: 0;

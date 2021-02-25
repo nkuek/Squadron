@@ -47,6 +47,10 @@
     margin-left: 5px;
 }
 
+.nsfForm {
+    padding: 0;
+}
+
 .nsfInputContainer {
     border: 1px solid #d3d3d3;
     width: auto;
@@ -83,33 +87,11 @@
     border-bottom: none;
 }
 
-
-
 .nsfPreviewWrapper {
     width: 100%;
     margin: 40px;
 }
 
-.squadOuterContainer {
-    background-color: black;
-    display: flex;
-    height: 100%;
-    width: 100%;
-    border-radius: 20px;
-    overflow-wrap:break-word;
-    overflow:hidden;
-}
-
-.squadInnerContainer {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    margin: 20px 30px;
-    padding: 10px;
-    max-width: 100%;
-    overflow: hidden;
-    overflow-wrap:break-word;
-}
 
 .nsfPreviewHeader {
     height: fit-content;
@@ -120,20 +102,4 @@
     margin: 0;
     color: white;
     font-size: 1.2em;
-}
-
-.squadName h1 {
-    color: blueviolet;
-    font-family: 'Exo 2', sans-serif
-}
-
-.squadDescription {
-    color: white;
-}
-
-.squadName h1, .squadDescription {
-    width: auto;
-    overflow-wrap:break-word;
-    word-wrap: break-word;
-    margin: 0;
 }

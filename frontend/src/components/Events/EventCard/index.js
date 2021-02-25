@@ -2,7 +2,7 @@ import { Link, NavLink, useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { AspectRatio } from 'react-aspect-ratio';
 
-import { findGames } from '../../../../store/game';
+import { findGames } from '../../../store/game';
 
 const EventCard = ({ events }) => {
     const dispatch = useDispatch();

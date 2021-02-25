@@ -1,8 +1,11 @@
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
+import testEvents from '../../mockData/testEvents.json';
 
+import '../Squads/squads.css';
 import './newsquad.css';
+import AspectRatio from 'react-aspect-ratio';
 
 const NewSquadForm = () => {
     const [squadName, setSquadName] = useState('');
@@ -39,26 +42,32 @@ const NewSquadForm = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="nsfInputContainer">
-                            <input
-                                className="nsfInput"
-                                type="text"
-                                value={squadName}
-                                onChange={(e) => setSquadName(e.target.value)}
-                                required
-                            ></input>
-                            <span className="nsfLabel">Squad Name</span>
-                        </div>
-                        <div className="nsfInputContainer">
-                            <input
-                                className="nsfInput"
-                                type="text"
-                                value={description}
-                                onChange={(e) => setDescription(e.target.value)}
-                                required
-                            ></input>
-                            <span className="nsfLabel">Description</span>
-                        </div>
+                        <form className="nsfForm">
+                            <div className="nsfInputContainer">
+                                <input
+                                    className="nsfInput"
+                                    type="text"
+                                    value={squadName}
+                                    onChange={(e) =>
+                                        setSquadName(e.target.value)
+                                    }
+                                    required
+                                ></input>
+                                <span className="nsfLabel">Squad Name</span>
+                            </div>
+                            <div className="nsfInputContainer">
+                                <input
+                                    className="nsfInput"
+                                    type="text"
+                                    value={description}
+                                    onChange={(e) =>
+                                        setDescription(e.target.value)
+                                    }
+                                    required
+                                ></input>
+                                <span className="nsfLabel">Description</span>
+                            </div>
+                        </form>
                     </div>
 
                     <div className="nsfPreviewWrapper">
@@ -72,12 +81,108 @@ const NewSquadForm = () => {
                                         {!squadName ? 'Squad Name' : squadName}
                                     </h1>
                                 </div>
+                                <div className="squadMembers">
+                                    <i
+                                        style={{ cursor: 'pointer' }}
+                                        className="fas fa-user-friends"
+                                    >
+                                        {' 1 Squadmate'}
+                                    </i>
+                                </div>
                                 <div className="squadDescription">
-                                    <p style={{ margin: '16px 10px' }}>
+                                    <p>
                                         {!description
                                             ? 'Squad Description'
                                             : description}
                                     </p>
+                                </div>
+                                <div className="squadEventListWrapper">
+                                    <div className="squadEventListContainer">
+                                        <div className="squadEventListHeader">
+                                            <h3 className="squadEvents">
+                                                Upcoming Events
+                                            </h3>
+                                            <p className="squadAllEvents">
+                                                See All
+                                            </p>
+                                        </div>
+                                        <div className="squadEventsContainer">
+                                            <ul className="squadEvents">
+                                                {testEvents.map((event) => (
+                                                    <li
+                                                        key={event.id}
+                                                        className="squadEventItem"
+                                                    >
+                                                        <div className="squadEventItemWrapper">
+                                                            <div className="squadEventItemContent">
+                                                                <div
+                                                                    style={{
+                                                                        cursor:
+                                                                            'pointer',
+                                                                    }}
+                                                                    className="squadEventLink"
+                                                                    to="#"
+                                                                >
+                                                                    <div className="squadEventContainer">
+                                                                        <div className="squadEventImageWrapper">
+                                                                            <AspectRatio
+                                                                                ratio="16/9"
+                                                                                style={{
+                                                                                    objectFit:
+                                                                                        'cover',
+                                                                                    position:
+                                                                                        'relatve',
+                                                                                    width:
+                                                                                        '100%',
+                                                                                    height:
+                                                                                        'inherit',
+                                                                                }}
+                                                                                className="squadImageContainer"
+                                                                            >
+                                                                                <picture>
+                                                                                    <img
+                                                                                        className="gameImage"
+                                                                                        src={
+                                                                                            event.image
+                                                                                        }
+                                                                                    ></img>
+                                                                                </picture>
+                                                                            </AspectRatio>
+                                                                        </div>
+                                                                        <div className="squadEventInformationContainer">
+                                                                            <p className="eventDate">
+                                                                                {
+                                                                                    event.date
+                                                                                }
+                                                                            </p>
+                                                                            <p className="eventTitle">
+                                                                                {
+                                                                                    event.title
+                                                                                }
+                                                                            </p>
+                                                                            <p
+                                                                                to="#"
+                                                                                className="eventGameLink"
+                                                                            >
+                                                                                {
+                                                                                    event.gameId
+                                                                                }
+                                                                            </p>
+                                                                            <p className="eventDetails">
+                                                                                {
+                                                                                    event.details
+                                                                                }
+                                                                            </p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
