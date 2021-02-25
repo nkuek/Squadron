@@ -1,7 +1,13 @@
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+
 const Banner = () => {
+    const user = useSelector((state) => state.session.user);
     return (
-        <div className="homePageWrapper">
+        <div
+            className="homePageWrapper"
+            style={{ display: user ? 'none' : 'initial' }}
+        >
             <div className="homePageBanner">
                 <div className="homePageHeadingContainer">
                     <h1 className="homePageHeader">Find Your Squadron</h1>

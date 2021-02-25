@@ -7,8 +7,8 @@ const HomeEventList = () => {
 
     return (
         <div
+            style={{ marginTop: !user ? '30px' : '91px' }}
             className="homePageEventsContainer"
-            style={user ? { margin: '100px 50px' } : {}}
         >
             <div className="homePageEvents">
                 <div className="homePageEventsHeader">

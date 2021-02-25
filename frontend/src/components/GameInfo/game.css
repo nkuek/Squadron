@@ -42,6 +42,8 @@
         margin: 100px 20px;
         padding: 30px;
         width: auto;
+        position: absolute;
+        top: 20px;
         height: fit-content;
         border-radius: 10px;
     }
@@ -80,12 +82,11 @@
         background-color: black;
         display:flex;
         flex-direction: column;
-        margin: 100px 20px;
         padding: 30px;
-        width: 80%;
-        height: fit-content;
-        /* min-width: 300px; */
         border-radius: 10px;
+        position: absolute;
+        top: 10%;
+
     }
     .gamePageContainer {
         display: flex;

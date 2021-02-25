@@ -48,102 +48,102 @@ const Games = () => {
     return Object.keys(games).length === 0 ? (
         <h1 className="loading">Loading...</h1>
     ) : (
-        <div className="gamesContainer">
-            <select
-                value={ordering}
-                onChange={(e) => {
-                    setOrdering(e.target.value);
-                }}
-            >
-                <option value="">Most Popular</option>
-                <option value="-metacritic">Rating</option>
-            </select>
-            <ul className="gamesList">
-                {Object.keys(games).map((idx) => {
-                    const game = games[idx];
-                    return (
-                        <li key={idx} className="gameCard">
-                            <div className="gameCardContainer">
-                                <Link
-                                    style={{ position: 'relative' }}
-                                    onClick={(e) => handleClick(e)}
-                                    id={game.name}
-                                    to={`/games/${game.name
-                                        .replace(':', '')
-                                        .split(' ')
-                                        .join('')
-                                        .toLowerCase()}`}
-                                >
-                                    <AspectRatio
-                                        className="gameImageContainer"
-                                        ratio="16/9"
-                                        style={{
-                                            marginRight: '15px',
-                                            pointerEvents: 'none',
-                                        }}
+        <div className="gamesWrapper">
+            <div className="gamesContainer">
+                <select
+                    className="gamesOrder"
+                    value={ordering}
+                    onChange={(e) => {
+                        setOrdering(e.target.value);
+                    }}
+                >
+                    <option value="">Most Popular</option>
+                    <option value="-metacritic">Rating</option>
+                </select>
+                <ul className="gamesList">
+                    {Object.keys(games).map((idx) => {
+                        const game = games[idx];
+                        return (
+                            <li key={idx} className="gameCard">
+                                <div className="gameCardContainer">
+                                    <Link
+                                        onClick={(e) => handleClick(e)}
+                                        id={game.name}
+                                        to={`/games/${game.name
+                                            .replace(':', '')
+                                            .split(' ')
+                                            .join('')
+                                            .toLowerCase()}`}
                                     >
-                                        <img
-                                            src={
-                                                !game.image
-                                                    ? 'https://www.publicdomainpictures.net/pictures/280000/velka/not-found-image-15383864787lu.jpg'
-                                                    : game.image
-                                            }
-                                        />
-                                    </AspectRatio>
-                                    <div
-                                        className="gameInformationContainer"
-                                        style={{ pointerEvents: 'none' }}
-                                    >
-                                        <div className="nameContainer">
-                                            <p className="gameName">
-                                                {game.name}
-                                            </p>
-                                        </div>
-                                        <div className="gameInformation">
-                                            <div className="metacritic">
-                                                <p>Metacritic:</p>
-                                                <p
-                                                    className="gameRating"
-                                                    style={{
-                                                        color:
-                                                            game.metacritic >=
-                                                            90
-                                                                ? '#00ff00'
-                                                                : game.metacritic >=
-                                                                  80
-                                                                ? 'lightgreen'
-                                                                : game.metacritic >
-                                                                  60
-                                                                ? 'yellow'
-                                                                : game.metacritic <
-                                                                      60 &&
-                                                                  game.metacritic >
-                                                                      0
-                                                                ? 'red'
-                                                                : 'white',
-                                                    }}
-                                                >
-                                                    {game.metacritic === 0
-                                                        ? 'N/A'
-                                                        : game.metacritic}
+                                        <AspectRatio
+                                            className="gameImageContainer"
+                                            ratio="16/9"
+                                            style={{
+                                                marginRight: '15px',
+                                                pointerEvents: 'none',
+                                            }}
+                                        >
+                                            <img
+                                                src={
+                                                    !game.image
+                                                        ? 'https://www.publicdomainpictures.net/pictures/280000/velka/not-found-image-15383864787lu.jpg'
+                                                        : game.image
+                                                }
+                                            />
+                                        </AspectRatio>
+                                        <div
+                                            className="gameInformationContainer"
+                                            style={{ pointerEvents: 'none' }}
+                                        >
+                                            <div className="nameContainer">
+                                                <p className="gameName">
+                                                    {game.name}
                                                 </p>
                                             </div>
-                                            <p className="gameGenres">
-                                                Genres:{' '}
-                                                {game.genres
-                                                    ? game.genres.join(', ')
-                                                    : 'N/A'}
-                                            </p>
+                                            <div className="gameInformation">
+                                                <div className="metacritic">
+                                                    <p>Metacritic:</p>
+                                                    <p
+                                                        className="gameRating"
+                                                        style={{
+                                                            color:
+                                                                game.metacritic >=
+                                                                90
+                                                                    ? '#00ff00'
+                                                                    : game.metacritic >=
+                                                                      80
+                                                                    ? 'lightgreen'
+                                                                    : game.metacritic >
+                                                                      60
+                                                                    ? 'yellow'
+                                                                    : game.metacritic <
+                                                                          60 &&
+                                                                      game.metacritic >
+                                                                          0
+                                                                    ? 'red'
+                                                                    : 'white',
+                                                        }}
+                                                    >
+                                                        {game.metacritic === 0
+                                                            ? 'N/A'
+                                                            : game.metacritic}
+                                                    </p>
+                                                </div>
+                                                <p className="gameGenres">
+                                                    Genres:{' '}
+                                                    {game.genres
+                                                        ? game.genres.join(', ')
+                                                        : 'N/A'}
+                                                </p>
+                                            </div>
                                         </div>
-                                    </div>
-
-                                    <div></div>
-                                </Link>
-                            </div>
-                        </li>
-                    );
-                })}
-            </ul>
+                                    </Link>
+                                </div>
+                            </li>
+                        );
+                    })}
+                </ul>
+            </div>
         </div>
     );
 };

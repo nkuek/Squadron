@@ -7,7 +7,7 @@ const Home = () => {
     const user = useSelector((state) => state.session.user);
     return (
         <div className="homePageContent">
-            {!user ? <Banner /> : <></>}
+            <Banner />
             <HomeEventList />
         </div>
     );
