@@ -30,7 +30,7 @@ export const createNewSquad = (squad) => async (dispatch) => {
     const data = await res.json();
     console.log(data);
     dispatch(newSquad(data));
-    return data;
+    return res;
 };
 
 const squadReducer = (state = {}, action) => {

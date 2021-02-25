@@ -155,7 +155,7 @@ const NewSquadForm = () => {
                                 type="submit"
                                 disabled={disabled}
                                 style={{
-                                    cursor: disabled ? 'default' : 'cursor',
+                                    cursor: disabled ? 'inherit' : 'pointer',
                                 }}
                                 className="nsfSubmit"
                             >
