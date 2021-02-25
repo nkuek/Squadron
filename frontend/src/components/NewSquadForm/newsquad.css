@@ -1,4 +1,4 @@
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 750px) {
 
     .nsfPreviewWrapper {
         display:none
@@ -7,11 +7,18 @@
     .nsfContainer {
         width: 100%;
     }
+
+    .nsfForm {
+        height: 60vh;
+    }
 }
 
-@media only screen and (min-width: 700px) {
+@media only screen and (min-width: 750px) {
     .nsfContainer {
         width: auto;
+    }
+    .nsfForm {
+        height: 1050px;
     }
 }
 
@@ -33,7 +40,7 @@
 
 .closeFormArrow {
     color: white;
-    margin-left: 10px;
+    margin-left: 0px;
 }
 
 .closeFormArrow:hover, .closeFormArrow:focus {
@@ -55,6 +62,7 @@
 
 .captainNameContainer {
     display: flex;
+    align-items: flex-start;
     flex-direction: column;
     color: white;
     margin: 0;
@@ -66,6 +74,10 @@
 
 .nsfForm {
     padding: 0;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+
 }
 
 .nsfInputContainer {
@@ -79,7 +91,10 @@
     border-color: #97baff
 }
 
-.nsfInput:focus~span, .nsfInput:valid~span {
+.nsfInput:focus~span,
+.nsfInput:valid~span,
+.nsfDropdown:focus~span,
+.nsfDropdown:valid~span {
     color: #3576f8;
 }
 .nsfInputContainer:focus-within, .nsfInput:valid~span {
@@ -92,18 +107,55 @@
     left: 20px;
     color: white;
     z-index: 0;
+    display: inline-block;
 }
 
+.nsfSquadName {
+    top: 225px;
+}
 
+.nsfDescription {
+    top: 468px;
+}
 .nsfInput {
     position: relative;
+    width: 100%;
     z-index: 1;
-    padding: 25px 40px 10px 10px;
+    padding: 25px 40px 10px 15px;
     background-color: transparent;
     color: white;
     border-bottom: none;
 }
 
+.nsfDropdown {
+    width: 100%;
+    background-color: transparent;
+    color: white;
+    padding: 25px 40px 10px 10px;
+    font-size: 1em;
+}
+
+.nsfDropdown select {
+    padding: 20px
+}
+
+select option {
+    background-color: black;
+    padding: 20px;
+    font-size: 1em;
+}
+
+.nsfSubmit {
+    background-color: #3576f8;
+    border: none;
+    color: white;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.nsfSubmit:hover {
+    background-color: #578fff;
+}
 .nsfPreviewWrapper {
     width: 100%;
     margin: 40px;

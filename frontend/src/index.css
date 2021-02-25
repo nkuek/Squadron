@@ -5,6 +5,11 @@
 a {
     color: inherit
 }
+
+select {
+    font-family: inherit;
+}
+
 html {
     margin: 0;
     padding: 0;

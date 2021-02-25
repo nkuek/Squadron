@@ -10,6 +10,8 @@ import AspectRatio from 'react-aspect-ratio';
 const NewSquadForm = () => {
     const [squadName, setSquadName] = useState('');
     const [description, setDescription] = useState('');
+    const [primaryType, setPrimaryType] = useState('');
+    const [secondaryType, setSecondaryType] = useState('');
     const user = useSelector((state) => state.session.user);
 
     return (
@@ -38,63 +40,124 @@ const NewSquadForm = () => {
                                         fontStyle: 'italic',
                                     }}
                                 >
-                                    Captain
+                                    <i className="fas fa-crown"></i>
+                                    {` Captain`}
                                 </div>
                             </div>
                         </div>
                         <form className="nsfForm">
-                            <div className="nsfInputContainer">
-                                <input
-                                    className="nsfInput"
-                                    type="text"
-                                    value={squadName}
-                                    onChange={(e) =>
-                                        setSquadName(e.target.value)
-                                    }
-                                    required
-                                ></input>
-                                <span className="nsfLabel">Squad Name</span>
+                            <div className="nsfFormInformation">
+                                <div className="nsfInputContainer">
+                                    <input
+                                        className="nsfInput "
+                                        type="text"
+                                        value={squadName}
+                                        onChange={(e) =>
+                                            setSquadName(e.target.value)
+                                        }
+                                        required
+                                    ></input>
+                                    <span className="nsfLabel nsfSquadName">
+                                        Squad Name
+                                    </span>
+                                </div>
+                                <div className="nsfInputContainer">
+                                    <select
+                                        className="nsfDropdown"
+                                        value={primaryType}
+                                        onChange={(e) =>
+                                            setPrimaryType(e.target.value)
+                                        }
+                                        required
+                                    >
+                                        <option value="Gaming">Gaming</option>
+                                        <option value="Trading">Trading</option>
+                                        <option value="Social">Social</option>
+                                    </select>
+                                    <span className="nsfLabel">
+                                        Primary Squad Type
+                                    </span>
+                                </div>
+                                <div className="nsfInputContainer">
+                                    <select
+                                        className="nsfDropdown"
+                                        value={secondaryType}
+                                        onChange={(e) =>
+                                            setSecondaryType(e.target.value)
+                                        }
+                                        required
+                                    >
+                                        <option value="None">None</option>
+                                        <option value="Gaming">Gaming</option>
+                                        <option value="Trading">Trading</option>
+                                        <option value="Social">Social</option>
+                                    </select>
+                                    <span className="nsfLabel">
+                                        Secondary Squad Type (optional)
+                                    </span>
+                                </div>
+                                <div className="nsfInputContainer">
+                                    <input
+                                        className="nsfInput"
+                                        type="text"
+                                        value={description}
+                                        onChange={(e) =>
+                                            setDescription(e.target.value)
+                                        }
+                                        required
+                                    ></input>
+                                    <span className="nsfLabel nsfDescription">
+                                        Description
+                                    </span>
+                                </div>
                             </div>
-                            <div className="nsfInputContainer">
-                                <input
-                                    className="nsfInput"
-                                    type="text"
-                                    value={description}
-                                    onChange={(e) =>
-                                        setDescription(e.target.value)
-                                    }
-                                    required
-                                ></input>
-                                <span className="nsfLabel">Description</span>
-                            </div>
+                            <button className="nsfSubmit">Create</button>
                         </form>
                     </div>
 
                     <div className="nsfPreviewWrapper">
                         <div className="squadOuterContainer">
                             <div className="squadInnerContainer">
-                                <div className="nsfPreviewHeader">
-                                    <p className="preview">Preview</p>
-                                </div>
-                                <div className="squadName">
-                                    <h1>
-                                        {!squadName ? 'Squad Name' : squadName}
-                                    </h1>
-                                </div>
-                                <div className="squadMembers">
-                                    <i
-                                        style={{ cursor: 'pointer' }}
-                                        className="fas fa-user-friends"
-                                    >
-                                        {' 1 Squadmate'}
-                                    </i>
-                                </div>
-                                <div className="squadDescription">
-                                    <p>
-                                        {!description
-                                            ? 'Squad Description'
-                                            : description}
-                                    </p>
+                                <div className="squadInformation">
+                                    <div className="nsfPreviewHeader">
+                                        <p className="preview">Preview</p>
+                                    </div>
+                                    <div className="squadName">
+                                        <h1>
+                                            {!squadName
+                                                ? 'Squad Name'
+                                                : squadName}
+                                        </h1>
+                                    </div>
+                                    <div className="squadMembers">
+                                        <i
+                                            style={{ cursor: 'pointer' }}
+                                            className="fas fa-user-friends"
+                                        >
+                                            {' 1 Squadmate'}
+                                        </i>
+                                    </div>
+                                    <hr className="separator"></hr>
+                                    <div className="squadInformationNav">
+                                        <NavLink
+                                            className="squadEventsLink"
+                                            to="#"
+                                        >
+                                            Events
+                                        </NavLink>
+                                        <NavLink
+                                            className="squadDescriptionLink"
+                                            to="#"
+                                        >
+                                            Description
+                                        </NavLink>
+                                        <NavLink
+                                            className="squadMembersLink"
+                                            to="#"
+                                        >
+                                            Members
+                                        </NavLink>
+                                    </div>
                                 </div>
                                 <div className="squadEventListWrapper">
                                     <div className="squadEventListContainer">
@@ -128,6 +191,8 @@ const NewSquadForm = () => {
                                                                             <AspectRatio
                                                                                 ratio="16/9"
                                                                                 style={{
+                                                                                    maxWidth:
+                                                                                        '400px',
                                                                                     objectFit:
                                                                                         'cover',
                                                                                     position:
