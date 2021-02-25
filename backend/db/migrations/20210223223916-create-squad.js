@@ -11,6 +11,7 @@ module.exports = {
             },
             squadName: {
                 allowNull: false,
+                unique: true,
                 type: Sequelize.STRING(50),
             },
             description: {
@@ -21,6 +22,15 @@ module.exports = {
             captainId: {
                 allowNull: false,
                 type: Sequelize.INTEGER,
+            },
+            primaryType: {
+                allowNull: false,
+                type: Sequelize.STRING,
+            },
+            secondaryType: {
+                allowNull: false,
+                type: Sequelize.STRING,
+                defaultValue: 'None',
             },
             createdAt: {
                 allowNull: false,

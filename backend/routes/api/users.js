@@ -5,6 +5,7 @@ const { setTokenCookie, requireAuth } = require('../../utils/auth');
 const { User } = require('../../db/models');
 const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
+const db = require('../../db/models');
 
 const router = express.Router();
 
@@ -12,18 +13,31 @@ const validateSignup = [
     check('email')
         .exists({ checkFalsy: true })
         .isEmail()
-        .withMessage('Please provide a valid email.'),
+        .withMessage('Please provide a valid email.')
+        .custom((value) => {
+            return db.User.findOne({ where: { username: value } }).then(
+                (user) => {
+                    if (user) return Promise.reject('Email is already in use.');
+                }
+            );
+        }),
     check('username')
         .exists({ checkFalsy: true })
         .isLength({ min: 4 })
-        .withMessage('Please provide a username with at least 4 characters.'),
-    check('username')
+        .withMessage('Please provide a username with at least 4 characters.')
         .not()
         .isEmail()
-        .withMessage('Username cannot be an email.'),
-    check('username')
+        .withMessage('Username cannot be an email.')
         .isLength({ max: 30 })
-        .withMessage('Username cannot exceed 30 characters.'),
+        .withMessage('Username cannot exceed 30 characters.')
+        .custom((value) => {
+            return db.User.findOne({ where: { username: value } }).then(
+                (user) => {
+                    if (user)
+                        return Promise.reject('Username is already in use.');
+                }
+            );
+        }),
     check('password')
         .exists({ checkFalsy: true })
         .withMessage('Please enter a password.')

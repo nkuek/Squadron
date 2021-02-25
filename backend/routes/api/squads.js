@@ -6,12 +6,21 @@ const { requireAuth } = require('../../utils/auth');
 const { check } = require('express-validator');
 
 const { Squad } = require('../../db/models');
+const db = require('../../db/models');
 
 const validateNewSquad = [
     check('squadName')
         .exists({ checkFalsy: true })
         .withMessage('Squad name cannot be empty.')
-        .isLength({ min: 4, max: 50 }),
+        .isLength({ min: 4, max: 50 })
+        .custom((value) => {
+            return db.Squad.findOne({ where: { squadName: value } }).then(
+                (squad) => {
+                    if (squad)
+                        return Promise.reject('Squad Name is already in use.');
+                }
+            );
+        }),
     check('description')
         .isLength({ min: 1, max: 256 })
         .withMessage('Description must be between 1 and 256 characters.'),
@@ -23,12 +32,20 @@ router.post(
     requireAuth,
     validateNewSquad,
     asyncHandler(async (req, res) => {
-        const { squadName, description, captain } = req.body;
+        const {
+            squadName,
+            description,
+            captainId,
+            primaryType,
+            secondaryType,
+        } = req.body;
 
         const squad = await Squad.create({
             squadName,
             description,
-            userId,
+            captainId,
+            primaryType,
+            secondaryType,
         });
 
         return res.json({ squad });
