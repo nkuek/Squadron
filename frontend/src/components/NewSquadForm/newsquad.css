@@ -154,7 +154,7 @@
     color: #3576f8;
 }
 
-.nsfInput:invalid~span {
+.nsfInput:invalid:focus~span {
     border-color: red;
     color: red;
 }

@@ -35,27 +35,20 @@ const NewSquadForm = () => {
             secondaryType,
             captainId: user.id,
         };
-        if (!description.match(/^[a-zA-Z0-9_.-]*$/))
-            errors.push('Squad name should only include letters and numbers');
-        setErrors(errors);
 
         if (errors.length > 0) return;
 
-        const { squad } = await dispatch(createNewSquad(nfsInformation)).catch(
+        const squad = await dispatch(createNewSquad(nfsInformation)).catch(
             async (res) => {
                 const data = await res.json();
                 if (data && data.errors) {
-                    errors.push(...data.errors);
-                    setErrors(errors);
+                    console.log(data.errors);
+                    setErrors(data.errors);
                 }
             }
         );
-        history.push(
-            `/squads/${squad.squadName
-                .replaceAll(/[&\/\\#,+()$~%.'\-":*?<>{}]/g, '')
-                .split(' ')
-                .join('')}`
-        );
+
+        squad && history.push(`/squads/${squad.squad.squadName}`);
     };
 
     return (
@@ -102,16 +95,9 @@ const NewSquadForm = () => {
                                     <input
                                         className="nsfInput "
                                         type="text"
-                                        id="squadNameInput"
                                         value={squadName}
                                         onChange={(e) =>
                                             setSquadName(e.target.value)
-                                        }
-                                        pattern={/^[a-zA-Z0-9_.-]*$/}
-                                        onInvalid={(e) =>
-                                            e.target.setCustomValidity(
-                                                'Squad Name should only include numbers and letters'
-                                            )
                                         }
                                         required
                                     ></input>
