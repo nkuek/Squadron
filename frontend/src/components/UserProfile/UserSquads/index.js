@@ -8,8 +8,12 @@ const UserSquads = () => {
                 <div className="userSquadListContainer">
                     {squads.map((squadObj) =>
                         squadObj.Squads.map((squad, idx) => (
-                            <div key={idx} className="squadContainer">
-                                <a className="squadLinkContainer">
+                            <a
+                                key={idx}
+                                href={`/squads/${squad.squadName}`}
+                                className="squadLinkContainer"
+                            >
+                                <div className="userSquadContainer">
                                     <p className="userSquadName">
                                         {squad.squadName}
                                     </p>
@@ -17,8 +21,8 @@ const UserSquads = () => {
                                     <p className="userSquadCaptain">
                                         Captain: {squadObj.username}
                                     </p>
-                                </a>
-                            </div>
+                                </div>
+                            </a>
                         ))
                     )}
                 </div>

@@ -1,13 +1,15 @@
 import { NavLink, Redirect } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
+import { useState } from 'react';
 import * as sessionActions from '../../store/session';
 import './navigation.css';
 import ProfileButton from './ProfileButton.js';
-// import ProfileButton from './ProfileButton';
 
 const Navigation = () => {
     const dispatch = useDispatch();
     const sessionUser = useSelector((state) => state.session.user);
+
+    const [search, setSearch] = useState('');
 
     // Enables hamburger menu bar transition
     const addChange = (e) => {
@@ -16,6 +18,10 @@ const Navigation = () => {
 
         // Shows drop down menu when clicked
         document.querySelector('.stickyDropDownMenu')?.classList.toggle('show');
+    };
+
+    const handleSearch = (e) => {
+        e.preventDefault();
     };
 
     // Closes drop down menu when clicking anywhere else
@@ -67,6 +73,24 @@ const Navigation = () => {
                 </div>
             </div>
             <div className="loginLogoutSignup">
+                <form className="searchForm" onSubmit={handleSearch}>
+                    <div className="searchBarContainer">
+                        <div className="searchBar">
+                            <div className="searchInputContainer">
+                                <span
+                                    onClick={handleSearch}
+                                    className="fa fa-search searchButtonContainer"
+                                ></span>
+                                <input
+                                    value={search}
+                                    onChange={(e) => setSearch(e.target.value)}
+                                    className="searchInput"
+                                    type="text"
+                                ></input>
+                            </div>
+                        </div>
+                    </div>
+                </form>
                 {!sessionUser ? (
                     <>
                         <NavLink className="login" to="/login">
