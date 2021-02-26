@@ -45,6 +45,7 @@ const NewSquadForm = () => {
         history.push(
             `/squads/${squad.squadName
                 .replaceAll(/[&\/\\#,+()$~%.'\-":*?<>{}]/g, '')
+                .split(' ')
                 .join('')}`
         );
     };

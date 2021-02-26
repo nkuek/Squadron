@@ -20,6 +20,11 @@ const UserSquads = () => {
                             <p className="userSquadPrimaryType">
                                 {squad.primaryType}
                             </p>
+                            {squad.secondaryType !== 'None' ? (
+                                <p className="userSquadSecondaryType">
+                                    {squad.secondaryType}
+                                </p>
+                            ) : null}
                             <p className="userSquadCaptain">{profileName}</p>
                         </div>
                     ))}
