@@ -1,4 +1,4 @@
-import { NavLink, Redirect } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { useState } from 'react';
 import * as sessionActions from '../../store/session';
@@ -8,6 +8,7 @@ import ProfileButton from './ProfileButton.js';
 const Navigation = () => {
     const dispatch = useDispatch();
     const sessionUser = useSelector((state) => state.session.user);
+    const history = useHistory();
 
     const [search, setSearch] = useState('');
 
@@ -22,6 +23,9 @@ const Navigation = () => {
 
     const handleSearch = (e) => {
         e.preventDefault();
+        // if (!e.target.value) return;
+        if (!search) return;
+        history.push(`/search/${search}`);
     };
 
     // Closes drop down menu when clicking anywhere else
@@ -82,6 +86,7 @@ const Navigation = () => {
                                     className="fa fa-search searchButtonContainer"
                                 ></span>
                                 <input
+                                    placeholder="Search..."
                                     value={search}
                                     onChange={(e) => setSearch(e.target.value)}
                                     className="searchInput"

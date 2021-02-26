@@ -12,12 +12,10 @@ import Games from './components/Games';
 import GameInfo from './components/GameInfo';
 import Events from './components/Events';
 import UserProfile from './components/UserProfile';
-import UserSquads from './components/UserProfile/UserSquads';
-import UserGames from './components/UserProfile/UserGames';
-import UserAbout from './components/UserProfile/UserAbout';
 import NewSquadForm from './components/NewSquadForm';
 import PageNotFound from './components/PageNotFound';
 import Squads from './components/Squads';
+import Search from './components/Search';
 
 import { findMySquads } from './store/squads';
 
@@ -81,6 +79,9 @@ function App() {
 
                     <Route exact path="/squads/create">
                         <NewSquadForm />
+                    </Route>
+                    <Route path="/search/:searchquery">
+                        <Search />
                     </Route>
 
                     <Route>

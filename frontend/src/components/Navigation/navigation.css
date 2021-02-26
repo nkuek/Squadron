@@ -100,7 +100,7 @@ ul {
 }
 
 .searchInput {
-    padding-left: 5px;
+    padding-left: 10px;
 }
 
 .searchInput:focus~span {
