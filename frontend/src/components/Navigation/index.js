@@ -22,11 +22,12 @@ const Navigation = () => {
         document.querySelector('.stickyDropDownMenu')?.classList.toggle('show');
     };
 
-    const handleSearch = (e) => {
+    const handleSearch = async (e) => {
         e.preventDefault();
         // if (!e.target.value) return;
         if (!search) return;
-        dispatch(getSearchResults(search));
+        const searchResults = await dispatch(getSearchResults(search));
+        localStorage.setItem('search', JSON.stringify(searchResults));
         history.push(
             `/search/${search
                 .replaceAll(/[&\/\\#,+()$~%.'":*?<>{}]/g, '')

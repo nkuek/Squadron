@@ -24,10 +24,17 @@ router.post(
         const apiRes = await fetch(
             `https://api.rawg.io/api/games?key=${API_KEY}&search=${searchQuery}`
         );
-
         const apiData = await apiRes.json();
-
-        const games = apiData.results;
+        const apiResults = apiData.results;
+        const games = apiResults.map((game) => ({
+            name: game.name,
+            genres: game.genres.map((genre) => genre.name),
+            metacritic: Number(game.metacritic),
+            rating: Number(game.rating),
+            image: game.background_image,
+            platforms: game.platforms.map((platform) => platform.platform.name),
+            released: game.released,
+        }));
 
         return res.json({ users, squads, games });
     })
