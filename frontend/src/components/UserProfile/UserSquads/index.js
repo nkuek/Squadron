@@ -1,14 +1,22 @@
-import { useParams } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 const UserSquads = () => {
     const squads = JSON.parse(localStorage.getItem('squads'));
-    const userState = useSelector((state) => state.session.user);
+    const loggedInUser = useSelector((state) => state.session.user);
+    const history = useHistory();
 
-    const { username } = useParams();
+    console.log(squads[0]);
+    const profileName =
+        loggedInUser.username === squads[0].username
+            ? 'You'
+            : `${squads[0].username}`;
 
-    let profileName = userState.username === username ? 'You' : `${username}`;
+    const navigateToUserProfile = (e) => {
+        e.preventDefault();
+        history.push(`/users/${profileName}`);
+    };
 
     return (
         // {!squads ? <div className='noSquads'></div>}
@@ -19,8 +27,7 @@ const UserSquads = () => {
                         <li key={idx} className="squadCard">
                             <div className="squadCardsContainer">
                                 <Link
-                                    id={squad.squadName}
-                                    to={`/games/${squad.squadName
+                                    to={`/squads/${squad.squadName
                                         .split(' ')
                                         .join('')}`}
                                 >
@@ -41,6 +48,25 @@ const UserSquads = () => {
                                             <p className="userSquadSecondaryType">
                                                 {squad.secondaryType}
                                             </p>
+                                            <div className="userSquadCaptainLink">
+                                                <p
+                                                    style={{
+                                                        cursor:
+                                                            !profileName ===
+                                                            'You'
+                                                                ? 'pointer'
+                                                                : 'none',
+                                                    }}
+                                                    onClick={
+                                                        !profileName === 'You'
+                                                            ? navigateToUserProfile
+                                                            : null
+                                                    }
+                                                    className="userSquadCaptain"
+                                                >
+                                                    {profileName}
+                                                </p>
+                                            </div>
                                         </div>
                                     </div>
                                 </Link>
