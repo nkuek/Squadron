@@ -25,7 +25,13 @@ const UserSquads = () => {
                 <ul className="userSquadListContainer">
                     {squads[0].Squads.map((squad, idx) => (
                         <li key={idx} className="squadCard">
-                            <div className="squadCardsContainer">
+                            <div
+                                style={{
+                                    borderColor:
+                                        profileName === 'You' && '#1b67ff',
+                                }}
+                                className="squadCardsContainer"
+                            >
                                 <Link
                                     to={`/squads/${squad.squadName
                                         .split(' ')
@@ -48,25 +54,22 @@ const UserSquads = () => {
                                             <p className="userSquadSecondaryType">
                                                 {squad.secondaryType}
                                             </p>
-                                            <div className="userSquadCaptainLink">
-                                                <p
-                                                    style={{
-                                                        cursor:
-                                                            !profileName ===
-                                                            'You'
-                                                                ? 'pointer'
-                                                                : 'none',
-                                                    }}
-                                                    onClick={
-                                                        !profileName === 'You'
-                                                            ? navigateToUserProfile
-                                                            : null
-                                                    }
-                                                    className="userSquadCaptain"
-                                                >
-                                                    {profileName}
-                                                </p>
-                                            </div>
+                                            {!profileName === 'You' ? (
+                                                <div className="userSquadCaptainLink">
+                                                    <p
+                                                        style={{
+                                                            cursor:
+                                                                !profileName ===
+                                                                'You'
+                                                                    ? 'pointer'
+                                                                    : 'none',
+                                                        }}
+                                                        className="userSquadCaptain"
+                                                    >
+                                                        {profileName}
+                                                    </p>
+                                                </div>
+                                            ) : null}
                                         </div>
                                     </div>
                                 </Link>
