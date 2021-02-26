@@ -26,13 +26,16 @@ router.post(
         );
         const apiData = await apiRes.json();
         const apiResults = apiData.results;
+
         const games = apiResults.map((game) => ({
             name: game.name,
             genres: game.genres.map((genre) => genre.name),
             metacritic: Number(game.metacritic),
             rating: Number(game.rating),
             image: game.background_image,
-            platforms: game.platforms.map((platform) => platform.platform.name),
+            platforms:
+                game.platforms &&
+                game.platforms.map((platform) => platform.platform.name),
             released: game.released,
         }));
 
