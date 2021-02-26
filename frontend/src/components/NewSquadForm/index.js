@@ -42,7 +42,11 @@ const NewSquadForm = () => {
                 }
             }
         );
-        history.push(`/squads/${squad.squadName.replace(' ', '-')}`);
+        history.push(
+            `/squads/${squad.squadName
+                .replaceAll(/[&\/\\#,+()$~%.'\-":*?<>{}]/g, '')
+                .join('')}`
+        );
     };
 
     return (
