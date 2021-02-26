@@ -82,6 +82,10 @@ router.put(
             where: { username },
         });
 
+        if (!user) {
+            return res.json('User not found');
+        }
+
         return res.json({ user });
     })
 );

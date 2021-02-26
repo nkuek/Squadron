@@ -44,6 +44,7 @@ export const findUserSquads = (username) => async (dispatch) => {
         body: JSON.stringify({ username }),
     });
     const squads = await res.json();
+    console.log(squads);
     dispatch(findSquads(squads));
     return squads;
 };
