@@ -2,7 +2,12 @@ import { useSelector, useDispatch } from 'react-redux';
 
 const UserSquads = () => {
     const squads = JSON.parse(localStorage.getItem('squads'));
+    const userState = useSelector((state) => state.session.user);
+    const userStorage = JSON.parse(localStorage.getItem('user'));
+    // if (userState.username === userStorage.username)
+
     return (
+        // {!squads ? <div className='noSquads'></div>}
         <>
             <div className="userSquadListWrapper">
                 <div className="userSquadListContainer">

@@ -73,4 +73,18 @@ router.post(
     })
 );
 
+router.put(
+    '/squads',
+    requireAuth,
+    asyncHandler(async (req, res) => {
+        const { username } = req.body.username;
+        const user = await db.User.findAll({
+            include: [{ model: db.Squad }],
+            where: { username },
+        });
+
+        return res.json({ user });
+    })
+);
+
 module.exports = router;

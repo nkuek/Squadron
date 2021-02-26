@@ -5,7 +5,6 @@ const { handleValidationErrors } = require('../../utils/validation');
 const { requireAuth } = require('../../utils/auth');
 const { check } = require('express-validator');
 
-const { Squad } = require('../../db/models');
 const db = require('../../db/models');
 
 const validateNewSquad = [
@@ -32,7 +31,7 @@ router.post(
             secondaryType,
         } = req.body;
 
-        const squad = await Squad.create({
+        const squad = await db.Squad.create({
             squadName,
             description,
             captainId,
@@ -41,23 +40,6 @@ router.post(
         });
 
         return res.json({ squad });
-    })
-);
-
-router.put(
-    '/mysquads',
-    requireAuth,
-    asyncHandler(async (req, res) => {
-        const { userId } = req.body;
-        console.log('hello');
-        const user = await db.User.findAll({
-            include: [{ model: db.Squad }],
-            where: { id: userId },
-        });
-
-        return res.json({ user });
-
-        // return res.json({ squads });
     })
 );
 

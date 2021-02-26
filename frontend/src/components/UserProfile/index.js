@@ -1,8 +1,8 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-import { NavLink, Route, Switch } from 'react-router-dom';
+import { Route, Switch, useParams } from 'react-router-dom';
 
-import { findMySquads } from '../../store/squads';
+import { findUserSquads } from '../../store/squads';
 import UserProfileNav from './UserProfileNav';
 import UserSquads from './UserSquads';
 import UserGames from './UserGames';
@@ -12,12 +12,10 @@ import { useHistory } from 'react-router-dom';
 
 const UserProfile = () => {
     const dispatch = useDispatch();
-    const history = useHistory();
 
-    const user = useSelector((state) => state.session.user);
-
+    const username = useParams();
     useEffect(async () => {
-        const squads = await dispatch(findMySquads(user.id));
+        const squads = await dispatch(findUserSquads(username));
         localStorage.setItem('squads', JSON.stringify(squads.user));
     }, [dispatch]);
 
@@ -29,7 +27,7 @@ const UserProfile = () => {
                         <div className="userProfileHeader">
                             <div className="username">
                                 <h1 className="profileUsername">
-                                    {user.username}
+                                    {username.username}
                                 </h1>
                             </div>
                             <UserProfileNav />

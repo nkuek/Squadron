@@ -17,13 +17,14 @@ import PageNotFound from './components/PageNotFound';
 import Squads from './components/Squads';
 import Search from './components/Search';
 
-import { findMySquads } from './store/squads';
+import { findUserSquads } from './store/squads';
 
 function App() {
     const dispatch = useDispatch();
     const [isLoaded, setIsLoaded] = useState(false);
 
     const user = useSelector((state) => state.session.user);
+    localStorage.setItem('user', JSON.stringify(user));
 
     useEffect(() => {
         dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
@@ -31,7 +32,7 @@ function App() {
 
     useEffect(() => {
         if (user) {
-            dispatch(findMySquads(user));
+            dispatch(findUserSquads(user));
         }
     }, [dispatch]);
 
