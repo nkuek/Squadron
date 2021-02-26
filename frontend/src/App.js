@@ -17,8 +17,6 @@ import PageNotFound from './components/PageNotFound';
 import Squads from './components/Squads';
 import Search from './components/Search';
 
-import { findUserSquads } from './store/squads';
-
 function App() {
     const dispatch = useDispatch();
     const [isLoaded, setIsLoaded] = useState(false);
@@ -28,12 +26,6 @@ function App() {
 
     useEffect(() => {
         dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
-    }, [dispatch]);
-
-    useEffect(() => {
-        if (user) {
-            dispatch(findUserSquads(user));
-        }
     }, [dispatch]);
 
     return (
@@ -53,7 +45,7 @@ function App() {
                         <LoginForm />
                     </Route>
 
-                    <Route path="/users/:username">
+                    <Route path="/users/:userProfileName">
                         <UserProfile />
                     </Route>
 

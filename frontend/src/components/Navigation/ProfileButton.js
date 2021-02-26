@@ -2,17 +2,13 @@ import { NavLink, useHistory } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import * as sessionActions from '../../store/session';
-import { findUserSquads } from '../../store/squads';
+import { findUser } from '../../store/user';
+
 import './navigation.css';
 const ProfileButton = ({ user }) => {
     const dispatch = useDispatch();
     const [showMenu, setShowMenu] = useState(false);
     const history = useHistory();
-
-    const openMenu = () => {
-        if (showMenu) return;
-        setShowMenu(true);
-    };
 
     useEffect(() => {
         if (!showMenu) return;
@@ -31,10 +27,10 @@ const ProfileButton = ({ user }) => {
         history.push('/');
     };
 
-    const getUserSquads = async (e) => {
+    const getUser = async (e) => {
         e.preventDefault();
-        const squads = await dispatch(findUserSquads(user.username));
-        localStorage.setItem('squads', JSON.stringify(squads.user));
+        const userProfile = await dispatch(findUser(user.username));
+        localStorage.setItem('userProfile', JSON.stringify(userProfile));
         history.push(`/users/${user.username}/squads`);
     };
 
@@ -48,7 +44,7 @@ const ProfileButton = ({ user }) => {
                 <ul className="profileMenu">
                     <li>
                         <NavLink
-                            onClick={getUserSquads}
+                            onClick={getUser}
                             className="navBarLinks"
                             to={`/users/${user.username}/squads`}
                         >

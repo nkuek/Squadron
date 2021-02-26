@@ -74,6 +74,19 @@ router.post(
 );
 
 router.put(
+    '/',
+    asyncHandler(async (req, res) => {
+        const { username } = req.body;
+        const user = await db.User.findOne({
+            include: [{ model: db.Squad }],
+            where: { username },
+        });
+
+        return res.json(user);
+    })
+);
+
+router.put(
     '/squads',
     asyncHandler(async (req, res) => {
         const { username } = req.body;
@@ -81,10 +94,6 @@ router.put(
             include: [{ model: db.Squad }],
             where: { username },
         });
-
-        if (!user) {
-            return res.json('User not found');
-        }
 
         return res.json({ user });
     })

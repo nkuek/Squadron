@@ -98,6 +98,18 @@
     height: 100%;
 }
 
+.noSquadsContainer {
+    margin-top: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.noSquads {
+    color:white;
+    margin: 0;
+}
+
 .userSquadListContainer {
     height: 100%;
     width: 100%;
