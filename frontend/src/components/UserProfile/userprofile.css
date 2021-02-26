@@ -1,0 +1,74 @@
+.userProfileWrapper {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.userProfileOuterContainer {
+    display: flex;
+    height: 100%;
+    box-sizing: border-box;
+    margin: 40px;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 100px;
+    background-color: #1c1e21;
+    border-radius: 10px;
+}
+
+.userProfileInnerContainer {
+    width: 90%;
+    box-sizing: border-box;
+    height: 100%;
+    padding: 30px;
+    margin: 20px;
+    border-radius: 10px;
+    background-color: rgba(58, 58, 58, 0.7);
+}
+
+.userProfileHeader {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profileUsername {
+    color: blueviolet;
+    font-family: 'Exo 2', sans-serif;
+    font-weight: bold;
+    font-stretch: expanded;
+}
+
+.profileNavBar {
+    width: 80%;
+    display: flex;
+    justify-content: space-evenly;
+    border-top: 1px solid #d3d0d0;
+}
+
+.profileNavBar a {
+    color: white;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 5px;
+
+}
+
+.profileNavBar a:hover,
+.profileNavBar a:focus {
+    background-color: rgba(165, 165, 165, 0.5);
+}
+
+.profileNavBar a.active  {
+    border-bottom: 1px solid #1b67ff;
+    color: #1b67ff;
+    border-radius: unset;
+    background-color: unset;
+}
+
+.profileNavBar a.active:hover {
+    background-color: transparent;
+}

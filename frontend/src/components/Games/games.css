@@ -12,29 +12,20 @@
     background-color: #636363;
 }
 
-.gamesWrapper {
-
-}
-
 @media only screen and (min-width: 700px) {
 
     .gamesWrapper {
         margin: 40px;
         position: absolute;
         top: 80px;
-        /* bottom: -2600px; */
-        /* width: 700px; */
         width: auto;
         height: fit-content;
-        /* max-width: 500px; */
-        /* box-sizing: border-box; */
     }
     .gamesContainer {
         background-color: black;
         border-radius: 10px;
         margin-bottom: 50px;
         padding: 40px;
-        /* box-sizing: border-box; */
     }
     .loading {
         font-size: 3em;

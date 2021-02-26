@@ -53,7 +53,10 @@ const squadReducer = (state = {}, action) => {
         case CREATE_NEW_SQUAD:
             return action.squad;
         case FIND_USER_SQUADS:
-            return action.squads;
+            const userSquads = action.squads.map((squad) =>
+                squad.Squads.map((Squad) => Squad.squadName)
+            );
+            return { ...state, userSquads };
         default:
             return state;
     }

@@ -12,6 +12,9 @@ import Games from './components/Games';
 import GameInfo from './components/GameInfo';
 import Events from './components/Events';
 import UserProfile from './components/UserProfile';
+import UserSquads from './components/UserProfile/UserSquads';
+import UserGames from './components/UserProfile/UserGames';
+import UserAbout from './components/UserProfile/UserAbout';
 import NewSquadForm from './components/NewSquadForm';
 import PageNotFound from './components/PageNotFound';
 import Squads from './components/Squads';
@@ -21,18 +24,17 @@ import { findMySquads } from './store/squads';
 function App() {
     const dispatch = useDispatch();
     const [isLoaded, setIsLoaded] = useState(false);
-    const [userSquads, setUserSquads] = useState([]);
 
     const user = useSelector((state) => state.session.user);
 
     useEffect(() => {
         dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
-        console.log(user);
     }, [dispatch]);
 
     useEffect(() => {
         if (user) {
-            dispatch(findMySquads(user.id));
+            dispatch(findMySquads(user));
+            console.log('================');
         }
     }, [dispatch]);
 
@@ -53,7 +55,7 @@ function App() {
                         <LoginForm />
                     </Route>
 
-                    <Route exact path="/users/:username">
+                    <Route path="/users/:username">
                         <UserProfile />
                     </Route>
 
