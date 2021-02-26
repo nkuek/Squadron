@@ -48,13 +48,14 @@ const UserSquads = () => {
                                         </div>
                                         <div className="userSquadInformationContainer">
                                             <p className="userSquadPrimaryType">
-                                                {squad.primaryType}
+                                                {`Primary type: ${squad.primaryType}`}
                                             </p>
-
-                                            <p className="userSquadSecondaryType">
-                                                {squad.secondaryType}
-                                            </p>
-                                            {!profileName === 'You' ? (
+                                            {squad.secondaryType && (
+                                                <p className="userSquadSecondaryType">
+                                                    {`Secondary type: ${squad.secondaryType}`}
+                                                </p>
+                                            )}
+                                            {!(profileName === 'You') && (
                                                 <div className="userSquadCaptainLink">
                                                     <p
                                                         style={{
@@ -66,10 +67,10 @@ const UserSquads = () => {
                                                         }}
                                                         className="userSquadCaptain"
                                                     >
-                                                        {profileName}
+                                                        {`Captain: ${profileName}`}
                                                     </p>
                                                 </div>
-                                            ) : null}
+                                            )}
                                         </div>
                                     </div>
                                 </Link>

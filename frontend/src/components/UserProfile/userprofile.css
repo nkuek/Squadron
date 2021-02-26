@@ -118,7 +118,8 @@
 
 }
 
-.squadLinksContainer a {
+.squadCardsContainer a {
+    display: inline-block;
     height: 100%;
     width: 100%;
 }
@@ -159,6 +160,11 @@
 .userSquadInformationContainer {
     margin: 15px;
     font-size: .8em;
+    height: 100%;
+}
+
+.userSquadInformationContainer p {
+    margin-bottom: 5px;
 }
 
 
