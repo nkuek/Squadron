@@ -4,6 +4,7 @@ import { useState } from 'react';
 import * as sessionActions from '../../store/session';
 import './navigation.css';
 import ProfileButton from './ProfileButton.js';
+import { getSearchResults } from '../../store/search';
 
 const Navigation = () => {
     const dispatch = useDispatch();
@@ -25,6 +26,7 @@ const Navigation = () => {
         e.preventDefault();
         // if (!e.target.value) return;
         if (!search) return;
+        dispatch(getSearchResults(search));
         history.push(`/search/${search}`);
     };
 

@@ -5,6 +5,7 @@ import gamesReducer from './games';
 import gameReducer from './game';
 import orderReducer from './order';
 import squadReducer from './squads';
+import searchReducer from './search';
 
 const rootReducer = combineReducers({
     session: sessionReducer,
@@ -12,6 +13,7 @@ const rootReducer = combineReducers({
     game: gameReducer,
     order: orderReducer,
     squads: squadReducer,
+    search: searchReducer,
 });
 
 let enhancer;

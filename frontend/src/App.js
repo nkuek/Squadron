@@ -32,7 +32,6 @@ function App() {
     useEffect(() => {
         if (user) {
             dispatch(findMySquads(user));
-            console.log('================');
         }
     }, [dispatch]);
 
@@ -80,7 +79,7 @@ function App() {
                     <Route exact path="/squads/create">
                         <NewSquadForm />
                     </Route>
-                    <Route path="/search/:searchquery">
+                    <Route path="/search/:searchParam">
                         <Search />
                     </Route>
 

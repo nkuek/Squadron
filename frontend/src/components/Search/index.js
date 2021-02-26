@@ -1,4 +1,11 @@
+import { useParams } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+
 const Search = () => {
+    const dispatch = useDispatch();
+    const { searchParam } = useParams();
+
     return (
         <div className="searchResultWrapper">
             <div className="searchResultContainer">
