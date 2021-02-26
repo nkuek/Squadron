@@ -22,7 +22,6 @@ ul {
     z-index: 999;
     background-color: white;
     border-bottom: 1px solid #d3d3d3;
-    box-shadow: 2px 5px 10px #76787c;
 }
 
 .profileMenu {
@@ -36,7 +35,9 @@ ul {
     top: 45.45px;
     height: 100px;
     right: 0px;
+    z-index: 0;
     background-color: white;
+    border-bottom-left-radius: 10px;
     list-style: none;
     width: auto;
 }
@@ -329,13 +330,18 @@ ul {
         box-sizing: border-box;
         border-right: 1px solid  rgb(146, 145, 145);
         border-bottom: 1px solid  rgb(146, 145, 145);
-        z-index: -1;
+        z-index: 500;
         top: 61px;
+        left: 0;
+        border-bottom-right-radius: 5px;
         background-color: white;
         display: none;
         width: auto;
     }
+   .dropDownLinks {
 
+       border-bottom-right-radius: 10px;
+   }
     .show {
         display: flex;
         justify-content: center;
@@ -445,14 +451,16 @@ ul {
         box-sizing: border-box;
         border-right: 1px solid  rgb(146, 145, 145);
         border-bottom: 1px solid  rgb(146, 145, 145);
-        z-index: -1;
+        z-index: 500;
         top: 61px;
+        left: 0px;
         background-color: white;
         /* left: 20px; */
         /* padding: 10px; */
         display: none;
         width: auto;
         padding: 0px;
+        border-bottom-right-radius: 5px;
     }
 
     .show {

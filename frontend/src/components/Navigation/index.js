@@ -24,10 +24,13 @@ const Navigation = () => {
 
     const handleSearch = async (e) => {
         e.preventDefault();
-        // if (!e.target.value) return;
         if (!search) return;
         const searchResults = await dispatch(getSearchResults(search));
         localStorage.setItem('search', JSON.stringify(searchResults));
+
+        // reset search bar content back to empty on submission
+        setSearch('');
+
         history.push(
             `/search/${search
                 .replaceAll(/[&\/\\#,+()$~%.'":*?<>{}]/g, '')
@@ -47,37 +50,70 @@ const Navigation = () => {
     });
 
     return (
-        <nav className="mainNavBar">
-            <div className="menu">
-                <div className="barContainer" onClick={addChange}>
-                    <div className="bar1"></div>
-                    <div className="bar2"></div>
-                    <div className="bar3"></div>
-                </div>
-                <div className="logoContainer">
-                    <NavLink className="home" to="/">
-                        Squadron
-                    </NavLink>
-                </div>
-                <form className="searchForm" onSubmit={handleSearch}>
-                    <div className="searchBarContainer">
-                        <div className="searchBar">
-                            <div className="searchInputContainer">
-                                <span
-                                    onClick={handleSearch}
-                                    className="fa fa-search searchButtonContainer"
-                                ></span>
-                                <input
-                                    placeholder="Search..."
-                                    value={search}
-                                    onChange={(e) => setSearch(e.target.value)}
-                                    className="searchInput"
-                                    type="text"
-                                ></input>
+        <>
+            <nav className="mainNavBar">
+                <div className="menu">
+                    <div className="barContainer" onClick={addChange}>
+                        <div className="bar1"></div>
+                        <div className="bar2"></div>
+                        <div className="bar3"></div>
+                    </div>
+                    <div className="logoContainer">
+                        <NavLink className="home" to="/">
+                            Squadron
+                        </NavLink>
+                    </div>
+                    <form className="searchForm" onSubmit={handleSearch}>
+                        <div className="searchBarContainer">
+                            <div className="searchBar">
+                                <div className="searchInputContainer">
+                                    <span
+                                        onClick={handleSearch}
+                                        className="fa fa-search searchButtonContainer"
+                                    ></span>
+                                    <input
+                                        placeholder="Search..."
+                                        value={search}
+                                        onChange={(e) =>
+                                            setSearch(e.target.value)
+                                        }
+                                        className="searchInput"
+                                        type="text"
+                                    ></input>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </form>
+                    </form>
+                </div>
+                <div className="loginLogoutSignup">
+                    {!sessionUser ? (
+                        <>
+                            <NavLink className="login" to="/login">
+                                Login
+                            </NavLink>
+                            <NavLink className="signup" to="/register">
+                                Sign Up
+                            </NavLink>
+                        </>
+                    ) : (
+                        <>
+                            <NavLink
+                                to={'/squads/create'}
+                                className="createSquad large"
+                            >
+                                + Create a squad
+                            </NavLink>
+                            <NavLink
+                                to={'/squads/create'}
+                                className="createSquadPlus small"
+                            >
+                                +
+                            </NavLink>
+                            <ProfileButton user={sessionUser} />
+                        </>
+                    )}
+                </div>
+            </nav>
                 <div className="stickyDropDownMenu">
                     <ul className="dropDownLinks">
                         <li>
@@ -102,36 +138,7 @@ const Navigation = () => {
                         </li>
                     </ul>
                 </div>
-            </div>
-            <div className="loginLogoutSignup">
-                {!sessionUser ? (
-                    <>
-                        <NavLink className="login" to="/login">
-                            Login
-                        </NavLink>
-                        <NavLink className="signup" to="/register">
-                            Sign Up
-                        </NavLink>
-                    </>
-                ) : (
-                    <>
-                        <NavLink
-                            to={'/squads/create'}
-                            className="createSquad large"
-                        >
-                            + Create a squad
-                        </NavLink>
-                        <NavLink
-                            to={'/squads/create'}
-                            className="createSquadPlus small"
-                        >
-                            +
-                        </NavLink>
-                        <ProfileButton user={sessionUser} />
-                    </>
-                )}
-            </div>
-        </nav>
+        </>
     );
 };
 
