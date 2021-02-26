@@ -1,3 +1,11 @@
+.nsfSquadName {
+    top: 170px;
+}
+
+.nsfDescription {
+    top: 410px;
+}
+
 @media only screen and (max-width: 750px) {
 
     .squadOuterContainer, .nsfPreviewWrapper {
@@ -17,14 +25,6 @@
         margin-right: 15px;
     }
 
-
-    .nsfSquadName {
-        top: 165px;
-    }
-
-    .nsfDescription {
-        top: 405px;
-    }
 }
 
 @media only screen and (min-width: 750px) {
@@ -47,13 +47,6 @@
         box-sizing: border-box;
     }
 
-    .nsfSquadName {
-        top: 165px
-    }
-
-    .nsfDescription {
-        top: 405px;
-    }
 }
 
 .nsfWrapper, .newSquadContainer {

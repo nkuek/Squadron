@@ -63,7 +63,12 @@ const NewSquadForm = () => {
                         <div className="captainNameWrapper">
                             <div className="captainNameContainer">
                                 <div className="nsfcaptainName">
-                                    <div style={{ fontSize: '1.1em' }}>
+                                    <div
+                                        style={{
+                                            fontSize: '1.1em',
+                                            marginBottom: '5px',
+                                        }}
+                                    >
                                         {user.username}
                                     </div>
                                     <div
