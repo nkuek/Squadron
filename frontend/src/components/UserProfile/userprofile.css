@@ -1,3 +1,16 @@
+@media only screen and (max-width: 750px) {
+    .userProfileOuterContainer {
+        margin: 0;
+        margin-top: 61px;
+    }
+}
+
+@media only screen and (min-width: 750px) {
+    .userProfileOuterContainer {
+        margin: 40px;
+        margin-top: 100px;
+    }
+}
 .userProfileWrapper {
     height: 100%;
     width: 100%;
@@ -12,22 +25,19 @@
     max-width: 700px;
     width: 100%;
     box-sizing: border-box;
-    margin: 40px;
     flex-direction: column;
     align-items: center;
-    margin-top: 100px;
     background-color: #1c1e21;
     border-radius: 10px;
 }
 
 .userProfileInnerContainer {
-    width: 90%;
-    box-sizing: border-box;
+    width: 100%;
+    /* box-sizing: border-box; */
     height: 100%;
     padding: 30px;
-    margin: 20px;
+    padding-top: 0px;
     border-radius: 10px;
-    background-color: rgba(58, 58, 58, 0.7);
 }
 
 .userProfileHeader {
@@ -35,17 +45,24 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 30px 0px 15px 0px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background-color: rgba(58, 58, 58, 0.7);
 }
 
 .profileUsername {
     color: blueviolet;
     font-family: 'Exo 2', sans-serif;
     font-weight: bold;
+    margin: 0;
+    margin-bottom: 15px;
     font-stretch: expanded;
 }
 
 .profileNavBar {
     width: 80%;
+    padding-top: 10px;
     display: flex;
     justify-content: space-evenly;
     border-top: 1px solid #d3d0d0;
@@ -54,7 +71,7 @@
 .profileNavBar a {
     color: white;
     font-weight: bold;
-    padding: 10px;
+    padding: 10px 15px;
     border-radius: 5px;
     margin: 5px;
 
@@ -87,21 +104,38 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    box-sizing: border-box;
+    padding: 20px 50px;
 }
 
-.squadLinkContainer {
-    width: 40%;
+.squadLinksContainer {
     display: flex;
-    flex-direction: column;
-    align-items: center;
 
-}
-
-.userSquadContainer {
+    position: relative;
+    z-index: 1;
     width: 100%;
-    height: 100%;
+    padding: 10px;
+
 }
 
-.userSquadContainer p {
+.squadLinksContainer a {
+    height: 100%;
+    width: 100%;
+}
+
+.squadCardsContainer {
+    position: relative;
+    box-sizing: border-box;
+    z-index: 0;
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0px;
+    background-color: rgba(58, 58, 58, 0.7);
+    border-radius: 7px;
+    border: 1px solid rgb(104, 104, 104)
+}
+
+.userSquadsContainer p {
     margin: 0;
+    color: white;
 }

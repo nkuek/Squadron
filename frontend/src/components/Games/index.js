@@ -69,10 +69,12 @@ const Games = () => {
                                         onClick={(e) => handleClick(e)}
                                         id={game.name}
                                         to={`/games/${game.name
-                                            .replace(':', '')
+                                            .replaceAll(
+                                                /[&\/\\#,+()$~%.'\-":*?<>{}]/g,
+                                                ''
+                                            )
                                             .split(' ')
-                                            .join('')
-                                            .toLowerCase()}`}
+                                            .join('')}`}
                                     >
                                         <AspectRatio
                                             className="gameImageContainer"

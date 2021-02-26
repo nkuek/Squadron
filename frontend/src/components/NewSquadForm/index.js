@@ -26,6 +26,8 @@ const NewSquadForm = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        const errors = [];
+
         const nfsInformation = {
             squadName,
             description,
@@ -33,12 +35,18 @@ const NewSquadForm = () => {
             secondaryType,
             captainId: user.id,
         };
+        if (!description.match(/^[a-zA-Z0-9_.-]*$/))
+            errors.push('Squad name should only include letters and numbers');
+        setErrors(errors);
+
+        if (errors.length > 0) return;
 
         const { squad } = await dispatch(createNewSquad(nfsInformation)).catch(
             async (res) => {
                 const data = await res.json();
                 if (data && data.errors) {
-                    setErrors(data.errors);
+                    errors.push(...data.errors);
+                    setErrors(errors);
                 }
             }
         );
@@ -87,15 +95,6 @@ const NewSquadForm = () => {
                                     </div>
                                 </div>
                             </div>
-                            {errors.length > 0 && (
-                                <div className="errorsContainer">
-                                    <ul className="errors">
-                                        {errors.map((error, idx) => (
-                                            <li key={idx}>{error}</li>
-                                        ))}
-                                    </ul>
-                                </div>
-                            )}
                         </div>
                         <form onSubmit={handleSubmit} className="nsfForm">
                             <div className="nsfFormInformation">
@@ -103,9 +102,16 @@ const NewSquadForm = () => {
                                     <input
                                         className="nsfInput "
                                         type="text"
+                                        id="squadNameInput"
                                         value={squadName}
                                         onChange={(e) =>
                                             setSquadName(e.target.value)
+                                        }
+                                        pattern={/^[a-zA-Z0-9_.-]*$/}
+                                        onInvalid={(e) =>
+                                            e.target.setCustomValidity(
+                                                'Squad Name should only include numbers and letters'
+                                            )
                                         }
                                         required
                                     ></input>
@@ -161,6 +167,15 @@ const NewSquadForm = () => {
                                         Description
                                     </span>
                                 </div>
+                                {errors.length > 0 && (
+                                    <div className="squadFormErrorsContainer">
+                                        <ul className="squadFormErrors">
+                                            {errors.map((error, idx) => (
+                                                <li key={idx}>{error}</li>
+                                            ))}
+                                        </ul>
+                                    </div>
+                                )}
                             </div>
                             <button
                                 type="submit"

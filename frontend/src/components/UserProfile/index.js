@@ -12,12 +12,17 @@ import { useHistory } from 'react-router-dom';
 
 const UserProfile = () => {
     const dispatch = useDispatch();
+    const history = useHistory();
 
     const { username } = useParams();
     useEffect(async () => {
         const squads = await dispatch(findUserSquads(username));
         localStorage.setItem('squads', JSON.stringify(squads.user));
     }, [dispatch]);
+
+    useEffect(() => {
+        history.push(`/users/${username}/squads`);
+    }, []);
 
     return (
         <>
@@ -29,18 +34,18 @@ const UserProfile = () => {
                                 <h1 className="profileUsername">{username}</h1>
                             </div>
                             <UserProfileNav username={username} />
-                            <Switch>
-                                <Route path="/users/:username/squads">
-                                    <UserSquads />
-                                </Route>
-                                <Route path="/users/:username/games">
-                                    <UserGames />
-                                </Route>
-                                <Route path="/users/:username/about">
-                                    <UserAbout />
-                                </Route>
-                            </Switch>
                         </div>
+                        <Switch>
+                            <Route path="/users/:username/squads">
+                                <UserSquads />
+                            </Route>
+                            <Route path="/users/:username/games">
+                                <UserGames />
+                            </Route>
+                            <Route path="/users/:username/about">
+                                <UserAbout />
+                            </Route>
+                        </Switch>
                     </div>
                 </div>
             </div>

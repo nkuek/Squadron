@@ -11,10 +11,13 @@ const validateNewSquad = [
     check('squadName')
         .exists({ checkFalsy: true })
         .withMessage('Squad name cannot be empty.')
-        .isLength({ min: 4, max: 50 }),
+        .isLength({ min: 4, max: 50 })
+        .withMessage('Squad Name should be between 4 and 50 characters')
+        .matches(/^[a-zA-Z0-9_.-]*$/)
+        .withMessage('Squad Name should only include numbers and letters'),
     check('description')
         .isLength({ min: 1, max: 256 })
-        .withMessage('Description must be between 1 and 256 characters.'),
+        .withMessage('Description cannot exceed 256 characters.'),
     handleValidationErrors,
 ];
 
