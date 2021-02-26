@@ -59,6 +59,25 @@ const Navigation = () => {
                         Squadron
                     </NavLink>
                 </div>
+                <form className="searchForm" onSubmit={handleSearch}>
+                    <div className="searchBarContainer">
+                        <div className="searchBar">
+                            <div className="searchInputContainer">
+                                <span
+                                    onClick={handleSearch}
+                                    className="fa fa-search searchButtonContainer"
+                                ></span>
+                                <input
+                                    placeholder="Search..."
+                                    value={search}
+                                    onChange={(e) => setSearch(e.target.value)}
+                                    className="searchInput"
+                                    type="text"
+                                ></input>
+                            </div>
+                        </div>
+                    </div>
+                </form>
                 <div className="stickyDropDownMenu">
                     <ul className="dropDownLinks">
                         <li>
@@ -85,25 +104,6 @@ const Navigation = () => {
                 </div>
             </div>
             <div className="loginLogoutSignup">
-                <form className="searchForm" onSubmit={handleSearch}>
-                    <div className="searchBarContainer">
-                        <div className="searchBar">
-                            <div className="searchInputContainer">
-                                <span
-                                    onClick={handleSearch}
-                                    className="fa fa-search searchButtonContainer"
-                                ></span>
-                                <input
-                                    placeholder="Search..."
-                                    value={search}
-                                    onChange={(e) => setSearch(e.target.value)}
-                                    className="searchInput"
-                                    type="text"
-                                ></input>
-                            </div>
-                        </div>
-                    </div>
-                </form>
                 {!sessionUser ? (
                     <>
                         <NavLink className="login" to="/login">
