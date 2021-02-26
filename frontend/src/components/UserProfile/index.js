@@ -8,15 +8,17 @@ import UserSquads from './UserSquads';
 import UserGames from './UserGames';
 import UserAbout from './UserAbout';
 import './userprofile.css';
+import { useHistory } from 'react-router-dom';
 
 const UserProfile = () => {
     const dispatch = useDispatch();
+    const history = useHistory();
 
-    const { squads } = useSelector((state) => state.squads);
     const user = useSelector((state) => state.session.user);
 
-    useEffect(() => {
-        dispatch(findMySquads(user.id));
+    useEffect(async () => {
+        const squads = await dispatch(findMySquads(user.id));
+        localStorage.setItem('squads', JSON.stringify(squads.user));
     }, [dispatch]);
 
     return (
