@@ -27,7 +27,12 @@ const Navigation = () => {
         // if (!e.target.value) return;
         if (!search) return;
         dispatch(getSearchResults(search));
-        history.push(`/search/${search}`);
+        history.push(
+            `/search/${search
+                .replaceAll(/[&\/\\#,+()$~%.'":*?<>{}]/g, '')
+                .split(' ')
+                .join('')}`
+        );
     };
 
     // Closes drop down menu when clicking anywhere else

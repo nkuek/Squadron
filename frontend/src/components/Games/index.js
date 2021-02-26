@@ -38,10 +38,9 @@ const Games = () => {
 
         history.push(
             `/games/${gameParam
-                .replace(':', '')
+                .replaceAll(/[&\/\\#,+()$~%.'\-":*?<>{}]/g, '')
                 .split(' ')
-                .join('')
-                .toLowerCase()}`
+                .join('')}`
         );
     };
 

@@ -4,7 +4,6 @@ import { useEffect } from 'react';
 
 const Search = () => {
     const dispatch = useDispatch();
-    const { searchParam } = useParams();
 
     return (
         <div className="searchResultWrapper">
