@@ -54,7 +54,8 @@ router.put(
             include: [{ model: db.Squad }],
             where: { id: userId },
         });
-        return res.json(user);
+
+        return res.json({ user });
 
         // return res.json({ squads });
     })

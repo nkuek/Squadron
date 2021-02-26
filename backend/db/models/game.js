@@ -14,7 +14,11 @@ module.exports = (sequelize, DataTypes) => {
         {}
     );
     Game.associate = function (models) {
-        // associations can be defined here
+        Game.belongsToMany(models.Squad, {
+            through: 'SquadGames',
+            foreignKey: 'gameId',
+            otherKey: 'squadId',
+        });
     };
 
     return Game;
