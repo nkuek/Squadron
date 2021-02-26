@@ -1,17 +1,30 @@
 import { useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
+import { useEffect } from 'react';
+
+import { findUserSquads } from '../../../store/squads';
 
 const UserSquads = () => {
     const squads = JSON.parse(localStorage.getItem('squads'));
     const loggedInUser = useSelector((state) => state.session.user);
+
+    const { username } = useParams();
+
     const history = useHistory();
+    const dispatch = useDispatch();
 
     console.log(squads[0]);
     const profileName =
         loggedInUser.username === squads[0].username
             ? 'You'
             : `${squads[0].username}`;
+
+    useEffect(async () => {
+        const squads = await dispatch(findUserSquads(username));
+        localStorage.setItem('squads', JSON.stringify(squads.user));
+        history.push(`/users/${username}/squads`);
+    }, [dispatch]);
 
     const navigateToUserProfile = (e) => {
         e.preventDefault();

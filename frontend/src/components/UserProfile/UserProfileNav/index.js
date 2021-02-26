@@ -1,5 +1,5 @@
-import { NavLink, useParams } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
+import { NavLink } from 'react-router-dom';
+
 const UserProfileNav = ({ username }) => {
     return (
         <div className="profileNavBar">

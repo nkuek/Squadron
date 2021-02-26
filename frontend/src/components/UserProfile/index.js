@@ -1,26 +1,24 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { Route, Switch, useParams } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
-import { findUserSquads } from '../../store/squads';
 import UserProfileNav from './UserProfileNav';
 import UserSquads from './UserSquads';
 import UserGames from './UserGames';
 import UserAbout from './UserAbout';
+import { findUserSquads } from '../../store/squads';
 import './userprofile.css';
-import { useHistory } from 'react-router-dom';
 
 const UserProfile = () => {
-    const dispatch = useDispatch();
     const history = useHistory();
+    const dispatch = useDispatch();
 
     const { username } = useParams();
+
     useEffect(async () => {
         const squads = await dispatch(findUserSquads(username));
         localStorage.setItem('squads', JSON.stringify(squads.user));
-    }, [dispatch]);
-
-    useEffect(() => {
         history.push(`/users/${username}/squads`);
     }, []);
 

@@ -2,6 +2,7 @@ import { NavLink, useHistory } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import * as sessionActions from '../../store/session';
+import { findUserSquads } from '../../store/squads';
 import './navigation.css';
 const ProfileButton = ({ user }) => {
     const dispatch = useDispatch();
@@ -30,6 +31,13 @@ const ProfileButton = ({ user }) => {
         history.push('/');
     };
 
+    const getUserSquads = async (e) => {
+        e.preventDefault();
+        const squads = await dispatch(findUserSquads(user.username));
+        localStorage.setItem('squads', JSON.stringify(squads.user));
+        history.push(`/users/${user.username}/squads`);
+    };
+
     return (
         <>
             <i
@@ -40,6 +48,7 @@ const ProfileButton = ({ user }) => {
                 <ul className="profileMenu">
                     <li>
                         <NavLink
+                            onClick={getUserSquads}
                             className="navBarLinks"
                             to={`/users/${user.username}/squads`}
                         >

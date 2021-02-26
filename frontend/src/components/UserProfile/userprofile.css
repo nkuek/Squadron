@@ -122,6 +122,11 @@
     display: inline-block;
     height: 100%;
     width: 100%;
+    border-radius: 7px;
+}
+
+.squadCardsContainer a:hover {
+    background-color: #636363;
 }
 
 .userSquadCaptainLink {
