@@ -13,7 +13,8 @@ import { useHistory } from 'react-router-dom';
 const UserProfile = () => {
     const dispatch = useDispatch();
 
-    const username = useParams();
+    const { username } = useParams();
+    console.log(username);
     useEffect(async () => {
         const squads = await dispatch(findUserSquads(username));
         localStorage.setItem('squads', JSON.stringify(squads.user));
@@ -26,11 +27,9 @@ const UserProfile = () => {
                     <div className="userProfileInnerContainer">
                         <div className="userProfileHeader">
                             <div className="username">
-                                <h1 className="profileUsername">
-                                    {username.username}
-                                </h1>
+                                <h1 className="profileUsername">{username}</h1>
                             </div>
-                            <UserProfileNav />
+                            <UserProfileNav username={username} />
                             <Switch>
                                 <Route path="/users/:username/squads">
                                     <UserSquads />
