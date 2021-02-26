@@ -390,6 +390,10 @@ ul {
 
     }
 
+    .searchInputContainer {
+       margin-right: 10px;
+    }
+
 
     .profileMenu > li {
         margin: 5px 0px 5px 0px;

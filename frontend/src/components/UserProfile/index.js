@@ -14,7 +14,6 @@ const UserProfile = () => {
     const dispatch = useDispatch();
 
     const { username } = useParams();
-    console.log(username);
     useEffect(async () => {
         const squads = await dispatch(findUserSquads(username));
         localStorage.setItem('squads', JSON.stringify(squads.user));
