@@ -16,7 +16,7 @@ router.use('/session', sessionRouter);
 router.use('/users', usersRouter);
 router.use('/games', gamesRouter);
 router.use('/squads', squadsRouter);
-router.user('/search', searchRouter);
+router.use('/search', searchRouter);
 
 // User Auth Route Testing
 router.post('/test', (req, res) => {
