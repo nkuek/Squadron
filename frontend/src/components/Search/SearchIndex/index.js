@@ -22,7 +22,7 @@ const SearchIndex = ({ games, squads, users }) => {
         e.preventDefault();
         const game = await dispatch(findGames(e.target.id));
         localStorage.setItem('gameState', JSON.stringify(game));
-        history.push(`/games/${e.target.id.replaceAll(' ', '-')}`);
+        history.push(`/games/${e.target.id}`);
     };
     return (
         <div className="searchResultsInformationContainer">
@@ -111,9 +111,7 @@ const SearchIndex = ({ games, squads, users }) => {
                                 <a
                                     id={game.name}
                                     onClick={handleGameResults}
-                                    href={`/games/${game.name
-                                        .split(' ')
-                                        .join('-')}`}
+                                    href={`/games/${game.name}`}
                                 >
                                     {game.name}
                                 </a>

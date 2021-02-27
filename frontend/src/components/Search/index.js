@@ -36,10 +36,10 @@ const Search = () => {
                                 <SearchIndex {...props} />
                             </Route>
                             <Route path="/search/:searchQuery/games">
-                                <GamesSearch />
+                                <GamesSearch games={games} />
                             </Route>
                             <Route path="/search/:searchQuery/users">
-                                <UsersSearch />
+                                <UsersSearch users={users} />
                             </Route>
                         </Switch>
                     </div>

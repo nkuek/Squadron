@@ -3,7 +3,7 @@ import { AspectRatio } from 'react-aspect-ratio';
 import { Link, useHistory } from 'react-router-dom';
 import { findGames } from '../../../store/game';
 
-const GamesSearch = () => {
+const GamesSearch = ({ games }) => {
     const dispatch = useDispatch();
     const history = useHistory();
 
@@ -15,11 +15,11 @@ const GamesSearch = () => {
 
         localStorage.setItem('gameState', JSON.stringify(gameState));
 
-        history.push(`/games/${gameParam.replaceAll(' ', '-')}`);
+        history.push(`/games/${gameParam}`);
     };
-    let games = useSelector((state) => state.search.games);
-    if (!games) games = JSON.parse(localStorage.getItem('search')).games;
-    console.log(games);
+    // let games = useSelector((state) => state.search.games);
+    // if (!games) games = JSON.parse(localStorage.getItem('search')).games;
+    // console.log(games);
 
     return (
         <ul className="gamesList">
@@ -29,7 +29,7 @@ const GamesSearch = () => {
                         <Link
                             onClick={(e) => handleClick(e)}
                             id={game.name}
-                            to={`/games/${game.name.replaceAll(' ', '-')}`}
+                            to={`/games/${game.name}`}
                         >
                             <AspectRatio
                                 className="gameImageContainer"

@@ -31,7 +31,7 @@ const Navigation = () => {
         // reset search bar content back to empty on submission
         setSearch('');
 
-        history.push(`/search/${search.replaceAll(' ', '-')}`);
+        history.push(`/search/${search}`);
     };
 
     // Closes drop down menu when clicking anywhere else

@@ -15,6 +15,8 @@ router.post(
             },
         });
 
+        console.log(name);
+
         // if game not in database, add it to database
         if (!game) {
             const apiRes = await fetch(
@@ -24,14 +26,12 @@ router.post(
 
             // res === array of game objects from fetch search result
             const apiResults = apiData.results;
-            const gameName = name.split('%').join(' ');
-            console.log(gameName);
 
             // must narrow down search results because api apparently doesn't have a very good serach function...
             // Iterate through keys of object to find the corrent game
 
             const gameKey = Object.keys(apiResults).find(
-                (key) => apiResults[key].name === gameName
+                (key) => apiResults[key].name === name
             );
 
             const results = apiResults[gameKey];

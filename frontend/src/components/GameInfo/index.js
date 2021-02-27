@@ -15,9 +15,7 @@ const GameInfo = () => {
     let game = useSelector((state) => state.game);
 
     useEffect(async () => {
-        const gameParam = gameName.split('-').join('%');
-        console.log(gameParam);
-        const gameState = await dispatch(findGames(gameParam));
+        const gameState = await dispatch(findGames(gameName));
         localStorage.setItem('gameState', JSON.stringify(gameState));
         game = gameState;
     }, []);

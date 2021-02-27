@@ -37,7 +37,7 @@ const Games = () => {
 
         localStorage.setItem('gameState', JSON.stringify(gameState));
 
-        history.push(`/games/${gameParam.replaceAll(' ', '-')}`);
+        history.push(`/games/${gameParam}`);
     };
 
     return Object.keys(games).length === 0 ? (
@@ -68,9 +68,7 @@ const Games = () => {
                                     <Link
                                         onClick={(e) => handleClick(e)}
                                         id={game.name}
-                                        to={`/games/${game.name
-                                            .split(' ')
-                                            .join('-')}`}
+                                        to={`/games/${game.name}`}
                                     >
                                         <AspectRatio
                                             className="gameImageContainer"
