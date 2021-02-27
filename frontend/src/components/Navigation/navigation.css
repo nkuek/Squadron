@@ -22,6 +22,7 @@ ul {
     z-index: 999;
     background-color: white;
     border-bottom: 1px solid #d3d3d3;
+    overflow: hidden;
 }
 
 .profileMenu {
@@ -35,7 +36,7 @@ ul {
     top: 45.45px;
     height: 100px;
     right: 0px;
-    z-index: 0;
+    z-index: 500;
     background-color: white;
     border-bottom-left-radius: 10px;
     list-style: none;
@@ -46,7 +47,6 @@ ul {
     color: blueviolet;
     font-family: 'Exo 2', sans-serif;
     font-size: 1.5em;
-    padding: 15px;
     }
 
 .home:visited {
@@ -94,6 +94,10 @@ ul {
     width: fit-content;
     cursor: pointer;
     color: #555555;
+}
+
+.home {
+    padding: 20px;
 }
 
 .searchButtonContainer:hover {
@@ -191,9 +195,7 @@ ul {
 /* Small Screens */
 @media only screen and (max-width: 700px) {
 
-    .mainNavBar {
-        width: 100vw;
-    }
+
 
     .home,
     .barContainer
@@ -202,9 +204,14 @@ ul {
     }
 
     .home {
-        padding-right: 0px;
-        padding-left: 0px;
-        margin: 0px 10px;
+        display:inline-block;
+        box-sizing: border-box;
+        margin-right: 20px;
+        padding: 0;
+    }
+
+    .home:hover {
+        background-color: transparent;
     }
 
 

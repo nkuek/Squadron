@@ -46,4 +46,11 @@ router.post(
     })
 );
 
+router.put(
+    '/',
+    asyncHandler(async (req, res) => {
+        const { squadName } = req.body;
+    })
+);
+
 module.exports = router;
