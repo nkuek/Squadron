@@ -38,6 +38,7 @@
     width: 100%;
     height: 100%;
     display: flex;
+    box-sizing: border-box;
     flex-direction: column;
     align-items: center;
     border-radius: 10px;
@@ -46,9 +47,9 @@
 .searchResultsContainer {
     display: flex;
     flex-direction: column;
-    align-items: center;
     color: white;
     height: 100%;
+    align-items: center;
     width: 100%;
     border-radius: 10px;
 }
@@ -65,20 +66,26 @@
 }
 
 .searchResultsInformationContainer {
-    width: 100%;
     height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+
     padding: 20px;
     display: flex;
+    align-items: center;
     flex-direction: column;
 }
 
 .resultsContainer {
     display: flex;
+    height: 100%;
+    width: 80%;
     flex-direction: column;
     background-color: rgba(58, 58, 58, 0.7);
     padding: 10px 20px;
     border-radius: 5px;
     margin: 10px 20px;
+    margin-bottom: 40px;
 }
 
 .searchResultsHeader {

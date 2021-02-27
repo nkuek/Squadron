@@ -15,10 +15,7 @@ const UsersSearch = ({ users }) => {
         history.push(`/users/${username}`);
     };
     return (
-        <div
-            className="resultsContainer"
-            style={{ width: '80%', margin: '0px 20px' }}
-        >
+        <div className="resultsContainer">
             <div className="searchResultsHeader">
                 <div className="searchResultsLabel">
                     <span>

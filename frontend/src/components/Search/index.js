@@ -43,7 +43,7 @@ const Search = () => {
                                 <UsersSearch users={users} />
                             </Route>
                             <Route path="/search/:searchQuery/squads">
-                                <SquadsSearch />
+                                <SquadsSearch squads={squads} />
                             </Route>
                         </Switch>
                     </div>
