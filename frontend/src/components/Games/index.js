@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { AspectRatio } from 'react-aspect-ratio';
 import { Link, useHistory } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 
 import { loadGames } from '../../store/games';
 import { setGameOrder } from '../../store/order';
@@ -40,7 +41,7 @@ const Games = () => {
             `/games/${gameParam
                 .replaceAll(/[&\/\\#,+()$~%.'\-":*?<>{}]/g, '')
                 .split(' ')
-                .join('')}`
+                .join('-')}`
         );
     };
 
@@ -48,6 +49,10 @@ const Games = () => {
         <h1 className="loading">Loading...</h1>
     ) : (
         <div className="gamesWrapper">
+            <Helmet>
+                <title>Games - Squadron</title>
+                <meta name="description" content="list of all games"></meta>
+            </Helmet>
             <div className="gamesContainer">
                 <select
                     className="gamesOrder"
@@ -74,7 +79,7 @@ const Games = () => {
                                                 ''
                                             )
                                             .split(' ')
-                                            .join('')}`}
+                                            .join('-')}`}
                                     >
                                         <AspectRatio
                                             className="gameImageContainer"

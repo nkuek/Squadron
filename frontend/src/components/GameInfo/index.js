@@ -1,8 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
 import AspectRatio from 'react-aspect-ratio';
-import { findGames } from '../../store/game';
+import { Helmet } from 'react-helmet';
 import './game.css';
 
 const GameInfo = () => {
@@ -18,6 +16,10 @@ const GameInfo = () => {
         <h1 className="loading">Loading...</h1>
     ) : (
         <div className="gamePageWrapper">
+            <Helmet>
+                <title>{game.name}</title>
+                <meta name="description" content="game information"></meta>
+            </Helmet>
             <h2 className="gameNameCard" style={{ paddingBottom: '20px' }}>
                 {game.name}
             </h2>

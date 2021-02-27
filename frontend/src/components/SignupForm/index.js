@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 import * as sessionActions from '../../store/session';
 import './signupform.css';
 
@@ -35,6 +36,10 @@ const SignupForm = () => {
 
     return (
         <>
+            <Helmet>
+                <title>Sign Up - Squadron</title>
+                <meta name="description" content="sign up form"></meta>
+            </Helmet>
             <div className="signup-content">
                 <form onSubmit={handleSubmit} className="signup-form">
                     <span className="signup-header">Register</span>

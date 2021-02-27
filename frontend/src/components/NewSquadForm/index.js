@@ -1,5 +1,6 @@
 import { Link, NavLink, useHistory } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import { Helmet } from 'react-helmet';
 import { useSelector, useDispatch } from 'react-redux';
 import testEvents from '../../mockData/testEvents.json';
 import AspectRatio from 'react-aspect-ratio';
@@ -53,6 +54,10 @@ const NewSquadForm = () => {
 
     return (
         <>
+            <Helmet>
+                <title>Create a Squad - Squadron</title>
+                <meta name="description" content="Squad creation form"></meta>
+            </Helmet>
             <div className="nsfWrapper">
                 <div className="newSquadContainer">
                     <div className="nsfContainer">

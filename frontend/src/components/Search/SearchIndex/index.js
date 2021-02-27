@@ -1,4 +1,5 @@
 import { useHistory, useParams } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 import { useDispatch, useSelector } from 'react-redux';
 import { findGames } from '../../../store/game';
 import { findUser } from '../../../store/user';
@@ -35,6 +36,10 @@ const SearchIndex = () => {
     };
     return (
         <div className="searchResultsInformationContainer">
+            <Helmet>
+                <title>Search - Squadron</title>
+                <meta name="description" content="search results"></meta>
+            </Helmet>
             <div className="resultsContainer">
                 <div className="searchResultsHeader">
                     <div className="searchResultsLabel">
