@@ -3,22 +3,29 @@ import { useEffect, useState } from 'react';
 import { AspectRatio } from 'react-aspect-ratio';
 import { Link, useHistory } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
+import InfiniteScroll from 'react-infinite-scroll-component';
 
-import { loadGames } from '../../store/games';
+import { loadGames, moreGames } from '../../store/games';
 import { setGameOrder } from '../../store/order';
 import { findGames } from '../../store/game';
 
 import 'react-aspect-ratio/aspect-ratio.css';
 import './games.css';
+import GameInfo from '../GameInfo';
+
+const API_KEY = process.env.REACT_APP_API_KEY_RAWG;
 
 const Games = () => {
+    const page1Url = `https://api.rawg.io/api/games?key=${API_KEY}&metacritic=80,100&ordering=`;
     const dispatch = useDispatch();
     const history = useHistory();
 
-    const games = useSelector((state) => state.games);
+    const { games } = useSelector((state) => state.games);
+    console.log('games', games);
     const order = localStorage.getItem('order');
 
     const [ordering, setOrdering] = useState(!order ? '' : order);
+    const [pageUrl, setPageUrl] = useState(page1Url);
 
     useEffect(() => {
         dispatch(loadGames(ordering));
@@ -36,11 +43,17 @@ const Games = () => {
         const gameState = await dispatch(findGames(String(gameParam)));
 
         localStorage.setItem('gameState', JSON.stringify(gameState));
-
         history.push(`/games/${gameParam}`);
+        return <GameInfo game={gameState} />;
     };
 
-    return Object.keys(games).length === 0 ? (
+    const fetchMoreData = () => {
+        const next = games[Object.keys(games).length - 1].next;
+        setTimeout(() => {
+            dispatch(moreGames(next));
+        }, 1000);
+    };
+    return !games ? (
         <h1 className="loading">Loading...</h1>
     ) : (
         <div className="gamesWrapper">
@@ -60,8 +73,7 @@ const Games = () => {
                     <option value="-metacritic">Rating</option>
                 </select>
                 <ul className="gamesList">
-                    {Object.keys(games).map((idx) => {
-                        const game = games[idx];
+                    {games.map((game, idx) => {
                         return (
                             <li key={idx} className="gameCard">
                                 <div className="gameCardContainer">
@@ -88,7 +100,9 @@ const Games = () => {
                                         </AspectRatio>
                                         <div
                                             className="gameInformationContainer"
-                                            style={{ pointerEvents: 'none' }}
+                                            style={{
+                                                pointerEvents: 'none',
+                                            }}
                                         >
                                             <div className="nameContainer">
                                                 <p className="gameName">
@@ -139,6 +153,17 @@ const Games = () => {
                     })}
                 </ul>
             </div>
+
+            <InfiniteScroll
+                dataLength={games.length}
+                next={fetchMoreData}
+                hasMore={true}
+                loader={
+                    <h4 style={{ color: 'white', textAlign: 'center' }}>
+                        Loading...
+                    </h4>
+                }
+            ></InfiniteScroll>
         </div>
     );
 };

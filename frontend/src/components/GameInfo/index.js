@@ -9,16 +9,15 @@ import './game.css';
 
 const GameInfo = () => {
     // Parse game information from local storage
-    const { gameName } = useParams();
     const dispatch = useDispatch();
 
     let game = useSelector((state) => state.game);
 
-    useEffect(async () => {
-        const gameState = await dispatch(findGames(gameName));
-        localStorage.setItem('gameState', JSON.stringify(gameState));
-        game = gameState;
-    }, []);
+    // useEffect(async () => {
+    //     const gameState = await dispatch(findGames(gameName));
+    //     localStorage.setItem('gameState', JSON.stringify(gameState));
+    //     game = gameState;
+    // }, []);
 
     if (Object.keys(game).length === 0)
         game = JSON.parse(localStorage.getItem('gameState'));

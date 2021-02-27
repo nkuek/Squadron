@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 import './index.css';
 import App from './App';
 import configureStore from './store';
@@ -20,14 +21,16 @@ if (process.env.NODE_ENV !== 'production') {
 function Root() {
     return (
         <Provider store={store}>
-            <BrowserRouter>
-                <App />
-            </BrowserRouter>
+            <HelmetProvider>
+                <BrowserRouter>
+                    <App />
+                </BrowserRouter>
+            </HelmetProvider>
         </Provider>
     );
 }
 
-ReactDOM.render(
+ReactDOM.hydrate(
     <React.StrictMode>
         <Root />
     </React.StrictMode>,

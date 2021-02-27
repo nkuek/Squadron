@@ -17,18 +17,19 @@ html {
     width: 100%;
     display: flex;
     overflow-y:auto;
+    overflow-x: hidden;
 }
 body {
     margin: 0;
     width: 100%;
     min-height: 100vh;
     font-family: 'Cabin', sans-serif;
-    overflow-x: hidden;
     background: url('./images/stock-gaming-background.jpeg') no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    overflow-x: hidden;
     /* overflow-y:hidden; */
 }
 
