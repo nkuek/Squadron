@@ -21,7 +21,6 @@ ul {
     position: absolute;
     z-index: 999;
     background-color: white;
-    border-bottom: 1px solid #d3d3d3;
 }
 
 .profileMenu {
@@ -37,7 +36,6 @@ ul {
     right: 0px;
     z-index: 500;
     background-color: white;
-    border-bottom-left-radius: 10px;
     list-style: none;
     width: auto;
 }
@@ -200,17 +198,21 @@ ul {
     .home,
     .barContainer
      {
-        padding: 20px;
+        padding: 25px;
     }
 
     .home {
         display:inline-block;
         box-sizing: border-box;
-        margin-right: 20px;
+        margin: 0px 10px;
         padding: 0;
     }
 
     .home:hover {
+        background-color: transparent;
+    }
+
+    .home:focus {
         background-color: transparent;
     }
 
@@ -220,7 +222,6 @@ ul {
         /* padding-right: 10px; */
         display: flex;
         align-items: center;
-        margin-right: 10px;
     }
 
 
@@ -297,7 +298,7 @@ ul {
     }
 
     .profileButton {
-        padding: 20px 10px
+        padding: 25px
     }
 
     .profileMenu {
@@ -351,18 +352,18 @@ ul {
     .stickyDropDownMenu {
         position: absolute;
         box-sizing: border-box;
-        border-right: 1px solid  rgb(146, 145, 145);
-        border-bottom: 1px solid  rgb(146, 145, 145);
+        border: 1px solid  rgb(146, 145, 145);
+        border: 1px solid  rgb(146, 145, 145);
         z-index: 500;
         top: 61px;
         left: 0;
-        border-bottom-right-radius: 5px;
         background-color: white;
         display: none;
         width: auto;
     }
    .dropDownLinks {
 
+        margin: 0px;
        border-bottom-right-radius: 10px;
    }
     .show {
@@ -378,11 +379,6 @@ ul {
 /* Large Screens */
 @media only screen and (min-width: 700px) {
 
-
-
-    .loginLogoutSignup {
-        margin-right: 20px;
-    }
 
     .small {
         display: none;
@@ -483,7 +479,6 @@ ul {
         display: none;
         width: auto;
         padding: 0px;
-        border-bottom-right-radius: 5px;
     }
 
     .show {
@@ -495,7 +490,7 @@ ul {
     .dropDownLinks {
         list-style: none;
         padding: 0px;
-        margin: 0;
+        margin: 0px;
         display: flex;
         flex-direction: column;
         align-content: center;
