@@ -300,6 +300,10 @@ ul {
         padding: 20px 10px
     }
 
+    .profileMenu {
+        top: 53px;
+    }
+
 
     .profileMenu > li {
         margin: 5px 0px 5px 0px;

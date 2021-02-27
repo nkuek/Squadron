@@ -14,7 +14,8 @@ select {
 html {
     margin: 0;
     padding: 0;
-    min-height: 100vh;
+    height: fit-content;
+    min-height: fit-content;
     width: 100vw;
     display: flex;
     overflow-y:auto;
@@ -39,7 +40,7 @@ body {
 
 #root {
     width: 100vw;
-    /* height: 100%; */
+    overflow-y: scroll;
     display: flex;
     justify-content: center;
     align-items: center;
