@@ -152,18 +152,17 @@ const Games = () => {
                         );
                     })}
                 </ul>
+                <InfiniteScroll
+                    dataLength={games.length}
+                    next={fetchMoreData}
+                    hasMore={true}
+                    loader={
+                        <h3 style={{ color: 'white', textAlign: 'center' }}>
+                            Loading...
+                        </h3>
+                    }
+                ></InfiniteScroll>
             </div>
-
-            <InfiniteScroll
-                dataLength={games.length}
-                next={fetchMoreData}
-                hasMore={true}
-                loader={
-                    <h4 style={{ color: 'white', textAlign: 'center' }}>
-                        Loading...
-                    </h4>
-                }
-            ></InfiniteScroll>
         </div>
     );
 };
