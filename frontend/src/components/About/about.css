@@ -1,6 +1,9 @@
 .aboutPageWrapper {
 
     position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     width: 100%;
     height: 100vh;
     background: url('../../images/gradient-background.jpg') no-repeat center center fixed ;
@@ -119,10 +122,8 @@
     flex-direction: column;
     align-items: center;
     width: auto;
-    height: 500px;
     margin: 0px 20px;
     position: relative;
-    top: 30%;
 }
 .aboutHeader {
     display: flex;
