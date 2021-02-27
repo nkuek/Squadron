@@ -1,40 +1,26 @@
 // User Squads Index
-import { useHistory, Redirect } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
-import { Link, useParams } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { Link, useParams, useHistory, Redirect } from 'react-router-dom';
 import { useEffect } from 'react';
 
-import { findUser } from '../../../store/user';
-
 const UserSquads = () => {
-    const userProfile = JSON.parse(localStorage.getItem('userProfile'));
-    const dispatch = useDispatch();
+    const { userProfileName } = useParams();
     const history = useHistory();
 
-    useEffect(async () => {
-        const user = await dispatch(findUser(userProfileName));
-        localStorage.setItem('userProfile', JSON.stringify(user));
-        history.push(`/users/${userProfileName}/squads`);
-    }, [dispatch]);
+    let userProfile = useSelector((state) => state.userProfile);
 
-    const { userProfileName } = useParams();
-    if (!userProfile) return <Redirect to="/pageNotFound" />;
+    if (!userProfile) return <Redirect to="/pagenotfound" />;
 
-    let { Squads, username } = userProfile;
+    let { username, Squads: squads } = userProfile;
 
     if (userProfileName === username) username = 'You';
 
-    // if (squads.length === 0) return <Redirect to="/pagenotfound" />;
-
-    const navigateToUserProfile = (e) => {
-        e.preventDefault();
-        return;
-    };
-
-    return (
+    return !username ? (
+        <Redirect to={`/users/${userProfileName}`} />
+    ) : (
         <>
             <div className="userSquadListWrapper">
-                {Squads.length === 0 ? (
+                {squads.length === 0 ? (
                     <div className="noSquadsContainer">
                         <div className="noSquadsHeader">
                             <h1 className="noSquads">
@@ -46,7 +32,7 @@ const UserSquads = () => {
                     </div>
                 ) : (
                     <ul className="userSquadListContainer">
-                        {Squads.map((squad, idx) => (
+                        {squads.map((squad, idx) => (
                             <li key={idx} className="squadCard">
                                 <div
                                     style={{

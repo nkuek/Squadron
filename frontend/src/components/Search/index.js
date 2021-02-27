@@ -4,6 +4,7 @@ import SearchIndex from './SearchIndex';
 
 import './search.css';
 import GamesSearch from './GamesSearch';
+import UsersSearch from './UsersSearch';
 
 const Search = () => {
     return (
@@ -18,8 +19,11 @@ const Search = () => {
                             <Route exact path="/search/:searchQuery">
                                 <SearchIndex />
                             </Route>
-                            <Route path="/search/games/:searchQuery">
+                            <Route path="/search/:searchQuery/games">
                                 <GamesSearch />
+                            </Route>
+                            <Route path="/search/:searchQuery/users">
+                                <UsersSearch />
                             </Route>
                         </Switch>
                     </div>

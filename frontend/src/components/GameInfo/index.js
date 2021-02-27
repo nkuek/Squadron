@@ -1,9 +1,13 @@
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import AspectRatio from 'react-aspect-ratio';
+import { findGames } from '../../store/game';
 import './game.css';
 
 const GameInfo = () => {
     // Parse game information from local storage
+
     let game = useSelector((state) => state.game);
 
     if (Object.keys(game).length === 0) {

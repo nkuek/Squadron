@@ -27,13 +27,6 @@ const ProfileButton = ({ user }) => {
         history.push('/');
     };
 
-    const getUser = async (e) => {
-        e.preventDefault();
-        const userProfile = await dispatch(findUser(user.username));
-        localStorage.setItem('userProfile', JSON.stringify(userProfile));
-        history.push(`/users/${user.username}/squads`);
-    };
-
     return (
         <>
             <i
@@ -44,7 +37,6 @@ const ProfileButton = ({ user }) => {
                 <ul className="profileMenu">
                     <li>
                         <NavLink
-                            onClick={getUser}
                             className="navBarLinks"
                             to={`/users/${user.username}/squads`}
                         >

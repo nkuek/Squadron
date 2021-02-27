@@ -12,8 +12,7 @@ export const findUser = (username) => async (dispatch) => {
         method: 'PUT',
         body: JSON.stringify({ username }),
     });
-
-    const user = res.json();
+    const user = await res.json();
     dispatch(getUser(user));
     return user;
 };

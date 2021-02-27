@@ -1,15 +1,23 @@
+import { useHistory } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 import { useState } from 'react';
 import './pagenotfound.css';
 
 const PageNotFound = () => {
     const [korokHidden, setKorokHidden] = useState(true);
+    const history = useHistory();
 
     const korokImg =
         'https://i.kym-cdn.com/photos/images/original/001/247/542/6e5.jpg';
 
     const rockImg = '/rock.png';
+
     return (
         <div className="pageNotFoundWrapper">
+            <Helmet>
+                <title>Page Not Found - Squadron</title>
+                <meta name="description" content="page not found"></meta>
+            </Helmet>
             <div className="pageNotFoundContainer">
                 <h1 className="pageNotFoundHeader"> Page Not Found</h1>
                 <div className="pageNotFoundImage">
@@ -27,9 +35,7 @@ const PageNotFound = () => {
                                         color: 'white',
                                         marginTop: '10px',
                                     }}
-                                >
-                                    Now where did that page go...
-                                </div>
+                                ></div>
                             </div>
                         </div>
                     ) : (
@@ -42,6 +48,9 @@ const PageNotFound = () => {
                             ></img>
                         </div>
                     )}
+                </div>
+                <div className="homeLinkContainer">
+                    <button onClick={() => history.goBack()}>Go back</button>
                 </div>
             </div>
         </div>

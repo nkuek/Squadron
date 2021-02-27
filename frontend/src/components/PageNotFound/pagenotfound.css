@@ -16,6 +16,12 @@
 .pageNotFoundHeader {
     color: white;
     font-weight: bold;
+    margin: 0
+}
+
+.rockContainer {
+    display: flex;
+    justify-content: center;
 }
 
 .rock:hover {
@@ -27,6 +33,32 @@
     flex-direction: column;
     align-items: center;
     font-style: italic;
+    margin-top: 10px;
+}
+
+.homeLinkContainer {
+    color: white;
+    text-align: center;
+    margin-top: 10px;
+    background-color: rgb(58, 58, 58);
+    border-radius: 5px;
+}
+.homeLinkContainer:hover {
+
+    background-color: rgb(94, 94, 94);
+}
+
+.homeLinkContainer button {
+   display: inline-block;
+   box-sizing: border-box;
+   width: 100%;
+   padding: 10px;
+   text-align: center;
+   cursor: pointer;
+   background-color: rgb(58, 58, 58);
+   border: none;
+   border-radius: 5px;
+   color: white;
 }
 
 @media only screen and (max-width: 500px) {

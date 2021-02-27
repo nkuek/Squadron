@@ -75,7 +75,7 @@ input {
     height: 25px
 }
 
-input:invalid,
+
 input:invalid:focus {
     border-color: red;
 }
@@ -85,7 +85,6 @@ input:valid {
     outline-offset: 0px;
 }
 
-input:invalid~label,
 input:focus~label,
 input:valid~label  {
     font-size: 14px;
@@ -94,9 +93,10 @@ input:valid~label  {
     font-size: 10px;
 }
 
-input:invalid~label {
+input:invalid:focus~label {
     color: red;
 }
+
   .errors {
     color: red;
     border-bottom: 1px solid red;

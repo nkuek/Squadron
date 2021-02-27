@@ -16,11 +16,14 @@ const SearchIndex = () => {
         squads = JSON.parse(localStorage.getItem('search')).squads;
         users = JSON.parse(localStorage.getItem('search')).users;
     }
-    const handleUserResults = (e) => {
+    const handleUserResults = async (e) => {
         e.preventDefault();
+        const user = await dispatch(findUser(e.target.id));
+        localStorage.setItem('userResult', JSON.stringify(user));
+        history.push(`/users/${e.target.id}`);
     };
 
-    const handleSquadResults = (e) => {
+    const handleSquadResults = async (e) => {
         e.preventDefault();
     };
 
@@ -107,7 +110,7 @@ const SearchIndex = () => {
                         {games.length > 0 && `· ${games.length} result(s)`}
                     </span>
                     {games.length > 5 && (
-                        <a href={`/search/games/${searchQuery}`}>See all</a>
+                        <a href={`/search/${searchQuery}/games`}>See all</a>
                     )}
                 </div>
                 <div className="searchResults">

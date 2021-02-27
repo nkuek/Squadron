@@ -45,7 +45,7 @@ function App() {
                         <LoginForm />
                     </Route>
 
-                    <Route path="/users/:userProfileName">
+                    <Route path="/users/:userProfileName/">
                         <UserProfile />
                     </Route>
 

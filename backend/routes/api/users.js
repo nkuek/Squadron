@@ -79,6 +79,7 @@ router.put(
     '/',
     asyncHandler(async (req, res) => {
         const { username } = req.body;
+        console.log(username);
         const user = await db.User.findOne({
             include: [{ model: db.Squad }],
             where: { username },
