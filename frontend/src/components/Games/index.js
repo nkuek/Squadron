@@ -46,7 +46,7 @@ const Games = () => {
         const next = games[Object.keys(games).length - 1].next;
         setTimeout(() => {
             dispatch(moreGames(next));
-        }, 2000);
+        }, 1000);
     };
     return !games ? (
         <h1 className="loading">Loading...</h1>

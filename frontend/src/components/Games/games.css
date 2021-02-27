@@ -41,7 +41,8 @@
 
     .gamesWrapper {
         margin: 40px;
-        position: absolute;
+        /* position: absolute; */
+        position: relative;
         top: 80px;
         width: auto;
     }
@@ -135,9 +136,10 @@
     .gamesWrapper {
         background-color: black;
         top: 61px;
-        position: absolute;
+        position: relative;
         box-sizing: border-box;
         border-radius: 10px;
+        width: 100%;
         overflow-x: hidden;
         /* max-width: 500px; */
     }
