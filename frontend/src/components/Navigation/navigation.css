@@ -29,8 +29,8 @@ ul {
     flex-direction: column;
     justify-content: space-evenly;
     box-sizing: border-box;
-    border-left: 1px solid rgb(146, 145, 145);
-    border-bottom: 1px solid  rgb(146, 145, 145);
+    border: 1px solid rgb(146, 145, 145);
+    border-top: transparent;
     top: 45.45px;
     height: 100px;
     right: 0px;
