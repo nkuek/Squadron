@@ -114,30 +114,30 @@ const Navigation = () => {
                     )}
                 </div>
             </nav>
-                <div className="stickyDropDownMenu">
-                    <ul className="dropDownLinks">
-                        <li>
-                            <NavLink className="navBarLinks" to="/">
-                                Home
-                            </NavLink>
-                        </li>
-                        <li>
-                            <NavLink to={'/squads/'} className="navBarLinks">
-                                Squads
-                            </NavLink>
-                        </li>
-                        <li>
-                            <NavLink className="navBarLinks" to="/games">
-                                Games
-                            </NavLink>
-                        </li>
-                        <li>
-                            <NavLink className="navBarLinks" to="/about">
-                                About Me
-                            </NavLink>
-                        </li>
-                    </ul>
-                </div>
+            <div className="stickyDropDownMenu">
+                <ul className="dropDownLinks">
+                    <li>
+                        <NavLink className="navBarLinks" to="/">
+                            Home
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink to={'/squads/'} className="navBarLinks">
+                            Squads
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink className="navBarLinks" to="/games">
+                            Games
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink className="navBarLinks" to="/about">
+                            About Me
+                        </NavLink>
+                    </li>
+                </ul>
+            </div>
         </>
     );
 };

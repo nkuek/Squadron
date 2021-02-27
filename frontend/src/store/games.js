@@ -42,26 +42,6 @@ export const resetGameState = () => async (dispatch) => {
     dispatch(removeGameState());
 };
 
-// export const findGames = (gameName) => async (dispatch) => {
-//     const searchParam = gameName.split(' ').join('%');
-//     const apiRes = await fetch(
-//         `https://api.rawg.io/api/games?key=${API_KEY}&search=${searchParam}&search_exact=true`
-//     );
-//     const apiData = await apiRes.json();
-//     const results = apiData.results[0];
-//     const gameInformation = {
-//         name: results.name,
-//         genres: results.genres.map((genre) => genre.name),
-//         metacritic: results.metacritic,
-//         rating: results.rating,
-//         image: results.background_image,
-//         platforms: results.platforms.map((platform) => platform.name),
-//         released: results.released,
-//     };
-
-//     dispatch(findGame(gameInformation));
-// };
-
 const gamesReducer = (state = {}, action) => {
     let newState;
     switch (action.type) {

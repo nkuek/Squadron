@@ -14,6 +14,8 @@ const validateSignup = [
         .exists({ checkFalsy: true })
         .isEmail()
         .withMessage('Please provide a valid email.')
+        .matches(/^[a-zA-Z0-9_.-]*$/)
+        .withMessage('Username should only include numbers and letters')
         .custom((value) => {
             return db.User.findOne({ where: { username: value } }).then(
                 (user) => {

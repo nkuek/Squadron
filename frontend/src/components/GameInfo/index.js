@@ -1,9 +1,14 @@
+import { useSelector } from 'react-redux';
 import AspectRatio from 'react-aspect-ratio';
 import './game.css';
 
 const GameInfo = () => {
     // Parse game information from local storage
-    const game = JSON.parse(localStorage.getItem('gameState'));
+    let game = useSelector((state) => state.game);
+
+    if (Object.keys(game).length === 0) {
+        game = JSON.parse(localStorage.getItem('gameState'));
+    }
 
     return !game ? (
         <h1 className="loading">Loading...</h1>
