@@ -65,6 +65,12 @@ ul {
     justify-content: center;
 }
 
+.login {
+    padding: 20px 15px;
+    /* margin: 10px; */
+    border-radius: 0%;
+}
+
 .searchForm {
     padding: 0;
 }
@@ -104,6 +110,10 @@ ul {
 
 .searchInput:valid {
     border-bottom: unset;
+}
+
+.login {
+    margin-right: 10px;
 }
 
 .loggedInContainer {
@@ -183,8 +193,8 @@ ul {
 
 
     .home,
-    .barContainer,
-    .login {
+    .barContainer
+     {
         padding: 20px;
     }
 
@@ -354,11 +364,7 @@ ul {
 /* Large Screens */
 @media only screen and (min-width: 700px) {
 
-    .login {
-        padding: 20px;
-        /* margin: 10px; */
-        border-radius: 0%;
-    }
+
 
     .loginLogoutSignup {
         margin-right: 20px;
