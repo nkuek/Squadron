@@ -31,12 +31,7 @@ const SearchIndex = () => {
         e.preventDefault();
         const game = await dispatch(findGames(e.target.id));
         localStorage.setItem('gameState', JSON.stringify(game));
-        history.push(
-            `/games/${e.target.id
-                .replaceAll(/[&\/\\#,+()$~%.'\-":*?<>{}]/g, '')
-                .split(' ')
-                .join('-')}`
-        );
+        history.push(`/games/${e.target.id.replaceAll(' ', '-')}`);
     };
     return (
         <div className="searchResultsInformationContainer">
@@ -126,10 +121,6 @@ const SearchIndex = () => {
                                     id={game.name}
                                     onClick={handleGameResults}
                                     href={`/games/${game.name
-                                        .replaceAll(
-                                            /[&\/\\#,+()$~%.'\-":*?<>{}]/g,
-                                            ''
-                                        )
                                         .split(' ')
                                         .join('-')}`}
                                 >

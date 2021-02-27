@@ -8,7 +8,6 @@ router.post(
     '/',
     asyncHandler(async (req, res) => {
         const { name } = req.body;
-        console.log(name);
 
         const game = await Game.findOne({
             where: {
@@ -18,21 +17,21 @@ router.post(
 
         // if game not in database, add it to database
         if (!game) {
-            const nameArray = name.split(' ');
-            const searchParam = nameArray.join('%');
             const apiRes = await fetch(
-                `https://api.rawg.io/api/games?key=${API_KEY}&search=${searchParam}`
+                `https://api.rawg.io/api/games?key=${API_KEY}&search=${name}`
             );
             const apiData = await apiRes.json();
 
             // res === array of game objects from fetch search result
             const apiResults = apiData.results;
+            const gameName = name.split('%').join(' ');
+            console.log(gameName);
 
             // must narrow down search results because api apparently doesn't have a very good serach function...
             // Iterate through keys of object to find the corrent game
 
             const gameKey = Object.keys(apiResults).find(
-                (key) => apiResults[key].name === name
+                (key) => apiResults[key].name === gameName
             );
 
             const results = apiResults[gameKey];

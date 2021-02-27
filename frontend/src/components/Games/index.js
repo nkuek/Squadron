@@ -37,12 +37,7 @@ const Games = () => {
 
         localStorage.setItem('gameState', JSON.stringify(gameState));
 
-        history.push(
-            `/games/${gameParam
-                .replaceAll(/[&\/\\#,+()$~%.'\-":*?<>{}]/g, '')
-                .split(' ')
-                .join('-')}`
-        );
+        history.push(`/games/${gameParam.replaceAll(' ', '-')}`);
     };
 
     return Object.keys(games).length === 0 ? (
@@ -74,10 +69,6 @@ const Games = () => {
                                         onClick={(e) => handleClick(e)}
                                         id={game.name}
                                         to={`/games/${game.name
-                                            .replaceAll(
-                                                /[&\/\\#,+()$~%.'\-":*?<>{}]/g,
-                                                ''
-                                            )
                                             .split(' ')
                                             .join('-')}`}
                                     >

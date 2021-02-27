@@ -15,12 +15,7 @@ const GamesSearch = () => {
 
         localStorage.setItem('gameState', JSON.stringify(gameState));
 
-        history.push(
-            `/games/${gameParam
-                .replaceAll(/[&\/\\#,+()$~%.'\-":*?<>{}]/g, '')
-                .split(' ')
-                .join('-')}`
-        );
+        history.push(`/games/${gameParam.replaceAll(' ', '-')}`);
     };
     let games = useSelector((state) => state.search.games);
     if (!games) games = JSON.parse(localStorage.getItem('search')).games;
@@ -34,10 +29,7 @@ const GamesSearch = () => {
                         <Link
                             onClick={(e) => handleClick(e)}
                             id={game.name}
-                            to={`/games/${game.name
-                                .replaceAll(/[&\/\\#,+()$~%.'\-":*?<>{}]/g, '')
-                                .split(' ')
-                                .join('-')}`}
+                            to={`/games/${game.name.replaceAll(' ', '-')}`}
                         >
                             <AspectRatio
                                 className="gameImageContainer"

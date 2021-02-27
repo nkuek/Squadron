@@ -15,16 +15,15 @@ const GameInfo = () => {
     let game = useSelector((state) => state.game);
 
     useEffect(async () => {
-        if (Object.keys(game).length === 0) {
-            const gameState = await dispatch(
-                findGames(gameName.split('-').join(' '))
-            );
-            console.log('inside useEffect', gameState);
-            localStorage.setItem('gameState', JSON.stringify(gameState));
-            game = gameState;
-        }
-    });
-    console.log('outside useEffect', game);
+        const gameParam = gameName.split('-').join('%');
+        console.log(gameParam);
+        const gameState = await dispatch(findGames(gameParam));
+        localStorage.setItem('gameState', JSON.stringify(gameState));
+        game = gameState;
+    }, []);
+
+    if (Object.keys(game).length === 0)
+        game = JSON.parse(localStorage.getItem('gameState'));
 
     return !game ? (
         <h1 className="loading">Loading...</h1>

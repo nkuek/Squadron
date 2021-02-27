@@ -17,13 +17,7 @@ const EventCard = ({ events }) => {
 
         localStorage.setItem('gameState', JSON.stringify(gameState));
 
-        history.push(
-            `/games/${gameParam
-                .replace(':', '')
-                .split(' ')
-                .join('')
-                .toLowerCase()}`
-        );
+        history.push(`/games/${gameParam.replaceAll(' ', '-')}`);
     };
 
     return events.map((event) => (
@@ -59,11 +53,10 @@ const EventCard = ({ events }) => {
                                 <div className="eventGameLinkContainer">
                                     <Link
                                         id={event.gameId}
-                                        to={`/games/${event.gameId
-                                            .replace(':', '')
-                                            .split(' ')
-                                            .join('')
-                                            .toLowerCase()}`}
+                                        to={`/games/${event.gameId.replaceAll(
+                                            ' ',
+                                            '-'
+                                        )}`}
                                         onClick={(e) => handleClick(e)}
                                         // value={event.gameId}
                                         // onClick={handleClick}
