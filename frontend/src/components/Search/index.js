@@ -1,8 +1,9 @@
-import { useSelector } from 'react-redux';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, useHistory } from 'react-router-dom';
+
 import SearchIndex from './SearchIndex';
 
 import './search.css';
+import GamesSearch from './GamesSearch';
 
 const Search = () => {
     return (
@@ -16,6 +17,9 @@ const Search = () => {
                         <Switch>
                             <Route exact path="/search/:searchQuery">
                                 <SearchIndex />
+                            </Route>
+                            <Route path="/search/games/:searchQuery">
+                                <GamesSearch />
                             </Route>
                         </Switch>
                     </div>

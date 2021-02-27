@@ -1,16 +1,15 @@
-import { useHistory } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { useSelector } from 'react-redux';
+import { useHistory, useParams } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import { findGames } from '../../../store/game';
 import { findUser } from '../../../store/user';
-
 const SearchIndex = () => {
+    const history = useHistory();
+    const dispatch = useDispatch();
+    const searchQuery = useParams();
+
     let games = useSelector((state) => state.search.games);
     let squads = useSelector((state) => state.search.squads);
     let users = useSelector((state) => state.search.users);
-
-    const history = useHistory();
-    const dispatch = useDispatch();
 
     if (!games || !squads || !users) {
         games = JSON.parse(localStorage.getItem('search')).games;
@@ -31,7 +30,6 @@ const SearchIndex = () => {
         localStorage.setItem('gameState', JSON.stringify(game));
         history.push(`/games/${e.target.id}`);
     };
-
     return (
         <div className="searchResultsInformationContainer">
             <div className="resultsContainer">
@@ -40,7 +38,10 @@ const SearchIndex = () => {
                         <span>Users:</span>
                     </div>
                     {users.length > 5 && (
-                        <a href="/search/users/" className="seeAllResults">
+                        <a
+                            href={`/search/${searchQuery}/users/`}
+                            className="seeAllResults"
+                        >
                             See all
                         </a>
                     )}
@@ -68,7 +69,9 @@ const SearchIndex = () => {
             <div className="resultsContainer">
                 <div className="searchResultsHeader">
                     <span className="searchResultsLabel">Squads:</span>
-                    {squads.length > 5 && <a href="/search/squads">See all</a>}
+                    {squads.length > 5 && (
+                        <a href={`/search/${searchQuery}/squads`}>See all</a>
+                    )}
                 </div>
                 <div className="searchResults">
                     {squads.length > 0 ? (
@@ -94,7 +97,9 @@ const SearchIndex = () => {
             <div className="resultsContainer">
                 <div className="searchResultsHeader">
                     <span className="searchResultsLabel">Games:</span>
-                    {games.length > 5 && <a href="/search/games">See all</a>}
+                    {games.length > 5 && (
+                        <a href={`/search/${searchQuery}/games`}>See all</a>
+                    )}
                 </div>
                 <div className="searchResults">
                     {games.length > 0 ? (

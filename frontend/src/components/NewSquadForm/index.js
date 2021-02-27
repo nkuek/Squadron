@@ -223,7 +223,7 @@ const NewSquadForm = () => {
                                         </NavLink>
                                     </div>
                                 </div>
-                                <div className="squadEventListWrapper">
+                                <div className="squadContentWrapper">
                                     <div className="squadEventListContainer">
                                         <div className="squadEventListHeader">
                                             <h3 className="squadEvents">
