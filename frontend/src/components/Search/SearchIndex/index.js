@@ -35,7 +35,10 @@ const SearchIndex = () => {
             <div className="resultsContainer">
                 <div className="searchResultsHeader">
                     <div className="searchResultsLabel">
-                        <span>Users:</span>
+                        <span>
+                            Users{' '}
+                            {users.length > 0 && `· ${users.length} result(s)`}
+                        </span>
                     </div>
                     {users.length > 5 && (
                         <a
@@ -68,7 +71,10 @@ const SearchIndex = () => {
 
             <div className="resultsContainer">
                 <div className="searchResultsHeader">
-                    <span className="searchResultsLabel">Squads:</span>
+                    <span className="searchResultsLabel">
+                        Squads{' '}
+                        {squads.length > 0 && `· ${squads.length} result(s)`}
+                    </span>
                     {squads.length > 5 && (
                         <a href={`/search/${searchQuery}/squads`}>See all</a>
                     )}
@@ -96,7 +102,10 @@ const SearchIndex = () => {
 
             <div className="resultsContainer">
                 <div className="searchResultsHeader">
-                    <span className="searchResultsLabel">Games:</span>
+                    <span className="searchResultsLabel">
+                        Games{' '}
+                        {games.length > 0 && `· ${games.length} result(s)`}
+                    </span>
                     {games.length > 5 && (
                         <a href={`/search/${searchQuery}/games`}>See all</a>
                     )}
