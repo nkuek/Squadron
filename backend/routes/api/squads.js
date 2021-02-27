@@ -50,6 +50,8 @@ router.put(
     '/',
     asyncHandler(async (req, res) => {
         const { squadName } = req.body;
+        const squad = await db.Squad.findOne({ where: { squadName } });
+        return res.json(squad);
     })
 );
 
