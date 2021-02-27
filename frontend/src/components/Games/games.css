@@ -2,11 +2,13 @@
     background-color: rgb(36, 37, 38);
     color: white;
     padding: 5px;
+    border-radius: 5px;
 }
 
 .gamesOrder:hover {
     cursor: pointer;
 }
+
 
 .gameCardContainer a:hover, .gamesOrder:hover {
     background-color: #636363;
