@@ -1,5 +1,6 @@
 import { Switch, Route, useHistory } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
+import { useDispatch, useSelector } from 'react-redux';
 
 import SearchIndex from './SearchIndex';
 
@@ -8,6 +9,16 @@ import GamesSearch from './GamesSearch';
 import UsersSearch from './UsersSearch';
 
 const Search = () => {
+    let games = useSelector((state) => state.search.games);
+    let squads = useSelector((state) => state.search.squads);
+    let users = useSelector((state) => state.search.users);
+
+    if (!games || !squads || !users) {
+        games = JSON.parse(localStorage.getItem('search')).games;
+        squads = JSON.parse(localStorage.getItem('search')).squads;
+        users = JSON.parse(localStorage.getItem('search')).users;
+    }
+    const props = { games, squads, users };
     return (
         <div className="searchResultsWrapper">
             <Helmet>
@@ -22,7 +33,7 @@ const Search = () => {
                         </div>
                         <Switch>
                             <Route exact path="/search/:searchQuery">
-                                <SearchIndex />
+                                <SearchIndex {...props} />
                             </Route>
                             <Route path="/search/:searchQuery/games">
                                 <GamesSearch />

@@ -2,20 +2,11 @@ import { useHistory, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { findGames } from '../../../store/game';
 import { findUser } from '../../../store/user';
-const SearchIndex = () => {
-    const history = useHistory();
-    const dispatch = useDispatch();
+const SearchIndex = ({ games, squads, users }) => {
     const { searchQuery } = useParams();
+    const dispatch = useDispatch();
+    const history = useHistory();
 
-    let games = useSelector((state) => state.search.games);
-    let squads = useSelector((state) => state.search.squads);
-    let users = useSelector((state) => state.search.users);
-
-    if (!games || !squads || !users) {
-        games = JSON.parse(localStorage.getItem('search')).games;
-        squads = JSON.parse(localStorage.getItem('search')).squads;
-        users = JSON.parse(localStorage.getItem('search')).users;
-    }
     const handleUserResults = async (e) => {
         e.preventDefault();
         const user = await dispatch(findUser(e.target.id));

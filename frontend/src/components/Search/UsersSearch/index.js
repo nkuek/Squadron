@@ -6,6 +6,7 @@ const UsersSearch = () => {
     const history = useHistory();
     const dispatch = useDispatch();
 
+
     const handleClick = async (e) => {
         e.preventDefault();
         const username = e.target.id;
@@ -14,7 +15,9 @@ const UsersSearch = () => {
         localStorage.setItem('user', JSON.stringify(userState));
         history.push(`/users/${username}`);
     };
-    return <ul className="usersList">{}</ul>;
+    return <ul className="usersList">{
+
+    }</ul>;
 };
 
 export default UsersSearch;
