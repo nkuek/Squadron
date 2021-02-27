@@ -7,6 +7,7 @@ import SearchIndex from './SearchIndex';
 import './search.css';
 import GamesSearch from './GamesSearch';
 import UsersSearch from './UsersSearch';
+import SquadsSearch from './SquadsSearch';
 
 const Search = () => {
     let games = useSelector((state) => state.search.games);
@@ -40,6 +41,9 @@ const Search = () => {
                             </Route>
                             <Route path="/search/:searchQuery/users">
                                 <UsersSearch users={users} />
+                            </Route>
+                            <Route path="/search/:searchQuery/squads">
+                                <SquadsSearch />
                             </Route>
                         </Switch>
                     </div>

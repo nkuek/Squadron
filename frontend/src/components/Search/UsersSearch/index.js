@@ -1,4 +1,4 @@
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { findUser } from '../../../store/user';
 
@@ -29,7 +29,7 @@ const UsersSearch = ({ users }) => {
             </div>
             <div className="searchResults">
                 {users.length > 0 ? (
-                    users.slice(0, 5).map((user, idx) => (
+                    users.map((user, idx) => (
                         <div key={idx} className="searchLinkContainer">
                             <a
                                 id={user.username}

@@ -22,7 +22,7 @@ router.post(
         });
 
         const apiRes = await fetch(
-            `https://api.rawg.io/api/games?key=${API_KEY}&search=${searchQuery}`
+            `https://api.rawg.io/api/games?key=${API_KEY}&search=${searchQuery}&page_size=100&ordering=name`
         );
         const apiData = await apiRes.json();
         const apiResults = apiData.results;
