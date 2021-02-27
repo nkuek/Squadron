@@ -1,5 +1,4 @@
 import { useHistory, useParams } from 'react-router-dom';
-import { Helmet } from 'react-helmet';
 import { useDispatch, useSelector } from 'react-redux';
 import { findGames } from '../../../store/game';
 import { findUser } from '../../../store/user';
@@ -32,14 +31,15 @@ const SearchIndex = () => {
         e.preventDefault();
         const game = await dispatch(findGames(e.target.id));
         localStorage.setItem('gameState', JSON.stringify(game));
-        history.push(`/games/${e.target.id}`);
+        history.push(
+            `/games/${e.target.id
+                .replaceAll(/[&\/\\#,+()$~%.'\-":*?<>{}]/g, '')
+                .split(' ')
+                .join('-')}`
+        );
     };
     return (
         <div className="searchResultsInformationContainer">
-            <Helmet>
-                <title>Search - Squadron</title>
-                <meta name="description" content="search results"></meta>
-            </Helmet>
             <div className="resultsContainer">
                 <div className="searchResultsHeader">
                     <div className="searchResultsLabel">
@@ -131,7 +131,7 @@ const SearchIndex = () => {
                                             ''
                                         )
                                         .split(' ')
-                                        .join('')}`}
+                                        .join('-')}`}
                                 >
                                     {game.name}
                                 </a>

@@ -19,7 +19,7 @@ const GamesSearch = () => {
             `/games/${gameParam
                 .replaceAll(/[&\/\\#,+()$~%.'\-":*?<>{}]/g, '')
                 .split(' ')
-                .join('')}`
+                .join('-')}`
         );
     };
     let games = useSelector((state) => state.search.games);
@@ -37,7 +37,7 @@ const GamesSearch = () => {
                             to={`/games/${game.name
                                 .replaceAll(/[&\/\\#,+()$~%.'\-":*?<>{}]/g, '')
                                 .split(' ')
-                                .join('')}`}
+                                .join('-')}`}
                         >
                             <AspectRatio
                                 className="gameImageContainer"

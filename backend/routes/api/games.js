@@ -8,6 +8,7 @@ router.post(
     '/',
     asyncHandler(async (req, res) => {
         const { name } = req.body;
+        console.log(name);
 
         const game = await Game.findOne({
             where: {

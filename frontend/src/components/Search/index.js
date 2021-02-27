@@ -1,4 +1,5 @@
 import { Switch, Route, useHistory } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 
 import SearchIndex from './SearchIndex';
 
@@ -9,6 +10,10 @@ import UsersSearch from './UsersSearch';
 const Search = () => {
     return (
         <div className="searchResultsWrapper">
+            <Helmet>
+                <title>Search - Squadron</title>
+                <meta name="description" content="search results"></meta>
+            </Helmet>
             <div className="searchResultsOuterContainer">
                 <div className="searchResultsInnerContainer">
                     <div className="searchResultsContainer">

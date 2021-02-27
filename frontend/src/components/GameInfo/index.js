@@ -1,16 +1,30 @@
 import { useSelector, useDispatch } from 'react-redux';
 import AspectRatio from 'react-aspect-ratio';
+import { useParams } from 'react-router-dom';
+import { useEffect } from 'react';
 import { Helmet } from 'react-helmet';
+import { findGames } from '../../store/game';
+
 import './game.css';
 
 const GameInfo = () => {
     // Parse game information from local storage
+    const { gameName } = useParams();
+    const dispatch = useDispatch();
 
     let game = useSelector((state) => state.game);
 
-    if (Object.keys(game).length === 0) {
-        game = JSON.parse(localStorage.getItem('gameState'));
-    }
+    useEffect(async () => {
+        if (Object.keys(game).length === 0) {
+            const gameState = await dispatch(
+                findGames(gameName.split('-').join(' '))
+            );
+            console.log('inside useEffect', gameState);
+            localStorage.setItem('gameState', JSON.stringify(gameState));
+            game = gameState;
+        }
+    });
+    console.log('outside useEffect', game);
 
     return !game ? (
         <h1 className="loading">Loading...</h1>
