@@ -166,9 +166,6 @@ ul {
         background-color: #e2e0e0;
     }
 
-.signup {
-    margin-right: 10px;
-}
 
 .signup:visited {
     color: white;
@@ -177,7 +174,6 @@ ul {
 .barContainer {
     display: inline-block;
     cursor: pointer;
-    margin-left: 10px;
     position:relative;
     padding: 20px;
 }
@@ -186,18 +182,27 @@ ul {
 @media only screen and (max-width: 700px) {
 
 
+    .home,
+    .barContainer,
+    .login {
+        padding: 20px;
+    }
+
+    .home {
+        padding-right: 0px;
+        padding-left: 0px;
+        margin: 0px 10px;
+    }
+
+
     .loginLogoutSignup {
         /* margin-right: 10px; */
         /* padding-right: 10px; */
         display: flex;
         align-items: center;
+        margin-right: 10px;
     }
 
-    .login {
-        padding: 20px;
-        /* margin: 10px; */
-        border-radius: 0%;
-    }
 
     .small {
         font-size: 2.7em;
@@ -224,8 +229,7 @@ ul {
 
     .searchBarContainer {
         width: 16px;
-        padding: 0px 10px;
-
+        margin-right: 10px;
     }
 
     .searchButtonContainer {
@@ -270,7 +274,6 @@ ul {
         justify-content: center;
         align-items: center;
         text-align: center;
-        margin-right: 15px;
     }
 
     .profileButton {
@@ -294,10 +297,6 @@ ul {
         z-index: 1000;
         background-color: white;
 
-    }
-
-    .barContainer {
-        margin-left: 15px;
     }
 
     .barContainer:hover, .profileButton:hover, .profileButton:focus, .barContainer:focus {
@@ -359,6 +358,10 @@ ul {
         padding: 20px;
         /* margin: 10px; */
         border-radius: 0%;
+    }
+
+    .loginLogoutSignup {
+        margin-right: 20px;
     }
 
     .small {
