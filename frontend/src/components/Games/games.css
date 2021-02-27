@@ -125,7 +125,7 @@
         top: 61px;
         position: absolute;
         box-sizing: border-box;
-        padding: 20px;
+        /* padding: 20px; */
         border-radius: 10px;
         overflow-x: hidden;
         width: 100vw;
@@ -134,6 +134,8 @@
 
     .gamesContainer {
         width: 100%;
+        padding: 40px;
+        box-sizing: border-box;
     }
 
     .gamesList {
