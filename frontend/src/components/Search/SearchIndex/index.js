@@ -5,7 +5,7 @@ import { findUser } from '../../../store/user';
 const SearchIndex = () => {
     const history = useHistory();
     const dispatch = useDispatch();
-    const searchQuery = useParams();
+    const { searchQuery } = useParams();
 
     let games = useSelector((state) => state.search.games);
     let squads = useSelector((state) => state.search.squads);
@@ -52,7 +52,7 @@ const SearchIndex = () => {
                 <div className="searchResults">
                     {users.length > 0 ? (
                         users.slice(0, 5).map((user, idx) => (
-                            <div className="searchLinkContainer">
+                            <div key={idx} className="searchLinkContainer">
                                 <a
                                     id={user.username}
                                     onClick={handleUserResults}
@@ -107,7 +107,7 @@ const SearchIndex = () => {
                         {games.length > 0 && `· ${games.length} result(s)`}
                     </span>
                     {games.length > 5 && (
-                        <a href={`/search/${searchQuery}/games`}>See all</a>
+                        <a href={`/search/games/${searchQuery}`}>See all</a>
                     )}
                 </div>
                 <div className="searchResults">

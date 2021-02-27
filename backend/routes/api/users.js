@@ -14,8 +14,6 @@ const validateSignup = [
         .exists({ checkFalsy: true })
         .isEmail()
         .withMessage('Please provide a valid email.')
-        .matches(/^[a-zA-Z0-9_.-]*$/)
-        .withMessage('Username should only include numbers and letters')
         .custom((value) => {
             return db.User.findOne({ where: { username: value } }).then(
                 (user) => {
@@ -30,6 +28,8 @@ const validateSignup = [
         .not()
         .isEmail()
         .withMessage('Username cannot be an email.')
+        .matches(/^[a-zA-Z0-9_.-]*$/)
+        .withMessage('Username should only include numbers and letters')
         .isLength({ max: 30 })
         .withMessage('Username cannot exceed 30 characters.')
         .custom((value) => {
