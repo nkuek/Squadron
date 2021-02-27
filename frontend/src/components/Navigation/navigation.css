@@ -22,7 +22,6 @@ ul {
     z-index: 999;
     background-color: white;
     border-bottom: 1px solid #d3d3d3;
-    overflow: hidden;
 }
 
 .profileMenu {
