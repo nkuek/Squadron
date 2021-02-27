@@ -13,21 +13,10 @@ select {
 
 html {
     margin: 0;
-    padding: 0;
-    height: fit-content;
-    min-height: fit-content;
-    width: 100vw;
-    display: flex;
-    overflow-y:auto;
-    overflow-x: hidden;
-    box-sizing: border-box;
+   height: 100%
 }
 body {
-    margin: 0;
-    box-sizing: border-box;
-    width: 100%;
-    position: relative;
-    min-height: 100vh;
+   height: 100%;
     font-family: 'Cabin', sans-serif;
     background: url('./images/stock-gaming-background.jpeg') no-repeat center center fixed;
     -webkit-background-size: cover;
@@ -35,12 +24,13 @@ body {
     -o-background-size: cover;
     background-size: cover;
     overflow-x: hidden;
-    /* overflow-y:hidden; */
 }
 
 #root {
     width: 100vw;
-    overflow-y: scroll;
+    min-height: 100%;
+    box-sizing: border-box;
+
     display: flex;
     justify-content: center;
     align-items: center;

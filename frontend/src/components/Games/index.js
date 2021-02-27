@@ -13,19 +13,14 @@ import 'react-aspect-ratio/aspect-ratio.css';
 import './games.css';
 import GameInfo from '../GameInfo';
 
-const API_KEY = process.env.REACT_APP_API_KEY_RAWG;
-
 const Games = () => {
-    const page1Url = `https://api.rawg.io/api/games?key=${API_KEY}&metacritic=80,100&ordering=`;
     const dispatch = useDispatch();
     const history = useHistory();
 
     const { games } = useSelector((state) => state.games);
-    console.log('games', games);
     const order = localStorage.getItem('order');
 
     const [ordering, setOrdering] = useState(!order ? '' : order);
-    const [pageUrl, setPageUrl] = useState(page1Url);
 
     useEffect(() => {
         dispatch(loadGames(ordering));
@@ -51,7 +46,7 @@ const Games = () => {
         const next = games[Object.keys(games).length - 1].next;
         setTimeout(() => {
             dispatch(moreGames(next));
-        }, 1000);
+        }, 2000);
     };
     return !games ? (
         <h1 className="loading">Loading...</h1>

@@ -1,3 +1,16 @@
+.gamesWrapper {
+    height: fit-content;
+}
+
+.gamesContainer {
+    height: fit-content;
+}
+
+.gamesList {
+    height: 100%;
+}
+
+
 .gamesOrder {
     background-color: rgb(36, 37, 38);
     color: white;
@@ -31,7 +44,6 @@
         position: absolute;
         top: 80px;
         width: auto;
-        height: fit-content;
     }
     .gamesContainer {
         background-color: black;
@@ -125,7 +137,6 @@
         top: 61px;
         position: absolute;
         box-sizing: border-box;
-        /* padding: 20px; */
         border-radius: 10px;
         overflow-x: hidden;
         /* max-width: 500px; */
