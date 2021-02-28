@@ -5,15 +5,15 @@ import { useEffect } from 'react';
 
 const UserSquads = () => {
     const { userProfileName } = useParams();
-    const history = useHistory();
 
     let userProfile = useSelector((state) => state.userProfile);
+    let loggedInUser = useSelector((state) => state.session.user);
 
     if (!userProfile) return <Redirect to="/pagenotfound" />;
 
     let { username, Squads: squads } = userProfile;
 
-    if (userProfileName === username) username = 'You';
+    if (userProfileName === loggedInUser.username) username = 'You';
 
     return !username ? (
         <Redirect to={`/users/${userProfileName}`} />

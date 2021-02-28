@@ -4,16 +4,11 @@ const asyncHandler = require('express-async-handler');
 const fetch = require('node-fetch');
 const db = require('../../db/models');
 const { Op } = require('sequelize');
-const ImgPlaceholder = require('random-image-placeholder');
-const imgGenerator = new ImgPlaceholder({ width: 200, height: 200 });
-const url = imgGenerator.generate();
 
 router.post(
     '/',
     asyncHandler(async (req, res) => {
         const { searchQuery } = req.body;
-        console.log(url);
-        console.log('hello');
         const users = await db.User.findAll({
             where: {
                 username: { [Op.iLike]: `%${searchQuery}%` },

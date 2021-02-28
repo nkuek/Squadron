@@ -11,7 +11,6 @@ const Squads = () => {
 
     useEffect(async () => {
         const allSquads = await dispatch(findAllSquads());
-        console.log(allSquads);
         localStorage.setItem('allSquads', JSON.stringify(allSquads));
     }, [dispatch]);
 
@@ -28,41 +27,43 @@ const Squads = () => {
 
     const { gamingSquads, socialSquads, tradingSquads } = allSquads;
 
+    console.log(gamingSquads.map((squad) => squad.captain.username));
     return (
         <>
-            <div>
-                <h1>All Squads Should Appear Here!</h1>
-            </div>
             <div className="squadPageWrapper">
                 <div className="squadPageContainer">
-                    <div className="squadPageHeaderContainer">
-                        <p className="squadPageHeader">Squads</p>
-                    </div>
-                    <div className="squadsListContainer">
-                        <div className="squadsListHeaderContainer">
-                            <p className="squadType">Gaming</p>
+                    <div className="squadPanelContainer">
+                        <div className="squadPageHeaderContainer">
+                            <span className="squadPageHeader">Squads</span>
                         </div>
-                        <div className="squadsListBodyContainer">
-                            {gamingSquads.map((squad) => {
-                                <div className="squadList">
-                                    <p className="squadListSquadName">
-                                        {squad.name}
-                                    </p>
-                                    <p className="squadListSquadCaptain"></p>
-                                </div>;
-                            })}
+                        <div className="squadsListContainer">
+                            <div className="squadsListHeaderContainer">
+                                <span className="squadType">Gaming</span>
+                            </div>
+                            <div className="squadsListBodyContainer">
+                                {gamingSquads.map((squad) => {
+                                    <div className="squadList">
+                                        <div className="squadListSquadName">
+                                            {squad.squadName}
+                                        </div>
+                                        <div className="squadListSquadCaptain">
+                                            {squad.captain.username}
+                                        </div>
+                                    </div>;
+                                })}
+                            </div>
                         </div>
-                    </div>
-                    <div className="squadsListContainer">
-                        <div className="squadsListHeaderContainer">
-                            <p className="squadType">Social</p>
-                        </div>
-                        <div className="squadsListBodyContainer"></div>
-                    </div>
-                    <div className="squadsListContainer">
-                        <div className="squadsListHeaderContainer">
-                            <p className="squadType">Trading</p>
+                        <div className="squadsListContainer">
+                            <div className="squadsListHeaderContainer">
+                                <span className="squadType">Social</span>
+                            </div>
                             <div className="squadsListBodyContainer"></div>
+                        </div>
+                        <div className="squadsListContainer">
+                            <div className="squadsListHeaderContainer">
+                                <span className="squadType">Trading</span>
+                                <div className="squadsListBodyContainer"></div>
+                            </div>
                         </div>
                     </div>
                 </div>

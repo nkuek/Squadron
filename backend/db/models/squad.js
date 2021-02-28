@@ -52,7 +52,10 @@ module.exports = (sequelize, DataTypes) => {
             otherKey: 'userId',
         });
 
-        Squad.belongsTo(models.User, { foreignKey: 'captainId' });
+        Squad.belongsTo(models.User, {
+            foreignKey: 'captainId',
+            as: 'captain',
+        });
 
         Squad.belongsToMany(models.Game, {
             through: 'SquadGames',

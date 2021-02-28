@@ -1,6 +1,8 @@
 .eventDate {
 
-    color: blueviolet;
+    color: rgb(196, 132, 255);
+    font-family: 'Exo 2', sans-serif
+;
 }
 
 .eventItemWrapper {

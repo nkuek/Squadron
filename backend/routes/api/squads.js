@@ -59,7 +59,7 @@ router.get(
     '/',
     asyncHandler(async (req, res) => {
         const gamingSquads = await db.Squad.findAll({
-            include: [{ model: db.User }],
+            include: [{ model: db.User, as: 'captain' }],
             where: { primaryType: 'Gaming' },
         });
         const tradingSquads = await db.Squad.findAll({

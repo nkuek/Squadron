@@ -67,6 +67,7 @@ module.exports = (sequelize, DataTypes) => {
 
         User.hasMany(models.Squad, {
             foreignKey: 'captainId',
+            as: 'captain',
         });
     };
 

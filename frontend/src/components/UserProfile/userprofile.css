@@ -1,22 +1,31 @@
-@media only screen and (max-width: 750px) {
+@media only screen and (max-width: 700px) {
     .userProfileOuterContainer {
         margin: 0;
-        margin-top: 61px;
+    }
+
+    .userProfileWrapper {
+        height: calc(100vh - 70px);
+        margin-top: 70px;
     }
 }
 
-@media only screen and (min-width: 750px) {
+@media only screen and (min-width: 700px) {
+
+    .userProfileWrapper {
+        margin-top: 61px;
+        height: calc(100vh - 61px);
+    }
     .userProfileOuterContainer {
-        margin: 40px;
-        margin-top: 100px;
+
+    margin: 40px;
     }
 }
 .userProfileWrapper {
-    height: 100%;
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    box-sizing: border-box;
 }
 
 .userProfileOuterContainer {
@@ -36,7 +45,6 @@
     width: 100%;
     /* box-sizing: border-box; */
     height: 100%;
-    padding: 30px;
     padding-top: 0px;
     border-radius: 10px;
 }
@@ -44,6 +52,7 @@
 .userProfileHeader {
     width: 100%;
     display: flex;
+    box-sizing: border-box;
     flex-direction: column;
     align-items: center;
     padding: 30px 0px 15px 0px;
