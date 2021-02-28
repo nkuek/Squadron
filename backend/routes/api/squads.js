@@ -55,4 +55,23 @@ router.put(
     })
 );
 
+router.get(
+    '/',
+    asyncHandler(async (req, res) => {
+        const gamingSquads = await db.Squad.findAll({
+            include: [{ model: db.User }],
+            where: { primaryType: 'Gaming' },
+        });
+        const tradingSquads = await db.Squad.findAll({
+            include: [{ model: db.User }],
+            where: { primaryType: 'Trading' },
+        });
+        const socialSquads = await db.Squad.findAll({
+            include: [{ model: db.User }],
+            where: { primaryType: 'Social' },
+        });
+        return res.json({ gamingSquads, tradingSquads, socialSquads });
+    })
+);
+
 module.exports = router;

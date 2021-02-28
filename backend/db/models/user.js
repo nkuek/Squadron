@@ -26,6 +26,9 @@ module.exports = (sequelize, DataTypes) => {
                     len: [3, 256],
                 },
             },
+            profilePicture: {
+                type: DataTypes.TEXT,
+            },
             hashedPassword: {
                 type: DataTypes.STRING,
                 allowNull: false,
@@ -61,6 +64,7 @@ module.exports = (sequelize, DataTypes) => {
             foreignKey: 'userId',
             otherKey: 'squadId',
         });
+
         User.hasMany(models.Squad, {
             foreignKey: 'captainId',
         });

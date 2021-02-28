@@ -21,6 +21,7 @@ module.exports = {
             captainId: {
                 allowNull: false,
                 type: Sequelize.INTEGER,
+                references: { model: 'Users' },
             },
             primaryType: {
                 allowNull: false,
@@ -30,6 +31,11 @@ module.exports = {
                 allowNull: false,
                 type: Sequelize.STRING,
                 defaultValue: 'None',
+            },
+            squadImage: {
+                type: Sequelize.TEXT,
+                defaultValue:
+                    'https://st2.depositphotos.com/4410397/7876/v/600/depositphotos_78763754-stock-illustration-game-controller-icon.jpg',
             },
             createdAt: {
                 allowNull: false,

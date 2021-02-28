@@ -24,6 +24,8 @@ const UserProfile = () => {
         history.push(`/users/${userProfileName}/squads`);
     }, []);
 
+    const user = JSON.parse(localStorage.getItem('user'));
+
     return (
         <>
             <Helmet>
@@ -38,6 +40,14 @@ const UserProfile = () => {
                                 <h1 className="profileUsername">
                                     {userProfileName}
                                 </h1>
+                            </div>
+                            <div className="userProfilePicture">
+                                <img
+                                    height="200px"
+                                    width="200px"
+                                    style={{ borderRadius: '100%' }}
+                                    src={user.profilePicture}
+                                ></img>
                             </div>
                             <div className="profileNavBar">
                                 <NavLink

@@ -39,6 +39,9 @@ module.exports = (sequelize, DataTypes) => {
                     notEmpty: true,
                 },
             },
+            squadImage: {
+                type: DataTypes.TEXT,
+            },
         },
         {}
     );
@@ -48,7 +51,9 @@ module.exports = (sequelize, DataTypes) => {
             foreignKey: 'squadId',
             otherKey: 'userId',
         });
+
         Squad.belongsTo(models.User, { foreignKey: 'captainId' });
+
         Squad.belongsToMany(models.Game, {
             through: 'SquadGames',
             foreignKey: 'squadId',

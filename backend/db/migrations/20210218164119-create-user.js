@@ -22,6 +22,11 @@ module.exports = {
                 allowNull: false,
                 type: Sequelize.STRING.BINARY,
             },
+            profilePicture: {
+                type: Sequelize.TEXT,
+                defaultValue:
+                    'https://st3.depositphotos.com/4111759/13425/v/600/depositphotos_134255626-stock-illustration-avatar-male-profile-gray-person.jpg',
+            },
             createdAt: {
                 allowNull: false,
                 type: Sequelize.DATE,

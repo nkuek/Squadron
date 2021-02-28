@@ -29,6 +29,7 @@
     "node-fetch": "^2.6.1",
     "per-env": "^1.0.2",
     "pg": "^8.5.1",
+    "random-image-placeholder": "^1.0.2",
     "sequelize": "^5.22.3",
     "sequelize-cli": "^5.5.1"
   },

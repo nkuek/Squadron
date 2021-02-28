@@ -5,6 +5,7 @@ import * as sessionActions from '../../store/session';
 import './navigation.css';
 import ProfileButton from './ProfileButton.js';
 import { getSearchResults } from '../../store/search';
+import { findAllSquads } from '../../store/squads';
 
 const Navigation = () => {
     const dispatch = useDispatch();
@@ -32,6 +33,12 @@ const Navigation = () => {
         setSearch('');
 
         history.push(`/search/${search}`);
+    };
+
+    const handleSquads = async () => {
+        const allSquads = dispatch(findAllSquads());
+        localStorage.setItem('allSquads', allSquads);
+        history.push('/squads');
     };
 
     // Closes drop down menu when clicking anywhere else
@@ -117,7 +124,11 @@ const Navigation = () => {
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink to={'/squads/'} className="navBarLinks">
+                        <NavLink
+                            onClick={handleSquads}
+                            to={'/squads/'}
+                            className="navBarLinks"
+                        >
                             Squads
                         </NavLink>
                     </li>
