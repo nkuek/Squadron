@@ -16,6 +16,7 @@ import PageNotFound from './components/PageNotFound';
 import Squads from './components/Squads';
 import Search from './components/Search';
 import NewSquadForm from './components/Squads/NewSquadForm';
+import SquadPage from './components/Squads/SquadPage';
 import { findUser } from './store/user';
 
 function App() {
@@ -68,6 +69,9 @@ function App() {
                     </Route>
                     <Route path="/squads">
                         <Squads />
+                    </Route>
+                    <Route exact path="/squads/:squadId/">
+                        <SquadPage />
                     </Route>
                     <Route path="/search/:searchParam">
                         <Search />

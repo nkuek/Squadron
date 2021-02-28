@@ -3,13 +3,11 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { findAllSquads } from '../../store/squads';
 
-import SquadPage from './SquadPage';
 import GamingSquads from './GamingSquads';
 import NewSquadForm from './NewSquadForm';
+import ExploreSquads from './ExploreSquads';
 
 import './squads.css';
-import SocialSquads from './SocialSquads';
-import TradingSquads from './TradingSquads';
 
 const Squads = () => {
     const dispatch = useDispatch();
@@ -43,30 +41,40 @@ const Squads = () => {
 
                             <div className="allSquadsCategoryContainer">
                                 <div className="allSquadsCategory">
-                                    <NavLink to="/squads/gaming/">
+                                    <div>
                                         <span className="allSquadsPanelLabel">
                                             Gaming
                                         </span>
                                         <i className="fas fa-gamepad allSquadsPanelIcon hidden"></i>
-                                    </NavLink>
+                                    </div>
                                 </div>
                                 <div className="allSquadsCategory">
-                                    <NavLink to="/squads/social/">
+                                    <div>
                                         <span className="allSquadsPanelLabel">
                                             Social
                                         </span>
 
                                         <i className="fas fa-user allSquadsPanelIcon hidden"></i>
-                                    </NavLink>
+                                    </div>
                                 </div>
                                 <div className="allSquadsCategory">
-                                    <NavLink to="/squads/trading/">
+                                    <div to="/squads/trading/">
                                         <span className="allSquadsPanelLabel">
                                             Trading
                                         </span>
                                         <i className="fas fa-store allSquadsPanelIcon hidden"></i>
-                                    </NavLink>
+                                    </div>
                                 </div>
+                                <div className="allSquadsCategory">
+                                    <div>
+                                        <span className="allSquadsPanelLabel">
+                                            Explore
+                                        </span>
+                                        <i className="far fa-compass allSquadsPanelIcon hidden"></i>
+                                    </div>
+                                </div>
+                                <ExploreSquads allSquads={allSquads} />
+
                                 <div className="allSquadsCategory">
                                     <NavLink to="/squads/create/">
                                         <span className="allSquadsPanelLabel">
@@ -77,20 +85,6 @@ const Squads = () => {
                                 </div>
                             </div>
                         </div>
-                        <Switch>
-                            <Route exact path="/squads/gaming/">
-                                <GamingSquads gamingSquads={gamingSquads} />
-                            </Route>
-                            <Route exact path="/squads/social">
-                                <SocialSquads socialSquads={socialSquads} />
-                            </Route>
-                            <Route exact path="/squads/trading">
-                                <TradingSquads tradingSquads={tradingSquads} />
-                            </Route>
-                            <Route path="/squads/:squadId/">
-                                <SquadPage />
-                            </Route>
-                        </Switch>
                     </div>
                 </div>
             </>
