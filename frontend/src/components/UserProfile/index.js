@@ -21,7 +21,6 @@ const UserProfile = () => {
     // let userProfile = useSelector((state) => state.userProfile);
     const [isLoaded, setIsLoaded] = useState(false);
     const [userProfile, setUserProfile] = useState('');
-    const [isNewUser, setIsNewUser] = useState(true);
 
     useEffect(async () => {
         if (userProfileName !== userProfile.username) {
@@ -29,7 +28,6 @@ const UserProfile = () => {
             setIsLoaded(true);
             setUserProfile(user.user);
         }
-        setIsNewUser(false);
     }, [dispatch, userProfileName]);
 
     // useEffect(async () => {
