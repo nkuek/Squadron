@@ -41,17 +41,34 @@ const Squads = () => {
                     <div className="allSquadsPanelContainer">
                         <div className="allSquadsPageHeaderContainer">
                             <span className="allSquadsPageHeader">Squads</span>
+                            <div className="allSquadsPanelIcon hidden">S</div>
                         </div>
 
                         <div className="allSquadsCategoryContainer">
                             <div className="allSquadsCategory">
-                                <NavLink to="/squads/gaming/">Gaming</NavLink>
+                                <NavLink to="/squads/gaming/">
+                                    <span className="allSquadsPanelLabel">
+                                        Gaming
+                                    </span>
+                                    <i className="fas fa-gamepad allSquadsPanelIcon hidden"></i>
+                                </NavLink>
                             </div>
                             <div className="allSquadsCategory">
-                                <NavLink to="/squads/social/">Social</NavLink>
+                                <NavLink to="/squads/social/">
+                                    <span className="allSquadsPanelLabel">
+                                        Social
+                                    </span>
+
+                                    <i className="fas fa-user allSquadsPanelIcon hidden"></i>
+                                </NavLink>
                             </div>
                             <div className="allSquadsCategory">
-                                <NavLink to="/squads/trading/">Trading</NavLink>
+                                <NavLink to="/squads/trading/">
+                                    <span className="allSquadsPanelLabel">
+                                        Trading
+                                    </span>
+                                    <i className="fas fa-store allSquadsPanelIcon hidden"></i>
+                                </NavLink>
                             </div>
                         </div>
                     </div>

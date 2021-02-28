@@ -15,7 +15,7 @@ const TradingSquads = ({ tradingSquads }) => {
             <div className="allSquadsListHeaderContainer">
                 <div className="allSquadsListHeader">
                     <div className="categoryHeader">Trading Squads</div>
-                    <i className="fas fa-user categoryIcon"></i>
+                    <i className="fas fa-store categoryIcon"></i>
                 </div>
             </div>
             <div className="allSquadsListBodyContainer">
@@ -24,9 +24,11 @@ const TradingSquads = ({ tradingSquads }) => {
                         <div
                             id={squad.id}
                             onClick={handleSquadClick}
-                            className="squadListSquadName"
+                            className="squadListSquadLink"
                         >
-                            {squad.squadName}
+                            <div className="squadListSquadName">
+                                {squad.squadName}
+                            </div>
                             <div
                                 onClick={handleCaptainClick}
                                 id={squad.captain.username}

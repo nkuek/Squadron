@@ -24,9 +24,11 @@ const SocialSquads = ({ socialSquads }) => {
                         <div
                             id={squad.id}
                             onClick={handleSquadClick}
-                            className="squadListSquadName"
+                            className="squadListSquadLink"
                         >
-                            {squad.squadName}
+                            <div className="squadListSquadName">
+                                {squad.squadName}
+                            </div>
                             <div
                                 onClick={handleCaptainClick}
                                 id={squad.captain.username}
