@@ -1,25 +1,32 @@
 // User Squads Index
 import { useSelector, useDispatch } from 'react-redux';
 import { Link, useParams, useHistory, Redirect } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { findUser } from '../../../store/user';
 
 const UserSquads = () => {
     const { userProfileName } = useParams();
     const dispatch = useDispatch();
+    const [isLoaded, setIsLoaded] = useState(false);
+
+    useEffect(async () => {
+        await dispatch(findUser(userProfileName));
+        setIsLoaded(true);
+    }, [dispatch]);
 
     let loggedInUser = useSelector((state) => state.session.user);
-    let user = useSelector((state) => state.userProfile);
+    let userProfile = useSelector((state) => state.userProfile);
 
-    let username = loggedInUser.username;
+    let username = userProfile.user.username;
 
     if (userProfileName === loggedInUser.username) username = 'You';
 
-    return !username ? (
-        <Redirect to={`/users/${userProfileName}`} />
+    return !isLoaded ? (
+        <h1 className="loading">Loading...</h1>
     ) : (
         <>
             <div className="userSquadListWrapper">
-                {user.squads.length === 0 ? (
+                {userProfile.squads.length === 0 ? (
                     <div className="noSquadsContainer">
                         <div className="noSquadsHeader">
                             <h1 className="noSquads">
@@ -31,7 +38,7 @@ const UserSquads = () => {
                     </div>
                 ) : (
                     <ul className="userSquadListContainer">
-                        {user.squads.map((squad, idx) => (
+                        {userProfile.squads.map((squad, idx) => (
                             <li key={idx} className="squadCard">
                                 <div
                                     style={{
@@ -68,13 +75,13 @@ const UserSquads = () => {
                                                 {!(username === 'You') && (
                                                     <div className="userSquadCaptainLink">
                                                         <p
-                                                            style={{
-                                                                cursor:
-                                                                    !username ===
-                                                                    'You'
-                                                                        ? 'pointer'
-                                                                        : 'none',
-                                                            }}
+                                                            // style={{
+                                                            //     cursor:
+                                                            //         !username ===
+                                                            //         'You'
+                                                            //             ? 'pointer'
+                                                            //             : 'none',
+                                                            // }}
                                                             className="userSquadCaptain"
                                                         >
                                                             {`Captain: ${username}`}

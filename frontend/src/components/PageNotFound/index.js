@@ -1,6 +1,6 @@
 import { useHistory } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './pagenotfound.css';
 
 const PageNotFound = () => {
@@ -11,6 +11,10 @@ const PageNotFound = () => {
         'https://i.kym-cdn.com/photos/images/original/001/247/542/6e5.jpg';
 
     const rockImg = '/rock.png';
+
+    useEffect(() => {
+        history.push('/pageNotFound');
+    }, []);
 
     return (
         <div className="pageNotFoundWrapper">

@@ -12,16 +12,6 @@ import UsersSearch from './UsersSearch';
 import SquadsSearch from './SquadsSearch';
 
 const Search = () => {
-    const dispatch = useDispatch();
-    const history = useHistory();
-    const [isLoaded, setIsLoaded] = useState(false);
-    const { searchParam } = useParams();
-
-    useEffect(async () => {
-        await dispatch(getSearchResults(searchParam));
-        setIsLoaded(true);
-    }, [dispatch]);
-
     return (
         <div className="searchResultsWrapper">
             <Helmet>

@@ -27,6 +27,10 @@ module.exports = {
                 defaultValue:
                     'https://st3.depositphotos.com/4111759/13425/v/600/depositphotos_134255626-stock-illustration-avatar-male-profile-gray-person.jpg',
             },
+            description: {
+                type: Sequelize.TEXT,
+                defaultValue: 'No description',
+            },
             createdAt: {
                 allowNull: false,
                 type: Sequelize.DATE,

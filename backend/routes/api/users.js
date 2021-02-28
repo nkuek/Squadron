@@ -94,11 +94,10 @@ router.put(
                 ],
                 where: { captainId: user.id },
             });
+            return res.json({ user, squads });
         } catch (e) {
-            res.json('No user found');
+            return res.json('No user found');
         }
-
-        return res.json({ user, squads });
     })
 );
 
