@@ -67,6 +67,14 @@ const Squads = () => {
                                         <i className="fas fa-store allSquadsPanelIcon hidden"></i>
                                     </NavLink>
                                 </div>
+                                <div className="allSquadsCategory">
+                                    <NavLink to="/squads/create/">
+                                        <span className="allSquadsPanelLabel">
+                                            Create Squad
+                                        </span>
+                                        <i className="fas fa-plus allSquadsPanelIcon hidden"></i>
+                                    </NavLink>
+                                </div>
                             </div>
                         </div>
                         <Switch>

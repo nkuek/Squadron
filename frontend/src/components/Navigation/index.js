@@ -136,12 +136,12 @@ const Navigation = () => {
                             >
                                 + Create a squad
                             </NavLink>
-                            <NavLink
-                                to={'/squads/create'}
-                                className="createSquadPlus small"
-                            >
-                                +
-                            </NavLink>
+                            <div className="createSquadPlusContainer">
+                                <NavLink
+                                    to={'/squads/create'}
+                                    className="fas fa-plus createSquadPlus small"
+                                ></NavLink>
+                            </div>
                             <ProfileButton user={sessionUser} />
                         </>
                     )}

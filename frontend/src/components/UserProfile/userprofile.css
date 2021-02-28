@@ -237,9 +237,6 @@
     box-sizing: border-box;
 }
 
-.userAboutBodyContainer {
-}
-
 .userAboutBody {
     text-align: center;
     display: flex;
