@@ -38,7 +38,7 @@ const ProfileButton = ({ user }) => {
                     <li>
                         <NavLink
                             className="navBarLinks"
-                            to={`/users/${user.username}/squads`}
+                            to={`/users/${user.username}/`}
                         >
                             {user.username}
                         </NavLink>

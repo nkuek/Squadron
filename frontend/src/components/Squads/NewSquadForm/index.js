@@ -2,12 +2,11 @@ import { Link, NavLink, useHistory } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import { useSelector, useDispatch } from 'react-redux';
-import testEvents from '../../mockData/testEvents.json';
+import testEvents from '../../../mockData/testEvents.json';
 import AspectRatio from 'react-aspect-ratio';
 
-import '../Squads/squads.css';
 import './newsquad.css';
-import { createNewSquad } from '../../store/squads';
+import { createNewSquad } from '../../../store/squads';
 
 const NewSquadForm = () => {
     const [squadName, setSquadName] = useState('');

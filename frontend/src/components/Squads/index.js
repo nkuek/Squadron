@@ -1,9 +1,13 @@
-import { Route, useHistory } from 'react-router-dom';
+import { NavLink, Route, useHistory, Switch } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { findAllSquads } from '../../store/squads';
 
 import SquadPage from './SquadPage';
+import GamingSquads from './GamingSquads';
+import NewSquadForm from './NewSquadForm';
+
+import './squads.css';
 
 const Squads = () => {
     const dispatch = useDispatch();
@@ -36,40 +40,25 @@ const Squads = () => {
                         <div className="squadPageHeaderContainer">
                             <span className="squadPageHeader">Squads</span>
                         </div>
-                        <div className="squadsListContainer">
-                            <div className="squadsListHeaderContainer">
-                                <span className="squadType">Gaming</span>
-                            </div>
-                            <div className="squadsListBodyContainer">
-                                {gamingSquads.map((squad) => {
-                                    <div className="squadList">
-                                        <div className="squadListSquadName">
-                                            {squad.squadName}
-                                        </div>
-                                        <div className="squadListSquadCaptain">
-                                            {squad.captain.username}
-                                        </div>
-                                    </div>;
-                                })}
-                            </div>
-                        </div>
-                        <div className="squadsListContainer">
-                            <div className="squadsListHeaderContainer">
-                                <span className="squadType">Social</span>
-                            </div>
-                            <div className="squadsListBodyContainer"></div>
-                        </div>
-                        <div className="squadsListContainer">
-                            <div className="squadsListHeaderContainer">
-                                <span className="squadType">Trading</span>
-                                <div className="squadsListBodyContainer"></div>
+
+                        <div className="squadCategoryContainer">
+                            <div className="SquadCategory">
+                                <NavLink to="/squads/gaming/">Gaming</NavLink>
                             </div>
                         </div>
                     </div>
+                    <Switch>
+                        <Route exact path="/squads/gaming/">
+                            <GamingSquads gamineSquads={gamingSquads} />
+                        </Route>
+                        <Route path="/squads/:squadId/">
+                            <SquadPage />
+                        </Route>
+                    </Switch>
                 </div>
             </div>
-            <Route path="/squads/:squadId">
-                <SquadPage />
+            <Route exact path="/squads/create">
+                <NewSquadForm />
             </Route>
         </>
     );

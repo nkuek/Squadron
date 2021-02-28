@@ -36,7 +36,7 @@ const Navigation = () => {
     };
 
     const handleSquads = async () => {
-        const allSquads = dispatch(findAllSquads());
+        const allSquads = await dispatch(findAllSquads());
         localStorage.setItem('allSquads', allSquads);
         history.push('/squads');
     };
@@ -126,7 +126,7 @@ const Navigation = () => {
                     <li>
                         <NavLink
                             onClick={handleSquads}
-                            to={'/squads/'}
+                            to={'/squads'}
                             className="navBarLinks"
                         >
                             Squads

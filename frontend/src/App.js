@@ -12,7 +12,6 @@ import Games from './components/Games';
 import GameInfo from './components/GameInfo';
 import Events from './components/Events';
 import UserProfile from './components/UserProfile';
-import NewSquadForm from './components/NewSquadForm';
 import PageNotFound from './components/PageNotFound';
 import Squads from './components/Squads';
 import Search from './components/Search';
@@ -65,13 +64,10 @@ function App() {
                         <SignupForm />
                     </Route>
 
-                    <Route exact path="/squads">
+                    <Route path="/squads">
                         <Squads />
                     </Route>
 
-                    <Route exact path="/squads/create">
-                        <NewSquadForm />
-                    </Route>
                     <Route path="/search/:searchParam">
                         <Search />
                     </Route>
