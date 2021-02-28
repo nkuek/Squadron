@@ -16,6 +16,7 @@ const Squads = () => {
     useEffect(async () => {
         const allSquads = await dispatch(findAllSquads());
         localStorage.setItem('allSquads', JSON.stringify(allSquads));
+        history.push('/squads/gaming/');
     }, [dispatch]);
 
     const allSquads = useSelector((state) => state.squads);
@@ -44,18 +45,24 @@ const Squads = () => {
                             <div className="allSquadsCategory">
                                 <NavLink to="/squads/gaming/">Gaming</NavLink>
                             </div>
+                            <div className="allSquadsCategory">
+                                <NavLink to="/squads/social/">Social</NavLink>
+                            </div>
+                            <div className="allSquadsCategory">
+                                <NavLink to="/squads/trading/">Trading</NavLink>
+                            </div>
                         </div>
                     </div>
                 </div>
+                <Switch>
+                    <Route exact path="/squads/gaming/">
+                        <GamingSquads gamingSquads={gamingSquads} />
+                    </Route>
+                    <Route path="/squads/:squadId/">
+                        <SquadPage />
+                    </Route>
+                </Switch>
             </div>
-            <Switch>
-                <Route exact path="/squads/gaming/">
-                    <GamingSquads gamingSquads={gamingSquads} />
-                </Route>
-                <Route path="/squads/:squadId/">
-                    <SquadPage />
-                </Route>
-            </Switch>
         </>
     );
 };

@@ -1,6 +1,7 @@
 @media only screen and (max-width: 700px) {
     .userProfileOuterContainer {
         margin: 0;
+        min-height: calc(100vh - 70px);
     }
 
     .userProfileWrapper {
@@ -16,12 +17,14 @@
         height: calc(100vh - 61px);
     }
     .userProfileOuterContainer {
+        min-height: 80vh;
 
     margin: 40px;
     }
 }
 .userProfileWrapper {
     width: 100%;
+    height: fit-content;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -30,7 +33,6 @@
 
 .userProfileOuterContainer {
     display: flex;
-    height: 100%;
     max-width: 700px;
     width: 100%;
     box-sizing: border-box;

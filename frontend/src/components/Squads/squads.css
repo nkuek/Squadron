@@ -188,6 +188,7 @@
 .allSquadsPageWrapper {
     width: 100vw;
     height: calc(100vh - 70px);
+    display: flex;
 }
 
 .allSquadsPageContainer {
@@ -199,7 +200,7 @@
 
 .allSquadsPanelContainer {
     box-sizing: border-box;
-    width: 30vw;
+    width: 300px;
     left: 0;
     padding: 20px;
     display: flex;
@@ -208,10 +209,33 @@
 }
 
 .allSquadsPageHeaderContainer {
-    font-size: 2em;
+    font-size: 3em;
     width: 100%;
 }
 
 .allSquadsListContainer {
     margin: 20px;
+}
+
+.allSquadsCategoryContainer {
+    margin-top: 30px;
+    width: 100%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+.allSquadsCategory {
+    margin: 10px 0px;
+    font-size: 2em;
+}
+
+.allSquadsCategory a {
+    display:inline-block;
+    width: 100%;
+}
+
+.allSquadsCategory a:active {
+    /* color: teal; */
+    background-color: rgb(109, 109, 109);
 }

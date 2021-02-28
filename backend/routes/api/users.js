@@ -88,9 +88,7 @@ router.put(
             where: { captainId: user.id },
         });
 
-        // console.log(user.toJSON());
-
-        return res.json({ squads });
+        return res.json({ user, squads });
     })
 );
 

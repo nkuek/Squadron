@@ -16,13 +16,16 @@ const UserProfile = () => {
     const dispatch = useDispatch();
     let { userProfileName } = useParams();
     const history = useHistory();
-    const user = useSelector((state) => state.userProfile);
+    let userProfile = useSelector((state) => state.userProfile);
 
     useEffect(async () => {
-        const user = await dispatch(findUser(userProfileName));
-        localStorage.setItem('userProfile', JSON.stringify(user));
+        const userProfile = await dispatch(findUser(userProfileName));
+        localStorage.setItem('userProfile', JSON.stringify(userProfile));
         history.push(`/users/${userProfileName}/squads`);
     }, []);
+
+    if (!userProfile.user)
+        userProfile = JSON.parse(localStorage.getItem('userProfile'));
 
     return (
         <>
@@ -44,7 +47,7 @@ const UserProfile = () => {
                                     height="200px"
                                     width="200px"
                                     style={{ borderRadius: '100%' }}
-                                    src={user.profilePicture}
+                                    src={userProfile.user.profilePicture}
                                 ></img>
                             </div>
                             <div className="profileNavBar">
