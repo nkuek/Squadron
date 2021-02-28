@@ -206,3 +206,23 @@
 .userSquadName {
     font-size: 1.2em;
 }
+
+.userAboutWrapper {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    color: white;
+
+}
+
+.userAboutContainer {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.userAboutBody {
+    text-align: center;
+}

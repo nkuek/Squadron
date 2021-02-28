@@ -36,6 +36,9 @@ module.exports = (sequelize, DataTypes) => {
                     len: [60, 60],
                 },
             },
+            description: {
+                type: DataTypes.TEXT,
+            },
         },
         {
             defaultScope: {

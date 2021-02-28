@@ -18,23 +18,34 @@ const UserProfile = () => {
     const dispatch = useDispatch();
     let { userProfileName } = useParams();
     const history = useHistory();
-    let userProfile = useSelector((state) => state.userProfile);
+    // let userProfile = useSelector((state) => state.userProfile);
     const [isLoaded, setIsLoaded] = useState(false);
+    const [userProfile, setUserProfile] = useState('');
+    const [isNewUser, setIsNewUser] = useState(true);
 
     useEffect(async () => {
-        await dispatch(findUser(userProfileName));
+        if (userProfileName !== userProfile.username) {
+            const user = await dispatch(findUser(userProfileName));
+            setIsLoaded(true);
+            setUserProfile(user.user);
+        }
+        setIsNewUser(false);
+    }, [dispatch, userProfileName]);
 
-        setIsLoaded(true);
-    }, [dispatch]);
+    // useEffect(async () => {
+    //     const user = await dispatch(findUser(userProfileName));
+    //     setUserProfile(user.user);
+    //     if (userProfileName !== userProfile.username) setIsNewUser(true);
+    // }, [isNewUser]);
 
     return userProfile === 'No user found' ? (
         <PageNotFound />
-    ) : !isLoaded ? (
+    ) : !isLoaded || !userProfile ? (
         <h1 className="loading">Loading...</h1>
     ) : (
         <>
             <Helmet>
-                <title>{userProfile.user.username}'s Profile - Squadron</title>
+                <title>{userProfile.username}'s Profile - Squadron</title>
                 <meta content="description" content="profile page"></meta>
             </Helmet>
             <div className="userProfileWrapper">
@@ -43,7 +54,7 @@ const UserProfile = () => {
                         <div className="userProfileHeader">
                             <div className="username">
                                 <h1 className="profileUsername">
-                                    {userProfile.user.username}
+                                    {userProfile.username}
                                 </h1>
                             </div>
                             <div className="userProfilePicture">
@@ -51,22 +62,22 @@ const UserProfile = () => {
                                     height="200px"
                                     width="200px"
                                     style={{ borderRadius: '100%' }}
-                                    src={userProfile.user.profilePicture}
+                                    src={userProfile.profilePicture}
                                 ></img>
                             </div>
                             <div className="profileNavBar">
                                 <NavLink
-                                    to={`/users/${userProfile.user.username}/squads`}
+                                    to={`/users/${userProfile.username}/squads`}
                                 >
                                     Squads
                                 </NavLink>
                                 <NavLink
-                                    to={`/users/${userProfile.user.username}/games`}
+                                    to={`/users/${userProfile.username}/games`}
                                 >
                                     Games
                                 </NavLink>
                                 <NavLink
-                                    to={`/users/${userProfile.user.username}/about`}
+                                    to={`/users/${userProfile.username}/about`}
                                 >
                                     About
                                 </NavLink>
