@@ -244,7 +244,7 @@ ul {
     .searchInputContainer {
         border: none;
         padding: 0;
-        display:flex;
+        display: none;
         align-items: center;
     }
 
@@ -374,6 +374,19 @@ ul {
     .stickyDropDownMenu ul {
         list-style: none;
     }
+
+    .hiddenSearchButton {
+
+    width: fit-content;
+    cursor: pointer;
+    color: #555555;
+    }
+
+    .hiddenSearch {
+        position: absolute;
+        padding: 30px;
+        top: 80px;
+    }
 }
 
 /* Large Screens */
@@ -496,4 +509,7 @@ ul {
         align-content: center;
     }
 
+    .hiddenSearchButton {
+        display: none;
+    }
 }

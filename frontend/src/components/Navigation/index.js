@@ -1,6 +1,6 @@
 import { NavLink, useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import * as sessionActions from '../../store/session';
 import './navigation.css';
 import ProfileButton from './ProfileButton.js';
@@ -13,6 +13,7 @@ const Navigation = () => {
     const history = useHistory();
 
     const [search, setSearch] = useState('');
+    const [showSearch, setShowSearch] = useState(false);
 
     // Enables hamburger menu bar transition
     const addChange = (e) => {
@@ -35,6 +36,22 @@ const Navigation = () => {
         history.push(`/search/${search}`);
     };
 
+    useEffect(() => {
+        if (!showSearch) return;
+        console.log(showSearch);
+        setShowSearch(false);
+
+        const closeSearch = () => {
+            setShowSearch(false);
+        };
+
+        document.addEventListener('click', (e) => {
+            if (!e.target.classList.contains('hiddenSearch')) closeSearch();
+        });
+
+        return () => document.removeEventListener('click', closeSearch);
+    }, [showSearch]);
+
     const handleSquads = async () => {
         const allSquads = await dispatch(findAllSquads());
         localStorage.setItem('allSquads', JSON.stringify(allSquads));
@@ -50,7 +67,6 @@ const Navigation = () => {
             document.querySelector('.barContainer')?.classList.remove('change');
         }
     });
-
     return (
         <>
             <nav className="mainNavBar">
@@ -83,6 +99,23 @@ const Navigation = () => {
                                         type="text"
                                     ></input>
                                 </div>
+                                <span
+                                    onClick={() => setShowSearch(true)}
+                                    className="fa fa-search hiddenSearchButton"
+                                ></span>
+                                {showSearch && (
+                                    <div className="dropDownSearch">
+                                        <input
+                                            placeholder="Search..."
+                                            value={search}
+                                            onChange={(e) =>
+                                                setSearch(e.target.value)
+                                            }
+                                            className="hiddenSearch"
+                                            type="text"
+                                        ></input>
+                                    </div>
+                                )}
                             </div>
                         </div>
                     </form>

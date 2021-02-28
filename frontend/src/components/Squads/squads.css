@@ -179,7 +179,7 @@
         min-width: 75px;
         width: 75px;
         position: absolute;
-        z-index: 9999;
+        z-index: 300;
         transition: width 0.5s ease-in-out;
         background-color: rgb(58, 58, 58);
     }
