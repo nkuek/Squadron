@@ -10,7 +10,6 @@ const SearchIndex = ({ games, squads, users }) => {
     const handleUserResults = async (e) => {
         e.preventDefault();
         const user = await dispatch(findUser(e.target.id));
-        localStorage.setItem('userResult', JSON.stringify(user));
         history.push(`/users/${e.target.id}`);
     };
 
@@ -21,7 +20,6 @@ const SearchIndex = ({ games, squads, users }) => {
     const handleGameResults = async (e) => {
         e.preventDefault();
         const game = await dispatch(findGames(e.target.id));
-        localStorage.setItem('gameState', JSON.stringify(game));
         history.push(`/games/${e.target.id}`);
     };
     return (

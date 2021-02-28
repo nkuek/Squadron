@@ -28,7 +28,6 @@ const Navigation = () => {
         e.preventDefault();
         if (!search) return;
         const searchResults = await dispatch(getSearchResults(search));
-        localStorage.setItem('search', JSON.stringify(searchResults));
 
         // reset search bar content back to empty on submission
         setSearch('');
@@ -54,7 +53,6 @@ const Navigation = () => {
 
     const handleSquads = async () => {
         const allSquads = await dispatch(findAllSquads());
-        localStorage.setItem('allSquads', JSON.stringify(allSquads));
         history.push('/squads');
     };
 

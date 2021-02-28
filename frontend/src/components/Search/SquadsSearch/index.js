@@ -12,7 +12,6 @@ const SquadsSearch = ({ squads }) => {
         const squadName = e.target.id;
         const squadState = await dispatch(findSquad(squadName));
 
-        localStorage.setItem('squadState', JSON.stringify(squadState));
         history.push(`/squads/${squadName}`);
     };
     return (

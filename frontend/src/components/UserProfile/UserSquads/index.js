@@ -9,7 +9,6 @@ const UserSquads = () => {
 
     let loggedInUser = useSelector((state) => state.session.user);
     let user = useSelector((state) => state.userProfile);
-    if (!user.squads) user = JSON.parse(localStorage.getItem('userProfile'));
 
     let username = loggedInUser.username;
 

@@ -13,15 +13,6 @@ const GameInfo = () => {
 
     let game = useSelector((state) => state.game);
 
-    // useEffect(async () => {
-    //     const gameState = await dispatch(findGames(gameName));
-    //     localStorage.setItem('gameState', JSON.stringify(gameState));
-    //     game = gameState;
-    // }, []);
-
-    if (Object.keys(game).length === 0)
-        game = JSON.parse(localStorage.getItem('gameState'));
-
     return !game ? (
         <h1 className="loading">Loading...</h1>
     ) : (

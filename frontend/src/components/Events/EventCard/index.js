@@ -15,8 +15,6 @@ const EventCard = ({ events }) => {
         const gameParam = e.target.id;
         const gameState = await dispatch(findGames(String(gameParam)));
 
-        localStorage.setItem('gameState', JSON.stringify(gameState));
-
         history.push(`/games/${gameParam}`);
     };
 

@@ -21,10 +21,10 @@ const Games = () => {
     const order = localStorage.getItem('order');
 
     const [ordering, setOrdering] = useState(!order ? '' : order);
+    const [isLoaded, setIsLoaded] = useState(false);
 
     useEffect(() => {
-        dispatch(loadGames(ordering));
-        localStorage.setItem('order', ordering);
+        dispatch(loadGames(ordering)).then(() => setIsLoaded(true));
     }, [ordering]);
 
     useEffect(() => {
@@ -37,7 +37,6 @@ const Games = () => {
         const gameParam = e.target.id;
         const gameState = await dispatch(findGames(String(gameParam)));
 
-        localStorage.setItem('gameState', JSON.stringify(gameState));
         history.push(`/games/${gameParam}`);
         return <GameInfo game={gameState} />;
     };
@@ -48,7 +47,7 @@ const Games = () => {
             dispatch(moreGames(next));
         }, 1000);
     };
-    return !games ? (
+    return !isLoaded ? (
         <h1 className="loading">Loading...</h1>
     ) : (
         <div className="gamesWrapper">

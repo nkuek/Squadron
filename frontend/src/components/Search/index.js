@@ -14,11 +14,6 @@ const Search = () => {
     let squads = useSelector((state) => state.search.squads);
     let users = useSelector((state) => state.search.users);
 
-    if (!games || !squads || !users) {
-        games = JSON.parse(localStorage.getItem('search')).games;
-        squads = JSON.parse(localStorage.getItem('search')).squads;
-        users = JSON.parse(localStorage.getItem('search')).users;
-    }
     const props = { games, squads, users };
     return (
         <div className="searchResultsWrapper">

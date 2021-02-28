@@ -84,13 +84,13 @@ router.put(
         });
 
         const squads = await db.Squad.findAll({
-            // include: [
-            //     {
-            //         model: db.User,
-            //         as: 'users',
-            //         attributes: ['username', 'id'],
-            //     },
-            // ],
+            include: [
+                {
+                    model: db.User,
+                    as: 'users',
+                    attributes: ['username', 'id'],
+                },
+            ],
             where: { captainId: user.id },
         });
 

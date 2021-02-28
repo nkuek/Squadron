@@ -16,12 +16,11 @@ import PageNotFound from './components/PageNotFound';
 import Squads from './components/Squads';
 import Search from './components/Search';
 import NewSquadForm from './components/Squads/NewSquadForm';
+import { findUser } from './store/user';
 
 function App() {
     const dispatch = useDispatch();
     const [isLoaded, setIsLoaded] = useState(false);
-
-    const user = useSelector((state) => state.session.user);
 
     useEffect(() => {
         dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));

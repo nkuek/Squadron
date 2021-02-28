@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import * as sessionActions from '../../store/session';
 import { Redirect } from 'react-router-dom';
 import './loginform.css';
+import { findUser } from '../../store/user';
 const LoginForm = () => {
     const dispatch = useDispatch();
     const sessionUser = useSelector((state) => state.session.user);
@@ -14,8 +15,14 @@ const LoginForm = () => {
 
     if (sessionUser) return <Redirect to="/" />;
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
+        try {
+            await dispatch(sessionActions.loginUser({ credential, password }));
+            await dispatch(findUser(credential));
+        } catch (err) {
+            console.log(err);
+        }
         return dispatch(
             sessionActions.loginUser({ credential, password })
         ).catch(async (res) => {
@@ -26,7 +33,7 @@ const LoginForm = () => {
         });
     };
 
-    const demoUserLogin = (e) => {
+    const demoUserLogin = async (e) => {
         e.preventDefault();
         return dispatch(
             sessionActions.loginUser({

@@ -9,9 +9,8 @@ const UsersSearch = ({ users }) => {
     const handleClick = async (e) => {
         e.preventDefault();
         const username = e.target.id;
-        const userState = await dispatch(findUser(username));
+        await dispatch(findUser(username));
 
-        localStorage.setItem('userProfile', JSON.stringify(userState));
         history.push(`/users/${username}`);
     };
     return (
