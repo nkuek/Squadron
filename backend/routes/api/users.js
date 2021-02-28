@@ -84,7 +84,13 @@ router.put(
         });
 
         const squads = await db.Squad.findAll({
-            include: [{ model: db.User, as: 'squadmates' }],
+            // include: [
+            //     {
+            //         model: db.User,
+            //         as: 'users',
+            //         attributes: ['username', 'id'],
+            //     },
+            // ],
             where: { captainId: user.id },
         });
 
@@ -97,7 +103,7 @@ router.put(
     asyncHandler(async (req, res) => {
         const { username } = req.body;
         const user = await db.User.findAll({
-            include: [{ model: db.Squad }],
+            include: [{ model: db.Squad, as: 'captain' }],
             where: { username },
         });
 

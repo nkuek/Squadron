@@ -8,6 +8,8 @@ import GamingSquads from './GamingSquads';
 import NewSquadForm from './NewSquadForm';
 
 import './squads.css';
+import SocialSquads from './SocialSquads';
+import TradingSquads from './TradingSquads';
 
 const Squads = () => {
     const dispatch = useDispatch();
@@ -53,15 +55,21 @@ const Squads = () => {
                             </div>
                         </div>
                     </div>
+                    <Switch>
+                        <Route exact path="/squads/gaming/">
+                            <GamingSquads gamingSquads={gamingSquads} />
+                        </Route>
+                        <Route exact path="/squads/social">
+                            <SocialSquads socialSquads={socialSquads} />
+                        </Route>
+                        <Route exact path="/squads/trading">
+                            <TradingSquads tradingSquads={tradingSquads} />
+                        </Route>
+                        <Route path="/squads/:squadId/">
+                            <SquadPage />
+                        </Route>
+                    </Switch>
                 </div>
-                <Switch>
-                    <Route exact path="/squads/gaming/">
-                        <GamingSquads gamingSquads={gamingSquads} />
-                    </Route>
-                    <Route path="/squads/:squadId/">
-                        <SquadPage />
-                    </Route>
-                </Switch>
             </div>
         </>
     );

@@ -63,11 +63,11 @@ router.get(
             where: { primaryType: 'Gaming' },
         });
         const tradingSquads = await db.Squad.findAll({
-            include: [{ model: db.User }],
+            include: [{ model: db.User, as: 'captain' }],
             where: { primaryType: 'Trading' },
         });
         const socialSquads = await db.Squad.findAll({
-            include: [{ model: db.User }],
+            include: [{ model: db.User, as: 'captain' }],
             where: { primaryType: 'Social' },
         });
         return res.json({ gamingSquads, tradingSquads, socialSquads });

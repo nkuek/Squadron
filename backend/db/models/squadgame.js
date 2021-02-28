@@ -9,8 +9,12 @@ module.exports = (sequelize, DataTypes) => {
         {}
     );
     SquadGame.associate = function (models) {
-        SquadGame.belongsTo(models.Game, { foreignKey: 'gameId' });
-        SquadGame.belongsTo(models.Squad, { foreignKey: 'squadId' });
+        SquadGame.belongsTo(models.Game, {
+            foreignKey: 'gameId',
+        });
+        SquadGame.belongsTo(models.Squad, {
+            foreignKey: 'squadId',
+        });
     };
     return SquadGame;
 };

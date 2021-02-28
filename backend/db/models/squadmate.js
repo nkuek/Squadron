@@ -9,8 +9,14 @@ module.exports = (sequelize, DataTypes) => {
         {}
     );
     Squadmate.associate = function (models) {
-        Squadmate.belongsTo(models.User, { foreignKey: 'userId' });
-        Squadmate.belongsTo(models.Squad, { foreignKey: 'squadId' });
+        Squadmate.belongsTo(models.User, {
+            as: 'users',
+            foreignKey: 'userId',
+        });
+        Squadmate.belongsTo(models.Squad, {
+            as: 'squads',
+            foreignKey: 'squadId',
+        });
     };
     return Squadmate;
 };
