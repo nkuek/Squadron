@@ -15,13 +15,13 @@ import UserProfile from './components/UserProfile';
 import PageNotFound from './components/PageNotFound';
 import Squads from './components/Squads';
 import Search from './components/Search';
+import NewSquadForm from './components/Squads/NewSquadForm';
 
 function App() {
     const dispatch = useDispatch();
     const [isLoaded, setIsLoaded] = useState(false);
 
     const user = useSelector((state) => state.session.user);
-    localStorage.setItem('user', JSON.stringify(user));
 
     useEffect(() => {
         dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
@@ -64,10 +64,12 @@ function App() {
                         <SignupForm />
                     </Route>
 
+                    <Route exact path="/squads/create">
+                        <NewSquadForm />
+                    </Route>
                     <Route path="/squads">
                         <Squads />
                     </Route>
-
                     <Route path="/search/:searchParam">
                         <Search />
                     </Route>

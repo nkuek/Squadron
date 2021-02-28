@@ -11,7 +11,7 @@ const UsersSearch = ({ users }) => {
         const username = e.target.id;
         const userState = await dispatch(findUser(username));
 
-        localStorage.setItem('user', JSON.stringify(userState));
+        localStorage.setItem('userProfile', JSON.stringify(userState));
         history.push(`/users/${username}`);
     };
     return (

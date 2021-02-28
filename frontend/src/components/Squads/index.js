@@ -31,35 +31,31 @@ const Squads = () => {
 
     const { gamingSquads, socialSquads, tradingSquads } = allSquads;
 
-    console.log(gamingSquads.map((squad) => squad.captain.username));
     return (
         <>
-            <div className="squadPageWrapper">
-                <div className="squadPageContainer">
-                    <div className="squadPanelContainer">
-                        <div className="squadPageHeaderContainer">
-                            <span className="squadPageHeader">Squads</span>
+            <div className="allSquadsPageWrapper">
+                <div className="allSquadsPageContainer">
+                    <div className="allSquadsPanelContainer">
+                        <div className="allSquadsPageHeaderContainer">
+                            <span className="allSquadsPageHeader">Squads</span>
                         </div>
 
-                        <div className="squadCategoryContainer">
-                            <div className="SquadCategory">
+                        <div className="allSquadsCategoryContainer">
+                            <div className="allSquadsCategory">
                                 <NavLink to="/squads/gaming/">Gaming</NavLink>
                             </div>
                         </div>
                     </div>
-                    <Switch>
-                        <Route exact path="/squads/gaming/">
-                            <GamingSquads gamineSquads={gamingSquads} />
-                        </Route>
-                        <Route path="/squads/:squadId/">
-                            <SquadPage />
-                        </Route>
-                    </Switch>
                 </div>
             </div>
-            <Route exact path="/squads/create">
-                <NewSquadForm />
-            </Route>
+            <Switch>
+                <Route exact path="/squads/gaming/">
+                    <GamingSquads gamingSquads={gamingSquads} />
+                </Route>
+                <Route path="/squads/:squadId/">
+                    <SquadPage />
+                </Route>
+            </Switch>
         </>
     );
 };

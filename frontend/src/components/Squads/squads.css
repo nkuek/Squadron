@@ -165,42 +165,40 @@
 
 @media only screen and (max-width: 700px) {
 
-    .squadPageWrapper {
+    .allSquadsPageWrapper {
         margin-top: 70px;
     }
 
-    .squadPanelContainer {
+    .allSquadsPanelContainer {
         height: calc(100vh - 70px)
     }
 }
 
 @media only screen and (min-width: 700px) {
 
-    .squadPageWrapper {
+    .allSquadsPageWrapper {
         margin-top: 61px;
     }
 
-    .squadPanelContainer {
+    .allSquadsPanelContainer {
         height: calc(100vh - 61px)
     }
 }
 
-.squadPageWrapper {
+.allSquadsPageWrapper {
     width: 100vw;
     height: calc(100vh - 70px);
 }
 
-.squadPageContainer {
+.allSquadsPageContainer {
     width: 100%;
     height: 100%;
     display: flex;
-    flex-direction: column;
     color: white;
 }
 
-.squadPanelContainer {
+.allSquadsPanelContainer {
     box-sizing: border-box;
-    position: absolute;
     width: 30vw;
     left: 0;
     padding: 20px;
@@ -209,8 +207,11 @@
     background-color: rgb(58, 58, 58);
 }
 
-.squadPageHeaderContainer {
+.allSquadsPageHeaderContainer {
     font-size: 2em;
     width: 100%;
+}
 
+.allSquadsListContainer {
+    margin: 20px;
 }

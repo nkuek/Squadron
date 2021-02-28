@@ -60,9 +60,10 @@ module.exports = (sequelize, DataTypes) => {
     );
     User.associate = function (models) {
         User.belongsToMany(models.Squad, {
-            through: 'Squadmates',
+            through: 'Squadmate',
             foreignKey: 'userId',
             otherKey: 'squadId',
+            as: 'squadmates',
         });
 
         User.hasMany(models.Squad, {

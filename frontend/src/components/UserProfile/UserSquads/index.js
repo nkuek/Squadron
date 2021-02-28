@@ -1,17 +1,17 @@
 // User Squads Index
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { Link, useParams, useHistory, Redirect } from 'react-router-dom';
 import { useEffect } from 'react';
 
 const UserSquads = () => {
     const { userProfileName } = useParams();
+    const dispatch = useDispatch();
 
-    let userProfile = useSelector((state) => state.userProfile);
     let loggedInUser = useSelector((state) => state.session.user);
+    let user = useSelector((state) => state.userProfile);
+    if (!user.squads) user = JSON.parse(localStorage.getItem('userProfile'));
 
-    if (!userProfile) return <Redirect to="/pagenotfound" />;
-
-    let { username, Squads: squads } = userProfile;
+    let username = loggedInUser.username;
 
     if (userProfileName === loggedInUser.username) username = 'You';
 
@@ -20,7 +20,7 @@ const UserSquads = () => {
     ) : (
         <>
             <div className="userSquadListWrapper">
-                {squads.length === 0 ? (
+                {user.squads.length === 0 ? (
                     <div className="noSquadsContainer">
                         <div className="noSquadsHeader">
                             <h1 className="noSquads">
@@ -32,7 +32,7 @@ const UserSquads = () => {
                     </div>
                 ) : (
                     <ul className="userSquadListContainer">
-                        {squads.map((squad, idx) => (
+                        {user.squads.map((squad, idx) => (
                             <li key={idx} className="squadCard">
                                 <div
                                     style={{

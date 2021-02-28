@@ -16,15 +16,13 @@ const UserProfile = () => {
     const dispatch = useDispatch();
     let { userProfileName } = useParams();
     const history = useHistory();
+    const user = useSelector((state) => state.userProfile);
 
     useEffect(async () => {
         const user = await dispatch(findUser(userProfileName));
-        localStorage.setItem('user', JSON.stringify(user));
-
+        localStorage.setItem('userProfile', JSON.stringify(user));
         history.push(`/users/${userProfileName}/squads`);
     }, []);
-
-    const user = JSON.parse(localStorage.getItem('user'));
 
     return (
         <>

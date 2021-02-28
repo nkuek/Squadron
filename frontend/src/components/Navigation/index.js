@@ -37,7 +37,7 @@ const Navigation = () => {
 
     const handleSquads = async () => {
         const allSquads = await dispatch(findAllSquads());
-        localStorage.setItem('allSquads', allSquads);
+        localStorage.setItem('allSquads', JSON.stringify(allSquads));
         history.push('/squads');
     };
 
