@@ -1,6 +1,8 @@
-import { Switch, Route, useHistory } from 'react-router-dom';
+import { Switch, Route, useHistory, useParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import { useDispatch, useSelector } from 'react-redux';
+import { useEffect, useState } from 'react';
+import { getSearchResults } from '../../store/search';
 
 import SearchIndex from './SearchIndex';
 
@@ -10,11 +12,16 @@ import UsersSearch from './UsersSearch';
 import SquadsSearch from './SquadsSearch';
 
 const Search = () => {
-    let games = useSelector((state) => state.search.games);
-    let squads = useSelector((state) => state.search.squads);
-    let users = useSelector((state) => state.search.users);
+    const dispatch = useDispatch();
+    const history = useHistory();
+    const [isLoaded, setIsLoaded] = useState(false);
+    const { searchParam } = useParams();
 
-    const props = { games, squads, users };
+    useEffect(async () => {
+        await dispatch(getSearchResults(searchParam));
+        setIsLoaded(true);
+    }, [dispatch]);
+
     return (
         <div className="searchResultsWrapper">
             <Helmet>
@@ -29,16 +36,16 @@ const Search = () => {
                         </div>
                         <Switch>
                             <Route exact path="/search/:searchQuery">
-                                <SearchIndex {...props} />
+                                <SearchIndex />
                             </Route>
                             <Route path="/search/:searchQuery/games">
-                                <GamesSearch games={games} />
+                                <GamesSearch />
                             </Route>
                             <Route path="/search/:searchQuery/users">
-                                <UsersSearch users={users} />
+                                <UsersSearch />
                             </Route>
                             <Route path="/search/:searchQuery/squads">
-                                <SquadsSearch squads={squads} />
+                                <SquadsSearch />
                             </Route>
                         </Switch>
                     </div>

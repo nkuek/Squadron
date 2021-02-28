@@ -20,16 +20,22 @@ const UserProfile = () => {
     const [isLoaded, setIsLoaded] = useState(false);
 
     useEffect(async () => {
-        await dispatch(findUser(userProfileName));
+        const user = await dispatch(findUser(userProfileName));
+        console.log(user);
+        console.log(user === 'No user found');
+
+        if (user === 'No user found') history.push('/pagenotfound');
         setIsLoaded(true);
         history.push(`/users/${userProfileName}/squads`);
-    }, [dispatch]);
+    }, []);
 
     return (
         isLoaded && (
             <>
                 <Helmet>
-                    <title>{userProfileName}'s Profile - Squadron</title>
+                    <title>
+                        {userProfile.user.username}'s Profile - Squadron
+                    </title>
                     <meta content="description" content="profile page"></meta>
                 </Helmet>
                 <div className="userProfileWrapper">
@@ -38,7 +44,7 @@ const UserProfile = () => {
                             <div className="userProfileHeader">
                                 <div className="username">
                                     <h1 className="profileUsername">
-                                        {userProfileName}
+                                        {userProfile.user.username}
                                     </h1>
                                 </div>
                                 <div className="userProfilePicture">
@@ -51,17 +57,17 @@ const UserProfile = () => {
                                 </div>
                                 <div className="profileNavBar">
                                     <NavLink
-                                        to={`/users/${userProfileName}/squads`}
+                                        to={`/users/${userProfile.user.username}/squads`}
                                     >
                                         Squads
                                     </NavLink>
                                     <NavLink
-                                        to={`/users/${userProfileName}/games`}
+                                        to={`/users/${userProfile.user.username}/games`}
                                     >
                                         Games
                                     </NavLink>
                                     <NavLink
-                                        to={`/users/${userProfileName}/about`}
+                                        to={`/users/${userProfile.user.username}/about`}
                                     >
                                         About
                                     </NavLink>

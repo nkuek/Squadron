@@ -79,20 +79,24 @@ router.put(
     '/',
     asyncHandler(async (req, res) => {
         const { username } = req.body;
-        const user = await db.User.findOne({
-            where: { username },
-        });
+        try {
+            const user = await db.User.findOne({
+                where: { username },
+            });
 
-        const squads = await db.Squad.findAll({
-            include: [
-                {
-                    model: db.User,
-                    as: 'users',
-                    attributes: ['username', 'id'],
-                },
-            ],
-            where: { captainId: user.id },
-        });
+            const squads = await db.Squad.findAll({
+                include: [
+                    {
+                        model: db.User,
+                        as: 'users',
+                        attributes: ['username', 'id'],
+                    },
+                ],
+                where: { captainId: user.id },
+            });
+        } catch (e) {
+            res.json('No user found');
+        }
 
         return res.json({ user, squads });
     })

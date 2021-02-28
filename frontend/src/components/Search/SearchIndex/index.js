@@ -2,10 +2,23 @@ import { useHistory, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { findGames } from '../../../store/game';
 import { findUser } from '../../../store/user';
-const SearchIndex = ({ games, squads, users }) => {
-    const { searchQuery } = useParams();
+import { getSearchResults } from '../../../store/search';
+import { useState, useEffect } from 'react';
+const SearchIndex = () => {
     const dispatch = useDispatch();
     const history = useHistory();
+    const [isLoaded, setIsLoaded] = useState(false);
+    const { searchQuery } = useParams();
+
+    let users, squads, games;
+    useEffect(async () => {
+        const searchResults = await dispatch(getSearchResults(searchQuery));
+        console.log(searchResults.users);
+        setIsLoaded(true);
+        users = searchResults.users;
+        squads = searchResults.squads;
+        games = searchResults.games;
+    }, [dispatch]);
 
     const handleUserResults = async (e) => {
         e.preventDefault();
@@ -22,13 +35,14 @@ const SearchIndex = ({ games, squads, users }) => {
         const game = await dispatch(findGames(e.target.id));
         history.push(`/games/${e.target.id}`);
     };
-    return (
+    return !isLoaded ? (
+        <h1 className="loading">Loading...</h1>
+    ) : (
         <div className="searchResultsInformationContainer">
             <div className="resultsContainer">
                 <div className="searchResultsHeader">
                     <div className="searchResultsLabel">
                         <span>
-                            Users{' '}
                             {users.length > 0 && `· ${users.length} result(s)`}
                         </span>
                     </div>

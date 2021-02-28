@@ -1,19 +1,25 @@
 import { useSelector, useDispatch } from 'react-redux';
 import AspectRatio from 'react-aspect-ratio';
 import { useParams } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { findGames } from '../../store/game';
 
 import './game.css';
 
 const GameInfo = () => {
-    // Parse game information from local storage
     const dispatch = useDispatch();
+    const [isLoaded, setIsLoaded] = useState(false);
+    const { gameName } = useParams();
 
-    let game = useSelector((state) => state.game);
+    useEffect(async () => {
+        await dispatch(findGames(gameName));
+        setIsLoaded(true);
+    });
 
-    return !game ? (
+    const game = useSelector((state) => state.game);
+
+    return !isLoaded ? (
         <h1 className="loading">Loading...</h1>
     ) : (
         <div className="gamePageWrapper">

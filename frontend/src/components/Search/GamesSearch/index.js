@@ -2,26 +2,25 @@ import { useSelector, useDispatch } from 'react-redux';
 import { AspectRatio } from 'react-aspect-ratio';
 import { Link, useHistory } from 'react-router-dom';
 import { findGames } from '../../../store/game';
+import { useState, useEffect } from 'react';
 
 const GamesSearch = ({ games }) => {
-    const dispatch = useDispatch();
-    const history = useHistory();
+    // const handleClick = async (e) => {
+    //     e.preventDefault();
 
-    const handleClick = async (e) => {
-        e.preventDefault();
+    //     const gameParam = e.target.id;
+    //     const gameState = await dispatch(findGames(String(gameParam)));
 
-        const gameParam = e.target.id;
-        const gameState = await dispatch(findGames(String(gameParam)));
+    //     history.push(`/games/${gameParam}`);
+    // };
 
-        history.push(`/games/${gameParam}`);
-    };
     return (
         <ul className="gamesList">
             {games.map((game, idx) => (
                 <li key={idx} className="gameCard">
                     <div className="gameCardContainer">
                         <Link
-                            onClick={(e) => handleClick(e)}
+                            // onClick={(e) => handleClick(e)}
                             id={game.name}
                             to={`/games/${game.name}`}
                         >

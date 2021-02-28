@@ -31,16 +31,6 @@ const Games = () => {
         dispatch(setGameOrder(ordering));
     }, [ordering]);
 
-    const handleClick = async (e) => {
-        e.preventDefault();
-
-        const gameParam = e.target.id;
-        const gameState = await dispatch(findGames(String(gameParam)));
-
-        history.push(`/games/${gameParam}`);
-        return <GameInfo game={gameState} />;
-    };
-
     const fetchMoreData = () => {
         const next = games[Object.keys(games).length - 1].next;
         setTimeout(() => {
@@ -72,7 +62,6 @@ const Games = () => {
                             <li key={idx} className="gameCard">
                                 <div className="gameCardContainer">
                                     <Link
-                                        onClick={(e) => handleClick(e)}
                                         id={game.name}
                                         to={`/games/${game.name}`}
                                     >
