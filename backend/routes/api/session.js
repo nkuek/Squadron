@@ -6,6 +6,9 @@ const { User } = require('../../db/models');
 const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
 const router = express.Router();
+const ImgPlaceholder = require('random-image-placeholder');
+const imgGenerator = new ImgPlaceholder({ width: 200, height: 200 });
+const url = imgGenerator.generate();
 
 // Login validation middleware
 const validateLogin = [
@@ -23,6 +26,7 @@ const validateLogin = [
 router.post(
     '/',
     asyncHandler(async (req, res, next) => {
+        console.log(url);
         const { credential, password } = req.body;
 
         const user = await User.login({ credential, password });

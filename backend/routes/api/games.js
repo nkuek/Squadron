@@ -3,19 +3,21 @@ const router = require('express').Router();
 const fetch = require('node-fetch');
 const asyncHandler = require('express-async-handler');
 const { Game } = require('../../db/models/');
+const ImgPlaceholder = require('random-image-placeholder');
+const imgGenerator = new ImgPlaceholder({ width: 200, height: 200 });
+const url = imgGenerator.generate();
 
 router.post(
     '/',
     asyncHandler(async (req, res) => {
         const { name } = req.body;
+        console.log(url);
 
         const game = await Game.findOne({
             where: {
                 name,
             },
         });
-
-        console.log(name);
 
         // if game not in database, add it to database
         if (!game) {
