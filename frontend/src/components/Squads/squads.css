@@ -163,6 +163,54 @@
     color: teal
 }
 
+.allSquadsPageWrapper {
+    width: 100%;
+    overflow-x: hidden;
+    box-sizing: border-box;
+
+}
+
+.allSquadsPageHeaderContainer {
+    font-size: 3em;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: 'Exo 2', sans-serif;
+    padding: 15px;
+    border-bottom: 1px solid #d3d0d0
+}
+
+.allSquadsListContainer {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.allSquadsPanelContainer {
+    height: 100%;
+    position: fixed;
+}
+.allSquadsListBodyContainer {
+    margin: 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+.allSquadsCategory {
+    padding: 10px;
+}
+
+    .allSquadsCategory:hover {
+        background-color:rgb(124, 124, 124);
+        box-sizing: border-box;
+        cursor: pointer;
+    }
+
+    .squadCategoryLink {
+        padding: 0;
+    }
+
 @media only screen and (max-width: 700px) {
 
     .allSquadsPageWrapper {
@@ -179,13 +227,18 @@
     }
 
     .allSquadsPanelContainer {
-        height: calc(100vh - 70px);
-        min-width: 75px;
-        width: 75px;
-        position: absolute;
         z-index: 300;
         transition: width 0.5s ease-in-out;
         background-color: rgb(58, 58, 58);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 60px;
+    }
+
+    .allSquadsCategoryContainer {
+        display: flex;
+        flex-direction: column;
     }
 
     .allSquadsListContainer {
@@ -205,16 +258,16 @@
         display: none;
     }
 
+
     .allSquadsCategory {
         display: flex;
         justify-content: center;
-    }
-
-    .allSquadsCategory a {
         display:inline-block;
         text-align: center;
         box-sizing: border-box;
+        flex-direction: column;
     }
+
 
     .allSquadsCategory a:active {
         border-right-width: 1px;
@@ -260,7 +313,6 @@
 
 .allSquadsPageWrapper {
     width: 100vw;
-    height: calc(100vh - 70px);
     display: flex;
 }
 
@@ -273,16 +325,9 @@
 
 .allSquadsPanelContainer {
     box-sizing: border-box;
-    height: calc(100vh - 61px);
     left: 0;
 }
 
-.allSquadsPageHeaderContainer {
-    font-size: 3em;
-    font-family: 'Exo 2', sans-serif;
-    padding: 15px;
-    border-bottom: 1px solid #d3d0d0
-}
 
 .allSquadsCategoryContainer {
     padding-top: 30px;
@@ -355,14 +400,6 @@
     box-sizing: border-box;
 }
 
-.allSquadsListBodyContainer {
-    margin: 10px;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-}
 
 .allSquadsList {
     width: 80%;

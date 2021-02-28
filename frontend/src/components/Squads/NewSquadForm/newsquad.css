@@ -11,6 +11,10 @@
     color: red;
 }
 
+.nsfForm {
+    overflow: hidden;
+}
+
 @media only screen and (max-width: 750px) {
 
     .squadOuterContainer, .nsfPreviewWrapper {

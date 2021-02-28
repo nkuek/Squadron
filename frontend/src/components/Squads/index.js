@@ -41,41 +41,34 @@ const Squads = () => {
 
                             <div className="allSquadsCategoryContainer">
                                 <div className="allSquadsCategory">
-                                    <div>
-                                        <span className="allSquadsPanelLabel">
-                                            Gaming
-                                        </span>
-                                        <i className="fas fa-gamepad allSquadsPanelIcon hidden"></i>
-                                    </div>
+                                    <span className="allSquadsPanelLabel">
+                                        Gaming
+                                    </span>
+                                    <i className="fas fa-gamepad allSquadsPanelIcon hidden"></i>
                                 </div>
                                 <div className="allSquadsCategory">
-                                    <div>
-                                        <span className="allSquadsPanelLabel">
-                                            Social
-                                        </span>
+                                    <span className="allSquadsPanelLabel">
+                                        Social
+                                    </span>
 
-                                        <i className="fas fa-user allSquadsPanelIcon hidden"></i>
-                                    </div>
+                                    <i className="fas fa-user allSquadsPanelIcon hidden"></i>
                                 </div>
                                 <div className="allSquadsCategory">
-                                    <div to="/squads/trading/">
-                                        <span className="allSquadsPanelLabel">
-                                            Trading
-                                        </span>
-                                        <i className="fas fa-store allSquadsPanelIcon hidden"></i>
-                                    </div>
+                                    <span className="allSquadsPanelLabel">
+                                        Trading
+                                    </span>
+                                    <i className="fas fa-store allSquadsPanelIcon hidden"></i>
                                 </div>
-                                <div className="allSquadsCategory">
-                                    <div>
+                                <div className="allSquadsCategory squadCategoryLink">
+                                    <NavLink to="/squads/explore">
                                         <span className="allSquadsPanelLabel">
                                             Explore
                                         </span>
                                         <i className="far fa-compass allSquadsPanelIcon hidden"></i>
-                                    </div>
+                                    </NavLink>
                                 </div>
-                                <ExploreSquads allSquads={allSquads} />
 
-                                <div className="allSquadsCategory">
+                                <div className="allSquadsCategory squadCategoryLink">
                                     <NavLink to="/squads/create/">
                                         <span className="allSquadsPanelLabel">
                                             Create Squad
@@ -85,6 +78,9 @@ const Squads = () => {
                                 </div>
                             </div>
                         </div>
+                        <Route exact path="/squads/explore">
+                            <ExploreSquads allSquads={allSquads} />
+                        </Route>
                     </div>
                 </div>
             </>

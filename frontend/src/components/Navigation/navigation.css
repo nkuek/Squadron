@@ -18,9 +18,13 @@ ul {
     top: 0;
     left: 0;
     width: 100%;
-    position: absolute;
+    position: fixed;
     z-index: 999;
     background-color: white;
+}
+
+.stickyDropDownMenu {
+    position: fixed;
 }
 
 .profileMenu {
@@ -348,7 +352,6 @@ ul {
     }
 
     .stickyDropDownMenu {
-        position: absolute;
         box-sizing: border-box;
         border: 1px solid  rgb(146, 145, 145);
         border: 1px solid  rgb(146, 145, 145);
@@ -358,6 +361,7 @@ ul {
         background-color: white;
         display: none;
         width: auto;
+
     }
    .dropDownLinks {
 
@@ -477,7 +481,6 @@ ul {
     }
 
     .stickyDropDownMenu {
-        position: absolute;
         box-sizing: border-box;
         border-right: 1px solid  rgb(146, 145, 145);
         border-bottom: 1px solid  rgb(146, 145, 145);
