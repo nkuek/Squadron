@@ -14,13 +14,13 @@ const ExploreSquads = ({ allSquads }) => {
     const { gamingSquads, tradingSquads, socialSquads } = allSquads;
     return (
         <div className="allSquadsListContainer">
-            <div className="allSquadsListHeaderContainer">
-                <div className="allSquadsListHeader">
-                    <div className="categoryHeader">Gaming Squads</div>
-                    <i className="fas fa-gamepad categoryIcon"></i>
-                </div>
-            </div>
             <div className="allSquadsListBodyContainer">
+                <div className="allSquadsListHeaderContainer top">
+                    <div className="allSquadsListHeader">
+                        <div className="categoryHeader">Gaming Squads</div>
+                        <i className="fas fa-gamepad categoryIcon"></i>
+                    </div>
+                </div>
                 {gamingSquads.map((squad, idx) => (
                     <div key={idx} className="allSquadsList">
                         <div
@@ -42,66 +42,58 @@ const ExploreSquads = ({ allSquads }) => {
                         </div>
                     </div>
                 ))}
-            </div>
-            <div className="allSquadsListContainer">
                 <div className="allSquadsListHeaderContainer">
                     <div className="allSquadsListHeader">
                         <div className="categoryHeader">Social Squads</div>
                         <i className="fas fa-user categoryIcon"></i>
                     </div>
                 </div>
-                <div className="allSquadsListBodyContainer">
-                    {socialSquads.map((squad, idx) => (
-                        <div key={idx} className="allSquadsList">
+                {socialSquads.map((squad, idx) => (
+                    <div key={idx} className="allSquadsList">
+                        <div
+                            id={squad.id}
+                            onClick={handleSquadClick}
+                            className="squadListSquadLink"
+                        >
+                            <div className="squadListSquadName">
+                                {squad.squadName}
+                            </div>
                             <div
-                                id={squad.id}
-                                onClick={handleSquadClick}
-                                className="squadListSquadLink"
+                                onClick={handleCaptainClick}
+                                id={squad.captain.username}
+                                className="squadListSquadCaptain"
                             >
-                                <div className="squadListSquadName">
-                                    {squad.squadName}
-                                </div>
-                                <div
-                                    onClick={handleCaptainClick}
-                                    id={squad.captain.username}
-                                    className="squadListSquadCaptain"
-                                >
-                                    {squad.captain.username}
-                                </div>
+                                {squad.captain.username}
                             </div>
                         </div>
-                    ))}
-                </div>
-            </div>
-            <div className="allSquadsListContainer">
+                    </div>
+                ))}
                 <div className="allSquadsListHeaderContainer">
                     <div className="allSquadsListHeader">
                         <div className="categoryHeader">Trading Squads</div>
                         <i className="fas fa-store categoryIcon"></i>
                     </div>
                 </div>
-                <div className="allSquadsListBodyContainer">
-                    {tradingSquads.map((squad, idx) => (
-                        <div key={idx} className="allSquadsList">
+                {tradingSquads.map((squad, idx) => (
+                    <div key={idx} className="allSquadsList">
+                        <div
+                            id={squad.id}
+                            onClick={handleSquadClick}
+                            className="squadListSquadLink"
+                        >
+                            <div className="squadListSquadName">
+                                {squad.squadName}
+                            </div>
                             <div
-                                id={squad.id}
-                                onClick={handleSquadClick}
-                                className="squadListSquadLink"
+                                onClick={handleCaptainClick}
+                                id={squad.captain.username}
+                                className="squadListSquadCaptain"
                             >
-                                <div className="squadListSquadName">
-                                    {squad.squadName}
-                                </div>
-                                <div
-                                    onClick={handleCaptainClick}
-                                    id={squad.captain.username}
-                                    className="squadListSquadCaptain"
-                                >
-                                    {squad.captain.username}
-                                </div>
+                                {squad.captain.username}
                             </div>
                         </div>
-                    ))}
-                </div>
+                    </div>
+                ))}
             </div>
         </div>
     );

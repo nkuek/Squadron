@@ -190,13 +190,13 @@
     position: fixed;
 }
 .allSquadsListBodyContainer {
-    margin: 10px;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
 }
+
+
 .allSquadsCategory {
     padding: 10px;
 }
@@ -375,11 +375,17 @@
     font-size: 2em;
     box-sizing: border-box;
     padding: 30px;
+    margin: 20px 0px;
     border-bottom: 1px solid #d3d0d0;
     width: 100%;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
     background-color: rgb(58, 58, 58);
+}
+
+.top {
+
+    margin-top: 0px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
 }
 
 .allSquadsListHeader {
