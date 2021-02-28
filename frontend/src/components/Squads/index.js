@@ -36,7 +36,7 @@ const Squads = () => {
                                 <span className="allSquadsPageHeader">
                                     Squads
                                 </span>
-                                <div className="allSquadsPanelIcon hidden">
+                                <div className="allSquadsPanelIcon hidden panelHeader">
                                     S
                                 </div>
                             </div>
