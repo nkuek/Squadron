@@ -1,6 +1,6 @@
 import { Link, NavLink, useHistory } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 import { useSelector, useDispatch } from 'react-redux';
 import testEvents from '../../../mockData/testEvents.json';
 import AspectRatio from 'react-aspect-ratio';

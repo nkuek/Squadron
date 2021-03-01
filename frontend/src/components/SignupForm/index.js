@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 import * as sessionActions from '../../store/session';
 import './signupform.css';
 
@@ -56,6 +56,7 @@ const SignupForm = () => {
                             type="text"
                             value={username}
                             required
+                            autoComplete="new-username"
                             onChange={(e) => setUsername(e.target.value)}
                         ></input>
                         <label htmlFor="username">Username</label>
@@ -66,6 +67,7 @@ const SignupForm = () => {
                             type="email"
                             value={email}
                             required
+                            autoComplete="new-email"
                             onChange={(e) => setEmail(e.target.value)}
                         ></input>
                         <label htmlFor="email">Email</label>
@@ -76,6 +78,7 @@ const SignupForm = () => {
                             type="password"
                             value={password}
                             required
+                            autoComplete="new-password"
                             onChange={(e) => setPassword(e.target.value)}
                         ></input>
                         <label htmlFor="password">Password</label>
@@ -86,6 +89,7 @@ const SignupForm = () => {
                             type="password"
                             value={confirmPassword}
                             required
+                            autoComplete="new-password"
                             onChange={(e) => setConfirmPassword(e.target.value)}
                         ></input>
                         <label htmlFor="confirm-password">

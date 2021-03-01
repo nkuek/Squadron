@@ -1,5 +1,5 @@
 import { useHistory } from 'react-router-dom';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 import { useState, useEffect } from 'react';
 import './pagenotfound.css';
 

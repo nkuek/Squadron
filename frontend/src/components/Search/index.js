@@ -1,5 +1,5 @@
 import { Switch, Route, useHistory, useParams } from 'react-router-dom';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { getSearchResults } from '../../store/search';

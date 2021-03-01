@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { Route, Switch, useParams } from 'react-router-dom';
 import { useHistory, Redirect, NavLink } from 'react-router-dom';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 
 import UserSquads from './UserSquads';
 import UserGames from './UserGames';

@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { renderToString } from 'react-dom/server';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
@@ -23,7 +24,11 @@ function Root() {
         <Provider store={store}>
             <HelmetProvider>
                 <BrowserRouter>
-                    <App />
+                    <App>
+                        <Helmet>
+                            <title>Squadron</title>
+                        </Helmet>
+                    </App>
                 </BrowserRouter>
             </HelmetProvider>
         </Provider>

@@ -2,7 +2,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import AspectRatio from 'react-aspect-ratio';
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 import { findGames } from '../../store/game';
 
 import './game.css';

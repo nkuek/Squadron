@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 import { useDispatch, useSelector } from 'react-redux';
 import * as sessionActions from '../../store/session';
 import { Redirect } from 'react-router-dom';
@@ -66,6 +66,7 @@ const LoginForm = () => {
                             type="text"
                             value={credential}
                             onChange={(e) => setCredential(e.target.value)}
+                            autoComplete="username"
                             required
                         ></input>
                         <label htmlFor="username" className="placeLabel">
@@ -79,6 +80,7 @@ const LoginForm = () => {
                             type="password"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
+                            autoComplete="password"
                             required
                         ></input>
                         <label htmlFor="password" className="placeLabel">
