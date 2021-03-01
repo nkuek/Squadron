@@ -9,20 +9,25 @@ const EventCard = ({ events }) => {
     const history = useHistory();
 
     // Finds game in database and stores it in local storage so it can be loaded in the game info component
-    const handleClick = async (e) => {
-        e.preventDefault();
+    const handleGameClick = async (e) => {
+        e.stopPropagation();
+        history.push(`/games/${e.target.id}`);
+    };
 
-        const gameParam = e.target.id;
-        const gameState = await dispatch(findGames(String(gameParam)));
-
-        history.push(`/games/${gameParam}`);
+    const handleEventClick = async (e) => {
+        e.stopPropagation();
+        history.push(`/events/${e.target.id}`);
     };
 
     return events.map((event) => (
         <li key={event.id} className="eventItem">
             <div className="eventItemWrapper">
                 <div className="eventItemContent">
-                    <NavLink className="eventLink" to={`/events/${event.id}`}>
+                    <div
+                        className="eventLink"
+                        id={event.id}
+                        onClick={handleEventClick}
+                    >
                         <div className="eventContainer">
                             <div className="imageContainerWrapper">
                                 <AspectRatio
@@ -49,20 +54,17 @@ const EventCard = ({ events }) => {
                                 <p className="eventTitle">{event.title}</p>
                                 <p className="eventSquad">{event.squadId}</p>
                                 <div className="eventGameLinkContainer">
-                                    <Link
+                                    <div
                                         id={event.gameId}
-                                        to={`/games/${event.gameId}`}
-                                        onClick={(e) => handleClick(e)}
-                                        // value={event.gameId}
-                                        // onClick={handleClick}
+                                        onClick={(e) => handleGameClick(e)}
                                         className="eventGame"
                                     >
                                         {event.gameId}
-                                    </Link>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </NavLink>
+                    </div>
                 </div>
             </div>
         </li>

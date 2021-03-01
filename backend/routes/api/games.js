@@ -12,12 +12,13 @@ router.post(
     asyncHandler(async (req, res) => {
         const { name } = req.body;
 
+        console.log(name);
+
         const formattedName = encodeURI(name);
-        console.log(formattedName);
 
         const game = await Game.findOne({
             where: {
-                name: formattedName,
+                name,
             },
         });
 
@@ -27,6 +28,7 @@ router.post(
                 `https://api.rawg.io/api/games?key=${API_KEY}&search=${formattedName}`
             );
             const apiData = await apiRes.json();
+            console.log(apiData);
 
             // res === array of game objects from fetch search result
             const apiResults = apiData.results;

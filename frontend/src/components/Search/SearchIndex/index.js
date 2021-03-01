@@ -10,19 +10,18 @@ const SearchIndex = () => {
     const [isLoaded, setIsLoaded] = useState(false);
     const { searchQuery } = useParams();
 
-    let users, squads, games;
     useEffect(async () => {
-        const searchResults = await dispatch(getSearchResults(searchQuery));
-        console.log(searchResults.users);
+        await dispatch(getSearchResults(searchQuery));
         setIsLoaded(true);
-        users = searchResults.users;
-        squads = searchResults.squads;
-        games = searchResults.games;
     }, [dispatch]);
+
+    const users = useSelector((state) => state.search.users);
+    const games = useSelector((state) => state.search.games);
+    const squads = useSelector((state) => state.search.squads);
 
     const handleUserResults = async (e) => {
         e.preventDefault();
-        const user = await dispatch(findUser(e.target.id));
+        await dispatch(findUser(e.target.id));
         history.push(`/users/${e.target.id}`);
     };
 

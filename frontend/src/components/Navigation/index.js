@@ -27,7 +27,7 @@ const Navigation = () => {
     const handleSearch = async (e) => {
         e.preventDefault();
         if (!search) return;
-        const searchResults = await dispatch(getSearchResults(search));
+        await dispatch(getSearchResults(search));
 
         // reset search bar content back to empty on submission
         setSearch('');
@@ -52,7 +52,7 @@ const Navigation = () => {
     }, [showSearch]);
 
     const handleSquads = async () => {
-        const allSquads = await dispatch(findAllSquads());
+        await dispatch(findAllSquads());
         history.push('/squads');
     };
 
@@ -80,7 +80,12 @@ const Navigation = () => {
                         </NavLink>
                     </div>
                     <form className="searchForm" onSubmit={handleSearch}>
-                        <div className="searchBarContainer">
+                        <div
+                            className="searchBarContainer"
+                            style={{
+                                display: !sessionUser && 'none',
+                            }}
+                        >
                             <div className="searchBar">
                                 <div className="searchInputContainer">
                                     <span
