@@ -9,8 +9,9 @@ const UserAbout = () => {
     const { userProfileName } = useParams();
 
     const { user } = useSelector((state) => state.userProfile);
-    const loggedInUsername = JSON.parse(localStorage.getItem('loggedInUser'))
-        .username;
+    const loggedInUsername = useSelector(
+        (state) => state.session.user.username
+    );
 
     useEffect(async () => {
         await dispatch(findUser(userProfileName));
