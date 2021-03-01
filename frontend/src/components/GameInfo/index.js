@@ -15,7 +15,7 @@ const GameInfo = () => {
     useEffect(async () => {
         await dispatch(findGames(gameName));
         setIsLoaded(true);
-    });
+    }, [dispatch]);
 
     const game = useSelector((state) => state.game);
 

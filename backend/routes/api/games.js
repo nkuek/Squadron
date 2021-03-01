@@ -11,18 +11,20 @@ router.post(
     '/',
     asyncHandler(async (req, res) => {
         const { name } = req.body;
-        console.log(url);
+
+        const formattedName = encodeURI(name);
+        console.log(formattedName);
 
         const game = await Game.findOne({
             where: {
-                name,
+                name: formattedName,
             },
         });
 
         // if game not in database, add it to database
         if (!game) {
             const apiRes = await fetch(
-                `https://api.rawg.io/api/games?key=${API_KEY}&search=${name}`
+                `https://api.rawg.io/api/games?key=${API_KEY}&search=${formattedName}`
             );
             const apiData = await apiRes.json();
 

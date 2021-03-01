@@ -22,7 +22,6 @@ const Games = () => {
 
     const [ordering, setOrdering] = useState(!order ? '' : order);
     const [isLoaded, setIsLoaded] = useState(false);
-    const [pageLocation, setPageLocation] = useState(0);
 
     const handleLinkClick = (e) => {
         e.preventDefault();
