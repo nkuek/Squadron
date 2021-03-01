@@ -44,15 +44,16 @@ export const createNewSquad = (squad) => async (dispatch) => {
     return data;
 };
 
-export const findSquad = (squadName) => async (dispatch) => {
+export const findSquad = (squadId) => async (dispatch) => {
+    const formattedId = parseInt(squadId, 10);
     const res = await csrfFetch('/api/squads', {
         method: 'PUT',
-        body: JSON.stringify(squadName),
+        body: JSON.stringify({ formattedId }),
     });
 
     const squad = await res.json();
     dispatch(getSquad(squad));
-    return squad;
+    // return squad;
 };
 
 export const findAllSquads = () => async (dispatch) => {

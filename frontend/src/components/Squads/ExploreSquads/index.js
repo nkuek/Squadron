@@ -1,6 +1,21 @@
 import { useHistory, Link } from 'react-router-dom';
-const ExploreSquads = ({ allSquads }) => {
+import { findAllSquads } from '../../../store/squads';
+import { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
+const ExploreSquads = () => {
     const history = useHistory();
+    const dispatch = useDispatch();
+    const [isLoaded, setIsLoaded] = useState(false);
+
+    useEffect(() => {
+        dispatch(findAllSquads());
+        setIsLoaded(true);
+    }, [dispatch]);
+
+    const allSquads = useSelector((state) => state.squads);
+
+    console.log(allSquads);
 
     const handleCaptainClick = (e) => {
         e.stopPropagation();
@@ -12,7 +27,10 @@ const ExploreSquads = ({ allSquads }) => {
     };
 
     const { gamingSquads, tradingSquads, socialSquads } = allSquads;
-    return (
+
+    return !isLoaded ? (
+        <h1 className="loading">Loading...</h1>
+    ) : (
         <div className="allSquadsListContainer">
             <div className="allSquadsListBodyContainer">
                 <div className="exploreSquadsSquadContainer">

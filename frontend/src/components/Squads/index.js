@@ -49,16 +49,14 @@ const Squads = () => {
         return window.removeEventListener('click', e);
     });
 
-    const allSquads = useSelector((state) => state.squads);
-
     return (
         isLoaded && (
             <>
-                <Helmet>
-                    <title>Squads - Squadron</title>
-                    <meta name="description" content="squads page"></meta>
-                </Helmet>
                 <div className="allSquadsPageWrapper">
+                    <Helmet>
+                        <title>Squads - Squadron</title>
+                        <meta name="description" content="squads page"></meta>
+                    </Helmet>
                     <div className="allSquadsPageContainer">
                         <div className="allSquadsPanelContainer">
                             <div
@@ -133,9 +131,9 @@ const Squads = () => {
                         </div>
                         <Switch>
                             <Route exact path="/squads/explore">
-                                <ExploreSquads allSquads={allSquads} />
+                                <ExploreSquads />
                             </Route>
-                            <Route exact path="/squads/:squadId">
+                            <Route exact path={`/squads/:squadId(\\d+)`}>
                                 <SquadPage />
                             </Route>
                         </Switch>

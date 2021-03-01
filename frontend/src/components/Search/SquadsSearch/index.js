@@ -9,10 +9,10 @@ const SquadsSearch = ({ squads }) => {
 
     const handleClick = async (e) => {
         e.preventDefault();
-        const squadName = e.target.id;
-        const squadState = await dispatch(findSquad(squadName));
+        const squadId = e.target.id;
+        await dispatch(findSquad(squadId));
 
-        history.push(`/squads/${squadName}`);
+        history.push(`/squads/${squadId}`);
     };
     return (
         <div className="resultsContainer">
@@ -26,7 +26,7 @@ const SquadsSearch = ({ squads }) => {
                     squads.map((squad, idx) => (
                         <div key={idx} className="searchLinkContainer">
                             <a
-                                id={squad.squadName}
+                                id={squad.id}
                                 onClick={handleClick}
                                 href={`/squads/${squad.squadName
                                     .split(' ')

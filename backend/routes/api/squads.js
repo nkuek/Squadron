@@ -49,8 +49,11 @@ router.post(
 router.put(
     '/',
     asyncHandler(async (req, res) => {
-        const { squadName } = req.body;
-        const squad = await db.Squad.findOne({ where: { squadName } });
+        const { formattedId } = req.body;
+
+        const squad = await db.Squad.findOne({
+            where: { id: formattedId },
+        });
         return res.json(squad);
     })
 );
