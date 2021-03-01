@@ -20,7 +20,7 @@ const Games = () => {
     const { games } = useSelector((state) => state.games);
     const order = localStorage.getItem('order');
 
-    const [ordering, setOrdering] = useState(!order ? '' : order);
+    let [ordering, setOrdering] = useState(!order ? '' : order);
     const [isLoaded, setIsLoaded] = useState(false);
 
     const handleLinkClick = (e) => {
@@ -37,16 +37,20 @@ const Games = () => {
             window.scrollTo(0, parseInt(scrollPosition));
             sessionStorage.removeItem('scrollPosition');
         }
+        localStorage.setItem('ordering', JSON.stringify(ordering));
     }, [ordering]);
 
     useEffect(() => {
         dispatch(setGameOrder(ordering));
     }, [ordering]);
 
+    if (JSON.parse(localStorage.getItem('ordering')))
+        ordering = JSON.parse(localStorage.getItem('ordering'));
     const fetchMoreData = () => {
         const next = games[Object.keys(games).length - 1].next;
         dispatch(moreGames(next));
     };
+
     return !isLoaded ? (
         <h1 className="loading">Loading...</h1>
     ) : (
