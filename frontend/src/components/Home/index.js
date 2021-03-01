@@ -7,11 +7,6 @@ import { getSearchResults } from '../../store/search';
 import './home.css';
 import Banner from './Banner';
 import HomeEventList from './HomeEventList';
-import {
-    videoGameStockPhoto1,
-    videoGameStockPhoto2,
-    videoGameStockPhoto3,
-} from '../../images/imageUrls';
 
 const Home = () => {
     const history = useHistory();
@@ -19,6 +14,10 @@ const Home = () => {
     const [search, setSearch] = useState('');
 
     const user = useSelector((state) => state.session.user);
+
+    const handleSplashRegister = () => {
+        history.push('/register');
+    };
 
     const handleSearch = async (e) => {
         e.preventDefault();
@@ -52,12 +51,12 @@ const Home = () => {
                         className="homePageSearchInput"
                         placeholder="Find your next squad"
                     ></input>
-                    <div
+                    <button
                         onClick={handleSearch}
                         className="homePageSearchSubmit"
                     >
                         Search
-                    </div>
+                    </button>
                 </div>
             </form>
             <HomeEventList />
@@ -76,6 +75,14 @@ const Home = () => {
                                 Take this.
                             </div>
                         </div>
+                    </div>
+                    <div className="splashRegisterButtonContainer">
+                        <button
+                            onClick={handleSplashRegister}
+                            className="splashRegisterButton"
+                        >
+                            Squad Up
+                        </button>
                     </div>
                 </div>
             )}

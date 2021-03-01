@@ -6,6 +6,7 @@ import testEvents from '../../../mockData/testEvents.json';
 import AspectRatio from 'react-aspect-ratio';
 
 import './newsquad.css';
+import LoginForm from '../../LoginForm';
 import { createNewSquad } from '../../../store/squads';
 
 const NewSquadForm = () => {
@@ -51,7 +52,9 @@ const NewSquadForm = () => {
         squad && history.push(`/squads/${squad.squad.squadName}`);
     };
 
-    return (
+    return !user ? (
+        <LoginForm />
+    ) : (
         <>
             <Helmet>
                 <title>Create a Squad - Squadron</title>

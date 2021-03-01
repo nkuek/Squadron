@@ -40,13 +40,13 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
-    height: 3000px;
+    height: 2500px;
 }
 
 .homePageSearchForm {
     box-sizing: border-box;
     width: 100%;
-    padding: 10px;
+    padding: 20px;
     border-radius: 5px;
     display: flex;
    justify-content: center;
@@ -61,7 +61,8 @@
     padding-left: 50px;
     margin-right: 20px;
     color: white;
-    font-family: 'Cabin'
+    font-family: 'Cabin';
+    border: 1px solid rgb(87, 87, 87)
 }
 
 .homePageSearchInput::placeholder {
@@ -82,7 +83,7 @@
 
 .homePageSearchInput:valid,
 .homePageSearchInput:invalid {
-    border: 1px solid #d3d0d0;
+    border: 1px solid rgb(87, 87, 87)
 }
 
 .homePageSearchInput:focus {
@@ -126,7 +127,7 @@
     line-height: 25px;
     cursor: pointer;
     color: white;
-    border: 1px solid #d3d0d0;
+    border: 1px solid rgb(158, 158, 158)
 }
 
 .homePageSearchSubmit:hover {
@@ -136,7 +137,7 @@
 
 .homePageEventsContainer {
     margin: 30px;
-    margin-top: 91px;
+    margin-bottom: 100px;
 }
 
 .squadronHomePageDescriptionContainer {
@@ -151,9 +152,11 @@
 .squadronSplashContainer2 {
     display: flex;
     flex-direction: column;
-    width: 60%;
+    width: 90%;
     height: 600px;
     justify-content: center;
+    background-color:rgba(0, 0, 0, 0.4);
+    border-radius: 5px;
 }
 
 .squadronSplashContainer1 {
@@ -166,8 +169,8 @@
     border: none;
     margin-top: 75px;
     height: 300px;
-    margin-bottom: 400px;
     overflow: hidden;
+    width: 60%
 }
 
 .squadronSplashHeadingContainer {
@@ -183,7 +186,37 @@
     background-color: rgba(0, 0, 0, 0.4)
 }
 
+.splashRegisterButtonContainer {
+    margin-top: 50px;
+    width: 100%;
+    background-color:rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    height: 90px;
+}
 
+.splashRegisterButton {
+    padding: 20px 40px;
+    border: none;
+    border-radius: 10px;
+    background-color: #1b67ff;
+    color:white;
+    cursor: pointer;
+    transition: .2s all;
+    box-sizing: border-box;
+    width: 200px;
+    height: 60px;
+
+}
+
+.splashRegisterButton:hover {
+    background-color: #578fff;
+    width: 205px;
+    height: 65px;
+
+}
 
 /* Small Screens */
 @media only screen and (max-width: 800px) {
@@ -272,7 +305,7 @@
 
     .joinSquadron {
         color: white;
-        background-color: blueviolet;
+        background-color: #1b67ff;
         border-radius: 5px;
         padding: 10px;
         width: 100%;
@@ -478,8 +511,8 @@
 
     .joinSquadron {
         color: white;
-        background-color: blueviolet;
         border-radius: 5px;
+        background-color: #1b67ff;
         padding: 10px;
         width: 100%;
     }
