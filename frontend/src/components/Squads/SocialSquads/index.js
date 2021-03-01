@@ -10,7 +10,7 @@ const SocialSquads = ({ socialSquads }) => {
     const handleSquadClick = (e) => {
         history.push(`/squads/${e.target.id}`);
     };
-    return null;
+    return <div>Social squads go here</div>;
 };
 
 export default SocialSquads;

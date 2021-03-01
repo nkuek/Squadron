@@ -51,15 +51,18 @@ const Squads = () => {
                             onMouseLeave={resetState}
                             className="allSquadsPanelContainer"
                         >
-                            <div className="allSquadsPageHeaderContainer">
+                            <div
+                                onClick={history.push('/squads')}
+                                className="allSquadsPageHeaderContainer"
+                            >
                                 <span className="allSquadsPageHeader">
                                     Your Squads
                                 </span>
-                                <div className="allSquadsPanelIcon hidden panelHeader">
+                                <span className="allSquadsPanelIcon hidden panelHeader">
                                     S
-                                </div>
+                                </span>
                             </div>
-
+                            <hr className="allSquadsSeparator"></hr>
                             <div className="allSquadsCategoryContainer">
                                 <div
                                     onClick={() => setShowGaming(true)}
@@ -98,7 +101,8 @@ const Squads = () => {
                                     <i className="fas fa-store allSquadsPanelIcon hidden trading"></i>
                                 </div>
                                 {showTrading && <TradingSquads />}
-                                <div className="allSquadsCategory squadCategoryLink">
+                                <hr className="allSquadsSeparator"></hr>
+                                <div className="allSquadsCategory squadCategoryLink explore">
                                     <NavLink to="/squads/explore">
                                         <span className="allSquadsPanelLabel">
                                             Explore

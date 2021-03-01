@@ -171,13 +171,18 @@
 }
 
 .allSquadsPageHeaderContainer {
-    font-size: 3em;
+    font-size: 2.5em;
     width: 100%;
     box-sizing: border-box;
     font-family: 'Exo 2', sans-serif;
     padding: 15px;
-    border-bottom: 1px solid #d3d0d0
+    cursor: pointer;
 }
+
+.allSquadsPageHeaderContainer:hover {
+    color: teal;
+}
+
 
 .allSquadsListContainer {
     height: 100%;
@@ -189,6 +194,14 @@
     height: 100%;
     position: fixed;
 }
+
+.allSquadsSeparator {
+    width: 100%;
+    margin: 0px;
+    box-sizing: border-box;
+    color: #d3d0d0;
+}
+
 .allSquadsListBodyContainer {
     padding: 10px;
     box-sizing: border-box;
@@ -228,6 +241,8 @@
 }
 
 
+
+
 @media only screen and (max-width: 700px) {
 
     .allSquadsPageWrapper {
@@ -240,7 +255,15 @@
     }
 
     .panelHeader {
-        color: #af73e7
+        color: #af73e7;
+    }
+
+    .allSquadsPageHeaderContainer {
+        text-align: center;
+    }
+
+    .allSquadsPageHeaderContainer:hover span + span {
+        color: teal;
     }
 
     .allSquadsPanelContainer {
@@ -321,6 +344,7 @@
     }
 }
 
+
 .allSquadsPageWrapper {
     width: 100vw;
     display: flex;
@@ -340,14 +364,13 @@
 
 
 .allSquadsCategoryContainer {
-    padding-top: 30px;
     font-family: 'Exo 2', sans-serif;
     width: 100%;
     height: 100%;
 }
 
 .allSquadsCategory {
-    font-size: 2em;
+    font-size: 1.5em;
 }
 
 .allSquadsCategory a {
@@ -361,13 +384,9 @@
 
 .allSquadsCategory a.active {
     /* color: teal; */
-    background-color: rgb(124, 124, 124);
     border-right: 5px solid teal
 }
 
-.allSquadsCategory a.active {
-    background-color: rgb(124, 124, 124);
-}
 
 .allSquadsListContainer {
     background-color:#1c1e21;
