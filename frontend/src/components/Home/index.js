@@ -7,6 +7,10 @@ import { getSearchResults } from '../../store/search';
 import './home.css';
 import Banner from './Banner';
 import HomeEventList from './HomeEventList';
+import {
+    videoGameStockPhoto1,
+    videoGameStockPhoto2,
+} from '../../images/imageUrls';
 
 const Home = () => {
     const history = useHistory();
@@ -56,6 +60,15 @@ const Home = () => {
                 </div>
             </form>
             <HomeEventList />
+            {!user && (
+                <div className="squadronHomePageDescriptionContainer">
+                    <img
+                        width="500px"
+                        className="stockPhotos"
+                        src={videoGameStockPhoto2}
+                    ></img>
+                </div>
+            )}
         </div>
     );
 };
