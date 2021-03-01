@@ -22,8 +22,13 @@ const Squads = () => {
     useEffect(async () => {
         await dispatch(findAllSquads());
         setIsLoaded(true);
-        history.push('/squads/gaming/');
     }, [dispatch]);
+
+    const resetState = () => {
+        setShowTrading(false);
+        setShowGaming(false);
+        setShowSocial(false);
+    };
 
     window.addEventListener('click', (e) => {
         if (showTrading) {
@@ -37,17 +42,18 @@ const Squads = () => {
 
     const allSquads = useSelector((state) => state.squads);
 
-    const { gamingSquads, socialSquads, tradingSquads } = allSquads;
-
     return (
         isLoaded && (
             <>
                 <div className="allSquadsPageWrapper">
                     <div className="allSquadsPageContainer">
-                        <div className="allSquadsPanelContainer">
+                        <div
+                            onMouseLeave={resetState}
+                            className="allSquadsPanelContainer"
+                        >
                             <div className="allSquadsPageHeaderContainer">
                                 <span className="allSquadsPageHeader">
-                                    Squads
+                                    Your Squads
                                 </span>
                                 <div className="allSquadsPanelIcon hidden panelHeader">
                                     S
@@ -61,10 +67,10 @@ const Squads = () => {
                                         showGaming ? 'activeCategory' : null
                                     }`}
                                 >
-                                    <span className="allSquadsPanelLabel">
+                                    <span className="allSquadsPanelLabel gaming">
                                         Gaming
                                     </span>
-                                    <i className="fas fa-gamepad allSquadsPanelIcon hidden"></i>
+                                    <i className="fas fa-gamepad allSquadsPanelIcon hidden gaming"></i>
                                 </div>
                                 {showGaming && <GamingSquads />}
                                 <div
@@ -73,11 +79,11 @@ const Squads = () => {
                                         showSocial ? 'activeCategory' : null
                                     }`}
                                 >
-                                    <span className="allSquadsPanelLabel">
+                                    <span className="allSquadsPanelLabel social">
                                         Social
                                     </span>
 
-                                    <i className="fas fa-user allSquadsPanelIcon hidden"></i>
+                                    <i className="fas fa-user allSquadsPanelIcon hidden social"></i>
                                 </div>
                                 {showSocial && <SocialSquads />}
                                 <div
@@ -86,12 +92,12 @@ const Squads = () => {
                                         showTrading ? 'activeCategory' : null
                                     }`}
                                 >
-                                    <span className="allSquadsPanelLabel">
+                                    <span className="allSquadsPanelLabel trading">
                                         Trading
                                     </span>
-                                    <i className="fas fa-store allSquadsPanelIcon hidden"></i>
+                                    <i className="fas fa-store allSquadsPanelIcon hidden trading"></i>
+                                    {showTrading && <TradingSquads />}
                                 </div>
-                                {showTrading && <TradingSquads />}
                                 <div className="allSquadsCategory squadCategoryLink">
                                     <NavLink to="/squads/explore">
                                         <span className="allSquadsPanelLabel">

@@ -12,15 +12,21 @@ const About = () => {
                     <a
                         href="https://github.com/nkuek"
                         className="github fade-in"
+                        target="_blank"
                     >
                         <i className="fab fa-github fa-3x"></i>
                     </a>
-                    <a href="mailto:nkuek1@gmail.com" className="email fade-in">
+                    <a
+                        target="_blank"
+                        href="mailto:nkuek1@gmail.com"
+                        className="email fade-in"
+                    >
                         <i className="fas fa-envelope fa-3x"></i>
                     </a>
                     <a
                         href="https://www.linkedin.com/in/nick-kuek"
                         className="linkedin fade-in"
+                        target="_blank"
                     >
                         <i className="fab fa-linkedin fa-3x"></i>
                     </a>

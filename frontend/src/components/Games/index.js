@@ -22,9 +22,22 @@ const Games = () => {
 
     const [ordering, setOrdering] = useState(!order ? '' : order);
     const [isLoaded, setIsLoaded] = useState(false);
+    const [pageLocation, setPageLocation] = useState(0);
 
-    useEffect(() => {
-        dispatch(loadGames(ordering)).then(() => setIsLoaded(true));
+    const handleLinkClick = (e) => {
+        e.preventDefault();
+        sessionStorage.setItem('scrollPosition', window.pageYOffset);
+        history.push(`/games/${e.target.id}`);
+    };
+
+    useEffect(async () => {
+        await dispatch(loadGames(ordering));
+        setIsLoaded(true);
+        const scrollPosition = sessionStorage.getItem('scrollPosition');
+        if (scrollPosition) {
+            window.scrollTo(0, parseInt(scrollPosition));
+            sessionStorage.removeItem('scrollPosition');
+        }
     }, [ordering]);
 
     useEffect(() => {
@@ -33,9 +46,7 @@ const Games = () => {
 
     const fetchMoreData = () => {
         const next = games[Object.keys(games).length - 1].next;
-        setTimeout(() => {
-            dispatch(moreGames(next));
-        }, 1000);
+        dispatch(moreGames(next));
     };
     return !isLoaded ? (
         <h1 className="loading">Loading...</h1>
@@ -62,6 +73,7 @@ const Games = () => {
                             <li key={idx} className="gameCard">
                                 <div className="gameCardContainer">
                                     <Link
+                                        onClick={handleLinkClick}
                                         id={game.name}
                                         to={`/games/${game.name}`}
                                     >
