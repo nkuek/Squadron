@@ -44,8 +44,6 @@ const Games = () => {
         dispatch(setGameOrder(ordering));
     }, [ordering]);
 
-    if (JSON.parse(localStorage.getItem('ordering')))
-        ordering = JSON.parse(localStorage.getItem('ordering'));
     const fetchMoreData = () => {
         const next = games[Object.keys(games).length - 1].next;
         dispatch(moreGames(next));
