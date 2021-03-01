@@ -1,10 +1,11 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { AspectRatio } from 'react-aspect-ratio';
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useHistory, useParams } from 'react-router-dom';
 import { findGames } from '../../../store/game';
+import { getSearchResults } from '../../../store/search';
 import { useState, useEffect } from 'react';
 
-const GamesSearch = ({ games }) => {
+const GamesSearch = () => {
     // const handleClick = async (e) => {
     //     e.preventDefault();
 
@@ -13,8 +14,26 @@ const GamesSearch = ({ games }) => {
 
     //     history.push(`/games/${gameParam}`);
     // };
+    const dispatch = useDispatch();
+    const [isLoaded, setIsLoaded] = useState(false);
+    const { searchQuery } = useParams();
 
-    return (
+    useEffect(async () => {
+        const games = await dispatch(getSearchResults(searchQuery));
+        localStorage.setItem('games', games);
+        setIsLoaded(true);
+        console.log(games);
+    }, [dispatch]);
+
+    let { games } = useSelector((state) => state.search);
+
+    if (!games) {
+        games = JSON.parse(localStorage.getItem('games'));
+    }
+
+    return !isLoaded ? (
+        <h1 className="loading">Loading...</h1>
+    ) : (
         <ul className="gamesList">
             {games.map((game, idx) => (
                 <li key={idx} className="gameCard">

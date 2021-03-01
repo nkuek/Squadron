@@ -1,9 +1,10 @@
-import { useHistory, useParams } from 'react-router-dom';
+import { useHistory, useParams, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { findGames } from '../../../store/game';
 import { findUser } from '../../../store/user';
 import { getSearchResults } from '../../../store/search';
 import { useState, useEffect } from 'react';
+
 const SearchIndex = () => {
     const dispatch = useDispatch();
     const history = useHistory();
@@ -46,12 +47,12 @@ const SearchIndex = () => {
                         </span>
                     </div>
                     {users.length > 5 && (
-                        <a
-                            href={`/search/${searchQuery}/users/`}
+                        <Link
+                            to={`/search/${searchQuery}/users/`}
                             className="seeAllResults"
                         >
                             See all
-                        </a>
+                        </Link>
                     )}
                 </div>
                 <div className="searchResults">
@@ -81,7 +82,9 @@ const SearchIndex = () => {
                         {squads.length > 0 && `· ${squads.length} result(s)`}
                     </span>
                     {squads.length > 5 && (
-                        <a href={`/search/${searchQuery}/squads`}>See all</a>
+                        <Link to={`/search/${searchQuery}/squads`}>
+                            See all
+                        </Link>
                     )}
                 </div>
                 <div className="searchResults">
@@ -112,7 +115,7 @@ const SearchIndex = () => {
                         {games.length > 0 && `· ${games.length} result(s)`}
                     </span>
                     {games.length > 5 && (
-                        <a href={`/search/${searchQuery}/games`}>See all</a>
+                        <Link to={`/search/${searchQuery}/games`}>See all</Link>
                     )}
                 </div>
                 <div className="searchResults">
