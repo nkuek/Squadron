@@ -96,8 +96,8 @@ const Squads = () => {
                                         Trading
                                     </span>
                                     <i className="fas fa-store allSquadsPanelIcon hidden trading"></i>
-                                    {showTrading && <TradingSquads />}
                                 </div>
+                                {showTrading && <TradingSquads />}
                                 <div className="allSquadsCategory squadCategoryLink">
                                     <NavLink to="/squads/explore">
                                         <span className="allSquadsPanelLabel">

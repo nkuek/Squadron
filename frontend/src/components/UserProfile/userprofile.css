@@ -8,6 +8,18 @@
         height: calc(100vh - 70px);
         margin-top: 70px;
     }
+
+    .userProfileOuterContainer {
+        border-radius: 0px;
+    }
+
+    .userProfileInnerContainer {
+        border-radius: 0px;
+    }
+
+    .userProfileHeader {
+        border-radius: 0px;
+    }
 }
 
 @media only screen and (min-width: 700px) {
@@ -20,6 +32,18 @@
         min-height: 80vh;
 
     margin: 40px;
+    }
+
+    .userProfileOuterContainer {
+    border-radius: 10px;
+}
+    .userProfileInnerContainer {
+        border-radius: 10px;
+    }
+
+    .userProfileHeader {
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
     }
 }
 .userProfileWrapper {
@@ -39,7 +63,6 @@
     flex-direction: column;
     align-items: center;
     background-color: #1c1e21;
-    border-radius: 10px;
     overflow: hidden
 }
 
@@ -48,7 +71,6 @@
     /* box-sizing: border-box; */
     height: 100%;
     padding-top: 0px;
-    border-radius: 10px;
 }
 
 .userProfileHeader {
@@ -58,8 +80,6 @@
     flex-direction: column;
     align-items: center;
     padding: 30px 0px 15px 0px;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
     background-color: rgba(58, 58, 58, 0.7);
 }
 

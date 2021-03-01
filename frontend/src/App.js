@@ -17,14 +17,16 @@ import Squads from './components/Squads';
 import Search from './components/Search';
 import NewSquadForm from './components/Squads/NewSquadForm';
 import SquadPage from './components/Squads/SquadPage';
-import { findUser } from './store/user';
 
 function App() {
     const dispatch = useDispatch();
     const [isLoaded, setIsLoaded] = useState(false);
 
-    useEffect(() => {
-        dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
+    useEffect(async () => {
+        const loggedInUser = await dispatch(sessionActions.restoreUser());
+        console.log(loggedInUser);
+        localStorage.setItem('loggedInUser', JSON.stringify(loggedInUser));
+        setIsLoaded(true);
     }, [dispatch]);
 
     return (
