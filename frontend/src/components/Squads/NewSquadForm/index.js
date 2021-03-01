@@ -64,11 +64,14 @@ const NewSquadForm = () => {
                 <div className="newSquadContainer">
                     <div className="nsfContainer">
                         <div className="closensfContainer">
-                            <Link to="/squads" className="closensf">
+                            <div
+                                onClick={() => history.goBack()}
+                                className="closensf"
+                            >
                                 <i className="fas fa-arrow-left closeFormArrow">
                                     {' Back'}
                                 </i>
-                            </Link>
+                            </div>
                         </div>
                         <div className="nsfHeaderContainer">
                             <h1 className="nsfHeader">Create Squad</h1>

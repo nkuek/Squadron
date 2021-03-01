@@ -37,11 +37,11 @@ const Games = () => {
             window.scrollTo(0, parseInt(scrollPosition));
             sessionStorage.removeItem('scrollPosition');
         }
-        localStorage.setItem('ordering', JSON.stringify(ordering));
     }, [ordering]);
 
     useEffect(() => {
         dispatch(setGameOrder(ordering));
+        localStorage.setItem('ordering', JSON.stringify(ordering));
     }, [ordering]);
 
     const fetchMoreData = () => {
@@ -147,18 +147,18 @@ const Games = () => {
                             </li>
                         );
                     })}
-                    <InfiniteScroll
-                        dataLength={games.length}
-                        next={fetchMoreData}
-                        hasMore={true}
-                        loader={
-                            <h3 style={{ color: 'white', textAlign: 'center' }}>
-                                Loading...
-                            </h3>
-                        }
-                    ></InfiniteScroll>
                 </ul>
             </div>
+            <InfiniteScroll
+                dataLength={games.length}
+                next={fetchMoreData}
+                hasMore={true}
+                loader={
+                    <h3 style={{ color: 'white', textAlign: 'center' }}>
+                        Loading...
+                    </h3>
+                }
+            ></InfiniteScroll>
         </div>
     );
 };
