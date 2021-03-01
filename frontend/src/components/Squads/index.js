@@ -24,20 +24,28 @@ const Squads = () => {
         setIsLoaded(true);
     }, [dispatch]);
 
-    const resetState = () => {
-        setShowTrading(false);
-        setShowGaming(false);
-        setShowSocial(false);
-    };
-
     window.addEventListener('click', (e) => {
         if (showTrading) {
-            if (!e.target.classList.contains('trading')) setShowTrading(false);
+            if (
+                !e.target.classList.contains(
+                    'trading' || e.target.classList.contains('explore')
+                )
+            )
+                setShowTrading(false);
         } else if (showSocial) {
-            if (!e.target.classList.contains('social')) setShowSocial(false);
+            if (
+                !e.target.classList.contains('social') ||
+                e.target.classList.contains('explore')
+            )
+                setShowSocial(false);
         } else if (showGaming) {
-            if (!e.target.classList.contains('gaming')) setShowGaming(false);
+            if (
+                !e.target.classList.contains('gaming') ||
+                e.target.classList.contains('explore')
+            )
+                setShowGaming(false);
         }
+        return window.removeEventListener('click', e);
     });
 
     const allSquads = useSelector((state) => state.squads);
@@ -47,10 +55,7 @@ const Squads = () => {
             <>
                 <div className="allSquadsPageWrapper">
                     <div className="allSquadsPageContainer">
-                        <div
-                            onMouseLeave={resetState}
-                            className="allSquadsPanelContainer"
-                        >
+                        <div className="allSquadsPanelContainer">
                             <div
                                 onClick={history.push('/squads')}
                                 className="allSquadsPageHeaderContainer"
@@ -104,10 +109,10 @@ const Squads = () => {
                                 <hr className="allSquadsSeparator"></hr>
                                 <div className="allSquadsCategory squadCategoryLink explore">
                                     <NavLink to="/squads/explore">
-                                        <span className="allSquadsPanelLabel">
+                                        <span className="allSquadsPanelLabel explore">
                                             Explore
                                         </span>
-                                        <i className="far fa-compass allSquadsPanelIcon hidden"></i>
+                                        <i className="far fa-compass allSquadsPanelIcon hidden explore"></i>
                                     </NavLink>
                                 </div>
 

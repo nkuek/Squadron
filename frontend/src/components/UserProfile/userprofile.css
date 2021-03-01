@@ -263,3 +263,18 @@
     align-items: center;
     margin-top: 15px;
 }
+
+.userGamesWrapper {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.userGamesContainer {
+    text-align: center;
+}
+
+.userGamesBody {
+    font-size: 1.5em;
+}
