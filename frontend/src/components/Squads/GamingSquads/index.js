@@ -1,5 +1,5 @@
 const GamingSquads = () => {
-    return <div>hello from gaming</div>;
+    return <div></div>;
 };
 
 export default GamingSquads;

@@ -199,24 +199,34 @@
 
 .allSquadsCategory {
     padding: 10px;
+    box-sizing: border-box;
+    margin: 10px 0px;
 }
 
-    .allSquadsCategory:hover {
-        background-color:rgb(124, 124, 124);
-        box-sizing: border-box;
-        cursor: pointer;
-    }
+.allSquadsCategory:hover {
+    background-color:rgb(124, 124, 124);
+    box-sizing: border-box;
+    cursor: pointer;
+}
 
-    .squadCategoryLink {
-        padding: 0;
-    }
-    .allSquadsListContainer {
-        position: relative;
-        z-index: 0;
-        margin: 20px;
-        margin-right: 40px;
-        margin-left: 100px;
-    }
+.squadCategoryLink {
+    padding: 0;
+}
+
+.allSquadsListContainer {
+    position: relative;
+    z-index: 0;
+    margin: 20px;
+    margin-right: 40px;
+    margin-left: 100px;
+}
+
+.activeCategory {
+    background-color:rgb(124, 124, 124);
+    border-right: 5px solid teal
+}
+
+
 @media only screen and (max-width: 700px) {
 
     .allSquadsPageWrapper {
@@ -245,6 +255,7 @@
     .allSquadsCategoryContainer {
         display: flex;
         flex-direction: column;
+        align-items: center;
     }
 
 
@@ -266,6 +277,7 @@
         text-align: center;
         box-sizing: border-box;
         flex-direction: column;
+        width: 100%;
     }
 
 
@@ -353,7 +365,7 @@
 .allSquadsCategory a.active {
     /* color: teal; */
     background-color: rgb(124, 124, 124);
-    border-right: 10px solid teal
+    border-right: 5px solid teal
 }
 
 .allSquadsCategory a.active {

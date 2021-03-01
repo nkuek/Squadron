@@ -3,22 +3,30 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { findAllSquads } from '../../store/squads';
 
-import GamingSquads from './GamingSquads';
-import NewSquadForm from './NewSquadForm';
 import ExploreSquads from './ExploreSquads';
 
 import './squads.css';
+import SocialSquads from './SocialSquads';
+import TradingSquads from './TradingSquads';
+import GamingSquads from './GamingSquads';
 
 const Squads = () => {
     const dispatch = useDispatch();
     const history = useHistory();
     const [isLoaded, setIsLoaded] = useState(false);
+    const [showTrading, setShowTrading] = useState(false);
+    const [showGaming, setShowGaming] = useState(false);
+    const [showSocial, setShowSocial] = useState(false);
 
     useEffect(async () => {
         await dispatch(findAllSquads());
         setIsLoaded(true);
         history.push('/squads/gaming/');
     }, [dispatch]);
+
+    // window.addEventListener('click', (e) => {
+    //     showTrading ?
+    // });
 
     const allSquads = useSelector((state) => state.squads);
 
@@ -40,25 +48,43 @@ const Squads = () => {
                             </div>
 
                             <div className="allSquadsCategoryContainer">
-                                <div className="allSquadsCategory">
+                                <div
+                                    onClick={() => setShowGaming(true)}
+                                    className={`allSquadsCategory gaming ${
+                                        showGaming ? 'activeCategory' : null
+                                    }`}
+                                >
                                     <span className="allSquadsPanelLabel">
                                         Gaming
                                     </span>
                                     <i className="fas fa-gamepad allSquadsPanelIcon hidden"></i>
                                 </div>
-                                <div className="allSquadsCategory">
+                                {showGaming && <GamingSquads />}
+                                <div
+                                    onClick={() => setShowSocial(true)}
+                                    className={`allSquadsCategory social ${
+                                        showSocial ? 'activeCategory' : null
+                                    }`}
+                                >
                                     <span className="allSquadsPanelLabel">
                                         Social
                                     </span>
 
                                     <i className="fas fa-user allSquadsPanelIcon hidden"></i>
                                 </div>
-                                <div className="allSquadsCategory">
+                                {showSocial && <SocialSquads />}
+                                <div
+                                    onClick={() => setShowTrading(true)}
+                                    className={`allSquadsCategory trading ${
+                                        showTrading ? 'activeCategory' : null
+                                    }`}
+                                >
                                     <span className="allSquadsPanelLabel">
                                         Trading
                                     </span>
                                     <i className="fas fa-store allSquadsPanelIcon hidden"></i>
                                 </div>
+                                {showTrading && <TradingSquads />}
                                 <div className="allSquadsCategory squadCategoryLink">
                                     <NavLink to="/squads/explore">
                                         <span className="allSquadsPanelLabel">
