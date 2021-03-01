@@ -5,7 +5,7 @@ const Banner = () => {
     const user = useSelector((state) => state.session.user);
     return (
         <div
-            className="homePageWrapper"
+            className="homePageBannerWrapper"
             style={{ display: user ? 'none' : 'initial' }}
         >
             <div className="homePageBanner">

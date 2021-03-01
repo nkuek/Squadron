@@ -1,6 +1,6 @@
 .eventDate {
 
-    color: rgb(196, 132, 255);
+    color: rgb(196, 135, 253);
     font-family: 'Exo 2', sans-serif
 ;
 }
@@ -16,7 +16,6 @@
     height: 350px;
     width: 250px;
     overflow-wrap: break-word;
-    border: 1px solid #d3d3d3;
     border-radius: 10px;
 }
 
@@ -35,12 +34,26 @@
         border-top-right-radius: 10px;
     }
 
-.homePageContent {
+.homePageWrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
-    height: 2500px;
+    height: 2400px;
+}
+
+.homePageContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 30px;
+    margin-top: 100px;
+    padding: 30px;
+    box-sizing: border-box;
+    height: 100%;
+    width: 90%;
+    background-color: rgb(28, 30, 33);
+    border-radius: 10px;
 }
 
 .homePageSearchForm {
@@ -72,8 +85,6 @@
 
 .homePageEventsContainer {
         padding: 10px;
-        background-color: white;
-        border: 1px solid #d3d3d3;
         border-radius: 20px;
         width: 80%;
         height: auto;
@@ -92,8 +103,8 @@
 
 .homePageSearchContainer {
     display: flex;
-    width: 60%;
-    max-width: 600px;
+    width: 100%;
+    max-width: 800px;
 }
 
 .homePageSearchIconContainer {
@@ -127,7 +138,7 @@
     line-height: 25px;
     cursor: pointer;
     color: white;
-    border: 1px solid rgb(158, 158, 158)
+    border: none;
 }
 
 .homePageSearchSubmit:hover {
@@ -221,12 +232,12 @@
 /* Small Screens */
 @media only screen and (max-width: 800px) {
 
-    .homePageWrapper {
+    .homePageBannerWrapper {
         position: relative;
         width: 100%;
     }
 
-    .homePageContent {
+    .homePageWrapper {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -260,10 +271,10 @@
         width: 100%;
     }
 
-    .homePageContent {
+    .homePageWrapper {
         width: 100vw
     }
-    .homePageWrapper {
+    .homePageBannerWrapper {
         position: relative;
         width: 100%;
     }
@@ -316,14 +327,14 @@
     }
 
     .joinSquadron:hover {
-        background-color: teal;
+        background-color: #578fff;
     }
 
     .homePageEventsContainer {
         padding: 10px;
-        background-color: white;
-        border: 1px solid #d3d3d3;
+        background-color: rgb(58, 58, 58);
         border-radius: 20px;
+        color: white;
         height: auto;
         position: relative;
     }
@@ -375,7 +386,7 @@
     }
 
     .eventContainer:hover {
-        background-color: #e2e0e0;
+        background-color: rgb(124, 124, 124);
     }
 
     .eventItem {
@@ -418,6 +429,7 @@
         height: 100%;
         box-sizing: border-box;
         overflow: hidden;
+        border-radius: 10px;;
     }
 
     .imageContainerWrapper {
@@ -443,7 +455,8 @@
     }
 
     .eventGame:hover {
-        color: teal;
+        color: rgb(189, 189, 189);
+        text-decoration: underline;
     }
 
     .eventDate {
@@ -468,7 +481,7 @@
 /* Large Screens */
 @media only screen and (min-width: 800px) {
 
-.homePageWrapper {
+.homePageBannerWrapper {
         position: relative;
         width: 100%;
     }
@@ -482,7 +495,7 @@
         right: -30px;
         margin-bottom: 20px;
         border-radius: 10px;
-        background-color: rgba(0, 0, 0, 0.4);
+        background-color: rgba(0, 0, 0, 0.6);
     }
     .homePageHeader {
         font-size: 4rem;
@@ -522,17 +535,17 @@
     }
 
     .joinSquadron:hover {
-        background-color: teal;
+        background-color: #578fff;
     }
 
     .homePageEventsContainer {
         padding: 10px;
-        background-color: white;
-        border: 1px solid #d3d3d3;
+        background-color: rgb(58, 58, 58);
         border-radius: 20px;
         width: 80%;
         height: auto;
         position: relative;
+        color: white;
     }
 
     .homePageEventsHeader {
@@ -571,6 +584,7 @@
         justify-content: flex-start;
         width: 100%;
         height: 100%;
+        border-radius: 10px;
     }
 
     .eventLink {
@@ -581,6 +595,7 @@
         position: absolute;
         z-index: 1;
         overflow: hidden;
+        border-radius: 10px;
     }
 
     .eventItem {
@@ -623,10 +638,11 @@
         height: 100%;
         box-sizing: border-box;
         overflow: hidden;
+        border-radius: 10px;
     }
 
     .eventContainer:hover, .eventLink:hover, .eventLink:focus, .eventContainer:focus {
-        background-color: #e2e0e0;
+        background-color: rgb(124, 124, 124);
     }
 
     .imageContainerWrapper {
@@ -643,14 +659,15 @@
 
     .eventGame {
         margin: 5px;
-        width: 100%;
+        width: fit-content;
         cursor: pointer;
         z-index: 0;
         position: relative;
     }
 
     .eventGame:hover, .eventGame:focus {
-        color: teal;
+        color: rgb(189, 189, 189);
+        text-decoration: underline;
     }
 
     .eventDate {
