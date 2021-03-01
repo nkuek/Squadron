@@ -43,6 +43,7 @@ const SearchIndex = () => {
                 <div className="searchResultsHeader">
                     <div className="searchResultsLabel">
                         <span>
+                            Users{' '}
                             {users.length > 0 && `· ${users.length} result(s)`}
                         </span>
                     </div>
