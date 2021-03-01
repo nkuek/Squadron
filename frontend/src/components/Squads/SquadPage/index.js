@@ -1,7 +1,14 @@
+import { useParams } from 'react-router-dom';
 const SquadPage = () => {
     return (
         <>
-            <h1>Hello from Gaming!</h1>
+            <div className="squadPageWrapper">
+                <div className="squadPageContainer">
+                    <div className="squadPageHeaderContainer">
+                        <div className="squadPageHeader"></div>
+                    </div>
+                </div>
+            </div>
         </>
     );
 };
