@@ -27,6 +27,7 @@ const UserProfile = () => {
             const user = await dispatch(findUser(userProfileName));
             setIsLoaded(true);
             setUserProfile(user.user);
+            history.push(`/users/${user.user.username}/squads`);
         }
     }, [dispatch, userProfileName]);
 
