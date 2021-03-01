@@ -9,6 +9,7 @@ import './squads.css';
 import SocialSquads from './SocialSquads';
 import TradingSquads from './TradingSquads';
 import GamingSquads from './GamingSquads';
+import SquadPage from './SquadPage';
 
 const Squads = () => {
     const dispatch = useDispatch();
@@ -24,9 +25,15 @@ const Squads = () => {
         history.push('/squads/gaming/');
     }, [dispatch]);
 
-    // window.addEventListener('click', (e) => {
-    //     showTrading ?
-    // });
+    window.addEventListener('click', (e) => {
+        if (showTrading) {
+            if (!e.target.classList.contains('trading')) setShowTrading(false);
+        } else if (showSocial) {
+            if (!e.target.classList.contains('social')) setShowSocial(false);
+        } else if (showGaming) {
+            if (!e.target.classList.contains('gaming')) setShowGaming(false);
+        }
+    });
 
     const allSquads = useSelector((state) => state.squads);
 
@@ -104,9 +111,14 @@ const Squads = () => {
                                 </div>
                             </div>
                         </div>
-                        <Route exact path="/squads/explore">
-                            <ExploreSquads allSquads={allSquads} />
-                        </Route>
+                        <Switch>
+                            <Route exact path="/squads/explore">
+                                <ExploreSquads allSquads={allSquads} />
+                            </Route>
+                            <Route exact path="/squads/:squadId">
+                                <SquadPage />
+                            </Route>
+                        </Switch>
                     </div>
                 </div>
             </>
