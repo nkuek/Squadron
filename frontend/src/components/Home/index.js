@@ -10,6 +10,7 @@ import HomeEventList from './HomeEventList';
 import {
     videoGameStockPhoto1,
     videoGameStockPhoto2,
+    videoGameStockPhoto3,
 } from '../../images/imageUrls';
 
 const Home = () => {
@@ -62,11 +63,18 @@ const Home = () => {
             <HomeEventList />
             {!user && (
                 <div className="squadronHomePageDescriptionContainer">
-                    <img
-                        width="500px"
-                        className="stockPhotos"
-                        src={videoGameStockPhoto2}
-                    ></img>
+                    <div
+                        style={{
+                            backgroundImage: `url(${videoGameStockPhoto3}) no-repeat center center fixed`,
+                        }}
+                        className="squadronSplashContainer1"
+                    >
+                        <div className="squadronSplashHeadingContainer">
+                            <div className="squadronSplashHeading">
+                                It's dangerous to go alone!
+                            </div>
+                        </div>
+                    </div>
                 </div>
             )}
         </div>
