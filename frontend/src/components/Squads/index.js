@@ -2,6 +2,7 @@ import { NavLink, Route, useHistory, Switch } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { findAllSquads } from '../../store/squads';
+import { Helmet } from 'react-helmet-async';
 
 import ExploreSquads from './ExploreSquads';
 
@@ -53,6 +54,10 @@ const Squads = () => {
     return (
         isLoaded && (
             <>
+                <Helmet>
+                    <title>Squads - Squadron</title>
+                    <meta name="description" content="squads page"></meta>
+                </Helmet>
                 <div className="allSquadsPageWrapper">
                     <div className="allSquadsPageContainer">
                         <div className="allSquadsPanelContainer">
