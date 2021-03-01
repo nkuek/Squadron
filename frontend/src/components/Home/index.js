@@ -63,15 +63,17 @@ const Home = () => {
             <HomeEventList />
             {!user && (
                 <div className="squadronHomePageDescriptionContainer">
-                    <div
-                        style={{
-                            backgroundImage: `url(${videoGameStockPhoto3}) no-repeat center center fixed`,
-                        }}
-                        className="squadronSplashContainer1"
-                    >
+                    <div className="squadronSplashContainer1">
                         <div className="squadronSplashHeadingContainer">
                             <div className="squadronSplashHeading">
                                 It's dangerous to go alone!
+                            </div>
+                        </div>
+                    </div>
+                    <div className="squadronSplashContainer2">
+                        <div className="squadronSplashHeadingContainer">
+                            <div className="squadronSplashHeading">
+                                Take this.
                             </div>
                         </div>
                     </div>

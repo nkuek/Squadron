@@ -67,7 +67,12 @@ input {
     border-color: #d3d3d3;
     border-bottom: 2px solid #d3d3d3;
     border-width: 1px;
-    height: 25px
+    height: 25px;
+    font-family: 'Cabin'
+}
+
+input::placeholder {
+    font-family: 'Cabin'
 }
 
 
