@@ -5,7 +5,7 @@ import * as sessionActions from '../../store/session';
 import './navigation.css';
 import ProfileButton from './ProfileButton.js';
 import { getSearchResults } from '../../store/search';
-import { findAllSquads } from '../../store/squads';
+import { findAllSquads } from '../../store/allSquads';
 
 const Navigation = () => {
     const dispatch = useDispatch();

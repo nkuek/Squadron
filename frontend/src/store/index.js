@@ -4,16 +4,18 @@ import sessionReducer from './session';
 import gamesReducer from './games';
 import gameReducer from './game';
 import orderReducer from './order';
-import squadReducer from './squads';
+import userSquadsReducer from './userSquads';
 import searchReducer from './search';
 import userReducer from './user';
+import allSquadsReducer from './allSquads';
 
 const rootReducer = combineReducers({
     session: sessionReducer,
     games: gamesReducer,
     game: gameReducer,
     order: orderReducer,
-    squads: squadReducer,
+    userSquads: userSquadsReducer,
+    allSquads: allSquadsReducer,
     search: searchReducer,
     userProfile: userReducer,
 });

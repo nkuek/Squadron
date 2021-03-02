@@ -215,6 +215,8 @@
     padding: 10px;
     box-sizing: border-box;
     margin: 10px 0px;
+    display: flex;
+    justify-content: space-between;
 }
 
 .allSquadsCategory:hover {
@@ -240,8 +242,10 @@
     border-right: 5px solid teal
 }
 
-
-
+.activeCategory i {
+    transition: 1s all;
+    rotate: 90;
+}
 
 @media only screen and (max-width: 700px) {
 
@@ -386,7 +390,6 @@
     /* color: teal; */
     border-right: 5px solid teal
 }
-
 
 .allSquadsListContainer {
     background-color:#1c1e21;

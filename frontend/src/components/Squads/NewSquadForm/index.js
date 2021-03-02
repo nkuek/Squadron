@@ -7,7 +7,7 @@ import AspectRatio from 'react-aspect-ratio';
 
 import './newsquad.css';
 import LoginForm from '../../LoginForm';
-import { createNewSquad } from '../../../store/squads';
+import { createNewSquad } from '../../../store/userSquads';
 
 const NewSquadForm = () => {
     const [squadName, setSquadName] = useState('');

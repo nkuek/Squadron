@@ -1,12 +1,11 @@
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
-import { findSquad } from '../../../store/squads';
+import { findSquad } from '../../../store/userSquads';
 
 const SquadPage = () => {
     const dispatch = useDispatch();
     const { squadId } = useParams();
-    console.log(squadId);
 
     const [isLoaded, setIsLoaded] = useState(false);
 

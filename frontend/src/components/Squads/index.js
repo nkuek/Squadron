@@ -1,7 +1,7 @@
 import { NavLink, Route, useHistory, Switch } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
-import { findAllSquads } from '../../store/squads';
+import { findAllSquads } from '../../store/allSquads';
 import { Helmet } from 'react-helmet-async';
 
 import ExploreSquads from './ExploreSquads';
@@ -19,11 +19,26 @@ const Squads = () => {
     const [showTrading, setShowTrading] = useState(false);
     const [showGaming, setShowGaming] = useState(false);
     const [showSocial, setShowSocial] = useState(false);
+    const [showExplore, setShowExplore] = useState(false);
 
     useEffect(async () => {
         await dispatch(findAllSquads());
         setIsLoaded(true);
     }, [dispatch]);
+
+    const allSquads = useSelector((state) => state.allSquads);
+    const userSquads = useSelector((state) => state.userProfile.squads);
+    console.log(allSquads);
+
+    const gamingSquads = userSquads.map(
+        (squad) => squad.primaryType === 'Gaming'
+    );
+    const tradingSquads = userSquads.map(
+        (squad) => squad.primaryType === 'Trading'
+    );
+    const socialSquads = userSquads.map(
+        (squad) => squad.primaryType === 'Social'
+    );
 
     window.addEventListener('click', (e) => {
         if (showTrading) {
@@ -82,8 +97,11 @@ const Squads = () => {
                                         Gaming
                                     </span>
                                     <i className="fas fa-gamepad allSquadsPanelIcon hidden gaming"></i>
+                                    <i className="fas fa-angle-right"></i>
                                 </div>
-                                {showGaming && <GamingSquads />}
+                                {showGaming && (
+                                    <GamingSquads gamingSquads={gamingSquads} />
+                                )}
                                 <div
                                     onClick={() => setShowSocial(true)}
                                     className={`allSquadsCategory social ${
@@ -95,8 +113,11 @@ const Squads = () => {
                                     </span>
 
                                     <i className="fas fa-user allSquadsPanelIcon hidden social"></i>
+                                    <i className="fas fa-angle-right"></i>
                                 </div>
-                                {showSocial && <SocialSquads />}
+                                {showSocial && (
+                                    <SocialSquads socialSquads={socialSquads} />
+                                )}
                                 <div
                                     onClick={() => setShowTrading(true)}
                                     className={`allSquadsCategory trading ${
@@ -107,11 +128,22 @@ const Squads = () => {
                                         Trading
                                     </span>
                                     <i className="fas fa-store allSquadsPanelIcon hidden trading"></i>
+                                    <i className="fas fa-angle-right"></i>
                                 </div>
-                                {showTrading && <TradingSquads />}
+                                {showTrading && (
+                                    <TradingSquads
+                                        tradingSquads={tradingSquads}
+                                    />
+                                )}
                                 <hr className="allSquadsSeparator"></hr>
                                 <div className="allSquadsCategory squadCategoryLink explore">
-                                    <NavLink to="/squads/explore">
+                                    <NavLink
+                                        to="/squads/explore"
+                                        onClick={(e) => {
+                                            e.preventDefault();
+                                            setShowExplore(true);
+                                        }}
+                                    >
                                         <span className="allSquadsPanelLabel explore">
                                             Explore
                                         </span>
@@ -129,10 +161,8 @@ const Squads = () => {
                                 </div>
                             </div>
                         </div>
+                        <ExploreSquads allSquads={allSquads} />
                         <Switch>
-                            <Route exact path="/squads/explore">
-                                <ExploreSquads />
-                            </Route>
                             <Route exact path={`/squads/:squadId(\\d+)`}>
                                 <SquadPage />
                             </Route>

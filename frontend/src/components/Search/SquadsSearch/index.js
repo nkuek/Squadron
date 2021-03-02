@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom';
-import { findSquad } from '../../../store/squads';
+import { findSquad } from '../../../store/userSquads';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 

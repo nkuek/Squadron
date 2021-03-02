@@ -1,9 +1,9 @@
 import { useHistory, Link } from 'react-router-dom';
-import { findAllSquads } from '../../../store/squads';
+import { findAllSquads } from '../../../store/allSquads';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-const ExploreSquads = () => {
+const ExploreSquads = ({ allSquads }) => {
     const history = useHistory();
     const dispatch = useDispatch();
     const [isLoaded, setIsLoaded] = useState(false);
@@ -12,10 +12,6 @@ const ExploreSquads = () => {
         dispatch(findAllSquads());
         setIsLoaded(true);
     }, [dispatch]);
-
-    const allSquads = useSelector((state) => state.squads);
-
-    console.log(allSquads);
 
     const handleCaptainClick = (e) => {
         e.stopPropagation();
