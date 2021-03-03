@@ -4,6 +4,7 @@ import { renderToString } from 'react-dom/server';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
+
 import './index.css';
 import App from './App';
 import configureStore from './store';
