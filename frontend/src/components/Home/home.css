@@ -170,7 +170,7 @@
 }
 
 .squadronSplashContainer1 {
-    background: url('https://i.pinimg.com/originals/89/d9/7a/89d97a33afc97124a9f4a62d25ad58b4.jpg') no-repeat center center fixed
+    background: url('https://i.pinimg.com/originals/89/d9/7a/89d97a33afc97124a9f4a62d25ad58b4.jpg') no-repeat 50% 30% fixed
 }
 
 .squadronSplashContainer2 {
@@ -180,7 +180,7 @@
     margin-top: 75px;
     height: 300px;
     overflow: hidden;
-    width: 60%
+    width: 100%
 }
 
 .squadronSplashHeadingContainer {
@@ -234,6 +234,26 @@
     .homePageBannerWrapper {
         position: relative;
         width: 100%;
+    }
+
+    .squadronSplashContainer1 {
+        background: url('https://i.pinimg.com/originals/89/d9/7a/89d97a33afc97124a9f4a62d25ad58b4.jpg') no-repeat center 40% cover;
+
+        background-size: 1500px 1000px
+    }
+
+    .squadronSplashHeadingContainer {
+        font-size: 3em;
+    }
+
+    .squadronSplashHeading {
+        background-color: rgba(0, 0, 0, 0.4);
+        width: 100%;
+    }
+
+    .homePageContent{
+        width: 100%;
+        padding: 0;
     }
 
     .homePageWrapper {
