@@ -180,7 +180,7 @@
     margin-top: 75px;
     height: 300px;
     overflow: hidden;
-    width: 100%
+    width: 90%
 }
 
 .squadronSplashHeadingContainer {
@@ -237,7 +237,7 @@
     }
 
     .squadronSplashContainer1 {
-        background: url('https://i.pinimg.com/originals/89/d9/7a/89d97a33afc97124a9f4a62d25ad58b4.jpg') no-repeat center 40% cover;
+        background: url('https://i.pinimg.com/originals/89/d9/7a/89d97a33afc97124a9f4a62d25ad58b4.jpg') no-repeat center 40% fixed;
 
         background-size: 1500px 1000px
     }
