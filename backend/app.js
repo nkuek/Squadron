@@ -8,9 +8,21 @@ const cookieParser = require('cookie-parser');
 const { environment } = require('./config');
 const routes = require('./routes');
 
+const db = require('./db/models');
+
+const { ApolloServer } = require('apollo-server-express');
+const typeDefs = require('./server/src/schema');
+const resolvers = require('./server/src/resolvers');
+
+const server = new ApolloServer({
+    typeDefs,
+    resolvers,
+    context: { db },
+});
 const isProduction = environment === 'production';
 
 const app = express();
+server.applyMiddleware({ app });
 app.use(morgan('dev'));
 
 app.use(cookieParser());

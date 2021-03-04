@@ -47,7 +47,7 @@ const typeDefs = gql`
 
     type Query {
         "Grab a specific user if they exist in db"
-        user(id: Int!): User
+        user(id: ID!): User
 
         "Grab games to populate games page"
         getAllGames: [Game!]

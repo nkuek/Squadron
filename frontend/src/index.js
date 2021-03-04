@@ -4,6 +4,7 @@ import { renderToString } from 'react-dom/server';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
+import { gql, ApolloClient, InMemoryCache } from '@apollo/client';
 
 import './index.css';
 import App from './App';
@@ -12,6 +13,19 @@ import { csrfFetch, restoreCSRF } from './store/csrf';
 import * as sessionActions from './store/session';
 
 const store = configureStore();
+const client = new ApolloClient({
+    uri: 'https://localhost:5000',
+    cache: new InMemoryCache(),
+});
+
+client
+    .query({
+        query: gql`
+            query users(id:5) {username
+            }
+        `,
+    })
+    .then((result) => console.log(result));
 
 if (process.env.NODE_ENV !== 'production') {
     restoreCSRF();
