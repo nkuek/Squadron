@@ -3,7 +3,7 @@ const bcrypt = require('bcryptjs');
 const resolvers = {
     Query: {
         async user(root, { id }, { db }) {
-            return db.User.findById(id);
+            return await db.User.findById(id);
         },
 
         async getAllGames(root, args, { db }) {
@@ -20,12 +20,38 @@ const resolvers = {
     },
 
     Mutation: {
-        async createUser(root, {name, email, password}, {db}) {
-            return db.User.create({
-                name, email, password: bcrypt.hashSync(password)
-            })
+        async createUser(root, { username, email, password }, { db }) {
+            const user = await db.User.create({
+                username,
+                email,
+                password: bcrypt.hashSync(password),
+            });
+
+            return user;
         },
 
-        async createSquad(root, {userId, squadName, description, primaryType, secondaryType, games})
-    }
+        async createSquad(
+            root,
+            {
+                userId,
+                squadName,
+                description,
+                primaryType,
+                secondaryType,
+                games,
+            },
+            { db }
+        ) {
+            return db.Squad.create({
+                userId,
+                squadName,
+                description,
+                primaryType,
+                secondaryType,
+                games,
+            });
+        },
+    },
 };
+
+module.export = resolvers;

@@ -1,4 +1,4 @@
-const { gql, IResolvers } = require('apollo-server');
+const { gql } = require('apollo-server-express');
 
 const typeDefs = gql`
     type User {
@@ -16,8 +16,8 @@ const typeDefs = gql`
         released: String!
         rating: Int!
         metacritic: Int
-        genres: [String!]
-        platforms: [String!]
+        genres: [String!]!
+        platforms: [String!]!
         image: String
     }
 
@@ -60,7 +60,7 @@ const typeDefs = gql`
     }
 
     type Mutation {
-        createUser(name: String!, email: String!, password: String!): User!
+        createUser(username: String!, email: String!, password: String!): User!
 
         createSquad(
             userId: Int!
@@ -68,7 +68,6 @@ const typeDefs = gql`
             description: String!
             primaryType: String!
             secondaryType: String
-            games: [Game!]
         ): Squad!
 
         createEvent(
