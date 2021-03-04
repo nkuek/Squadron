@@ -64,6 +64,8 @@ module.exports = (sequelize, DataTypes) => {
             foreignKey: 'squadId',
             otherKey: 'gameId',
         });
+
+        Squad.hasMany(models.Event, { foreignKey: 'squadId' });
     };
     return Squad;
 };
