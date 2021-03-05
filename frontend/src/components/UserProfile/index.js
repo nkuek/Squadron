@@ -27,12 +27,9 @@ const UserProfile = () => {
             const user = await dispatch(findUser(userProfileName));
             if (!user) return <PageNotFound />;
             setIsLoaded(true);
-            history.push(`/users/${user.username}/squads`);
+            history.push();
         }
     }, [dispatch]);
-
-        history.push(`/users/${userProfile.username}/squads`);
-    }, [dispatch, userProfileName]);
 
     return !userProfile ? (
         <PageNotFound />
@@ -40,6 +37,7 @@ const UserProfile = () => {
         <h1 className="loading">Loading...</h1>
     ) : (
         <>
+            <Redirect to={`/users/${userProfile.username}/squads`} />
             <Helmet>
                 <title>{userProfile.username}'s Profile - Squadron</title>
                 <meta content="description" content="profile page"></meta>

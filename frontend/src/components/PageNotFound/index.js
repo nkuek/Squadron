@@ -54,7 +54,7 @@ const PageNotFound = () => {
                     )}
                 </div>
                 <div className="homeLinkContainer">
-                    <button onClick={() => history.goBack()}>Go back</button>
+                    <button onClick={() => history.go(-2)}>Go back</button>
                 </div>
             </div>
         </div>
