@@ -53,11 +53,10 @@ module.exports = (sequelize, DataTypes) => {
             otherKey: 'UserId',
         });
 
-        // Squad.belongsTo(models.User, {
-
-        //     as: 'captain',
-        //     foreignKey: 'captainId',
-        // });
+        Squad.belongsTo(models.User, {
+            as: 'captain',
+            foreignKey: 'captainId',
+        });
 
         Squad.belongsToMany(models.Game, {
             as: 'squadgames',

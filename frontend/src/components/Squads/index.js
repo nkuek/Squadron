@@ -28,13 +28,13 @@ const Squads = () => {
     const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
 
     useEffect(async () => {
-        await dispatch(findAllSquads());
+        const squads = await dispatch(findAllSquads());
+        console.log(squads);
         setIsLoaded(true);
     }, [dispatch]);
 
     useEffect(async () => {
         const user = await dispatch(findUser(loggedInUser.username));
-        console.log(user);
     }, [dispatch]);
 
     const gamingSquads = !userSquads
