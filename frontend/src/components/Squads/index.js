@@ -29,7 +29,6 @@ const Squads = () => {
 
     useEffect(async () => {
         const squads = await dispatch(findAllSquads());
-        console.log(squads);
         setIsLoaded(true);
     }, [dispatch]);
 
