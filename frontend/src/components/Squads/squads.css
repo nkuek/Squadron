@@ -498,12 +498,13 @@
 .seeAllSquadArrow2,
 .seeAllSquadArrow3 {
     position: absolute;
-    font-size: 3em;
+    font-size: 1.5em;
     background-color: rgb(88, 88, 88);
     border-radius: 100%;
     width: 50px;
     height: 50px;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     cursor: pointer;
@@ -519,16 +520,16 @@
 }
 
 .seeAllSquadArrow1 {
-    right: 320px;
+    right: 305px;
     top: 320px;
 }
 
 .seeAllSquadArrow2 {
     top: 890px;
-    right: 320px;
+    right: 305px;
 }
 
 .seeAllSquadArrow3 {
     bottom: 200px;
-    right: 320px;
+    right: 305px;
 }

@@ -71,8 +71,8 @@ const ExploreSquads = ({ allSquads }) => {
                                 </div>
                             ))}
                         </div>
-                        <div className="seeAllSquadArrow2">
-                            <i className="fas fa-angle-right"></i>
+                        <div className="seeAllSquadArrow1">
+                            <i className="fas fa-arrow-right"></i>
                         </div>
                     </div>
                     <div className="exploreSquadsSquadContainer">
@@ -114,8 +114,8 @@ const ExploreSquads = ({ allSquads }) => {
                                 </div>
                             ))}
                         </div>
-                        <div className="seeAllSquadArrow1">
-                            <i className="fas fa-angle-right"></i>
+                        <div className="seeAllSquadArrow2">
+                            <i className="fas fa-arrow-right"></i>
                         </div>
                     </div>
                     <div className="exploreSquadsSquadContainer">
@@ -158,7 +158,7 @@ const ExploreSquads = ({ allSquads }) => {
                             ))}
                         </div>
                         <div className="seeAllSquadArrow3">
-                            <i className="fas fa-angle-right"></i>
+                            <i className="fas fa-arrow-right"></i>
                         </div>
                     </div>
                 </div>
