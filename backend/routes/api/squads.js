@@ -73,6 +73,7 @@ router.get(
             include: [{ model: db.User, as: 'captain' }],
             where: { primaryType: 'Social' },
         });
+
         return res.json({ gamingSquads, tradingSquads, socialSquads });
     })
 );
