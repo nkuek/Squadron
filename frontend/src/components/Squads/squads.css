@@ -66,7 +66,9 @@
 
 .squadCardImage {
     width: 350px;
-    height: 200px
+    height: 200px;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
 }
 
 .squadContentWrapper {
@@ -255,7 +257,6 @@
 
 .exploreSquadsBodyContainer {
     display: flex;
-    overflow-x: scroll
 }
 
 @media only screen and (max-width: 700px) {
@@ -445,21 +446,31 @@
     box-sizing: border-box;
 }
 
-
 .allSquadsList {
-    width: 80%;
+    width: fit-content;
+    height: 350px;
     margin: 15px;
     background-color: rgb(58, 58, 58);
     box-sizing: border-box;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
-.allSquads
+.squadCardImageContainer {
+    height: 200px;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+}
+
+.squadDescriptionContainer {
+    height: 150px;
+    box-sizing: border-box;
+    padding: 15px;
+}
 
 .squadListSquadCaptain {
     cursor: pointer;
-    font-size: .8em;
-
+    font-size: 1em;
+    width: fit-content;
 }
 
 .squadListSquadCaptain:hover {
@@ -468,8 +479,9 @@
 
 .squadListSquadLink {
     cursor: pointer;
-    padding: 10px;
-    border-radius: 5px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    height: 100%;
 }
 
 .squadListSquadLink:hover {
@@ -477,5 +489,6 @@
 }
 
 .squadListSquadName {
-    font-size: 1.5em;
+    font-size: 1.7em;
+    font-weight: bold;
 }
