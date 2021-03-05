@@ -18,7 +18,7 @@ const UserSquads = () => {
     let loggedInUser = useSelector((state) => state.session.user);
     let userProfile = useSelector((state) => state.userProfile);
 
-    let username = userProfile.user.username;
+    let username = userProfile.username;
 
     if (userProfileName === loggedInUser.username) username = 'You';
 
@@ -27,7 +27,8 @@ const UserSquads = () => {
     ) : (
         <>
             <div className="userSquadListWrapper">
-                {userProfile.squads.length === 0 ? (
+                {userProfile.captain.concat(userProfile.squadmates).length ===
+                0 ? (
                     <div className="noSquadsContainer">
                         <div className="noSquadsHeader">
                             <h1 className="noSquads">
@@ -39,62 +40,64 @@ const UserSquads = () => {
                     </div>
                 ) : (
                     <ul className="userSquadListContainer">
-                        {userProfile.squads.map((squad, idx) => (
-                            <li key={idx} className="squadCard">
-                                <div
-                                    style={{
-                                        borderColor:
-                                            username === 'You' && '#1b67ff',
-                                    }}
-                                    className="squadCardsContainer"
-                                >
-                                    <Link
-                                        to={`/squads/${squad.squadName
-                                            .split(' ')
-                                            .join('')}`}
+                        {userProfile.captain
+                            .concat(userProfile.squadmates)
+                            .map((squad, idx) => (
+                                <li key={idx} className="squadCard">
+                                    <div
+                                        style={{
+                                            borderColor:
+                                                username === 'You' && '#1b67ff',
+                                        }}
+                                        className="squadCardsContainer"
                                     >
-                                        <div
-                                            className="squadInformationContainer"
-                                            style={{
-                                                pointerEvents: 'none',
-                                            }}
+                                        <Link
+                                            to={`/squads/${squad.squadName
+                                                .split(' ')
+                                                .join('')}`}
                                         >
-                                            <div className="userSquadNameContainer">
-                                                <p className="userSquadName">
-                                                    {squad.squadName}
-                                                </p>
-                                            </div>
-                                            <div className="userSquadInformationContainer">
-                                                <p className="userSquadPrimaryType">
-                                                    {`Primary type: ${squad.primaryType}`}
-                                                </p>
-                                                {squad.secondaryType && (
-                                                    <p className="userSquadSecondaryType">
-                                                        {`Secondary type: ${squad.secondaryType}`}
+                                            <div
+                                                className="squadInformationContainer"
+                                                style={{
+                                                    pointerEvents: 'none',
+                                                }}
+                                            >
+                                                <div className="userSquadNameContainer">
+                                                    <p className="userSquadName">
+                                                        {squad.squadName}
                                                     </p>
-                                                )}
-                                                {!(username === 'You') && (
-                                                    <div className="userSquadCaptainLink">
-                                                        <p
-                                                            // style={{
-                                                            //     cursor:
-                                                            //         !username ===
-                                                            //         'You'
-                                                            //             ? 'pointer'
-                                                            //             : 'none',
-                                                            // }}
-                                                            className="userSquadCaptain"
-                                                        >
-                                                            {`Captain: ${username}`}
+                                                </div>
+                                                <div className="userSquadInformationContainer">
+                                                    <p className="userSquadPrimaryType">
+                                                        {`Primary type: ${squad.primaryType}`}
+                                                    </p>
+                                                    {squad.secondaryType && (
+                                                        <p className="userSquadSecondaryType">
+                                                            {`Secondary type: ${squad.secondaryType}`}
                                                         </p>
-                                                    </div>
-                                                )}
+                                                    )}
+                                                    {!(username === 'You') && (
+                                                        <div className="userSquadCaptainLink">
+                                                            <p
+                                                                // style={{
+                                                                //     cursor:
+                                                                //         !username ===
+                                                                //         'You'
+                                                                //             ? 'pointer'
+                                                                //             : 'none',
+                                                                // }}
+                                                                className="userSquadCaptain"
+                                                            >
+                                                                {`Captain: ${username}`}
+                                                            </p>
+                                                        </div>
+                                                    )}
+                                                </div>
                                             </div>
-                                        </div>
-                                    </Link>
-                                </div>
-                            </li>
-                        ))}
+                                        </Link>
+                                    </div>
+                                </li>
+                            ))}
                     </ul>
                 )}
             </div>

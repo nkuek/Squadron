@@ -3,19 +3,18 @@ module.exports = (sequelize, DataTypes) => {
     const Squadmate = sequelize.define(
         'Squadmate',
         {
-            userId: DataTypes.INTEGER,
-            squadId: DataTypes.INTEGER,
+            UserId: DataTypes.INTEGER,
+            SquadId: DataTypes.INTEGER,
         },
         {}
     );
     Squadmate.associate = function (models) {
         Squadmate.belongsTo(models.User, {
-            as: 'users',
-            foreignKey: 'userId',
+            as: 'squadmates',
+            foreignKey: 'UserId',
         });
         Squadmate.belongsTo(models.Squad, {
-            as: 'squads',
-            foreignKey: 'squadId',
+            foreignKey: 'SquadId',
         });
     };
     return Squadmate;

@@ -47,22 +47,21 @@ module.exports = (sequelize, DataTypes) => {
     );
     Squad.associate = function (models) {
         Squad.belongsToMany(models.User, {
-            as: 'users',
+            as: 'squadmates',
             through: 'Squadmate',
-            foreignKey: 'squadId',
-            otherKey: 'userId',
+            foreignKey: 'SquadId',
+            otherKey: 'UserId',
         });
 
-        Squad.belongsTo(models.User, {
-            as: 'captain',
-            foreignKey: 'captainId',
-        });
+        // Squad.belongsTo(models.User, {
+
+        //     as: 'captain',
+        //     foreignKey: 'captainId',
+        // });
 
         Squad.belongsToMany(models.Game, {
             as: 'squadgames',
-            through: 'SquadGames',
-            foreignKey: 'squadId',
-            otherKey: 'gameId',
+            through: 'SquadGame',
         });
     };
     return Squad;
