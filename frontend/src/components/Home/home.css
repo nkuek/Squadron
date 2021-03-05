@@ -39,7 +39,7 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
-    height: 2400px;
+    height: 2500px;
 }
 
 .homePageContent {
@@ -50,7 +50,7 @@
     padding: 30px;
     box-sizing: border-box;
     height: 100%;
-    width: 90%;
+    width: 90vw;
     background-color: rgb(28, 30, 33);
     border-radius: 10px;
 }
@@ -236,6 +236,13 @@
         width: 100%;
     }
 
+    .homePageContent {
+        width: 100%;
+        padding: 0px;
+        margin: 0px;
+        border-radius: 0px;
+    }
+
     .homePageWrapper {
         display: flex;
         flex-direction: column;
@@ -245,9 +252,12 @@
     .homePageSearchForm {
         display: flex;
         flex-direction: column;
-        width: 80%;
+        width: 100%;
+        padding: 0px;
         align-items: center;
         box-sizing: border-box;
+        justify-content: center;
+        padding: 15px;
     }
 
     .homePageSearchContainer {
@@ -265,6 +275,7 @@
     .homePageSearchSubmit {
         width: 100%;
         box-sizing: border-box;
+        margin-top: 15px;
     }
 
     .homePageSearchInput {
@@ -282,9 +293,8 @@
         width: 100%;
         padding-left: 30px;
         padding-top: 50px;
+        padding-bottom: 30px;
         right: -30px;
-        margin-bottom: 20px;
-        border-radius: 10px;
         background-color: rgba(0, 0, 0, 0.4);
     }
     .homePageHeader {
@@ -307,8 +317,10 @@
     }
 
     .joinSquadronContainer {
-        margin: 10px;
-        padding-bottom: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        box-sizing: border-box;
         /* width: fit-content; */
     }
 
@@ -317,7 +329,7 @@
         background-color: #1b67ff;
         border-radius: 5px;
         padding: 10px;
-        width: 100%;
+        width: fit-content;
     }
 
     .joinSquadron:visited {
