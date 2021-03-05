@@ -34,7 +34,9 @@ const Squads = () => {
     }, [dispatch]);
 
     useEffect(async () => {
-        const user = await dispatch(findUser(loggedInUser.username));
+        if (loggedInUser) {
+            await dispatch(findUser(loggedInUser.username));
+        }
     }, [dispatch]);
 
     const gamingSquads = !userSquads

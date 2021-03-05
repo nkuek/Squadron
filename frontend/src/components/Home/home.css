@@ -210,14 +210,17 @@
 .splashRegisterButton {
     padding: 20px 40px;
     border: none;
+    display: inline-block;
     border-radius: 10px;
     background-color: #1b67ff;
     color:white;
     cursor: pointer;
     transition: .2s all;
     box-sizing: border-box;
+    text-align: center;
     width: 200px;
-    height: 60px;
+    height: 70px;
+    font-size: 1.5em;
 
 }
 
