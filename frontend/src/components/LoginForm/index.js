@@ -42,8 +42,8 @@ const LoginForm = () => {
                 password: 'password',
             })
         );
-        localStorage.setItem('loggedInUser', JSON.stringify(user));
-        return user;
+        const loggedInUser = await dispatch(findUser(user.username));
+        localStorage.setItem('loggedInUser', JSON.stringify(loggedInUser));
     };
 
     return (

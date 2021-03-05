@@ -22,9 +22,6 @@ const UserProfile = () => {
     const [isLoaded, setIsLoaded] = useState(false);
     let userProfile = useSelector((state) => state.userProfile);
 
-    if (userProfile.username === userProfileName)
-        userProfile = JSON.parse(localStorage.getItem('loggedInUser'));
-
     useEffect(async () => {
         if (userProfileName !== userProfile.username) {
             const user = await dispatch(findUser(userProfileName));
@@ -36,14 +33,16 @@ const UserProfile = () => {
     return !userProfile ? (
         <PageNotFound />
     ) : !isLoaded ? (
-        <h1 className="loading">Loading...</h1>
+        <>
+            <h1 className="loading">Loading...</h1>
+            <Redirect to={`/users/${userProfile.username}/squads`} />
+        </>
     ) : (
         <>
-            <Redirect to={`/users/${userProfile.username}/squads`} />
-            <Helmet>
+            {/* <Helmet>
                 <title>{userProfile.username}'s Profile - Squadron</title>
                 <meta content="description" content="profile page"></meta>
-            </Helmet>
+            </Helmet> */}
             <div className="userProfileWrapper">
                 <div className="userProfileOuterContainer">
                     <div className="userProfileInnerContainer">

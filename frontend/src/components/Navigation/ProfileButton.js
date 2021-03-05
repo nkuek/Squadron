@@ -30,9 +30,9 @@ const ProfileButton = ({ user }) => {
 
     const navigateToProfile = (e) => {
         e.preventDefault();
-
-        history.push(`/users/${user.username}`);
+        history.push(`/users/${user.username}/`);
     };
+
     return (
         <>
             <i
@@ -44,7 +44,7 @@ const ProfileButton = ({ user }) => {
                     <li>
                         <NavLink
                             className="navBarLinks"
-                            to={`/users/${user.username}/`}
+                            to={`/users/${user.username}/squads`}
                             // onClick={navigateToProfile}
                         >
                             {user.username}

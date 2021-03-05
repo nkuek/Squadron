@@ -10,7 +10,6 @@ const UserSquads = () => {
     const [isLoaded, setIsLoaded] = useState(false);
 
     useEffect(async () => {
-        console.log(userProfileName);
         await dispatch(findUser(userProfileName));
         setIsLoaded(true);
     }, [dispatch]);
