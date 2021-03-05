@@ -20,16 +20,16 @@ const UserProfile = () => {
     const history = useHistory();
     // let userProfile = useSelector((state) => state.userProfile);
     const [isLoaded, setIsLoaded] = useState(false);
-    const [userProfile, setUserProfile] = useState('');
+    const userProfile = useSelector((state) => state.userProfile);
 
     useEffect(async () => {
         if (userProfileName !== userProfile.username) {
             const user = await dispatch(findUser(userProfileName));
+            if (!user) return <PageNotFound />;
             setIsLoaded(true);
-            setUserProfile(user.user);
-            history.push(`/users/${user.user.username}/squads`);
+            history.push(`/users/${user.username}/squads`);
         }
-    }, [dispatch, userProfileName]);
+    }, [dispatch]);
 
     // useEffect(async () => {
     //     const user = await dispatch(findUser(userProfileName));
@@ -37,9 +37,9 @@ const UserProfile = () => {
     //     if (userProfileName !== userProfile.username) setIsNewUser(true);
     // }, [isNewUser]);
 
-    return userProfile === 'No user found' ? (
+    return !userProfile ? (
         <PageNotFound />
-    ) : !isLoaded || !userProfile ? (
+    ) : !isLoaded ? (
         <h1 className="loading">Loading...</h1>
     ) : (
         <>

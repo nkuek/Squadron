@@ -8,7 +8,7 @@ const UserAbout = () => {
     const [isLoaded, setIsLoaded] = useState(false);
     const { userProfileName } = useParams();
 
-    const { user } = useSelector((state) => state.userProfile);
+    const user = useSelector((state) => state.userProfile);
     const loggedInUsername = useSelector(
         (state) => state.session.user.username
     );
@@ -16,23 +16,27 @@ const UserAbout = () => {
     useEffect(async () => {
         await dispatch(findUser(userProfileName));
         setIsLoaded(true);
-    }, []);
+    }, [dispatch]);
 
     const loggedInUserProfile = userProfileName === loggedInUsername;
 
     return (
-        <div className="userAboutWrapper">
-            <div className="userAboutContainer">
-                {loggedInUserProfile && (
-                    <div className="userAboutProfileEditButtonContainer">
-                        <div className="userAboutProfileEditButton">Edit</div>
+        isLoaded && (
+            <div className="userAboutWrapper">
+                <div className="userAboutContainer">
+                    {loggedInUserProfile && (
+                        <div className="userAboutProfileEditButtonContainer">
+                            <div className="userAboutProfileEditButton">
+                                Edit
+                            </div>
+                        </div>
+                    )}
+                    <div className="userAboutBodyContainer">
+                        <div className="userAboutBody">{user.description}</div>
                     </div>
-                )}
-                <div className="userAboutBodyContainer">
-                    <div className="userAboutBody">{user.description}</div>
                 </div>
             </div>
-        </div>
+        )
     );
 };
 
