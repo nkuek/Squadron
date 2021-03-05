@@ -5,6 +5,10 @@
 ;
 }
 
+.signup:visited {
+    color:white;
+}
+
 .eventItemWrapper {
     display: flex;
     flex-direction: column;
@@ -74,7 +78,8 @@
     margin-right: 20px;
     color: white;
     font-family: 'Cabin';
-    border: 1px solid rgb(87, 87, 87)
+    border: 1px solid rgb(87, 87, 87);
+    font-size: 1em;
 }
 
 .homePageSearchInput::placeholder {
@@ -138,6 +143,8 @@
     cursor: pointer;
     color: white;
     border: none;
+    width: 150px;
+    font-size: 1em;
 }
 
 .homePageSearchSubmit:hover {
@@ -239,6 +246,10 @@
         width: 100%;
     }
 
+    .signup:visited {
+        color: white;
+    }
+
     .homePageContent {
         width: 100%;
         padding: 0px;
@@ -274,16 +285,14 @@
         box-sizing: border-box;
         padding: 23px;
         padding-left: 50px;
+        width: 100%;
+        font-size: 1em;
     }
 
     .homePageSearchSubmit {
         width: 100%;
         box-sizing: border-box;
         margin-top: 15px;
-    }
-
-    .homePageSearchInput {
-        width: 100%;
     }
 
     .homePageWrapper {
