@@ -1,4 +1,4 @@
-import { NavLink, useHistory } from 'react-router-dom';
+import { NavLink, useHistory, Redirect } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import * as sessionActions from '../../store/session';
@@ -28,6 +28,11 @@ const ProfileButton = ({ user }) => {
         history.push('/');
     };
 
+    const navigateToProfile = (e) => {
+        e.preventDefault();
+
+        history.push(`/users/${user.username}`);
+    };
     return (
         <>
             <i
@@ -40,6 +45,7 @@ const ProfileButton = ({ user }) => {
                         <NavLink
                             className="navBarLinks"
                             to={`/users/${user.username}/`}
+                            // onClick={navigateToProfile}
                         >
                             {user.username}
                         </NavLink>

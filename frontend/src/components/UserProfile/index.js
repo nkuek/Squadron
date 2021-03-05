@@ -20,14 +20,16 @@ const UserProfile = () => {
     const history = useHistory();
     // let userProfile = useSelector((state) => state.userProfile);
     const [isLoaded, setIsLoaded] = useState(false);
-    const userProfile = useSelector((state) => state.userProfile);
+    let userProfile = useSelector((state) => state.userProfile);
+
+    if (userProfile.username === userProfileName)
+        userProfile = JSON.parse(localStorage.getItem('loggedInUser'));
 
     useEffect(async () => {
         if (userProfileName !== userProfile.username) {
             const user = await dispatch(findUser(userProfileName));
             if (!user) return <PageNotFound />;
             setIsLoaded(true);
-            history.push();
         }
     }, [dispatch]);
 

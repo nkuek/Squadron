@@ -6,6 +6,7 @@ import './navigation.css';
 import ProfileButton from './ProfileButton.js';
 import { getSearchResults } from '../../store/search';
 import { findAllSquads } from '../../store/allSquads';
+import { findUser } from '../../store/user';
 
 const Navigation = () => {
     const dispatch = useDispatch();
@@ -37,7 +38,6 @@ const Navigation = () => {
 
     useEffect(() => {
         if (!showSearch) return;
-        console.log(showSearch);
         setShowSearch(false);
 
         const closeSearch = () => {

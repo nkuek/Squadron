@@ -72,6 +72,10 @@ const Squads = () => {
         return window.removeEventListener('click', e);
     });
 
+    const rotateArrow = (e) => {
+        e.target.children[2].classList.add('rotate');
+    };
+
     return (
         isLoaded && (
             <>
@@ -96,7 +100,10 @@ const Squads = () => {
                             <hr className="allSquadsSeparator"></hr>
                             <div className="allSquadsCategoryContainer">
                                 <div
-                                    onClick={() => setShowGaming(true)}
+                                    onClick={(e) => {
+                                        setShowGaming(true);
+                                        rotateArrow(e);
+                                    }}
                                     className={`allSquadsCategory gaming ${
                                         showGaming ? 'activeCategory' : null
                                     }`}
