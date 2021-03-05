@@ -448,7 +448,7 @@
 
 .allSquadsList {
     width: fit-content;
-    height: 350px;
+    height: 400px;
     margin: 15px;
     background-color: rgb(58, 58, 58);
     box-sizing: border-box;
@@ -459,6 +459,7 @@
     height: 200px;
     border-top-right-radius: 5px;
     border-top-left-radius: 5px;
+
 }
 
 .squadDescriptionContainer {
@@ -491,4 +492,43 @@
 .squadListSquadName {
     font-size: 1.7em;
     font-weight: bold;
+}
+
+.seeAllSquadArrow1,
+.seeAllSquadArrow2,
+.seeAllSquadArrow3 {
+    position: absolute;
+    font-size: 3em;
+    background-color: rgb(88, 88, 88);
+    border-radius: 100%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.seeAllSquadArrow1:hover,
+.seeAllSquadArrow2:hover,
+.seeAllSquadArrow3:hover {
+    background-color: rgb(116, 116, 116);
+    width: 52px;
+    height: 52px;
+
+}
+
+.seeAllSquadArrow1 {
+    right: 320px;
+    top: 320px;
+}
+
+.seeAllSquadArrow2 {
+    top: 890px;
+    right: 320px;
+}
+
+.seeAllSquadArrow3 {
+    bottom: 200px;
+    right: 320px;
 }
