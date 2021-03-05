@@ -2,6 +2,7 @@ import { NavLink, Route, useHistory, Switch } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { findAllSquads } from '../../store/allSquads';
+import { findUser } from '../../store/user';
 import { Helmet } from 'react-helmet-async';
 
 import ExploreSquads from './ExploreSquads';
@@ -11,6 +12,7 @@ import SocialSquads from './SocialSquads';
 import TradingSquads from './TradingSquads';
 import GamingSquads from './GamingSquads';
 import SquadPage from './SquadPage';
+import LoginForm from '../LoginForm';
 
 const Squads = () => {
     const dispatch = useDispatch();
@@ -21,24 +23,29 @@ const Squads = () => {
     const [showSocial, setShowSocial] = useState(false);
     const [showExplore, setShowExplore] = useState(false);
 
+    const allSquads = useSelector((state) => state.allSquads);
+    const userSquads = null;
+    const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
+
     useEffect(async () => {
         await dispatch(findAllSquads());
         setIsLoaded(true);
     }, [dispatch]);
 
-    const allSquads = useSelector((state) => state.allSquads);
-    const userSquads = useSelector((state) => state.userProfile.squads);
-    console.log(allSquads);
+    useEffect(async () => {
+        const user = await dispatch(findUser(loggedInUser.username));
+        console.log(user);
+    }, [dispatch]);
 
-    const gamingSquads = userSquads.map(
-        (squad) => squad.primaryType === 'Gaming'
-    );
-    const tradingSquads = userSquads.map(
-        (squad) => squad.primaryType === 'Trading'
-    );
-    const socialSquads = userSquads.map(
-        (squad) => squad.primaryType === 'Social'
-    );
+    const gamingSquads = !userSquads
+        ? null
+        : userSquads.map((squad) => squad.primaryType === 'Gaming');
+    const tradingSquads = !userSquads
+        ? null
+        : userSquads.map((squad) => squad.primaryType === 'Trading');
+    const socialSquads = !userSquads
+        ? null
+        : userSquads.map((squad) => squad.primaryType === 'Social');
 
     window.addEventListener('click', (e) => {
         if (showTrading) {

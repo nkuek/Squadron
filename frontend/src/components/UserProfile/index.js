@@ -20,22 +20,17 @@ const UserProfile = () => {
     const history = useHistory();
     // let userProfile = useSelector((state) => state.userProfile);
     const [isLoaded, setIsLoaded] = useState(false);
-    const [userProfile, setUserProfile] = useState('');
+    let userProfile = JSON.parse(localStorage.getItem('loggedInUser'));
 
     useEffect(async () => {
         if (userProfileName !== userProfile.username) {
             const user = await dispatch(findUser(userProfileName));
-            setIsLoaded(true);
-            setUserProfile(user.user);
-            history.push(`/users/${user.user.username}/squads`);
+            userProfile = user;
         }
-    }, [dispatch, userProfileName]);
+        setIsLoaded(true);
 
-    // useEffect(async () => {
-    //     const user = await dispatch(findUser(userProfileName));
-    //     setUserProfile(user.user);
-    //     if (userProfileName !== userProfile.username) setIsNewUser(true);
-    // }, [isNewUser]);
+        history.push(`/users/${userProfile.username}/squads`);
+    }, [dispatch, userProfileName]);
 
     return userProfile === 'No user found' ? (
         <PageNotFound />
@@ -98,6 +93,7 @@ const UserProfile = () => {
             </div>
         </>
     );
+    // );
 };
 
 export default UserProfile;

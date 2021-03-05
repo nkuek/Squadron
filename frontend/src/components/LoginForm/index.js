@@ -19,7 +19,8 @@ const LoginForm = () => {
         e.preventDefault();
         try {
             await dispatch(sessionActions.loginUser({ credential, password }));
-            await dispatch(findUser(credential));
+            const user = await dispatch(findUser(credential));
+            localStorage.setItem('loggedInUser', JSON.stringify(user));
         } catch (err) {
             console.log(err);
         }
@@ -35,12 +36,14 @@ const LoginForm = () => {
 
     const demoUserLogin = async (e) => {
         e.preventDefault();
-        return dispatch(
+        const user = await dispatch(
             sessionActions.loginUser({
                 credential: 'Demo-lition',
                 password: 'password',
             })
         );
+        localStorage.setItem('loggedInUser', JSON.stringify(user));
+        return user;
     };
 
     return (

@@ -88,14 +88,13 @@ router.put(
                 include: [
                     {
                         model: db.User,
-                        as: 'users',
-                        attributes: ['username', 'id'],
                     },
                 ],
                 where: { captainId: user.id },
             });
+            console.log(squads);
 
-            return res.json({ user, squads });
+            return res.json({ user });
         } catch (e) {
             return res.json('No user found');
         }

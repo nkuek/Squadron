@@ -24,6 +24,7 @@ const ProfileButton = ({ user }) => {
 
     const handleLogout = () => {
         dispatch(sessionActions.logoutUser());
+        localStorage.removeItem('loggedInUser');
         history.push('/');
     };
 

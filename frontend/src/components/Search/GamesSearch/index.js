@@ -20,7 +20,7 @@ const GamesSearch = () => {
 
     useEffect(async () => {
         const games = await dispatch(getSearchResults(searchQuery));
-        localStorage.setItem('games', games);
+        localStorage.setItem('games', JSON.stringify(games));
         setIsLoaded(true);
         console.log(games);
     }, [dispatch]);

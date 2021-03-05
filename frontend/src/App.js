@@ -24,8 +24,7 @@ function App() {
     const [isLoaded, setIsLoaded] = useState(false);
 
     useEffect(async () => {
-        const loggedInUser = await dispatch(sessionActions.restoreUser());
-        localStorage.setItem('loggedInUser', JSON.stringify(loggedInUser));
+        await dispatch(sessionActions.restoreUser());
         setIsLoaded(true);
     }, [dispatch]);
 
