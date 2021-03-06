@@ -32,11 +32,6 @@ const UserProfile = () => {
 
     return !userProfile ? (
         <PageNotFound />
-    ) : !isLoaded ? (
-        <>
-            <h1 className="loading">Loading...</h1>
-            <Redirect to={`/users/${userProfile.username}/squads`} />
-        </>
     ) : (
         <>
             {/* <Helmet>
