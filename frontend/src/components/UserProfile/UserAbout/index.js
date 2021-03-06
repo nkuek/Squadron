@@ -38,6 +38,9 @@ const UserAbout = () => {
     return (
         isLoaded && (
             <div className="userAboutWrapper">
+                <div className="userAboutHeaderContainer">
+                    <div className="userAboutHeader">Description</div>
+                </div>
                 <div className="userAboutContainer">
                     {loggedInUserProfile && (
                         <div
