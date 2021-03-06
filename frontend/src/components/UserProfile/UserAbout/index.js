@@ -9,6 +9,8 @@ const UserAbout = () => {
     const dispatch = useDispatch();
     const [isLoaded, setIsLoaded] = useState(false);
     const [showEditAbout, setShowEditAbout] = useState(false);
+    const [showDescription, setShowDescription] = useState(true);
+    const [showEditButton, setShowEditButton] = useState(true);
     const { userProfileName } = useParams();
 
     const user = useSelector((state) => state.userProfile);
@@ -16,20 +18,26 @@ const UserAbout = () => {
         (state) => state.session.user.username
     );
 
-    const [userAbout, setUserAbout] = useState(user.description);
+    const [userAbout, setUserAbout] = useState('');
+    console.log(userAbout);
 
     const handleEdit = () => {
+        setShowEditButton(false);
         setShowEditAbout(true);
+        setShowDescription(false);
     };
 
     const handleAboutFormSubmit = async (e) => {
         e.preventDefault();
         await dispatch(editUserAbout({ userAbout, userId: user.id }));
         setShowEditAbout(false);
+        setShowEditButton(true);
+        setShowDescription(true);
     };
 
     useEffect(async () => {
         dispatch(findUser(userProfileName));
+        setUserAbout(user.description);
         setIsLoaded(true);
     }, [dispatch]);
 
@@ -41,30 +49,28 @@ const UserAbout = () => {
                 <div className="userAboutHeaderContainer">
                     <div className="userAboutHeader">Description</div>
                 </div>
+                {loggedInUserProfile && showEditButton && (
+                    <div
+                        onClick={handleEdit}
+                        className="userAboutProfileEditButtonContainer"
+                    >
+                        <div className="userAboutProfileEditButton">Edit</div>
+                    </div>
+                )}
                 <div className="userAboutContainer">
-                    {loggedInUserProfile && (
-                        <div
-                            onClick={handleEdit}
-                            className="userAboutProfileEditButtonContainer"
-                        >
-                            <div className="userAboutProfileEditButton">
-                                Edit
-                            </div>
-                        </div>
-                    )}
                     {showEditAbout && (
                         <div className="editAboutFormContainer">
-                            <div className="editAboutForm">
+                            <form className="editAboutForm">
                                 <div className="editAboutFormInputContainer">
-                                    <input
+                                    <textarea
                                         className="editAboutFormInput"
                                         value={userAbout}
                                         onChange={(e) =>
                                             setUserAbout(e.target.value)
                                         }
-                                    ></input>
+                                    ></textarea>
                                 </div>
-                                <form
+                                <div
                                     onClick={handleAboutFormSubmit}
                                     className="editAboutFormButtons"
                                 >
@@ -81,12 +87,16 @@ const UserAbout = () => {
                                     >
                                         Cancel
                                     </button>
-                                </form>
-                            </div>
+                                </div>
+                            </form>
                         </div>
                     )}
                     <div className="userAboutBodyContainer">
-                        <div className="userAboutBody">{user.description}</div>
+                        {showDescription && (
+                            <div className="userAboutBody">
+                                {user.description}
+                            </div>
+                        )}
                     </div>
                 </div>
             </div>
