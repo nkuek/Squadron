@@ -130,6 +130,7 @@
     justify-content: center;
     color: white;
     top: 100px;
+    margin: 25px;
     -moz-animation: header 1s 1.75s forwards;
     -webkit-animation: header 1s 1.75s forwards;
     -ms-animation: header 1s 1.75s forwards;
@@ -149,6 +150,7 @@
     color: white;
     position: relative;
     bottom: 10px;
+    text-align: center;
     -moz-animation: header 1s 1.75s forwards;
     -webkit-animation: header 1s 1.75s forwards;
     -ms-animation: header 1s 1.75s forwards;

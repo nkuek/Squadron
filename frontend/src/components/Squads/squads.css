@@ -305,6 +305,10 @@
         margin: 0px;
     }
 
+    .allSquadsListContainer {
+        height: 1500px;
+    }
+
     .allSquadsPageHeaderContainer:hover span + span {
         color: teal;
     }
