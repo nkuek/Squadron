@@ -1,7 +1,6 @@
 .squadOuterContainer {
     background-color: #1c1e21;
     display: flex;
-    border-radius: 20px;
     box-sizing: border-box;
     width: 100%;
 }
@@ -11,15 +10,11 @@
     display: flex;
     flex-direction: column;
     max-width: 100%;
-    overflow: hidden;
+    overflow-y: scroll;
     overflow-wrap:break-word;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
 }
 
 .squadInformation {
-    width: 100%;
-    padding: 30px;
     background-color: rgb(58, 58, 58);
 }
 
@@ -67,8 +62,8 @@
 .squadCardImage {
     width: 350px;
     height: 200px;
-    border-top-right-radius: 5px;
-    border-top-left-radius: 5px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
 }
 
 .squadContentWrapper {
@@ -375,6 +370,10 @@
         display: none;
     }
 
+    .squadCategoryWrapper {
+        left: 60px;
+    }
+
 }
 
 @media only screen and (min-width: 700px) {
@@ -388,6 +387,7 @@
     }
     .allSquadsPageWrapper {
         margin-top: 61px;
+        height: 1700px;
     }
 
     .allSquadsPanelContainer {
@@ -440,6 +440,10 @@
         display: flex;
     }
 
+    .squadCategoryWrapper {
+        left: 300px;
+    }
+
 }
     .allSquadsList {
         margin: 10px;
@@ -458,6 +462,7 @@
     height: 100%;
     display: flex;
     color: white;
+    background-color: #1c1e21;
 }
 
 .allSquadsPanelContainer {
@@ -488,8 +493,6 @@
     border-right: 5px solid teal
 }
 
-
-
 .allSquadsListContainer {
     background-color:#1c1e21;
     width: 100%;
@@ -516,9 +519,14 @@
 }
 
 .allSquadsListHeader {
-    width: 100%;
+    width: fit-content;
     display: flex;
     font-size: .8em;
+    cursor: pointer;
+}
+
+.allSquadsListHeader:hover {
+    color: teal;
 }
 
 .categoryHeader {
@@ -593,4 +601,58 @@
     width: 52px;
     height: 52px;
 
+}
+
+.squadCategoryWrapper {
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.squadCategoryContainer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #1c1e21;
+}
+
+.squadCategoryHeaderContainer {
+    padding: 38px;
+    padding-top: 20px;
+    font-size: 2em;
+}
+
+.squadCategoryBodyContainer {
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.squadCategoryHeader {
+    display: flex;
+    font-size: .8em;
+}
+
+.squadCategoryBackContainer {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.squadCategoryBack {
+    font-size: .5em;
+    cursor: pointer;
+}
+
+.squadCategoryBack:hover {
+    color: teal;
+}
+
+.squadCategoryList {
+    margin: 10px;
+    background-color: rgb(58, 58, 58);
+    border-radius: 10px;
 }

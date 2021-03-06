@@ -187,50 +187,52 @@ const NewSquadForm = () => {
                     </div>
 
                     <div className="nsfPreviewWrapper">
-                        <div
-                            style={{ margin: '20px' }}
-                            className="squadOuterContainer"
-                        >
+                        <div className="squadOuterContainer">
                             <div className="squadInnerContainer">
                                 <div className="squadInformation">
-                                    <div className="nsfPreviewHeader">
-                                        <p className="preview">Preview</p>
+                                    <div className="squadImageContainer">
+                                        <img
+                                            width="100%"
+                                            src="https://i.kinja-img.com/gawker-media/image/upload/t_original/qvwx6ew8jkn9idxhns0z.jpg"
+                                        ></img>
                                     </div>
-                                    <div className="squadName">
-                                        <h1>
-                                            {!squadName
-                                                ? 'Squad Name'
-                                                : squadName}
-                                        </h1>
-                                    </div>
-                                    <div className="squadMembers">
-                                        <i
-                                            style={{ cursor: 'pointer' }}
-                                            className="fas fa-user-friends"
-                                        >
-                                            {' 1 Squadmate'}
-                                        </i>
-                                    </div>
-                                    <hr className="separator"></hr>
-                                    <div className="squadInformationNav">
-                                        <NavLink
-                                            className="squadEventsLink"
-                                            to="#"
-                                        >
-                                            Events
-                                        </NavLink>
-                                        <NavLink
-                                            className="squadDescriptionLink"
-                                            to="#"
-                                        >
-                                            Description
-                                        </NavLink>
-                                        <NavLink
-                                            className="squadMembersLink"
-                                            to="#"
-                                        >
-                                            Members
-                                        </NavLink>
+                                    <div className="squadPreviewDescriptionContainer">
+                                        <div className="squadName">
+                                            <h1>
+                                                {!squadName
+                                                    ? 'Squad Name'
+                                                    : squadName}
+                                            </h1>
+                                        </div>
+                                        <div className="squadMembers">
+                                            <i
+                                                style={{ cursor: 'pointer' }}
+                                                className="fas fa-user-friends"
+                                            >
+                                                {' 1 Squadmate'}
+                                            </i>
+                                        </div>
+                                        <hr className="separator"></hr>
+                                        <div className="squadInformationNav">
+                                            <NavLink
+                                                className="squadEventsLink"
+                                                to="#"
+                                            >
+                                                Events
+                                            </NavLink>
+                                            <NavLink
+                                                className="squadDescriptionLink"
+                                                to="#"
+                                            >
+                                                Description
+                                            </NavLink>
+                                            <NavLink
+                                                className="squadMembersLink"
+                                                to="#"
+                                            >
+                                                Members
+                                            </NavLink>
+                                        </div>
                                     </div>
                                 </div>
                                 <div className="squadContentWrapper">

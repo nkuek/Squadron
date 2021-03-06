@@ -53,7 +53,7 @@ const Navigation = () => {
 
     const handleSquads = async () => {
         await dispatch(findAllSquads());
-        history.push('/squads');
+        history.push('/squads/explore');
     };
 
     // Closes drop down menu when clicking anywhere else

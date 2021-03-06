@@ -4,6 +4,8 @@ const SquadCategoryPage = ({ props }) => {
 
     const history = useHistory();
 
+    window.scrollTo(0, 0);
+
     const handleCaptainClick = (e) => {
         e.stopPropagation();
         history.push(`/users/${e.target.id}`);
@@ -12,15 +14,29 @@ const SquadCategoryPage = ({ props }) => {
     const handleSquadClick = (e) => {
         history.push(`/squads/${e.target.id}`);
     };
+
+    console.log(squads[0]);
+
     return (
         <div className="squadCategoryWrapper">
             <div className="squadCategoryContainer">
                 <div className="squadCategoryHeaderContainer">
-                    <div className="squadCategoryHeader">{squadCategory}</div>
+                    <div className="squadCategoryBackContainer">
+                        <i
+                            onClick={() => history.goBack()}
+                            className="fas fa-arrow-left squadCategoryBack"
+                        >
+                            {' Back'}
+                        </i>
+                    </div>
+                    <div className="squadCategoryHeader">
+                        <div className="categoryHeader">{squadCategory}</div>
+                        <i className="fas fa-gamepad categoryIcon"></i>
+                    </div>
                 </div>
                 <div className="squadCategoryBodyContainer">
-                    {squads.map((squad, idx) => {
-                        <div key={idx} className="allSquadsList">
+                    {squads.map((squad, idx) => (
+                        <div key={idx} className="squadCategoryList">
                             <div
                                 id={squad.id}
                                 onClick={handleSquadClick}
@@ -46,8 +62,8 @@ const SquadCategoryPage = ({ props }) => {
                                     </div>
                                 </div>
                             </div>
-                        </div>;
-                    })}
+                        </div>
+                    ))}
                 </div>
             </div>
         </div>

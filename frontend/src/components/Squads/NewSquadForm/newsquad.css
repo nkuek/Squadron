@@ -54,6 +54,7 @@
         height: 100%;
         width: 100%;
         box-sizing: border-box;
+        margin: 10px;
     }
 
 }
@@ -87,6 +88,7 @@
 .closeFormArrow {
     color: white;
     margin-left: 0px;
+    cursor: pointer;
 }
 
 .closeFormArrow:hover, .closeFormArrow:focus {
@@ -229,8 +231,12 @@ select option {
     display: flex;
 }
 
-.preview {
-    margin: 0;
-    color: white;
-    font-size: 1.2em;
+.squadImageContainer {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.squadPreviewDescriptionContainer {
+    padding: 30px;
 }

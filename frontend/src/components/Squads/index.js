@@ -21,7 +21,6 @@ const Squads = () => {
     const [showTrading, setShowTrading] = useState(false);
     const [showGaming, setShowGaming] = useState(false);
     const [showSocial, setShowSocial] = useState(false);
-    const [showExplore, setShowExplore] = useState(false);
 
     const allSquads = useSelector((state) => state.allSquads);
     const userSquads = null;
@@ -29,6 +28,7 @@ const Squads = () => {
 
     useEffect(async () => {
         await dispatch(findAllSquads());
+        history.push('/squads/explore');
         setIsLoaded(true);
     }, [dispatch]);
 
@@ -52,20 +52,18 @@ const Squads = () => {
         if (showTrading) {
             if (
                 !e.target.classList.contains(
-                    'trading' || e.target.classList.contains('explore')
+                    'trading'
                 )
             )
                 setShowTrading(false);
         } else if (showSocial) {
             if (
-                !e.target.classList.contains('social') ||
-                e.target.classList.contains('explore')
+                !e.target.classList.contains('social')
             )
                 setShowSocial(false);
         } else if (showGaming) {
             if (
-                !e.target.classList.contains('gaming') ||
-                e.target.classList.contains('explore')
+                !e.target.classList.contains('gaming')
             )
                 setShowGaming(false);
         }
@@ -88,10 +86,7 @@ const Squads = () => {
                     </Helmet>
                     <div className="allSquadsPageContainer">
                         <div className="allSquadsPanelContainer">
-                            <div
-                                onClick={history.push('/squads')}
-                                className="allSquadsPageHeaderContainer"
-                            >
+                            <div className="allSquadsPageHeaderContainer">
                                 <span className="allSquadsPageHeader">
                                     Your Squads
                                 </span>
@@ -158,13 +153,7 @@ const Squads = () => {
                                 )}
                                 <hr className="allSquadsSeparator"></hr>
                                 <div className="allSquadsCategory squadCategoryLink explore">
-                                    <NavLink
-                                        to="/squads/explore"
-                                        onClick={(e) => {
-                                            e.preventDefault();
-                                            setShowExplore(true);
-                                        }}
-                                    >
+                                    <NavLink to="/squads/explore">
                                         <span className="allSquadsPanelLabel explore">
                                             Explore
                                         </span>
@@ -182,16 +171,36 @@ const Squads = () => {
                                 </div>
                             </div>
                         </div>
-                        <ExploreSquads allSquads={allSquads} />
                         <Switch>
+                            <Route exact path="/squads/explore">
+                                <ExploreSquads allSquads={allSquads} />
+                            </Route>
                             <Route exact path={`/squads/:squadId(\\d+)`}>
                                 <SquadPage />
                             </Route>
-                            <Route exact path="/squads/gaming">
+                        </Switch>
+                        <Switch>
+                            <Route exact path="/squads/explore/gaming">
                                 <SquadCategoryPage
                                     props={{
                                         squadCategory: 'Gaming Squads',
                                         squads: gamingSquads,
+                                    }}
+                                />
+                            </Route>
+                            <Route exact path="/squads/explore/trading">
+                                <SquadCategoryPage
+                                    props={{
+                                        squadCategory: 'Trading Squads',
+                                        squads: tradingSquads,
+                                    }}
+                                />
+                            </Route>
+                            <Route exact path="/squads/explore/social">
+                                <SquadCategoryPage
+                                    props={{
+                                        squadCategory: 'Social Squads',
+                                        squads: socialSquads,
                                     }}
                                 />
                             </Route>
