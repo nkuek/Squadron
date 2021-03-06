@@ -109,4 +109,16 @@ router.put(
     })
 );
 
+router.put(
+    '/:username/about',
+    asyncHandler(async (req, res) => {
+        const { newAbout } = req.body;
+        const user = await db.User.findByPk(newAbout.userId);
+        await user.update({
+            description: newAbout.userAbout,
+        });
+        return res.json(user);
+    })
+);
+
 module.exports = router;
