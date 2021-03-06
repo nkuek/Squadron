@@ -562,9 +562,11 @@
     font-weight: bold;
 }
 
-.fa-angle-right {
+.fa-angle-right,
+.fa-arrow-right {
     pointer-events: none;
 }
+
 
 .seeAllSquadArrow1,
 .seeAllSquadArrow2,

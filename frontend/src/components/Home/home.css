@@ -50,10 +50,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 30px;
-    padding: 30px;
     box-sizing: border-box;
-    height: 100%;
+    height: calc(100% - 61px);
+    margin-top: 61px;
     width: 90vw;
     background-color: rgb(28, 30, 33);
     border-radius: 10px;
@@ -92,7 +91,6 @@
         border-radius: 20px;
         width: 80%;
         height: auto;
-        max-height: 50vh;
         flex-direction: row;
     }
 
@@ -152,17 +150,13 @@
     background-color: #578fff;
 }
 
-.homePageEventsContainer {
-    margin: 30px;
-    margin-bottom: 100px;
-}
-
 .squadronHomePageDescriptionContainer {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
     height: auto;
+    margin-top: 100px;
 }
 
 .squadronSplashContainer1,
@@ -247,9 +241,10 @@
     }
 
     .homePageContent {
+        height: calc(100% - 71px);
         width: 100%;
         padding: 0px;
-        margin: 0px;
+        margin-top: 71px;
         border-radius: 0px;
     }
 
@@ -315,6 +310,10 @@
         text-shadow: 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black;
     }
 
+    .homePageEvents {
+        height: 100%;
+    }
+
     .homePageSubHeader {
         color: white;
         margin: 0;
@@ -356,6 +355,9 @@
         color: white;
         height: auto;
         position: relative;
+        box-sizing: border-box;
+        width: 100vw;
+        border-radius: 0px;
     }
 
     .homePageEventsHeader {

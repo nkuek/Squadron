@@ -12,7 +12,7 @@ import SocialSquads from './SocialSquads';
 import TradingSquads from './TradingSquads';
 import GamingSquads from './GamingSquads';
 import SquadPage from './SquadPage';
-import LoginForm from '../LoginForm';
+import SquadCategoryPage from './SquadCategoryPage';
 
 const Squads = () => {
     const dispatch = useDispatch();
@@ -28,7 +28,7 @@ const Squads = () => {
     const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
 
     useEffect(async () => {
-        const squads = await dispatch(findAllSquads());
+        await dispatch(findAllSquads());
         setIsLoaded(true);
     }, [dispatch]);
 
@@ -38,13 +38,13 @@ const Squads = () => {
         }
     }, [dispatch]);
 
-    const gamingSquads = !userSquads
+    const userGamingSquads = !userSquads
         ? null
         : userSquads.map((squad) => squad.primaryType === 'Gaming');
-    const tradingSquads = !userSquads
+    const userTradingSquads = !userSquads
         ? null
         : userSquads.map((squad) => squad.primaryType === 'Trading');
-    const socialSquads = !userSquads
+    const userSocialSquads = !userSquads
         ? null
         : userSquads.map((squad) => squad.primaryType === 'Social');
 
@@ -72,6 +72,8 @@ const Squads = () => {
         return window.removeEventListener('click', e);
     });
 
+    const { gamingSquads, socialSquads, tradingSquads } = allSquads;
+
     const rotateArrow = (e) => {
         e.target.children[2].classList.add('rotate');
     };
@@ -81,7 +83,7 @@ const Squads = () => {
             <>
                 <div className="allSquadsPageWrapper">
                     <Helmet>
-                        <title>Squads - Squadron</title>
+                        <title>Squads | Squadron</title>
                         <meta name="description" content="squads page"></meta>
                     </Helmet>
                     <div className="allSquadsPageContainer">
@@ -115,7 +117,9 @@ const Squads = () => {
                                     <i className="fas fa-angle-right"></i>
                                 </div>
                                 {showGaming && (
-                                    <GamingSquads gamingSquads={gamingSquads} />
+                                    <GamingSquads
+                                        userGamingSquads={userGamingSquads}
+                                    />
                                 )}
                                 <div
                                     onClick={() => setShowSocial(true)}
@@ -131,7 +135,9 @@ const Squads = () => {
                                     <i className="fas fa-angle-right"></i>
                                 </div>
                                 {showSocial && (
-                                    <SocialSquads socialSquads={socialSquads} />
+                                    <SocialSquads
+                                        userSocialSquads={userSocialSquads}
+                                    />
                                 )}
                                 <div
                                     onClick={() => setShowTrading(true)}
@@ -147,7 +153,7 @@ const Squads = () => {
                                 </div>
                                 {showTrading && (
                                     <TradingSquads
-                                        tradingSquads={tradingSquads}
+                                        userTradingSquads={userTradingSquads}
                                     />
                                 )}
                                 <hr className="allSquadsSeparator"></hr>
@@ -180,6 +186,14 @@ const Squads = () => {
                         <Switch>
                             <Route exact path={`/squads/:squadId(\\d+)`}>
                                 <SquadPage />
+                            </Route>
+                            <Route exact path="/squads/gaming">
+                                <SquadCategoryPage
+                                    props={{
+                                        squadCategory: 'Gaming Squads',
+                                        squads: gamingSquads,
+                                    }}
+                                />
                             </Route>
                         </Switch>
                     </div>

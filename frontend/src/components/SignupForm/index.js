@@ -64,7 +64,7 @@ const SignupForm = () => {
                     <div className="signupInputField">
                         <input
                             id="email"
-                            type="email"
+                            type="text"
                             value={email}
                             required
                             autoComplete="new-email"

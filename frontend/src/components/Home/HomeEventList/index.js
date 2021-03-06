@@ -6,10 +6,7 @@ const HomeEventList = () => {
     const user = useSelector((state) => state.session.user);
 
     return (
-        <div
-            style={{ marginTop: !user ? '30px' : '91px' }}
-            className="homePageEventsContainer"
-        >
+        <div className="homePageEventsContainer">
             <div className="homePageEvents">
                 <div className="homePageEventsHeader">
                     <h2 className="upcomingEvents">Upcoming Events</h2>

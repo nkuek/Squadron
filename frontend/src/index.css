@@ -62,8 +62,8 @@ label {
 }
 
 input {
-    /* width: 100%; */
     border: 0;
+    font-size: 1em;
     outline: 0;
     padding: 0.5rem 0;
     background-color: white;
@@ -72,7 +72,7 @@ input {
     border-bottom: 2px solid #d3d3d3;
     border-width: 1px;
     height: 25px;
-    font-family: 'Cabin'
+    font-family: 'Cabin';
 }
 
 input::placeholder {
@@ -90,11 +90,24 @@ input:valid {
 }
 
 input:focus~label,
-input:valid~label  {
-    font-size: 14px;
-    top:-18px;
+input:valid~label {
     color: #3576f8;
+}
+
+input:focus~label,
+input:valid~label  {
+    font-size: 1px;
+    top:-18px;
+    left: 38px;
     font-size: 10px;
+}
+
+@media only screen and (max-width: 600px) {
+    input:focus~label,
+    input:valid~label  {
+    top:-18px;
+    left: 0
+    }
 }
 
 input:invalid:focus~label {
