@@ -216,6 +216,13 @@
     height: 100%;
 }
 
+.squadListSquadLink {
+    cursor: pointer;
+    border-radius: 10px;
+    box-sizing: border-box;
+    height: 100%;
+}
+
 
 .allSquadsCategory {
     padding: 10px;
@@ -257,14 +264,25 @@
 
 .exploreSquadsBodyContainer {
     display: flex;
+    overflow-x: scroll;
 }
 
 @media only screen and (max-width: 700px) {
 
     .allSquadsPageWrapper {
         margin-top: 70px;
+        height: 100vh
     }
 
+    .allSquadsListWrapper {
+        position: relative;
+        width: calc(100vw - 60px);
+        left: 60px;
+    }
+
+    .allSquadsListBodyContainer {
+        height: 1800px;
+    }
 
     .allSquadsPanelIcon {
         text-align: center;
@@ -276,6 +294,15 @@
 
     .allSquadsPageHeaderContainer {
         text-align: center;
+    }
+
+    .exploreSquadsBodyContainer {
+        overflow-x: scroll;
+        margin-right: 10px;
+    }
+
+    .allSquadsList {
+        margin: 0px;
     }
 
     .allSquadsPageHeaderContainer:hover span + span {
@@ -302,6 +329,9 @@
         display: none;
     }
 
+    .squadCardImage {
+        width: 100%;
+    }
 
     .allSquadsPanelContainer:hover {
         width: 150px;
@@ -323,15 +353,35 @@
         width: 100%;
     }
 
+    .squadListSquadLink {
+        width: 275px;
+    }
 
     .allSquadsCategory a:active {
         border-right-width: 1px;
+    }
+
+    .allSquadsListBodyContainer {
+        padding: 0px;
+    }
+
+    .seeAllSquadArrow1,
+    .seeAllSquadArrow2,
+    .seeAllSquadArrow3 {
+        display: none;
     }
 
 }
 
 @media only screen and (min-width: 700px) {
 
+    .allSquadsListWrapper {
+        position: absolute;
+        left: 300px;
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+    }
     .allSquadsPageWrapper {
         margin-top: 61px;
     }
@@ -357,7 +407,42 @@
         margin: 10px 0px;
         width: 100%;
     }
+
+    .allSquadsList {
+        margin: 15px;
+        width: fit-content;
+        height: 400px;
+    }
+
+    .seeAllSquadArrow1 {
+        right: 305px;
+        top: 320px;
+    }
+
+    .seeAllSquadArrow2 {
+        top: 890px;
+        right: 305px;
+    }
+
+    .seeAllSquadArrow3 {
+        bottom: 200px;
+        right: 305px;
+    }
+
+    .seeAllSquadArrow1,
+    .seeAllSquadArrow2,
+    .seeAllSquadArrow3 {
+        position: absolute;
+        display: flex;
+    }
+
 }
+    .allSquadsList {
+        margin: 10px;
+        background-color: rgb(58, 58, 58);
+        box-sizing: border-box;
+        border-radius: 10px;
+    }
 
 .allSquadsPageWrapper {
     width: 100vw;
@@ -365,7 +450,7 @@
 }
 
 .allSquadsPageContainer {
-    width: 100%;
+    width: 1535px;
     height: 100%;
     display: flex;
     color: white;
@@ -399,13 +484,7 @@
     border-right: 5px solid teal
 }
 
-.allSquadsListWrapper {
-    position: absolute;
-    left: 300px;
-    width: 100%;
-    display: flex;
-    justify-content: space-evenly;
-}
+
 
 .allSquadsListContainer {
     background-color:#1c1e21;
@@ -435,6 +514,7 @@
 .allSquadsListHeader {
     width: 100%;
     display: flex;
+    font-size: .8em;
 }
 
 .categoryHeader {
@@ -449,14 +529,6 @@
     box-sizing: border-box;
 }
 
-.allSquadsList {
-    width: fit-content;
-    height: 400px;
-    margin: 15px;
-    background-color: rgb(58, 58, 58);
-    box-sizing: border-box;
-    border-radius: 10px;
-}
 
 .squadCardImageContainer {
     height: 200px;
@@ -481,13 +553,6 @@
     color: teal;
 }
 
-.squadListSquadLink {
-    cursor: pointer;
-    border-radius: 10px;
-    box-sizing: border-box;
-    height: 100%;
-}
-
 .squadListSquadLink:hover {
     background-color: rgb(79, 79, 79);
 }
@@ -504,13 +569,11 @@
 .seeAllSquadArrow1,
 .seeAllSquadArrow2,
 .seeAllSquadArrow3 {
-    position: absolute;
     font-size: 1.5em;
     background-color: rgb(88, 88, 88);
     border-radius: 100%;
     width: 50px;
     height: 50px;
-    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -524,19 +587,4 @@
     width: 52px;
     height: 52px;
 
-}
-
-.seeAllSquadArrow1 {
-    right: 305px;
-    top: 320px;
-}
-
-.seeAllSquadArrow2 {
-    top: 890px;
-    right: 305px;
-}
-
-.seeAllSquadArrow3 {
-    bottom: 200px;
-    right: 305px;
 }

@@ -15,6 +15,7 @@
 
     .userProfileInnerContainer {
         border-radius: 0px;
+        overflow-y: scroll
     }
 
     .userProfileHeader {
@@ -48,7 +49,7 @@
 }
 .userProfileWrapper {
     width: 100%;
-    height: fit-content;
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
