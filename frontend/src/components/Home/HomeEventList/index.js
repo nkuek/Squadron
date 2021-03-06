@@ -7,13 +7,13 @@ const HomeEventList = () => {
 
     return (
         <div className="homePageEventsContainer">
+            <div className="homePageEventsHeader">
+                <h2 className="upcomingEvents">Upcoming Events</h2>
+                <Link to="/events" className="allEventsLink">
+                    See all
+                </Link>
+            </div>
             <div className="homePageEvents">
-                <div className="homePageEventsHeader">
-                    <h2 className="upcomingEvents">Upcoming Events</h2>
-                    <Link to="/events" className="allEventsLink">
-                        See all
-                    </Link>
-                </div>
                 <ul className="homePageEventList">
                     <EventCard events={testEvents} />
                 </ul>

@@ -232,6 +232,21 @@
 
 }
 
+.homePageEvents {
+    background-color: rgb(58, 58, 58);
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.homePageEventsHeader {
+    border-bottom: 1px solid #d3d0d0;
+    margin-bottom: 20px;
+}
+
+.homePageEventList {
+    margin: 0px;
+}
+
 /* Small Screens */
 @media only screen and (max-width: 800px) {
 
@@ -310,10 +325,6 @@
         text-shadow: 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black;
     }
 
-    .homePageEvents {
-        height: 100%;
-    }
-
     .homePageSubHeader {
         color: white;
         margin: 0;
@@ -350,7 +361,6 @@
 
     .homePageEventsContainer {
         padding: 10px;
-        background-color: rgb(58, 58, 58);
         border-radius: 20px;
         color: white;
         height: auto;
@@ -561,7 +571,6 @@
 
     .homePageEventsContainer {
         padding: 10px;
-        background-color: rgb(58, 58, 58);
         border-radius: 20px;
         width: 80%;
         height: auto;
