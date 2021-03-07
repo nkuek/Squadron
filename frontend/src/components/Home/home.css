@@ -1,8 +1,7 @@
 .eventDate {
 
     color: rgb(196, 135, 253);
-    font-family: 'Exo 2', sans-serif
-;
+    font-family: 'Exo 2', sans-serif;
 }
 
 .signup:visited {
@@ -46,12 +45,17 @@
     height: 2500px;
 }
 
+.homePageHeader {
+    margin-bottom: 20px;
+}
+
 .homePageContent {
     display: flex;
     flex-direction: column;
+    position: relative;
     align-items: center;
     box-sizing: border-box;
-    height: calc(100% - 61px);
+    height: fit-content;
     margin-top: 61px;
     width: 90vw;
     background-color: rgb(28, 30, 33);
@@ -114,11 +118,11 @@
 
     box-sizing: border-box;
     border-right: 1px solid #d3d0d0;
-    position: absolute;
+    position: relative;
     text-align:center;
     height: 49px;
     padding: 10px;
-    /* right: 900px; */
+    left: 40px;
     margin-right: 10px;
 }
 
@@ -248,19 +252,17 @@
     margin: 0px;
 }
 
-/* Small Screens */
-@media only screen and (max-width: 800px) {
+.homePageBanner {
+    height: 100%;
+}
 
-    .homePageBannerWrapper {
-        position: relative;
-        width: 100%;
-    }
+/* Small Screens */
+@media only screen and (max-width: 600px) {
 
     .homePageContent {
-        height: calc(100% - 71px);
+        height: fit-content;
         width: 100%;
         padding: 0px;
-        margin-top: 71px;
         border-radius: 0px;
     }
 
@@ -268,7 +270,6 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
         overflow-x: hidden;
     }
     .homePageSearchForm {
@@ -303,7 +304,9 @@
     }
 
     .homePageWrapper {
-        width: 100vw
+        width: 100vw;
+        height: calc(100vh - 71px);
+        margin-top: 71px;
     }
     .homePageBannerWrapper {
         position: relative;
@@ -312,10 +315,16 @@
     .homePageBanner {
         width: 100%;
         padding-left: 30px;
-        padding-top: 50px;
+
         padding-bottom: 30px;
         right: -30px;
         background-color: rgba(0, 0, 0, 0.4);
+    }
+
+    .homePageSearchIconContainer {
+        left: 0;
+        top: 49px;
+        width: fit-content;
     }
     .homePageHeader {
         font-size: 4rem;
@@ -511,11 +520,13 @@
 }
 
 /* Large Screens */
-@media only screen and (min-width: 800px) {
+@media only screen and (min-width: 600px) {
 
 .homePageBannerWrapper {
         position: relative;
         width: 100%;
+        margin-top: 61px;
+        top: 61px;
     }
 
     .homePageBanner {

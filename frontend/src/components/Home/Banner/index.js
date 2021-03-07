@@ -6,7 +6,7 @@ const Banner = () => {
     return (
         <div
             className="homePageBannerWrapper"
-            style={{ display: user ? 'none' : 'initial' }}
+            style={{ display: user && 'none' }}
         >
             <div className="homePageBanner">
                 <div className="homePageHeadingContainer">
