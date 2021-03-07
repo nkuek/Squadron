@@ -373,6 +373,13 @@
         left: 60px;
     }
 
+    .squadCategoryBodyContainer {
+        display: flex;
+        justify-content: center;
+        width: calc(100% - 60px);
+        left: 60px;
+    }
+
 }
 
 @media only screen and (min-width: 700px) {
@@ -380,7 +387,7 @@
     .allSquadsListWrapper {
         position: absolute;
         left: 300px;
-        width: 100%;
+        width: calc(100% - 300px);
         display: flex;
         justify-content: space-evenly;
     }
@@ -396,10 +403,6 @@
         flex-direction: column;
         width: 300px;
         background-color: rgb(58, 58, 58);
-    }
-
-    .allSquadsCategoryContainer {
-        background-color: #1c1e21;
     }
 
     .hidden {
@@ -443,6 +446,20 @@
         left: 300px;
     }
 
+    .squadCategoryBodyContainer {
+        margin: 0px 20px;
+    }
+
+    .squadCategoryList {
+        height: 400px;
+        min-width: 350px;
+    }
+
+    .squadCategoryContainer {
+        width: 85%;
+        height: 100%;
+    }
+
 }
     .allSquadsList {
         margin: 10px;
@@ -457,8 +474,8 @@
 }
 
 .allSquadsPageContainer {
-    width: 1535px;
     height: 100%;
+    width: 100%;
     display: flex;
     color: white;
     background-color: #1c1e21;
@@ -607,12 +624,9 @@
     height: 100%;
     display: flex;
     flex-direction: column;
-    width: 100%;
 }
 
 .squadCategoryContainer {
-    width: 100%;
-    height: 100%;
     display: flex;
     flex-direction: column;
     background-color: #1c1e21;
@@ -625,9 +639,10 @@
 }
 
 .squadCategoryBodyContainer {
-    height: 100%;
     display: flex;
     flex-wrap: wrap;
+    height: 100%;
+    align-content: flex-start;
 }
 
 .squadCategoryHeader {
@@ -654,4 +669,7 @@
     margin: 10px;
     background-color: rgb(58, 58, 58);
     border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap:wrap;
 }
