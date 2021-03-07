@@ -240,14 +240,12 @@
 .userAboutContainer {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
     font-size: 1.5em;
+    height: 100%;
+    width: 100%;
 }
 
 .userAboutProfileEditButtonContainer {
-    /* position: relative; */
-    /* left: 120px; */
     background-color: rgb(27, 103, 255);
     text-align: center;
     border-radius: 5px;
@@ -257,8 +255,8 @@
     padding: 2px 15px;
     box-sizing: border-box;
     position: relative;
-    left: 100px;
-    bottom: 27px;
+    left: 120px;
+    bottom: 30px;
     cursor: pointer;
 }
 
@@ -287,6 +285,7 @@
     text-align: center;
     display: flex;
     align-items: center;
+    margin: 0px 20px;
 }
 
 .userGamesWrapper {
@@ -321,6 +320,6 @@
 }
 
 .userAboutHeader {
-    font-size: 1.5em;
+    font-size: 2em;
     margin-top: 10px;
 }

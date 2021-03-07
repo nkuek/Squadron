@@ -1,4 +1,5 @@
-import { useHistory } from 'react-router-dom';
+import { Redirect, useHistory } from 'react-router-dom';
+
 const SquadCategoryPage = ({ props }) => {
     const { squadCategory, squads } = props;
 
@@ -15,7 +16,9 @@ const SquadCategoryPage = ({ props }) => {
         history.push(`/squads/${e.target.id}`);
     };
 
-    return (
+    return !loggedInUser ? (
+        <Redirect to="/login" />
+    ) : (
         <div className="squadCategoryWrapper">
             <div className="squadCategoryContainer">
                 <div className="squadCategoryHeaderContainer">

@@ -1,4 +1,4 @@
-import { NavLink, Route, useHistory, Switch } from 'react-router-dom';
+import { NavLink, Route, useHistory, Switch, Redirect } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { findAllSquads } from '../../store/allSquads';
@@ -6,6 +6,7 @@ import { findUser } from '../../store/user';
 import { Helmet } from 'react-helmet-async';
 
 import ExploreSquads from './ExploreSquads';
+import LoginForm from '../LoginForm';
 
 import './squads.css';
 import SocialSquads from './SocialSquads';
@@ -25,6 +26,7 @@ const Squads = () => {
     const allSquads = useSelector((state) => state.allSquads);
     const userSquads = null;
     const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
+    console.log(loggedInUser);
 
     useEffect(async () => {
         await dispatch(findAllSquads());
@@ -61,7 +63,8 @@ const Squads = () => {
 
     const { gamingSquads, socialSquads, tradingSquads } = allSquads;
 
-    const mySquads = loggedInUser.captain.concat(loggedInUser.squadmates);
+    const mySquads =
+        loggedInUser && loggedInUser.captain.concat(loggedInUser.squadmates);
 
     const rotateArrow = (e) => {
         e.target.children[2].classList.add('rotate');
