@@ -205,9 +205,11 @@
 .allSquadsListBodyContainer {
     padding: 10px;
     box-sizing: border-box;
+    margin: 10px;
     display: flex;
     flex-direction: column;
-    height: 100%;
+    height: 100vh;
+    overflow-y: scroll
 }
 
 .squadListSquadLink {
@@ -256,10 +258,7 @@
     flex-direction: column;
 }
 
-.exploreSquadsBodyContainer {
-    display: flex;
-    overflow-x: scroll;
-}
+
 
 @media only screen and (max-width: 700px) {
 
@@ -363,10 +362,9 @@
         padding: 0px;
     }
 
-    .seeAllSquadArrow1,
-    .seeAllSquadArrow2,
-    .seeAllSquadArrow3 {
-        display: none;
+    .exploreSquadsBodyContainer {
+        display: flex;
+        overflow-x: scroll;
     }
 
     .squadCategoryWrapper {
@@ -378,6 +376,21 @@
         justify-content: center;
         width: calc(100% - 60px);
         left: 60px;
+    }
+
+    .allSquadsListHeaderContainer {
+        font-size: 1.5em;
+        box-sizing: border-box;
+        padding: 15px;
+        margin: 20px 0px;
+        border-bottom: 1px solid #d3d0d0;
+        border-top: 1px solid #d3d0d0;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .allSquadsSeeAll {
+        font-size: .7em
     }
 
 }
@@ -420,28 +433,6 @@
         height: 400px;
     }
 
-    .seeAllSquadArrow1 {
-        right: 305px;
-        top: 320px;
-    }
-
-    .seeAllSquadArrow2 {
-        top: 890px;
-        right: 305px;
-    }
-
-    .seeAllSquadArrow3 {
-        bottom: 200px;
-        right: 305px;
-    }
-
-    .seeAllSquadArrow1,
-    .seeAllSquadArrow2,
-    .seeAllSquadArrow3 {
-        position: absolute;
-        display: flex;
-    }
-
     .squadCategoryWrapper {
         left: 300px;
     }
@@ -460,6 +451,32 @@
         height: 100%;
     }
 
+    .allSquadsListHeaderContainer {
+        font-size: 2em;
+        box-sizing: border-box;
+        padding: 30px;
+        margin: 20px 0px;
+        border-bottom: 1px solid #d3d0d0;
+        border-top: 1px solid #d3d0d0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .allSquadsSeeAll {
+        cursor: pointer;
+        font-size: .8em;
+    }
+
+    .allSquadsSeeAll:hover {
+       color:teal
+    }
+
+    .exploreSquadsBodyContainer {
+        display: flex;
+        overflow-x: hidden;
+    }
+
 }
     .allSquadsList {
         margin: 10px;
@@ -471,6 +488,8 @@
 .allSquadsPageWrapper {
     width: 100vw;
     display: flex;
+    height: 100vh;
+    /* height: fit-content */
 }
 
 .allSquadsPageContainer {
@@ -517,14 +536,7 @@
 
 }
 
-.allSquadsListHeaderContainer {
-    font-size: 2em;
-    box-sizing: border-box;
-    padding: 30px;
-    margin: 20px 0px;
-    border-bottom: 1px solid #d3d0d0;
-    border-top: 1px solid #d3d0d0;
-}
+
 
 .top {
 
@@ -538,11 +550,6 @@
     width: fit-content;
     display: flex;
     font-size: .8em;
-    cursor: pointer;
-}
-
-.allSquadsListHeader:hover {
-    color: teal;
 }
 
 .categoryHeader {

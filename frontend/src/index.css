@@ -17,14 +17,13 @@ html {
 }
 body {
     margin: 0;
-   height: 100%;
     font-family: 'Cabin', sans-serif;
     background: url('./images/stock-gaming-background.jpeg') no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
 button {
@@ -33,11 +32,12 @@ button {
 
 #root {
     margin: 0;
-    width: 100vw;
-    min-height: 100%;
+    /* width: 100vw; */
+    height:100vh;
     display: flex;
     align-items: center;
     flex-direction: column;
+    overflow-y: scroll;
 
 }
 

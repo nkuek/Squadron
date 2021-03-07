@@ -50,6 +50,18 @@ const ExploreSquads = ({ allSquads }) => {
                                         </div>
                                         <i className="fas fa-gamepad categoryIcon"></i>
                                     </div>
+                                    <div className="allSquadsSeeAllContainer">
+                                        <span
+                                            onClick={() =>
+                                                history.push(
+                                                    '/squads/explore/gaming'
+                                                )
+                                            }
+                                            className="allSquadsSeeAll"
+                                        >
+                                            See All
+                                        </span>
+                                    </div>
                                 </div>
 
                                 <div className="exploreSquadsBodyContainer">
@@ -91,27 +103,26 @@ const ExploreSquads = ({ allSquads }) => {
                                         </div>
                                     ))}
                                 </div>
-                                <div
-                                    onClick={handleGamingClick}
-                                    className="seeAllSquadArrow1"
-                                >
-                                    <i className="fas fa-arrow-right"></i>
-                                </div>
                             </div>
                             <div className="exploreSquadsSquadContainer">
                                 <div className="allSquadsListHeaderContainer">
-                                    <div
-                                        onClick={() =>
-                                            history.push(
-                                                '/squads/explore/social'
-                                            )
-                                        }
-                                        className="allSquadsListHeader"
-                                    >
+                                    <div className="allSquadsListHeader">
                                         <div className="categoryHeader">
                                             Social Squads
                                         </div>
                                         <i className="fas fa-user categoryIcon"></i>
+                                    </div>
+                                    <div className="allSquadsSeeAllContainer">
+                                        <span
+                                            onClick={() =>
+                                                history.push(
+                                                    '/squads/explore/social'
+                                                )
+                                            }
+                                            className="allSquadsSeeAll"
+                                        >
+                                            See All
+                                        </span>
                                     </div>
                                 </div>
                                 <div className="exploreSquadsBodyContainer">
@@ -152,9 +163,6 @@ const ExploreSquads = ({ allSquads }) => {
                                         </div>
                                     ))}
                                 </div>
-                                <div className="seeAllSquadArrow2">
-                                    <i className="fas fa-arrow-right"></i>
-                                </div>
                             </div>
                             <div className="exploreSquadsSquadContainer">
                                 <div className="allSquadsListHeaderContainer">
@@ -170,6 +178,18 @@ const ExploreSquads = ({ allSquads }) => {
                                             Trading Squads
                                         </div>
                                         <i className="fas fa-store categoryIcon"></i>
+                                    </div>
+                                    <div className="allSquadsSeeAllContainer">
+                                        <span
+                                            onClick={() =>
+                                                history.push(
+                                                    '/squads/explore/gaming'
+                                                )
+                                            }
+                                            className="allSquadsSeeAll"
+                                        >
+                                            See All
+                                        </span>
                                     </div>
                                 </div>
                                 <div className="exploreSquadsBodyContainer">
@@ -209,9 +229,6 @@ const ExploreSquads = ({ allSquads }) => {
                                             </div>
                                         </div>
                                     ))}
-                                </div>
-                                <div className="seeAllSquadArrow3">
-                                    <i className="fas fa-arrow-right"></i>
                                 </div>
                             </div>
                         </div>
