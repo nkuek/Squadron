@@ -37,14 +37,7 @@ const ExploreSquads = ({ allSquads }) => {
                         <div className="allSquadsListBodyContainer">
                             <div className="exploreSquadsSquadContainer">
                                 <div className="allSquadsListHeaderContainer top">
-                                    <div
-                                        onClick={() =>
-                                            history.push(
-                                                '/squads/explore/gaming'
-                                            )
-                                        }
-                                        className="allSquadsListHeader"
-                                    >
+                                    <div className="allSquadsListHeader">
                                         <div className="categoryHeader">
                                             Gaming Squads
                                         </div>
@@ -166,14 +159,7 @@ const ExploreSquads = ({ allSquads }) => {
                             </div>
                             <div className="exploreSquadsSquadContainer">
                                 <div className="allSquadsListHeaderContainer">
-                                    <div
-                                        onClick={() =>
-                                            history.push(
-                                                '/squads/explore/trading'
-                                            )
-                                        }
-                                        className="allSquadsListHeader"
-                                    >
+                                    <div className="allSquadsListHeader">
                                         <div className="categoryHeader">
                                             Trading Squads
                                         </div>
@@ -183,7 +169,7 @@ const ExploreSquads = ({ allSquads }) => {
                                         <span
                                             onClick={() =>
                                                 history.push(
-                                                    '/squads/explore/gaming'
+                                                    '/squads/explore/trading'
                                                 )
                                             }
                                             className="allSquadsSeeAll"

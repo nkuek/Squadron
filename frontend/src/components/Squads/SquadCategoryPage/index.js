@@ -4,7 +4,7 @@ const SquadCategoryPage = ({ props }) => {
 
     const history = useHistory();
 
-    window.scrollTo(0, 0);
+    const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
 
     const handleCaptainClick = (e) => {
         e.stopPropagation();
@@ -14,8 +14,6 @@ const SquadCategoryPage = ({ props }) => {
     const handleSquadClick = (e) => {
         history.push(`/squads/${e.target.id}`);
     };
-
-    console.log(squads[0]);
 
     return (
         <div className="squadCategoryWrapper">
@@ -31,7 +29,17 @@ const SquadCategoryPage = ({ props }) => {
                     </div>
                     <div className="squadCategoryHeader">
                         <div className="categoryHeader">{squadCategory}</div>
-                        <i className="fas fa-gamepad categoryIcon"></i>
+                        <i
+                            className={
+                                squadCategory === 'Gaming Squads'
+                                    ? 'fas fa-gamepad categoryIcon'
+                                    : squadCategory === 'Social Squads'
+                                    ? 'fas fa-user categoryIcon'
+                                    : squadCategory === 'Trading Squads'
+                                    ? 'fas fa-store categoryIcon'
+                                    : 'fas fa-crown categoryIcon'
+                            }
+                        ></i>
                     </div>
                 </div>
                 <div className="squadCategoryBodyContainer">
@@ -53,12 +61,22 @@ const SquadCategoryPage = ({ props }) => {
                                         {squad.squadName}
                                     </div>
                                     <div
-                                        to={`/users/${squad.captain.username}`}
+                                        to={
+                                            squad.captain
+                                                ? `/users/${squad.captain.username}`
+                                                : `/users/${loggedInUser.username}`
+                                        }
                                         onClick={handleCaptainClick}
-                                        id={squad.captain.username}
+                                        id={
+                                            squad.captain
+                                                ? squad.captain.username
+                                                : loggedInUser.username
+                                        }
                                         className="squadListSquadCaptain"
                                     >
-                                        {squad.captain.username}
+                                        {squad.captain
+                                            ? squad.captain.username
+                                            : loggedInUser.username}
                                     </div>
                                 </div>
                             </div>

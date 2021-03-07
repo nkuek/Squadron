@@ -50,27 +50,18 @@ const Squads = () => {
 
     window.addEventListener('click', (e) => {
         if (showTrading) {
-            if (
-                !e.target.classList.contains(
-                    'trading'
-                )
-            )
-                setShowTrading(false);
+            if (!e.target.classList.contains('trading')) setShowTrading(false);
         } else if (showSocial) {
-            if (
-                !e.target.classList.contains('social')
-            )
-                setShowSocial(false);
+            if (!e.target.classList.contains('social')) setShowSocial(false);
         } else if (showGaming) {
-            if (
-                !e.target.classList.contains('gaming')
-            )
-                setShowGaming(false);
+            if (!e.target.classList.contains('gaming')) setShowGaming(false);
         }
         return window.removeEventListener('click', e);
     });
 
     const { gamingSquads, socialSquads, tradingSquads } = allSquads;
+
+    const mySquads = loggedInUser.captain.concat(loggedInUser.squadmates);
 
     const rotateArrow = (e) => {
         e.target.children[2].classList.add('rotate');
@@ -86,7 +77,10 @@ const Squads = () => {
                     </Helmet>
                     <div className="allSquadsPageContainer">
                         <div className="allSquadsPanelContainer">
-                            <div className="allSquadsPageHeaderContainer">
+                            <div
+                                onClick={() => history.push('/squads/mysquads')}
+                                className="allSquadsPageHeaderContainer"
+                            >
                                 <span className="allSquadsPageHeader">
                                     Your Squads
                                 </span>
@@ -201,6 +195,14 @@ const Squads = () => {
                                     props={{
                                         squadCategory: 'Social Squads',
                                         squads: socialSquads,
+                                    }}
+                                />
+                            </Route>
+                            <Route exact path="/squads/mysquads">
+                                <SquadCategoryPage
+                                    props={{
+                                        squadCategory: 'My Squads',
+                                        squads: mySquads,
                                     }}
                                 />
                             </Route>
