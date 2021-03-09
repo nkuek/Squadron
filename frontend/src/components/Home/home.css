@@ -56,7 +56,6 @@
     align-items: center;
     box-sizing: border-box;
     height: fit-content;
-    margin-top: 61px;
     width: 90vw;
     background-color: rgb(28, 30, 33);
     border-radius: 10px;
@@ -526,7 +525,10 @@
         position: relative;
         width: 100%;
         margin-top: 61px;
-        top: 61px;
+    }
+
+    .homePageContent {
+        margin-top: 61px;
     }
 
     .homePageBanner {
