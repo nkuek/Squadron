@@ -121,7 +121,7 @@
     text-align:center;
     height: 49px;
     padding: 10px;
-    left: 40px;
+    left: 50px;
     margin-right: 10px;
 }
 
@@ -274,12 +274,10 @@
     .homePageSearchForm {
         display: flex;
         flex-direction: column;
-        width: 100%;
         padding: 0px;
         align-items: center;
         box-sizing: border-box;
         justify-content: center;
-        padding: 15px;
     }
 
     .homePageSearchContainer {
@@ -314,7 +312,7 @@
     .homePageBanner {
         width: 100%;
         padding-left: 30px;
-
+        box-sizing: border-box;
         padding-bottom: 30px;
         right: -30px;
         background-color: rgba(0, 0, 0, 0.4);
