@@ -55,7 +55,7 @@
     position: relative;
     align-items: center;
     box-sizing: border-box;
-    height: fit-content;
+    height: 2500px;
     width: 90vw;
     background-color: rgb(28, 30, 33);
     border-radius: 10px;
@@ -159,7 +159,7 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
-    height: auto;
+    height: 1155px;
     margin-top: 100px;
 }
 
@@ -256,19 +256,22 @@
 }
 
 /* Small Screens */
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 700px) {
 
     .homePageContent {
-        height: fit-content;
+        height: 2500px;
         width: 100%;
         padding: 0px;
         border-radius: 0px;
+        display: flex;
+        flex-direction: column;
     }
 
     .homePageWrapper {
         display: flex;
         flex-direction: column;
         align-items: center;
+        height: 100vh;
         overflow-x: hidden;
     }
     .homePageSearchForm {
@@ -284,6 +287,7 @@
         display: flex;
         flex-direction: column;
         width: 100%;
+        justify-content: flex-start;
     }
 
     .homePageSearchInput {
@@ -368,10 +372,10 @@
 
     .homePageEventsContainer {
         padding: 10px;
+        margin-top: 20px;
         border-radius: 20px;
         color: white;
         height: auto;
-        position: relative;
         box-sizing: border-box;
         width: 100vw;
         border-radius: 0px;
@@ -517,7 +521,7 @@
 }
 
 /* Large Screens */
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 700px) {
 
 .homePageBannerWrapper {
         position: relative;
