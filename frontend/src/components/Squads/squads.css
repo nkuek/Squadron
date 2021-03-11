@@ -258,6 +258,14 @@
     flex-direction: column;
 }
 
+.allSquadsSeeAll {
+    cursor: pointer;
+    font-size: .8em;
+}
+
+.allSquadsSeeAll:hover {
+    color:teal
+}
 
 
 @media only screen and (max-width: 700px) {
@@ -448,7 +456,6 @@
 
     .squadCategoryContainer {
         width: 85%;
-        height: 100%;
     }
 
     .allSquadsListHeaderContainer {
@@ -463,14 +470,7 @@
         justify-content: space-between;
     }
 
-    .allSquadsSeeAll {
-        cursor: pointer;
-        font-size: .8em;
-    }
 
-    .allSquadsSeeAll:hover {
-       color:teal
-    }
 
     .exploreSquadsBodyContainer {
         display: flex;
@@ -497,7 +497,6 @@
     width: 100%;
     display: flex;
     color: white;
-    background-color: #1c1e21;
 }
 
 .allSquadsPanelContainer {
@@ -628,19 +627,20 @@
 
 .squadCategoryWrapper {
     position: relative;
-    height: 100%;
+    height: fit-content;
     display: flex;
+    align-items: center;
     flex-direction: column;
+    background-color: #1c1e21;
 }
 
 .squadCategoryContainer {
     display: flex;
     flex-direction: column;
-    background-color: #1c1e21;
 }
 
 .squadCategoryHeaderContainer {
-    padding: 38px;
+    padding: 25px;
     padding-top: 20px;
     font-size: 2em;
 }

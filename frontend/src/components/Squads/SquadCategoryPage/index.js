@@ -1,7 +1,12 @@
 import { Redirect, useHistory } from 'react-router-dom';
+import { useEffect } from 'react';
 
 const SquadCategoryPage = ({ props }) => {
     const { squadCategory, squads } = props;
+
+    useEffect(() => {
+        document.querySelector('.allSquadsPageWrapper').scrollTo(0, 0);
+    }, []);
 
     const history = useHistory();
 

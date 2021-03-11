@@ -1,8 +1,7 @@
-import { useHistory, Link, Route, Switch } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { findAllSquads } from '../../../store/allSquads';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import SquadCategoryPage from '../SquadCategoryPage';
 
 const ExploreSquads = ({ allSquads }) => {
     const history = useHistory();
@@ -23,10 +22,6 @@ const ExploreSquads = ({ allSquads }) => {
         history.push(`/squads/${squadId}`);
     };
 
-    const handleGamingClick = () => {
-        history.push('/squads/explore/gaming');
-    };
-
     const { gamingSquads, tradingSquads, socialSquads } = allSquads;
 
     return (
@@ -45,11 +40,11 @@ const ExploreSquads = ({ allSquads }) => {
                                     </div>
                                     <div className="allSquadsSeeAllContainer">
                                         <span
-                                            onClick={() =>
+                                            onClick={() => {
                                                 history.push(
                                                     '/squads/explore/gaming'
-                                                )
-                                            }
+                                                );
+                                            }}
                                             className="allSquadsSeeAll"
                                         >
                                             See All
