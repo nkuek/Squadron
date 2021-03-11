@@ -26,7 +26,6 @@ const Squads = () => {
     const allSquads = useSelector((state) => state.allSquads);
     const userSquads = null;
     const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
-    console.log(loggedInUser);
 
     useEffect(async () => {
         await dispatch(findAllSquads());

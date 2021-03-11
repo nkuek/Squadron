@@ -16,11 +16,11 @@ const ExploreSquads = ({ allSquads }) => {
 
     const handleCaptainClick = (e) => {
         e.stopPropagation();
-        history.push(`/users/${e.target.id}`);
+        history.push(`/users/${e.target.id}/squads`);
     };
 
-    const handleSquadClick = (e) => {
-        history.push(`/squads/${e.target.id}`);
+    const handleSquadClick = (squadId) => {
+        history.push(`/squads/${squadId}`);
     };
 
     const handleGamingClick = () => {
@@ -65,7 +65,9 @@ const ExploreSquads = ({ allSquads }) => {
                                         >
                                             <div
                                                 id={squad.id}
-                                                onClick={handleSquadClick}
+                                                onClick={() =>
+                                                    handleSquadClick(squad.id)
+                                                }
                                                 className="squadListSquadLink"
                                             >
                                                 <div className="squadCardImageContainer">
@@ -126,7 +128,9 @@ const ExploreSquads = ({ allSquads }) => {
                                         >
                                             <div
                                                 id={squad.id}
-                                                onClick={handleSquadClick}
+                                                onClick={() =>
+                                                    handleSquadClick(squad.id)
+                                                }
                                                 className="squadListSquadLink"
                                             >
                                                 <div className="squadCardImageContainer">
@@ -186,7 +190,9 @@ const ExploreSquads = ({ allSquads }) => {
                                         >
                                             <div
                                                 id={squad.id}
-                                                onClick={handleSquadClick}
+                                                onClick={() =>
+                                                    handleSquadClick(squad.id)
+                                                }
                                                 className="squadListSquadLink"
                                             >
                                                 <div className="squadCardImageContainer">
