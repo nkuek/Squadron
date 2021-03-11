@@ -2,11 +2,14 @@ import { useHistory } from 'react-router-dom';
 import { findAllSquads } from '../../../store/allSquads';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { joinNewSquad } from '../../../store/user';
 
 const ExploreSquads = ({ allSquads }) => {
     const history = useHistory();
     const dispatch = useDispatch();
     const [isLoaded, setIsLoaded] = useState(false);
+
+    const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
 
     useEffect(() => {
         dispatch(findAllSquads());
@@ -20,6 +23,11 @@ const ExploreSquads = ({ allSquads }) => {
 
     const handleSquadClick = (squadId) => {
         history.push(`/squads/${squadId}`);
+    };
+
+    const handleJoinSquad = async (e, squadId) => {
+        e.stopPropagation();
+        await dispatch(joinNewSquad(squadId, loggedInUser.id));
     };
 
     const { gamingSquads, tradingSquads, socialSquads } = allSquads;
@@ -59,7 +67,6 @@ const ExploreSquads = ({ allSquads }) => {
                                             className="allSquadsList"
                                         >
                                             <div
-                                                id={squad.id}
                                                 onClick={() =>
                                                     handleSquadClick(squad.id)
                                                 }
@@ -87,6 +94,19 @@ const ExploreSquads = ({ allSquads }) => {
                                                         className="squadListSquadCaptain"
                                                     >
                                                         {squad.captain.username}
+                                                    </div>
+                                                </div>
+                                                <div
+                                                    onClick={(e) =>
+                                                        handleJoinSquad(
+                                                            e,
+                                                            squad.id
+                                                        )
+                                                    }
+                                                    className="joinSquadContainer"
+                                                >
+                                                    <div className="joinSquad">
+                                                        Join Squad
                                                     </div>
                                                 </div>
                                             </div>
@@ -122,7 +142,6 @@ const ExploreSquads = ({ allSquads }) => {
                                             className="allSquadsList"
                                         >
                                             <div
-                                                id={squad.id}
                                                 onClick={() =>
                                                     handleSquadClick(squad.id)
                                                 }
@@ -149,6 +168,19 @@ const ExploreSquads = ({ allSquads }) => {
                                                         className="squadListSquadCaptain"
                                                     >
                                                         {squad.captain.username}
+                                                    </div>
+                                                </div>
+                                                <div
+                                                    onClick={(e) =>
+                                                        handleJoinSquad(
+                                                            e,
+                                                            squad.id
+                                                        )
+                                                    }
+                                                    className="joinSquadContainer"
+                                                >
+                                                    <div className="joinSquad">
+                                                        Join Squad
                                                     </div>
                                                 </div>
                                             </div>
@@ -184,7 +216,6 @@ const ExploreSquads = ({ allSquads }) => {
                                             className="allSquadsList"
                                         >
                                             <div
-                                                id={squad.id}
                                                 onClick={() =>
                                                     handleSquadClick(squad.id)
                                                 }
@@ -211,6 +242,19 @@ const ExploreSquads = ({ allSquads }) => {
                                                         className="squadListSquadCaptain"
                                                     >
                                                         {squad.captain.username}
+                                                    </div>
+                                                </div>
+                                                <div
+                                                    onClick={(e) =>
+                                                        handleJoinSquad(
+                                                            e,
+                                                            squad.id
+                                                        )
+                                                    }
+                                                    className="joinSquadContainer"
+                                                >
+                                                    <div className="joinSquad">
+                                                        Join Squad
                                                     </div>
                                                 </div>
                                             </div>

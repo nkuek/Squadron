@@ -90,8 +90,6 @@ router.put(
             where: { username },
         });
 
-        console.log(user);
-
         return res.json(user);
     })
 );

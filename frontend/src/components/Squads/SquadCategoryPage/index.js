@@ -87,6 +87,9 @@ const SquadCategoryPage = ({ props }) => {
                                             : loggedInUser.username}
                                     </div>
                                 </div>
+                                <div className="joinSquadContainer">
+                                    <div className="joinSquad">Join Squad</div>
+                                </div>
                             </div>
                         </div>
                     ))}

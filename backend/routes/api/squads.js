@@ -78,4 +78,22 @@ router.get(
     })
 );
 
+router.post(
+    '/join',
+    asyncHandler(async (req, res) => {
+        const { userId, squadId } = req.body;
+        await db.Squadmate.create({ UserId: userId, SquadId: squadId });
+        const user = await db.User.findOne({
+            include: [
+                {
+                    model: db.Squad,
+                    as: 'squadmates',
+                },
+            ],
+            where: { id: userId },
+        });
+        return res.json(user.squadmates);
+    })
+);
+
 module.exports = router;

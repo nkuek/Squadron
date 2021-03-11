@@ -203,9 +203,7 @@
 }
 
 .allSquadsListBodyContainer {
-    padding: 10px;
     box-sizing: border-box;
-    margin: 10px;
     display: flex;
     flex-direction: column;
     height: 100vh;
@@ -377,6 +375,7 @@
 
     .squadCategoryWrapper {
         left: 60px;
+        height: fit-content;
     }
 
     .squadCategoryBodyContainer {
@@ -531,11 +530,7 @@
     background-color:#1c1e21;
     width: 100%;
     box-sizing: border-box;
-    display: flex;
-
 }
-
-
 
 .top {
 
@@ -572,9 +567,9 @@
 }
 
 .squadDescriptionContainer {
-    height: 150px;
     box-sizing: border-box;
     padding: 15px;
+
 }
 
 .squadListSquadCaptain {
@@ -627,7 +622,6 @@
 
 .squadCategoryWrapper {
     position: relative;
-    height: fit-content;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -679,4 +673,18 @@
     display: flex;
     flex-direction: column;
     flex-wrap:wrap;
+}
+
+.joinSquadContainer {
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 10px;
+    background-color: #1b67ff;
+    border-radius: 5px;
+    margin: 10px 30px;
+}
+
+.joinSquadContainer:hover {
+    background-color: #578fff;
 }

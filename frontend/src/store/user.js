@@ -2,6 +2,7 @@ import { csrfFetch } from './csrf';
 
 const FIND_USER = 'users/findUser';
 const EDIT_USER = 'users/editUser';
+const JOIN_SQUAD = 'users/joinSquad';
 
 export const getUser = (user) => ({
     type: FIND_USER,
@@ -23,6 +24,11 @@ export const findUser = (username) => async (dispatch) => {
     return user;
 };
 
+export const joinSquad = (newSquadsList) => ({
+    type: JOIN_SQUAD,
+    newSquadsList,
+});
+
 export const editUserAbout = (newAbout) => async (dispatch) => {
     const res = await csrfFetch('/api/users/:user/about', {
         method: 'PUT',
@@ -33,12 +39,24 @@ export const editUserAbout = (newAbout) => async (dispatch) => {
     dispatch(editAbout(updatedUser.description));
 };
 
+export const joinNewSquad = (squadId, userId) => async (dispatch) => {
+    const res = await csrfFetch('/api/squads/join', {
+        method: 'POST',
+        body: JSON.stringify({ squadId, userId }),
+    });
+
+    const data = await res.json();
+    dispatch(joinSquad(data));
+};
+
 const userReducer = (state = {}, action) => {
     switch (action.type) {
         case FIND_USER:
             return action.user;
         case EDIT_USER:
             return { ...state, description: action.newAbout };
+        case JOIN_SQUAD:
+            return { ...state, squadmates: [...action.newSquadsList] };
         default:
             return state;
     }
