@@ -189,7 +189,12 @@ ul {
     padding: 20px;
 }
 
-
+.dropDownSearch {
+    display: none;
+    padding: 0px;
+    width: 100%;
+    position:absolute;
+}
 
 /* Small Screens */
 @media only screen and (max-width: 700px) {
@@ -258,6 +263,8 @@ ul {
         position: relative;
 
     }
+
+
 
     .signup:visited {
         color: white
@@ -391,8 +398,18 @@ ul {
 
     .hiddenSearch {
         position: absolute;
-        padding: 30px;
-        top: 80px;
+        padding: 20px;
+        top: 71px;
+        z-index: 10;
+        box-sizing: border-box;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        border-top: 1px solid rgb(146, 145, 145);
+        border-bottom: 1px solid rgb(146, 145, 145)
+    }
+    .hiddenSearch:valid {
+        border-top: 1px solid rgb(146, 145, 145);
+        border-bottom: 1px solid rgb(146, 145, 145);
     }
 }
 

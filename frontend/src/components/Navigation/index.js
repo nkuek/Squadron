@@ -13,11 +13,12 @@ const Navigation = () => {
     const history = useHistory();
 
     const [search, setSearch] = useState('');
-    const [showSearch, setShowSearch] = useState(false);
 
+    const showSearch = (e) => {
+        document.querySelector('.dropDownSearch')?.classList.toggle('show');
+    };
     // Enables hamburger menu bar transition
     const addChange = (e) => {
-        document.querySelector('.stickyDropDownMenu');
         e.target.classList.toggle('change');
 
         // Shows drop down menu when clicked
@@ -32,30 +33,21 @@ const Navigation = () => {
         // reset search bar content back to empty on submission
         setSearch('');
 
+        document.querySelector('.dropDownSearch')?.classList.remove('show');
+
         history.push(`/search/${search}`);
     };
-
-    useEffect(() => {
-        // if (!showSearch) return;
-        // setShowSearch(false);
-
-        console.log(showSearch);
-        const closeSearch = () => {
-            // setShowSearch(false);
-            return;
-        };
-
-        document.addEventListener('click', (e) => {
-            if (!e.target.classList.contains('hiddenSearch')) closeSearch();
-        });
-
-        return () => document.removeEventListener('click', closeSearch);
-    }, [showSearch]);
 
     const handleSquads = async () => {
         await dispatch(findAllSquads());
         history.push('/squads/explore');
     };
+
+    // window.addEventListener('click', (e) => {
+    //     if (!e.target.classList.contains('.dropDownSearch')) {
+    //         document.querySelector('.dropDownSearch').classList.remove('show');
+    //     }
+    // });
 
     // Closes drop down menu when clicking anywhere else
     window.addEventListener('click', (e) => {
@@ -103,23 +95,10 @@ const Navigation = () => {
                                         type="text"
                                     ></input>
                                 </div>
-                                <span
-                                    onClick={() => setShowSearch(true)}
+                                <div
+                                    onClick={showSearch}
                                     className="fa fa-search hiddenSearchButton"
-                                ></span>
-                                {showSearch && (
-                                    <div className="dropDownSearch">
-                                        <input
-                                            placeholder="Search..."
-                                            value={search}
-                                            onChange={(e) =>
-                                                setSearch(e.target.value)
-                                            }
-                                            className="hiddenSearch"
-                                            type="text"
-                                        ></input>
-                                    </div>
-                                )}
+                                ></div>
                             </div>
                         </div>
                     </form>
@@ -153,6 +132,16 @@ const Navigation = () => {
                     )}
                 </div>
             </nav>
+            <form onSubmit={handleSearch} className="dropDownSearch">
+                <span className="fa fa-search"></span>
+                <input
+                    placeholder="Search..."
+                    value={search}
+                    onChange={(e) => setSearch(e.target.value)}
+                    className="hiddenSearch"
+                    type="text"
+                ></input>
+            </form>
             <div className="stickyDropDownMenu">
                 <ul className="dropDownLinks">
                     <li>
