@@ -34,12 +34,6 @@ const Squads = () => {
         setIsLoaded(true);
     }, [dispatch]);
 
-    useEffect(async () => {
-        if (loggedInUser) {
-            await dispatch(findUser(loggedInUser.username));
-        }
-    }, [dispatch]);
-
     window.addEventListener('click', (e) => {
         if (showTrading) {
             if (!e.target.classList.contains('trading')) setShowTrading(false);

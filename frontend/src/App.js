@@ -16,13 +16,17 @@ import PageNotFound from './components/PageNotFound';
 import Squads from './components/Squads';
 import Search from './components/Search';
 import NewSquadForm from './components/Squads/NewSquadForm';
+import { findUser } from './store/user';
 
 function App() {
     const dispatch = useDispatch();
     const [isLoaded, setIsLoaded] = useState(false);
 
-    useEffect(async () => {
-        await dispatch(sessionActions.restoreUser());
+    const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
+
+    useEffect(() => {
+        dispatch(sessionActions.restoreUser());
+        dispatch(findUser(loggedInUser.username));
         setIsLoaded(true);
     }, [dispatch]);
 

@@ -30,7 +30,6 @@ const ProfileButton = ({ user }) => {
 
     const navigateToProfile = (e) => {
         e.preventDefault();
-        dispatch(findUser(user.username));
         history.push(`/users/${user.username}/squads`);
     };
 

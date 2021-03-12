@@ -20,9 +20,9 @@ const ExploreSquads = ({ allSquads }) => {
         history.push(`/squads/${squadId}`);
     };
 
-    const handleJoinSquad = async (e, squadId) => {
+    const handleJoinSquad = (e, squadId) => {
         e.stopPropagation();
-        await dispatch(joinNewSquad(squadId, loggedInUser.id));
+        dispatch(joinNewSquad(squadId, loggedInUser.id));
     };
 
     const { gamingSquads, tradingSquads, socialSquads } = allSquads;
@@ -30,8 +30,6 @@ const ExploreSquads = ({ allSquads }) => {
         ...userProfile.captain,
         ...userProfile.squadmates,
     ];
-
-
 
     return (
         userSquads && (

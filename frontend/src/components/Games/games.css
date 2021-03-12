@@ -23,19 +23,35 @@
     cursor: pointer;
 }
 
+.gameCardContainer a {
+    position: relative;
+    z-index: 0
+}
+
 
 .gameCardContainer a:hover, .gamesOrder:hover {
     background-color: #636363;
 }
 
-.pageButtonsContainer {
-    color: white;
+.addGameContainer {
+    position: relative;
     display: flex;
-    justify-content: space-between;
+    justify-content:flex-end;
+    box-sizing: border-box;
+    margin-right: 5px;
 }
 
-.pageButtons {
+.addGame, .addGamePlus {
+    color: white;
+    width: fit-content;
+    box-sizing: border-box;
     cursor: pointer;
+    position: relative;
+    height: fit-content;
+}
+
+.addGame:hover, .addGamePlus:hover {
+    color: teal;
 }
 
 @media only screen and (min-width: 700px) {
@@ -97,6 +113,9 @@
         /* margin: 0; */
     }
 
+    .gameInformationContainer {
+
+    }
 
     .gameInformation {
         position: relative;
@@ -131,6 +150,16 @@
 
     .gameRating {
         padding-left: 5px;
+    }
+
+    .addGame {
+        display: inline-block;
+        /* left: 550px;
+        top: 240px; */
+    }
+
+    .addGamePlus {
+        display: none;
     }
 }
 
@@ -260,5 +289,12 @@
         padding-left: 5px;
     }
 
+    .addGame {
+        display: none;
+    }
+
+    .addGamePlus {
+        display: inline-block;
+    }
 
 }

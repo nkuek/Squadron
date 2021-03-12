@@ -17,6 +17,7 @@ const Games = () => {
     const history = useHistory();
 
     const { games: initialGames } = useSelector((state) => state.games);
+    const usergames = useSelector((state) => state.userProfile.usergames);
     const order = JSON.parse(localStorage.getItem('ordering'));
     const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
 
@@ -24,10 +25,25 @@ const Games = () => {
     const [isLoaded, setIsLoaded] = useState(false);
     const [games, setGames] = useState(initialGames);
 
+    const addedGames = usergames && usergames.map((game) => game.name);
+    console.log(addedGames);
+
     const handleLinkClick = (e) => {
         e.preventDefault();
         sessionStorage.setItem('scrollPosition', window.pageYOffset);
         history.push(`/games/${e.target.id}`);
+    };
+
+    const fetchMoreData = async () => {
+        const next = games[Object.keys(games).length - 1].next;
+        const nextGames = await dispatch(moreGames(next));
+        setGames([...games, ...nextGames]);
+    };
+
+    const handleAddGame = async (e, gameName) => {
+        e.stopPropagation();
+        dispatch(addGame(loggedInUser.id, gameName));
+        document.querySelector('.addGameContainer').style.display = 'none';
     };
 
     useEffect(async () => {
@@ -46,18 +62,7 @@ const Games = () => {
         localStorage.setItem('ordering', JSON.stringify(ordering));
     }, [ordering]);
 
-    const fetchMoreData = async () => {
-        const next = games[Object.keys(games).length - 1].next;
-        const nextGames = await dispatch(moreGames(next));
-        setGames([...games, ...nextGames]);
-    };
-
-    const handleAddGame = async (e, gameName) => {
-        e.stopPropagation();
-        dispatch(addGame(loggedInUser.id, gameName));
-    };
-
-    return !isLoaded ? (
+    return !isLoaded || !usergames ? (
         <h1 className="loading">Loading...</h1>
     ) : (
         <div className="gamesWrapper">
@@ -151,14 +156,31 @@ const Games = () => {
                                             </div>
                                         </div>
                                     </Link>
-                                    <div
-                                        onClick={(e) =>
-                                            handleAddGame(e, game.name)
-                                        }
-                                        className="addGame"
-                                    >
-                                        Add to Games List
-                                    </div>
+                                    {loggedInUser &&
+                                        !addedGames.includes(game.name) && (
+                                            <div className="addGameContainer">
+                                                <div
+                                                    onClick={(e) =>
+                                                        handleAddGame(
+                                                            e,
+                                                            game.name
+                                                        )
+                                                    }
+                                                    className="addGame"
+                                                >
+                                                    Add to My Games List
+                                                </div>
+                                                <div
+                                                    onClick={(e) =>
+                                                        handleAddGame(
+                                                            e,
+                                                            game.name
+                                                        )
+                                                    }
+                                                    className="addGamePlus fas fa-plus"
+                                                ></div>
+                                            </div>
+                                        )}
                                 </div>
                             </li>
                         );
