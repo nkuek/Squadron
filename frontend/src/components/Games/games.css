@@ -52,6 +52,8 @@
         border-radius: 10px;
         margin-bottom: 50px;
         padding: 40px;
+        max-width: 743px;
+        box-sizing: border-box;
     }
     .loading {
         font-size: 3em;
@@ -141,7 +143,6 @@
         box-sizing: border-box;
         border-radius: 10px;
         width: 100%;
-        overflow-x: hidden;
         /* max-width: 500px; */
     }
 
