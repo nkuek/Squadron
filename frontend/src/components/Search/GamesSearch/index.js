@@ -22,7 +22,6 @@ const GamesSearch = () => {
         const games = await dispatch(getSearchResults(searchQuery));
         localStorage.setItem('games', JSON.stringify(games));
         setIsLoaded(true);
-        console.log(games);
     }, [dispatch]);
 
     let { games } = useSelector((state) => state.search);

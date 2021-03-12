@@ -26,7 +26,6 @@ const Games = () => {
     const [games, setGames] = useState(initialGames);
 
     const addedGames = usergames && usergames.map((game) => game.name);
-    console.log(addedGames);
 
     const handleLinkClick = (e) => {
         e.preventDefault();
