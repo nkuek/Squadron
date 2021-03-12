@@ -16,8 +16,6 @@ const UserSquads = () => {
         ...userProfile.squadmates,
     ];
 
-    console.log(squads);
-
     let userProfileName = username;
     if (username === loggedInUser.username) userProfileName = 'You';
 
@@ -35,55 +33,57 @@ const UserSquads = () => {
                         </div>
                     </div>
                 ) : (
-                    <ul className="userSquadListContainer">
-                        {squads &&
-                            squads.map((squad, idx) => (
-                                <li key={idx} className="squadCard">
-                                    <div
-                                        style={{
-                                            borderColor:
-                                                squad.captain.username ===
-                                                    username && '#1b67ff',
-                                        }}
-                                        className="squadCardsContainer"
-                                    >
-                                        <Link
-                                            to={`/squads/${squad.squadName
-                                                .split(' ')
-                                                .join('')}`}
+                    <>
+                        <ul className="userSquadListContainer">
+                            {squads &&
+                                squads.map((squad, idx) => (
+                                    <li key={idx} className="squadCard">
+                                        <div
+                                            style={{
+                                                borderColor:
+                                                    squad.captain.username ===
+                                                        username && '#1b67ff',
+                                            }}
+                                            className="squadCardsContainer"
                                         >
-                                            <div
-                                                className="squadInformationContainer"
-                                                style={{
-                                                    pointerEvents: 'none',
-                                                }}
+                                            <Link
+                                                to={`/squads/${squad.squadName
+                                                    .split(' ')
+                                                    .join('')}`}
                                             >
-                                                <div className="userSquadNameContainer">
-                                                    <p className="userSquadName">
-                                                        {squad.squadName}
-                                                    </p>
-                                                </div>
-                                                <div className="userSquadInformationContainer">
-                                                    <p className="userSquadPrimaryType">
-                                                        {`Primary type: ${squad.primaryType}`}
-                                                    </p>
-                                                    {squad.secondaryType && (
-                                                        <p className="userSquadSecondaryType">
-                                                            {`Secondary type: ${squad.secondaryType}`}
-                                                        </p>
-                                                    )}
-                                                    <div className="userSquadCaptainLink">
-                                                        <p className="userSquadCaptain">
-                                                            {`Captain: ${squad.captain.username}`}
+                                                <div
+                                                    className="squadInformationContainer"
+                                                    style={{
+                                                        pointerEvents: 'none',
+                                                    }}
+                                                >
+                                                    <div className="userSquadNameContainer">
+                                                        <p className="userSquadName">
+                                                            {squad.squadName}
                                                         </p>
                                                     </div>
+                                                    <div className="userSquadInformationContainer">
+                                                        <p className="userSquadPrimaryType">
+                                                            {`Primary type: ${squad.primaryType}`}
+                                                        </p>
+                                                        {squad.secondaryType && (
+                                                            <p className="userSquadSecondaryType">
+                                                                {`Secondary type: ${squad.secondaryType}`}
+                                                            </p>
+                                                        )}
+                                                        <div className="userSquadCaptainLink">
+                                                            <p className="userSquadCaptain">
+                                                                {`Captain: ${squad.captain.username}`}
+                                                            </p>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </Link>
-                                    </div>
-                                </li>
-                            ))}
-                    </ul>
+                                            </Link>
+                                        </div>
+                                    </li>
+                                ))}
+                        </ul>
+                    </>
                 )}
             </div>
         </>
