@@ -6,6 +6,22 @@
 - Create events on your `Squad`'s page that squad mates can RSVP to
 - Check on my progress [here](https://squadron-gaming.herokuapp.com/)!
 
+## Working Feature List
+- User Authentication
+  - Registration
+  - Login
+  - Logout
+  - Limited website functionality without logging in
+- Game page list
+  - Browse games by popularity or metacritic rating
+  - Clicking on a game card will take you to the game page to display more information about the game
+  - Add games from the game page list to your profile (only for logged in users
+- Squads
+  - Squads page
+    - Browse squads by category: gaming, social, or trading
+    - See list of the squads you've joined by clicking on `Your Squads`
+    - See list of squads you've joined by category by clicking on the respective categories underneath `Your Squads`
+
 ## Technologies Used
 -  React/Redux for the frontend
 -  JavaScript/Express for the backend
