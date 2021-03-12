@@ -5,48 +5,45 @@ import { useEffect, useState } from 'react';
 import { findUser } from '../../../store/user';
 
 const UserSquads = () => {
-    const { userProfileName } = useParams();
+    let { username } = useParams();
     const dispatch = useDispatch();
     const [isLoaded, setIsLoaded] = useState(false);
 
-    useEffect(async () => {
-        await dispatch(findUser(userProfileName));
-        setIsLoaded(true);
-    }, [dispatch]);
-
-    let loggedInUser = useSelector((state) => state.session.user);
+    let loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
     let userProfile = useSelector((state) => state.userProfile);
+    const squads = Object.keys(userProfile).length > 0 && [
+        ...userProfile.captain,
+        ...userProfile.squadmates,
+    ];
 
-    let username = userProfile.username;
+    console.log(squads);
 
-    if (userProfileName === loggedInUser.username) username = 'You';
+    let userProfileName = username;
+    if (username === loggedInUser.username) userProfileName = 'You';
 
-    return !isLoaded ? (
-        <h1 className="loading">Loading...</h1>
-    ) : (
+    return (
         <>
             <div className="userSquadListWrapper">
-                {userProfile.captain.concat(userProfile.squadmates).length ===
-                0 ? (
+                {squads.length === 0 ? (
                     <div className="noSquadsContainer">
                         <div className="noSquadsHeader">
                             <h1 className="noSquads">
-                                {username === 'You'
+                                {userProfileName === 'You'
                                     ? `You have not joined any squads yet!`
-                                    : `${username} has not joined any squads yet!`}
+                                    : `${userProfileName} has not joined any squads yet!`}
                             </h1>
                         </div>
                     </div>
                 ) : (
                     <ul className="userSquadListContainer">
-                        {userProfile.captain
-                            .concat(userProfile.squadmates)
-                            .map((squad, idx) => (
+                        {squads &&
+                            squads.map((squad, idx) => (
                                 <li key={idx} className="squadCard">
                                     <div
                                         style={{
                                             borderColor:
-                                                username === 'You' && '#1b67ff',
+                                                squad.captain.username ===
+                                                    username && '#1b67ff',
                                         }}
                                         className="squadCardsContainer"
                                     >
@@ -75,22 +72,11 @@ const UserSquads = () => {
                                                             {`Secondary type: ${squad.secondaryType}`}
                                                         </p>
                                                     )}
-                                                    {!(username === 'You') && (
-                                                        <div className="userSquadCaptainLink">
-                                                            <p
-                                                                // style={{
-                                                                //     cursor:
-                                                                //         !username ===
-                                                                //         'You'
-                                                                //             ? 'pointer'
-                                                                //             : 'none',
-                                                                // }}
-                                                                className="userSquadCaptain"
-                                                            >
-                                                                {`Captain: ${username}`}
-                                                            </p>
-                                                        </div>
-                                                    )}
+                                                    <div className="userSquadCaptainLink">
+                                                        <p className="userSquadCaptain">
+                                                            {`Captain: ${squad.captain.username}`}
+                                                        </p>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </Link>

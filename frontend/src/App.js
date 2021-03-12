@@ -16,8 +16,6 @@ import PageNotFound from './components/PageNotFound';
 import Squads from './components/Squads';
 import Search from './components/Search';
 import NewSquadForm from './components/Squads/NewSquadForm';
-import SquadPage from './components/Squads/SquadPage';
-import ExploreSquads from './components/Squads/ExploreSquads';
 
 function App() {
     const dispatch = useDispatch();

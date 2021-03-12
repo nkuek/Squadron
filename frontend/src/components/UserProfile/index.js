@@ -74,13 +74,13 @@ const UserProfile = () => {
                             </div>
                         </div>
                         <Switch>
-                            <Route path="/users/:userProfileName/squads">
+                            <Route path="/users/:username/squads">
                                 <UserSquads />
                             </Route>
-                            <Route path="/users/:userProfileName/games">
+                            <Route path="/users/:username/games">
                                 <UserGames />
                             </Route>
-                            <Route path="/users/:userProfileName/about">
+                            <Route path="/users/:username/about">
                                 <UserAbout />
                             </Route>
                         </Switch>

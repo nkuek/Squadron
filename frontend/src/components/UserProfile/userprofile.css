@@ -15,7 +15,6 @@
 
     .userProfileInnerContainer {
         border-radius: 0px;
-        overflow-y: scroll
     }
 
     .userProfileHeader {
@@ -49,7 +48,7 @@
 }
 .userProfileWrapper {
     width: 100%;
-    height: 100%;
+    height: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -60,18 +59,17 @@
     display: flex;
     max-width: 700px;
     width: 100%;
-    height: calc(100vh - 71px);
+    height: auto;
     box-sizing: border-box;
     flex-direction: column;
     align-items: center;
     background-color: #1c1e21;
-    overflow: hidden
 }
 
 .userProfileInnerContainer {
     width: 100%;
     /* box-sizing: border-box; */
-    height: 100%;
+    height: auto;
     padding-top: 0px;
 }
 
@@ -133,7 +131,7 @@
 
 .userSquadListWrapper {
     width: 100%;
-    height: 100%;
+    height: auto;
 }
 
 .noSquadsContainer {
@@ -149,8 +147,7 @@
 }
 
 .userSquadListContainer {
-    /* height: 100%; */
-    height: fit-content;
+    height: auto;
     width: 100%;
     display: flex;
     flex-direction: column;

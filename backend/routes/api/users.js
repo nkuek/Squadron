@@ -84,8 +84,27 @@ router.put(
                 {
                     model: db.Squad,
                     as: 'squadmates',
+                    attributes: { exclude: ['createdAt', 'updatedAt'] },
+                    include: [
+                        {
+                            model: db.User,
+                            as: 'captain',
+                            attributes: ['username'],
+                        },
+                    ],
                 },
-                { model: db.Squad, as: 'captain' },
+                {
+                    model: db.Squad,
+                    as: 'captain',
+                    include: [
+                        {
+                            model: db.User,
+                            as: 'captain',
+                            attributes: ['username'],
+                        },
+                    ],
+                    attributes: { exclude: ['createdAt', 'updatedAt'] },
+                },
             ],
             where: { username },
         });

@@ -7,20 +7,18 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 
 import { loadGames, moreGames } from '../../store/games';
 import { setGameOrder } from '../../store/order';
-import { findGames } from '../../store/game';
 
 import 'react-aspect-ratio/aspect-ratio.css';
 import './games.css';
-import GameInfo from '../GameInfo';
 
 const Games = () => {
     const dispatch = useDispatch();
     const history = useHistory();
 
     const { games } = useSelector((state) => state.games);
-    const order = localStorage.getItem('order');
+    const order = JSON.parse(localStorage.getItem('ordering'));
 
-    let [ordering, setOrdering] = useState(!order ? '' : order);
+    let [ordering, setOrdering] = useState(order ? order : '');
     const [isLoaded, setIsLoaded] = useState(false);
 
     const handleLinkClick = (e) => {
