@@ -1,5 +1,7 @@
 import { Redirect, useHistory } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
+import { joinNewSquad } from '../../../store/user';
 
 const SquadCategoryPage = ({ props }) => {
     const { squadCategory, squads } = props;
@@ -8,7 +10,11 @@ const SquadCategoryPage = ({ props }) => {
         document.querySelector('.allSquadsPageWrapper').scrollTo(0, 0);
     }, []);
 
+    const dispatch = useDispatch();
     const history = useHistory();
+
+    const userProfile = useSelector((state) => state.userProfile);
+    const userSquads = [...userProfile.captain, ...userProfile.squadmates];
 
     const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
 
@@ -19,6 +25,11 @@ const SquadCategoryPage = ({ props }) => {
 
     const handleSquadClick = (e) => {
         history.push(`/squads/${e.target.id}`);
+    };
+
+    const handleJoinSquad = async (e, squadId) => {
+        e.stopPropagation();
+        await dispatch(joinNewSquad(squadId, loggedInUser.id));
     };
 
     return !loggedInUser ? (
@@ -87,9 +98,21 @@ const SquadCategoryPage = ({ props }) => {
                                             : loggedInUser.username}
                                     </div>
                                 </div>
-                                <div className="joinSquadContainer">
-                                    <div className="joinSquad">Join Squad</div>
-                                </div>
+
+                                {!userSquads
+                                    .map((userSquad) => userSquad.squadName)
+                                    .includes(squad.squadName) && (
+                                    <div
+                                        onClick={(e) =>
+                                            handleJoinSquad(e, squad.id)
+                                        }
+                                        className="joinSquadContainer"
+                                    >
+                                        <div className="joinSquad">
+                                            Join Squad
+                                        </div>
+                                    </div>
+                                )}
                             </div>
                         </div>
                     ))}

@@ -24,6 +24,8 @@ const Navigation = () => {
         document.querySelector('.stickyDropDownMenu')?.classList.toggle('show');
     };
 
+    console.log(showSearch);
+
     const handleSearch = async (e) => {
         e.preventDefault();
         if (!search) return;
