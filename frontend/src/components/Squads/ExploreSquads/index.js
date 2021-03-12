@@ -26,238 +26,273 @@ const ExploreSquads = ({ allSquads }) => {
     };
 
     const { gamingSquads, tradingSquads, socialSquads } = allSquads;
-    const userSquads = [...userProfile.captain, ...userProfile.squadmates];
+    const userSquads = Object.keys(userProfile).length > 0 && [
+        ...userProfile.captain,
+        ...userProfile.squadmates,
+    ];
 
     return (
-        <>
-            <div className="allSquadsListWrapper">
-                <div className="allSquadsListContainer">
-                    <div className="allSquadsListBodyContainer">
-                        <div className="exploreSquadsSquadContainer">
-                            <div className="allSquadsListHeaderContainer top">
-                                <div className="allSquadsListHeader">
-                                    <div className="categoryHeader">
-                                        Gaming Squads
+        userSquads && (
+            <>
+                <div className="allSquadsListWrapper">
+                    <div className="allSquadsListContainer">
+                        <div className="allSquadsListBodyContainer">
+                            <div className="exploreSquadsSquadContainer">
+                                <div className="allSquadsListHeaderContainer top">
+                                    <div className="allSquadsListHeader">
+                                        <div className="categoryHeader">
+                                            Gaming Squads
+                                        </div>
+                                        <i className="fas fa-gamepad categoryIcon"></i>
                                     </div>
-                                    <i className="fas fa-gamepad categoryIcon"></i>
+                                    <div className="allSquadsSeeAllContainer">
+                                        <span
+                                            onClick={() => {
+                                                history.push(
+                                                    '/squads/explore/gaming'
+                                                );
+                                            }}
+                                            className="allSquadsSeeAll"
+                                        >
+                                            See All
+                                        </span>
+                                    </div>
                                 </div>
-                                <div className="allSquadsSeeAllContainer">
-                                    <span
-                                        onClick={() => {
-                                            history.push(
-                                                '/squads/explore/gaming'
-                                            );
-                                        }}
-                                        className="allSquadsSeeAll"
-                                    >
-                                        See All
-                                    </span>
-                                </div>
-                            </div>
 
-                            <div className="exploreSquadsBodyContainer">
-                                {gamingSquads.map((squad, idx) => (
-                                    <div key={idx} className="allSquadsList">
+                                <div className="exploreSquadsBodyContainer">
+                                    {gamingSquads.map((squad, idx) => (
                                         <div
-                                            onClick={() =>
-                                                handleSquadClick(squad.id)
-                                            }
-                                            className="squadListSquadLink"
+                                            key={idx}
+                                            className="allSquadsList"
                                         >
-                                            <div className="squadCardImageContainer">
-                                                <img
-                                                    className="squadCardImage"
-                                                    src={squad.squadImage}
-                                                ></img>
-                                            </div>
-                                            <div className="squadDescriptionContainer">
-                                                <div className="squadListSquadName">
-                                                    {squad.squadName}
+                                            <div
+                                                onClick={() =>
+                                                    handleSquadClick(squad.id)
+                                                }
+                                                className="squadListSquadLink"
+                                            >
+                                                <div className="squadCardImageContainer">
+                                                    <img
+                                                        className="squadCardImage"
+                                                        src={squad.squadImage}
+                                                    ></img>
                                                 </div>
-                                                <div
-                                                    to={`/users/${squad.captain.username}`}
-                                                    onClick={handleCaptainClick}
-                                                    id={squad.captain.username}
-                                                    className="squadListSquadCaptain"
-                                                >
-                                                    {squad.captain.username}
-                                                </div>
-                                            </div>
-                                            {!userSquads
-                                                .map(
-                                                    (userSquad) =>
-                                                        userSquad.squadName
-                                                )
-                                                .includes(squad.squadName) && (
-                                                <div
-                                                    onClick={(e) =>
-                                                        handleJoinSquad(
-                                                            e,
-                                                            squad.id
-                                                        )
-                                                    }
-                                                    className="joinSquadContainer"
-                                                >
-                                                    <div className="joinSquad">
-                                                        Join Squad
+                                                <div className="squadDescriptionContainer">
+                                                    <div className="squadListSquadName">
+                                                        {squad.squadName}
+                                                    </div>
+                                                    <div
+                                                        to={`/users/${squad.captain.username}`}
+                                                        onClick={
+                                                            handleCaptainClick
+                                                        }
+                                                        id={
+                                                            squad.captain
+                                                                .username
+                                                        }
+                                                        className="squadListSquadCaptain"
+                                                    >
+                                                        {squad.captain.username}
                                                     </div>
                                                 </div>
-                                            )}
+                                                {!userSquads
+                                                    .map(
+                                                        (userSquad) =>
+                                                            userSquad.squadName
+                                                    )
+                                                    .includes(
+                                                        squad.squadName
+                                                    ) && (
+                                                    <div
+                                                        onClick={(e) =>
+                                                            handleJoinSquad(
+                                                                e,
+                                                                squad.id
+                                                            )
+                                                        }
+                                                        className="joinSquadContainer"
+                                                    >
+                                                        <div className="joinSquad">
+                                                            Join Squad
+                                                        </div>
+                                                    </div>
+                                                )}
+                                            </div>
                                         </div>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                        <div className="exploreSquadsSquadContainer">
-                            <div className="allSquadsListHeaderContainer">
-                                <div className="allSquadsListHeader">
-                                    <div className="categoryHeader">
-                                        Social Squads
-                                    </div>
-                                    <i className="fas fa-user categoryIcon"></i>
-                                </div>
-                                <div className="allSquadsSeeAllContainer">
-                                    <span
-                                        onClick={() =>
-                                            history.push(
-                                                '/squads/explore/social'
-                                            )
-                                        }
-                                        className="allSquadsSeeAll"
-                                    >
-                                        See All
-                                    </span>
+                                    ))}
                                 </div>
                             </div>
-                            <div className="exploreSquadsBodyContainer">
-                                {socialSquads.map((squad, idx) => (
-                                    <div key={idx} className="allSquadsList">
-                                        <div
+                            <div className="exploreSquadsSquadContainer">
+                                <div className="allSquadsListHeaderContainer">
+                                    <div className="allSquadsListHeader">
+                                        <div className="categoryHeader">
+                                            Social Squads
+                                        </div>
+                                        <i className="fas fa-user categoryIcon"></i>
+                                    </div>
+                                    <div className="allSquadsSeeAllContainer">
+                                        <span
                                             onClick={() =>
-                                                handleSquadClick(squad.id)
-                                            }
-                                            className="squadListSquadLink"
-                                        >
-                                            <div className="squadCardImageContainer">
-                                                <img
-                                                    src={squad.squadImage}
-                                                    className="squadCardImage"
-                                                ></img>
-                                            </div>
-                                            <div className="squadDescriptionContainer">
-                                                <div className="squadListSquadName">
-                                                    {squad.squadName}
-                                                </div>
-                                                <div
-                                                    onClick={handleCaptainClick}
-                                                    id={squad.captain.username}
-                                                    className="squadListSquadCaptain"
-                                                >
-                                                    {squad.captain.username}
-                                                </div>
-                                            </div>
-                                            {!userSquads
-                                                .map(
-                                                    (userSquad) =>
-                                                        userSquad.squadName
+                                                history.push(
+                                                    '/squads/explore/social'
                                                 )
-                                                .includes(squad.squadName) && (
-                                                <div
-                                                    onClick={(e) =>
-                                                        handleJoinSquad(
-                                                            e,
-                                                            squad.id
-                                                        )
-                                                    }
-                                                    className="joinSquadContainer"
-                                                >
-                                                    <div className="joinSquad">
-                                                        Join Squad
+                                            }
+                                            className="allSquadsSeeAll"
+                                        >
+                                            See All
+                                        </span>
+                                    </div>
+                                </div>
+                                <div className="exploreSquadsBodyContainer">
+                                    {socialSquads.map((squad, idx) => (
+                                        <div
+                                            key={idx}
+                                            className="allSquadsList"
+                                        >
+                                            <div
+                                                onClick={() =>
+                                                    handleSquadClick(squad.id)
+                                                }
+                                                className="squadListSquadLink"
+                                            >
+                                                <div className="squadCardImageContainer">
+                                                    <img
+                                                        src={squad.squadImage}
+                                                        className="squadCardImage"
+                                                    ></img>
+                                                </div>
+                                                <div className="squadDescriptionContainer">
+                                                    <div className="squadListSquadName">
+                                                        {squad.squadName}
+                                                    </div>
+                                                    <div
+                                                        onClick={
+                                                            handleCaptainClick
+                                                        }
+                                                        id={
+                                                            squad.captain
+                                                                .username
+                                                        }
+                                                        className="squadListSquadCaptain"
+                                                    >
+                                                        {squad.captain.username}
                                                     </div>
                                                 </div>
-                                            )}
+                                                {!userSquads
+                                                    .map(
+                                                        (userSquad) =>
+                                                            userSquad.squadName
+                                                    )
+                                                    .includes(
+                                                        squad.squadName
+                                                    ) && (
+                                                    <div
+                                                        onClick={(e) =>
+                                                            handleJoinSquad(
+                                                                e,
+                                                                squad.id
+                                                            )
+                                                        }
+                                                        className="joinSquadContainer"
+                                                    >
+                                                        <div className="joinSquad">
+                                                            Join Squad
+                                                        </div>
+                                                    </div>
+                                                )}
+                                            </div>
                                         </div>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                        <div className="exploreSquadsSquadContainer">
-                            <div className="allSquadsListHeaderContainer">
-                                <div className="allSquadsListHeader">
-                                    <div className="categoryHeader">
-                                        Trading Squads
-                                    </div>
-                                    <i className="fas fa-store categoryIcon"></i>
-                                </div>
-                                <div className="allSquadsSeeAllContainer">
-                                    <span
-                                        onClick={() =>
-                                            history.push(
-                                                '/squads/explore/trading'
-                                            )
-                                        }
-                                        className="allSquadsSeeAll"
-                                    >
-                                        See All
-                                    </span>
+                                    ))}
                                 </div>
                             </div>
-                            <div className="exploreSquadsBodyContainer">
-                                {tradingSquads.map((squad, idx) => (
-                                    <div key={idx} className="allSquadsList">
-                                        <div
+                            <div className="exploreSquadsSquadContainer">
+                                <div className="allSquadsListHeaderContainer">
+                                    <div className="allSquadsListHeader">
+                                        <div className="categoryHeader">
+                                            Trading Squads
+                                        </div>
+                                        <i className="fas fa-store categoryIcon"></i>
+                                    </div>
+                                    <div className="allSquadsSeeAllContainer">
+                                        <span
                                             onClick={() =>
-                                                handleSquadClick(squad.id)
-                                            }
-                                            className="squadListSquadLink"
-                                        >
-                                            <div className="squadCardImageContainer">
-                                                <img
-                                                    src={squad.squadImage}
-                                                    className="squadCardImage"
-                                                ></img>
-                                            </div>
-                                            <div className="squadDescriptionContainer">
-                                                <div className="squadListSquadName">
-                                                    {squad.squadName}
-                                                </div>
-                                                <div
-                                                    onClick={handleCaptainClick}
-                                                    id={squad.captain.username}
-                                                    className="squadListSquadCaptain"
-                                                >
-                                                    {squad.captain.username}
-                                                </div>
-                                            </div>
-                                            {!userSquads
-                                                .map(
-                                                    (userSquad) =>
-                                                        userSquad.squadName
+                                                history.push(
+                                                    '/squads/explore/trading'
                                                 )
-                                                .includes(squad.squadName) && (
-                                                <div
-                                                    onClick={(e) =>
-                                                        handleJoinSquad(
-                                                            e,
-                                                            squad.id
-                                                        )
-                                                    }
-                                                    className="joinSquadContainer"
-                                                >
-                                                    <div className="joinSquad">
-                                                        Join Squad
+                                            }
+                                            className="allSquadsSeeAll"
+                                        >
+                                            See All
+                                        </span>
+                                    </div>
+                                </div>
+                                <div className="exploreSquadsBodyContainer">
+                                    {tradingSquads.map((squad, idx) => (
+                                        <div
+                                            key={idx}
+                                            className="allSquadsList"
+                                        >
+                                            <div
+                                                onClick={() =>
+                                                    handleSquadClick(squad.id)
+                                                }
+                                                className="squadListSquadLink"
+                                            >
+                                                <div className="squadCardImageContainer">
+                                                    <img
+                                                        src={squad.squadImage}
+                                                        className="squadCardImage"
+                                                    ></img>
+                                                </div>
+                                                <div className="squadDescriptionContainer">
+                                                    <div className="squadListSquadName">
+                                                        {squad.squadName}
+                                                    </div>
+                                                    <div
+                                                        onClick={
+                                                            handleCaptainClick
+                                                        }
+                                                        id={
+                                                            squad.captain
+                                                                .username
+                                                        }
+                                                        className="squadListSquadCaptain"
+                                                    >
+                                                        {squad.captain.username}
                                                     </div>
                                                 </div>
-                                            )}
+                                                {!userSquads
+                                                    .map(
+                                                        (userSquad) =>
+                                                            userSquad.squadName
+                                                    )
+                                                    .includes(
+                                                        squad.squadName
+                                                    ) && (
+                                                    <div
+                                                        onClick={(e) =>
+                                                            handleJoinSquad(
+                                                                e,
+                                                                squad.id
+                                                            )
+                                                        }
+                                                        className="joinSquadContainer"
+                                                    >
+                                                        <div className="joinSquad">
+                                                            Join Squad
+                                                        </div>
+                                                    </div>
+                                                )}
+                                            </div>
                                         </div>
-                                    </div>
-                                ))}
+                                    ))}
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </>
+            </>
+        )
     );
 };
 

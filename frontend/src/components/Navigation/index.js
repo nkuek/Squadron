@@ -24,8 +24,6 @@ const Navigation = () => {
         document.querySelector('.stickyDropDownMenu')?.classList.toggle('show');
     };
 
-    console.log(showSearch);
-
     const handleSearch = async (e) => {
         e.preventDefault();
         if (!search) return;
@@ -38,11 +36,13 @@ const Navigation = () => {
     };
 
     useEffect(() => {
-        if (!showSearch) return;
-        setShowSearch(false);
+        // if (!showSearch) return;
+        // setShowSearch(false);
 
+        console.log(showSearch);
         const closeSearch = () => {
-            setShowSearch(false);
+            // setShowSearch(false);
+            return;
         };
 
         document.addEventListener('click', (e) => {
