@@ -8,12 +8,12 @@ module.exports = {
                 primaryKey: true,
                 type: Sequelize.INTEGER,
             },
-            gameId: {
+            GameId: {
                 allowNull: false,
                 type: Sequelize.INTEGER,
                 references: { model: 'Games' },
             },
-            squadId: {
+            SquadId: {
                 allowNull: false,
                 type: Sequelize.INTEGER,
                 references: { model: 'Squads' },

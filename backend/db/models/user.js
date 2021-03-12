@@ -73,6 +73,13 @@ module.exports = (sequelize, DataTypes) => {
             as: 'captain',
             foreignKey: 'captainId',
         });
+
+        User.belongsToMany(models.Game, {
+            as: 'usergames',
+            through: 'UserGame',
+            foreignKey: 'UserId',
+            otherKey: 'GameId',
+        });
     };
 
     User.prototype.toSafeObject = function () {

@@ -10,10 +10,10 @@ module.exports = (sequelize, DataTypes) => {
     );
     SquadGame.associate = function (models) {
         SquadGame.belongsTo(models.Game, {
-            foreignKey: 'gameId',
+            foreignKey: 'GameId',
         });
         SquadGame.belongsTo(models.Squad, {
-            foreignKey: 'squadId',
+            foreignKey: 'SquadId',
         });
     };
     return SquadGame;

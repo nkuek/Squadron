@@ -7,6 +7,7 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 
 import { loadGames, moreGames } from '../../store/games';
 import { setGameOrder } from '../../store/order';
+import { addGame } from '../../store/user';
 
 import 'react-aspect-ratio/aspect-ratio.css';
 import './games.css';
@@ -17,6 +18,7 @@ const Games = () => {
 
     const { games: initialGames } = useSelector((state) => state.games);
     const order = JSON.parse(localStorage.getItem('ordering'));
+    const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
 
     let [ordering, setOrdering] = useState(order ? order : '');
     const [isLoaded, setIsLoaded] = useState(false);
@@ -48,6 +50,11 @@ const Games = () => {
         const next = games[Object.keys(games).length - 1].next;
         const nextGames = await dispatch(moreGames(next));
         setGames([...games, ...nextGames]);
+    };
+
+    const handleAddGame = async (e, gameName) => {
+        e.stopPropagation();
+        dispatch(addGame(loggedInUser.id, gameName));
     };
 
     return !isLoaded ? (
@@ -144,6 +151,14 @@ const Games = () => {
                                             </div>
                                         </div>
                                     </Link>
+                                    <div
+                                        onClick={(e) =>
+                                            handleAddGame(e, game.name)
+                                        }
+                                        className="addGame"
+                                    >
+                                        Add to Games List
+                                    </div>
                                 </div>
                             </li>
                         );

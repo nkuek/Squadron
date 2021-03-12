@@ -105,6 +105,14 @@ router.put(
                     ],
                     attributes: { exclude: ['createdAt', 'updatedAt'] },
                 },
+                {
+                    model: db.Game,
+                    as: 'usergames',
+                    attributes: {
+                        exclude: ['createdAt', 'updatedAt'],
+                        include: ['name', 'image', 'genres'],
+                    },
+                },
             ],
             where: { username },
         });

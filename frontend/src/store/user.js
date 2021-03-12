@@ -3,6 +3,7 @@ import { csrfFetch } from './csrf';
 const FIND_USER = 'users/findUser';
 const EDIT_USER = 'users/editUser';
 const JOIN_SQUAD = 'users/joinSquad';
+const ADD_GAME = 'users/addGame';
 
 export const getUser = (user) => ({
     type: FIND_USER,
@@ -29,6 +30,11 @@ export const joinSquad = (newSquadsList) => ({
     newSquadsList,
 });
 
+export const newGame = (userGames) => ({
+    type: ADD_GAME,
+    userGames,
+});
+
 export const editUserAbout = (newAbout) => async (dispatch) => {
     const res = await csrfFetch('/api/users/:user/about', {
         method: 'PUT',
@@ -49,6 +55,17 @@ export const joinNewSquad = (squadId, userId) => async (dispatch) => {
     dispatch(joinSquad(data));
 };
 
+export const addGame = (userId, gameName) => async (dispatch) => {
+    const res = await csrfFetch('/api/games', {
+        method: 'PUT',
+        body: JSON.stringify({ userId, gameName }),
+    });
+
+    const userGames = await res.json();
+    dispatch(newGame(userGames));
+    return userGames;
+};
+
 const userReducer = (state = {}, action) => {
     switch (action.type) {
         case FIND_USER:
@@ -57,6 +74,8 @@ const userReducer = (state = {}, action) => {
             return { ...state, description: action.newAbout };
         case JOIN_SQUAD:
             return { ...state, squadmates: [...action.newSquadsList] };
+        case ADD_GAME:
+            return { ...state, usergames: [...action.userGames] };
         default:
             return state;
     }

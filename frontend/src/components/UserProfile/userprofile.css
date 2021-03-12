@@ -238,6 +238,7 @@
 .userAboutContainer {
     display: flex;
     flex-direction: column;
+    align-items: center;
     font-size: 1.5em;
     height: 100%;
     width: 100%;
@@ -295,11 +296,6 @@
 
 .userGamesContainer {
     text-align: center;
-}
-
-.userGamesBody {
-    font-size: 1.5em;
-
 }
 
 .userAboutWrapper {
