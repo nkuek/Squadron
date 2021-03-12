@@ -15,11 +15,12 @@ const Games = () => {
     const dispatch = useDispatch();
     const history = useHistory();
 
-    const { games } = useSelector((state) => state.games);
+    const { games: initialGames } = useSelector((state) => state.games);
     const order = JSON.parse(localStorage.getItem('ordering'));
 
     let [ordering, setOrdering] = useState(order ? order : '');
     const [isLoaded, setIsLoaded] = useState(false);
+    const [games, setGames] = useState(initialGames);
 
     const handleLinkClick = (e) => {
         e.preventDefault();
@@ -28,7 +29,8 @@ const Games = () => {
     };
 
     useEffect(async () => {
-        await dispatch(loadGames(ordering));
+        const games = await dispatch(loadGames(ordering));
+        setGames(games);
         setIsLoaded(true);
         const scrollPosition = sessionStorage.getItem('scrollPosition');
         if (scrollPosition) {
@@ -42,9 +44,10 @@ const Games = () => {
         localStorage.setItem('ordering', JSON.stringify(ordering));
     }, [ordering]);
 
-    const fetchMoreData = () => {
+    const fetchMoreData = async () => {
         const next = games[Object.keys(games).length - 1].next;
-        dispatch(moreGames(next));
+        const nextGames = await dispatch(moreGames(next));
+        setGames([...games, ...nextGames]);
     };
 
     return !isLoaded ? (
@@ -152,10 +155,11 @@ const Games = () => {
                 next={fetchMoreData}
                 hasMore={true}
                 loader={
-                    <h3 style={{ color: 'white', textAlign: 'center' }}>
+                    <h2 style={{ color: 'white', textAlign: 'center' }}>
                         Loading...
-                    </h3>
+                    </h2>
                 }
+                scrollableTarget="root"
             ></InfiniteScroll>
         </div>
     );

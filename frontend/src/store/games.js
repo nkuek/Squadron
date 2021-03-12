@@ -38,6 +38,7 @@ export const loadGames = (ordering, url = page1Url) => async (dispatch) => {
         };
     });
     dispatch(getGames(games));
+    return games;
 };
 
 export const moreGames = (url) => async (dispatch) => {
@@ -55,6 +56,7 @@ export const moreGames = (url) => async (dispatch) => {
         };
     });
     dispatch(getMoreGames(games));
+    return games;
 };
 
 const gamesReducer = (state = {}, action) => {
