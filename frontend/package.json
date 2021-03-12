@@ -43,6 +43,7 @@
   },
   "devDependencies": {
     "dotenv": "^8.2.0",
+    "react-dev-utils": "^11.0.4",
     "redux-logger": "^3.0.6"
   }
 }
