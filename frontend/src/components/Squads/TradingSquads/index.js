@@ -1,19 +1,21 @@
-import { useHistory, NavLink } from 'react-router-dom';
-const TradingSquads = ({ tradingSquads }) => {
+import { NavLink } from 'react-router-dom';
+const TradingSquads = ({ userTradingSquads }) => {
     const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
 
     return !loggedInUser ? (
         'Log in to view your squads!'
-    ) : !tradingSquads ? (
+    ) : !userTradingSquads ? (
         'You have not joined any gaming squads'
     ) : (
-        <>
-            {tradingSquads.map((tradingSquads) => {
-                <NavLink to={`/squads/${tradingSquads.id}`}>
-                    {tradingSquads.squadName}
-                </NavLink>;
-            })}
-        </>
+        <ul className="squadPanelList">
+            {userTradingSquads.map((tradingSquad, idx) => (
+                <li key={idx} className="squadPanelItem">
+                    <NavLink to={`/squads/${tradingSquad.id}`}>
+                        {tradingSquad.squadName}
+                    </NavLink>
+                </li>
+            ))}
+        </ul>
     );
 };
 

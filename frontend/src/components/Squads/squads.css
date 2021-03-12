@@ -170,6 +170,14 @@
     box-sizing: border-box;
 }
 
+.squadPanelItem {
+    margin: 5px;
+}
+
+.squadPanelItem a:hover {
+    color: teal;
+}
+
 .allSquadsPageHeaderContainer {
     font-size: 2.5em;
     width: 100%;
@@ -221,7 +229,6 @@
 .allSquadsCategory {
     padding: 10px;
     box-sizing: border-box;
-    margin: 10px 0px;
     display: flex;
     justify-content: space-between;
 }
@@ -289,6 +296,13 @@
 
     .panelHeader {
         color: #af73e7;
+    }
+
+    .squadPanelList {
+        width: 100%;
+        margin: 0px;
+        padding: 10px;
+        box-sizing: border-box;
     }
 
     .allSquadsPageHeaderContainer {
@@ -438,6 +452,10 @@
         margin: 15px;
         width: fit-content;
         height: 400px;
+    }
+
+    .squadPanelList {
+        margin: 10px;
     }
 
     .squadCategoryWrapper {

@@ -24,7 +24,8 @@ const Squads = () => {
     const [showSocial, setShowSocial] = useState(false);
 
     const allSquads = useSelector((state) => state.allSquads);
-    const userSquads = null;
+    const userProfile = useSelector((state) => state.userProfile);
+
     const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
 
     useEffect(async () => {
@@ -38,16 +39,6 @@ const Squads = () => {
             await dispatch(findUser(loggedInUser.username));
         }
     }, [dispatch]);
-
-    const userGamingSquads = !userSquads
-        ? null
-        : userSquads.map((squad) => squad.primaryType === 'Gaming');
-    const userTradingSquads = !userSquads
-        ? null
-        : userSquads.map((squad) => squad.primaryType === 'Trading');
-    const userSocialSquads = !userSquads
-        ? null
-        : userSquads.map((squad) => squad.primaryType === 'Social');
 
     window.addEventListener('click', (e) => {
         if (showTrading) {
@@ -65,9 +56,20 @@ const Squads = () => {
     const mySquads =
         loggedInUser && loggedInUser.captain.concat(loggedInUser.squadmates);
 
-    const rotateArrow = (e) => {
-        e.target.children[2].classList.add('rotate');
-    };
+    const userSquads = Object.keys(userProfile).length > 0 && [
+        ...userProfile.captain,
+        ...userProfile.squadmates,
+    ];
+
+    const userGamingSquads =
+        userSquads &&
+        userSquads.filter((squad) => squad.primaryType === 'Gaming');
+    const userTradingSquads =
+        userSquads &&
+        userSquads.filter((squad) => squad.primaryType === 'Trading');
+    const userSocialSquads =
+        userSquads &&
+        userSquads.filter((squad) => squad.primaryType === 'Social');
 
     return (
         isLoaded && (
@@ -95,7 +97,6 @@ const Squads = () => {
                                 <div
                                     onClick={(e) => {
                                         setShowGaming(true);
-                                        rotateArrow(e);
                                     }}
                                     className={`allSquadsCategory gaming ${
                                         showGaming ? 'activeCategory' : null

@@ -31,6 +31,8 @@ const ExploreSquads = ({ allSquads }) => {
         ...userProfile.squadmates,
     ];
 
+
+
     return (
         userSquads && (
             <>
