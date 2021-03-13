@@ -2,18 +2,16 @@ import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useDispatch, useSelector } from 'react-redux';
 import * as sessionActions from '../../store/session';
-import { Redirect } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import './loginform.css';
 import { findUser } from '../../store/user';
 const LoginForm = () => {
     const dispatch = useDispatch();
-    const sessionUser = useSelector((state) => state.session.user);
+    const history = useHistory();
 
     const [credential, setCredential] = useState('');
     const [password, setPassword] = useState('');
     const [errors, setErrors] = useState([]);
-
-    if (sessionUser) return <Redirect to="/" />;
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -24,6 +22,7 @@ const LoginForm = () => {
         } catch (err) {
             console.log(err);
         }
+        history.goBack();
         return dispatch(
             sessionActions.loginUser({ credential, password })
         ).catch(async (res) => {
@@ -44,6 +43,7 @@ const LoginForm = () => {
         );
         const loggedInUser = await dispatch(findUser(user.username));
         localStorage.setItem('loggedInUser', JSON.stringify(loggedInUser));
+        history.goBack();
     };
 
     return (
