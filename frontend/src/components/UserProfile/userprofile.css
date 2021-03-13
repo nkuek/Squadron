@@ -175,7 +175,7 @@
     border-radius: 7px;
 }
 
-.squadCardsContainer a:hover {
+.squadCard div:hover {
     background-color: #636363;
 }
 

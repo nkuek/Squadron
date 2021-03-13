@@ -30,7 +30,6 @@ const Squads = () => {
 
     useEffect(async () => {
         await dispatch(findAllSquads());
-        history.push('/squads/explore');
         setIsLoaded(true);
     }, [dispatch]);
 

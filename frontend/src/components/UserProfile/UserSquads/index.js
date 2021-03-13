@@ -1,12 +1,13 @@
 // User Squads Index
 import { useSelector, useDispatch } from 'react-redux';
-import { Link, useParams, useHistory, Redirect } from 'react-router-dom';
+import { useParams, useHistory, Redirect } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { findUser } from '../../../store/user';
 
 const UserSquads = () => {
     let { username } = useParams();
     const dispatch = useDispatch();
+    const history = useHistory();
     const [isLoaded, setIsLoaded] = useState(false);
 
     let loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
@@ -18,6 +19,10 @@ const UserSquads = () => {
 
     let userProfileName = username;
     if (username === loggedInUser.username) userProfileName = 'You';
+
+    const handleSquadClick = (squadId) => {
+        history.push(`/squads/${squadId}`);
+    };
 
     return (
         <>
@@ -37,7 +42,14 @@ const UserSquads = () => {
                         <ul className="userSquadListContainer">
                             {squads &&
                                 squads.map((squad, idx) => (
-                                    <li key={idx} className="squadCard">
+                                    <li
+                                        key={idx}
+                                        className="squadCard"
+                                        style={{ cursor: 'pointer' }}
+                                        onClick={() =>
+                                            handleSquadClick(squad.id)
+                                        }
+                                    >
                                         <div
                                             style={{
                                                 borderColor:
@@ -46,11 +58,7 @@ const UserSquads = () => {
                                             }}
                                             className="squadCardsContainer"
                                         >
-                                            <Link
-                                                to={`/squads/${squad.squadName
-                                                    .split(' ')
-                                                    .join('')}`}
-                                            >
+                                            <div>
                                                 <div
                                                     className="squadInformationContainer"
                                                     style={{
@@ -78,7 +86,7 @@ const UserSquads = () => {
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </Link>
+                                            </div>
                                         </div>
                                     </li>
                                 ))}
