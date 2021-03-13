@@ -26,7 +26,10 @@ function App() {
 
     useEffect(() => {
         dispatch(sessionActions.restoreUser());
-        dispatch(findUser(loggedInUser.username));
+
+        if (loggedInUser) {
+            dispatch(findUser(loggedInUser.username));
+        }
         setIsLoaded(true);
     }, [dispatch]);
 
