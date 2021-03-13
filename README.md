@@ -7,21 +7,48 @@
 - Check on my progress [here](https://squadron-gaming.herokuapp.com/)!
 
 ## Working Feature List
-- ###User Authentication
+- **User Authentication**
   - Registration
   - Login
   - Logout
   - Limited website functionality without logging in
-- ###Game page list
+- **Game page list**
   - Browse games by popularity or metacritic rating
   - Clicking on a game card will take you to the game page to display more information about the game
   - Add games from the game page list to your profile (only for logged in users
-- ###Squads
+- **Squads**
   - Squads page
-    - Browse squads by category: gaming, social, or trading
-    - See list of the squads you've joined by clicking on `Your Squads`
-    - See list of squads you've joined by category by clicking on the respective categories underneath `Your Squads`
+    - Browse `Squads` by category: gaming, social, or trading
+    - See list of the `Squads` you've joined by clicking on `Your Squads`
+    - See list of `Squads` you've joined by category by clicking on the respective categories underneath `Your Squads`
   - Squad creation
+    - Access the `Squads` creation form via the nav bar or the `Squads` page
+    - Form shows preview of what the individual `Squad` page will look like
+- **User Profile**
+  - Able to access via the drop down menu in the top right of the nav bar
+  - Tabs for `Squads` you've joined, `Games` you've added, and a `Description`
+  - `Squads` you own are indicated with a blue border
+  - Clicking on a squad will redirect you to the respective `Squad` page
+  - Clicking on a game on the `Games` page will redirect you to the respective game page
+  - If the profile page you navigate to is your own, you will have the ability to update the `Description` via the edit button
+
+## Upcoming Features
+- **Event Creation**
+  - Users will be able to create events in their `Squads`
+  - Events will need a start date, game/activity, and title
+  - Events can be public or private
+  - Users will be able to respond whether they will attend or not
+- **Squad Page**
+  - View the `Squad`'s current members, game list,  upcoming events, cover image, and description via nav bar on the page
+  - `Squad` page will have a calendar listing upcoming events
+  - `Squadmates` will be able to have access to a event creation form
+  - Other `Squadmates` will be able to respond to the event and list if they will be attending
+- **Events Page**
+  - Discover events
+    - Visitors will be able to see list of upcoming public events
+    - Logged in users will be able to RSVP to events on the page
+    - Logged in users will be able to see all upcoming events they have responded to
+    - Clicking on the event will redirect you to the individual event page
 
 ## Technologies Used
 -  React/Redux for the frontend
