@@ -2,7 +2,7 @@ import { NavLink, useHistory, Redirect } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import * as sessionActions from '../../store/session';
-import { findUser } from '../../store/user';
+import { findUser, removeUser } from '../../store/user';
 
 import './navigation.css';
 const ProfileButton = ({ user }) => {
@@ -24,6 +24,7 @@ const ProfileButton = ({ user }) => {
 
     const handleLogout = () => {
         dispatch(sessionActions.logoutUser());
+        dispatch(removeUser());
         localStorage.removeItem('loggedInUser');
         history.push('/');
     };

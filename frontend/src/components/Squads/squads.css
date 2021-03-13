@@ -641,6 +641,8 @@
 .squadCategoryWrapper {
     position: relative;
     display: flex;
+    height: fit-conent;
+    min-height: 100%;
     align-items: center;
     flex-direction: column;
     background-color: #1c1e21;

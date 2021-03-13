@@ -32,7 +32,7 @@ const ExploreSquads = ({ allSquads }) => {
     ];
 
     return (
-        userSquads && (
+        userProfile && (
             <>
                 <div className="allSquadsListWrapper">
                     <div className="allSquadsListContainer">
@@ -95,28 +95,29 @@ const ExploreSquads = ({ allSquads }) => {
                                                         {squad.captain.username}
                                                     </div>
                                                 </div>
-                                                {!userSquads
-                                                    .map(
-                                                        (userSquad) =>
-                                                            userSquad.squadName
-                                                    )
-                                                    .includes(
-                                                        squad.squadName
-                                                    ) && (
-                                                    <div
-                                                        onClick={(e) =>
-                                                            handleJoinSquad(
-                                                                e,
-                                                                squad.id
-                                                            )
-                                                        }
-                                                        className="joinSquadContainer"
-                                                    >
-                                                        <div className="joinSquad">
-                                                            Join Squad
+                                                {userSquads &&
+                                                    !userSquads
+                                                        .map(
+                                                            (userSquad) =>
+                                                                userSquad.squadName
+                                                        )
+                                                        .includes(
+                                                            squad.squadName
+                                                        ) && (
+                                                        <div
+                                                            onClick={(e) =>
+                                                                handleJoinSquad(
+                                                                    e,
+                                                                    squad.id
+                                                                )
+                                                            }
+                                                            className="joinSquadContainer"
+                                                        >
+                                                            <div className="joinSquad">
+                                                                Join Squad
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                )}
+                                                    )}
                                             </div>
                                         </div>
                                     ))}
@@ -178,28 +179,29 @@ const ExploreSquads = ({ allSquads }) => {
                                                         {squad.captain.username}
                                                     </div>
                                                 </div>
-                                                {!userSquads
-                                                    .map(
-                                                        (userSquad) =>
-                                                            userSquad.squadName
-                                                    )
-                                                    .includes(
-                                                        squad.squadName
-                                                    ) && (
-                                                    <div
-                                                        onClick={(e) =>
-                                                            handleJoinSquad(
-                                                                e,
-                                                                squad.id
-                                                            )
-                                                        }
-                                                        className="joinSquadContainer"
-                                                    >
-                                                        <div className="joinSquad">
-                                                            Join Squad
+                                                {userSquads &&
+                                                    !userSquads
+                                                        .map(
+                                                            (userSquad) =>
+                                                                userSquad.squadName
+                                                        )
+                                                        .includes(
+                                                            squad.squadName
+                                                        ) && (
+                                                        <div
+                                                            onClick={(e) =>
+                                                                handleJoinSquad(
+                                                                    e,
+                                                                    squad.id
+                                                                )
+                                                            }
+                                                            className="joinSquadContainer"
+                                                        >
+                                                            <div className="joinSquad">
+                                                                Join Squad
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                )}
+                                                    )}
                                             </div>
                                         </div>
                                     ))}
@@ -261,28 +263,29 @@ const ExploreSquads = ({ allSquads }) => {
                                                         {squad.captain.username}
                                                     </div>
                                                 </div>
-                                                {!userSquads
-                                                    .map(
-                                                        (userSquad) =>
-                                                            userSquad.squadName
-                                                    )
-                                                    .includes(
-                                                        squad.squadName
-                                                    ) && (
-                                                    <div
-                                                        onClick={(e) =>
-                                                            handleJoinSquad(
-                                                                e,
-                                                                squad.id
-                                                            )
-                                                        }
-                                                        className="joinSquadContainer"
-                                                    >
-                                                        <div className="joinSquad">
-                                                            Join Squad
+                                                {userSquads &&
+                                                    !userSquads
+                                                        .map(
+                                                            (userSquad) =>
+                                                                userSquad.squadName
+                                                        )
+                                                        .includes(
+                                                            squad.squadName
+                                                        ) && (
+                                                        <div
+                                                            onClick={(e) =>
+                                                                handleJoinSquad(
+                                                                    e,
+                                                                    squad.id
+                                                                )
+                                                            }
+                                                            className="joinSquadContainer"
+                                                        >
+                                                            <div className="joinSquad">
+                                                                Join Squad
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                )}
+                                                    )}
                                             </div>
                                         </div>
                                     ))}

@@ -4,6 +4,7 @@ const FIND_USER = 'users/findUser';
 const EDIT_USER = 'users/editUser';
 const JOIN_SQUAD = 'users/joinSquad';
 const ADD_GAME = 'users/addGame';
+const REMOVE_USER = 'users/removeUser';
 
 export const getUser = (user) => ({
     type: FIND_USER,
@@ -33,6 +34,10 @@ export const joinSquad = (newSquadsList) => ({
 export const newGame = (userGames) => ({
     type: ADD_GAME,
     userGames,
+});
+
+export const removeUser = () => ({
+    type: REMOVE_USER,
 });
 
 export const editUserAbout = (newAbout) => async (dispatch) => {
@@ -66,6 +71,10 @@ export const addGame = (userId, gameName) => async (dispatch) => {
     return userGames;
 };
 
+export const logOutUser = () => async (dispatch) => {
+    dispatch(removeUser());
+};
+
 const userReducer = (state = {}, action) => {
     switch (action.type) {
         case FIND_USER:
@@ -76,6 +85,10 @@ const userReducer = (state = {}, action) => {
             return { ...state, squadmates: [...action.newSquadsList] };
         case ADD_GAME:
             return { ...state, usergames: [...action.userGames] };
+        case REMOVE_USER:
+            const resetState = {};
+            state = resetState;
+            return state;
         default:
             return state;
     }
