@@ -61,7 +61,7 @@ const Games = () => {
         localStorage.setItem('ordering', JSON.stringify(ordering));
     }, [ordering]);
 
-    return !isLoaded && !usergames ? (
+    return (!isLoaded && !usergames) || !games ? (
         <h1 className="loading">Loading...</h1>
     ) : (
         <div className="gamesWrapper">
