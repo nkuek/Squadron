@@ -6,6 +6,15 @@
 - Create events on your `Squad`'s page that squad mates can RSVP to
 - Check on my progress [here](https://squadron-gaming.herokuapp.com/)!
 
+## Technologies Used
+-  React/Redux for the frontend
+-  JavaScript/Express for the backend
+-  CSS
+-  `React Async Helmet`
+   - Wraps your component in a provider which allows you to dynamically change the page's title
+- `React Infinite Scroll`
+   - npm package that can execute a fetch request to load more data once the user reaches a certain point  position on the page
+
 ## Working Feature List
 - **User Authentication**
   - Registration
@@ -49,15 +58,6 @@
     - Logged in users will be able to RSVP to events on the page
     - Logged in users will be able to see all upcoming events they have responded to
     - Clicking on the event will redirect you to the individual event page
-
-## Technologies Used
--  React/Redux for the frontend
--  JavaScript/Express for the backend
--  CSS
--  `React Async Helmet`
-   - Wraps your component in a provider which allows you to dynamically change the page's title
-- `React Infinite Scroll`
-   - npm package that can execute a fetch request to load more data once the user reaches a certain point  position on the page
 
 ## Challenges Faced
 - Data flow
