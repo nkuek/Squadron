@@ -10,6 +10,13 @@ const About = () => {
                 </p>
                 <div className="socialsContainer fade-in">
                     <a
+                        href="https://nkuek.dev"
+                        className="portfolio fade-in"
+                        target="_blank"
+                    >
+                        <i class="fas fa-folder fa-3x"></i>
+                    </a>
+                    <a
                         href="https://github.com/nkuek"
                         className="github fade-in"
                         target="_blank"
