@@ -55,9 +55,9 @@
 -  JavaScript/Express for the backend
 -  CSS
 -  `React Async Helmet`
-  - Wraps your component in a provider which allows you to dynamically change the page's title
+   - Wraps your component in a provider which allows you to dynamically change the page's title
 - `React Infinite Scroll`
-  - npm package that can execute a fetch request to load more data once the user reaches a certain point  position on the page
+   - npm package that can execute a fetch request to load more data once the user reaches a certain point  position on the page
 
 ## Challenges Faced
 - Data flow
